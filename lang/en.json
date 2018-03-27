@@ -284,7 +284,7 @@
   "verify_title": "Verify your ETH address",
   "verify_sect1_txt" : "Did you whitelist an ETH address to split your XTZ?<br/>Enter the address you used during the whitelisting process to check its status:",
   "verify_sect1_button" : "Verify",
-  "verify_success_txt": "<p>This ETH address is correctly whitelisted and linked to this Tezos address<strong><span id='tzAddressWL'></span></strong></p><hr><p>You can split up to<strong><span id='tzBalanceWL'>0 XTZ</strong></p>",
+  "verify_success_txt": "<p>This ETH address is correctly whitelisted and linked to this Tezos address<strong><span id='tzAddressWL'></span></strong></p><hr><p>You can split up to<strong><span id='tzBalanceWL'>0 TZL</strong></p>",
   "verify_error_txt" : "<p>This ETH address does not appear to be whitelisted yet, or it's not correct.</p><p>If you've made the required TX just a few minutes ago, please come back later. Otherwise, repeat the whitelisting process and pay great attention to all the data you're entering.</p>"
 
 }
