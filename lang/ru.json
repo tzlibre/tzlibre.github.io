@@ -1,18 +1,11 @@
 {
-
-
-
-
-
   "cta_intro": "Need to split your coins?",
   "cta_button": "Join us on Telegram",
   "link_manifesto": "Read our manifesto",
 
+  "home_page_title" : "TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos",
 
-
-
-
-  "home_definition": "(/tɛzɔs ˈlibɾe/) a <strong>trustless</strong> and <strong>hard-capped</strong> implementation of Tezos, based on a fork of DLS-Tezos. ICO contributors can claim their TZL during the coin splitting timeframe. [ Russian version ]",
+  "home_definition": "(/tɛzɔs ˈlibɾe/) a <strong>trustless</strong> and <strong>hard-capped</strong> implementation of Tezos, based on a fork of DLS-Tezos. ICO contributors can claim their TZL during the coin splitting timeframe.",
 
 
 
@@ -31,17 +24,27 @@
   "home_sect1_sub3_title": "No pre-launch token",
   "home_sect1_sub3_txt": "<p>DLS has deliberately deprived investors of liquidity, while at same time announcing and missing launch at least three times. In the meanwhile, Tezos has been losing a substantial market share to the EOS pre-launch token. <strong>By choosing not to issue a pre-launch token, DLS harmed the best interest of ICO contributors</strong>.</p>",
 
-  "home_sect1_sub4_title": "Not trustless",
-  "home_sect1_sub4_txt": "<p>DLS-Tezos is not trustless, and is therefore not resilient to  manipulation.</p><p>Tezos Stiftung, DLS and its developers are trusted parties holding special powers in the network: veto, big voting stake, strong influence over other community members, and more. They also hold fiat funds, and are all under government jurisdiction and scrutiny. These attack vectors can be easily exploited by an adversary who's able to coerce TS/DLS into implementing a specific agenda (e.g. a government agency enforcing financial regulation).</p><p>A blockchain is only useful when it's trustless. Otherwise it's just a slow and expensive database. We consider DLS-Tezos an innovative distributed, trusted database. It's just a matter of time before DLS-Tezos own \"DAO event\", where <strong>TS/DLS will be coerced by some government agency to censor or manipulate a smart contract</strong>.</p>",
+  "home_sect1_sub4_title": "Tyranny of the majority",
+  "home_sect1_sub4_txt": "<p>DLS-Tezos on-chain governance is based on unrestricted voting power. Unrestricted democracy is an obviously broken governance model. The problem with such governance mechanism is the so called \"tyranny of the majority\" or \"mob rule\". Constitutions exist to define boundaries and protect non-negotiable rights.</p><p><strong>In DLS-Tezos a majority can vote to inflate the money supply, censor a specific address, or manipulate a smart contract</strong>.</p>",
 
-  "home_sect1_sub5_title": "Tyranny of the majority",
-  "home_sect1_sub5_txt": "<p>DLS-Tezos on-chain governance is based on unrestricted voting power. Unrestricted democracy is an obviously broken governance model. The problem with such governance mechanism is the so called \"tyranny of the majority\" or \"mob rule\". Constitutions exist to define boundaries and protect non-negotiable rights.</p><p><strong>In DLS-Tezos a majority can vote to inflate the money supply, censor a specific address, or manipulate a smart contract</strong>.</p>",
+  "home_sect1_sub5_title": "Not trustless",
+  "home_sect1_sub5_txt": "<p>DLS-Tezos is not trustless, and is therefore not resilient to  manipulation.</p><p>Tezos Stiftung, DLS and its developers are trusted parties holding special powers in the network: veto, big voting stake, strong influence over other community members, and more. They also hold fiat funds, and are all under government jurisdiction and scrutiny. These attack vectors can be easily exploited by an adversary who's able to coerce TS/DLS into implementing a specific agenda (e.g. a government agency enforcing financial regulation).</p><p>A blockchain is only useful when it's trustless. Otherwise it's just a slow and expensive database. We consider DLS-Tezos an innovative distributed, trusted database. It's just a matter of time until DLS-Tezos own \"DAO event\", where <strong>TS/DLS will be coerced by some government agency to censor or manipulate a smart contract</strong>.</p>",
 
-  "home_sect1_sub6_title": "Censorship and phishing",
-  "home_sect1_sub6_txt": "<p>Since March 3rd 2018 we are completely banned from reaching out to Tezos ICO contributors on all Tezos community groups (Reddit, Riot, Telegram). Administrators of those groups fabricated lies about TzLibre and went as far as using our pseudonym to lure unsuspecting users into providing private contribution data, to then blame us (<a href=\"#how\">we will never ask for your private contribution data</a>).</p><p>Blockchain's raison d'être is censorship resistance. A true blockchain community should welcome open discussion, free market competition, permissionless innovation, alternative implementations. <strong>A blockchain community using censorship is a failed one</strong>.</p>",
+  "home_sect1_sub6_title": "Monopoly",
+  "home_sect1_sub6_txt": "<p>As long as DLS-Tezos is the only Tezos implementation, it holds a de-facto monopoly over ICO funds as well as over potential users. Monopoly breeds inefficiency: <strong>delays, missed deadlines and governance failures are its direct consequences</strong>. This monopoly benefits a special group, but it hurts contributors. Contributors have no other option but wait and hope.</p>",
 
-  "home_sect1_sub7_title": "Centralization of stake",
-  "home_sect1_sub7_txt": "<p>PoS is still experimental technology. In a PoS consensus blockchain, decentralization of stake is a vital security requirement. In DLS-Tezos 20% of coins are premined and assigned to Tezos Stiftung and DLS. <strong>This creates dangerous centralization of stake and undermines the security of the consensus protocol</strong>.</p>",
+  "home_sect1_sub7_title": "Tracking",
+  "home_sect1_sub7_txt": "<p>Not only does Tezos Stiftung track users with third party tools (e.g. Google Analytics) on its websites, but it also owns a database mapping all contributors addresses to their own emails. <strong>With this database DLS-Tezos transactions can be easily de-anonymized</strong>. It is an enormous privacy breach, and it is only a matter of time until some powerful actor gets their hands on this database.</p>",
+
+  "home_sect1_sub8_title": "Centralization of stake",
+  "home_sect1_sub8_txt": "<p>PoS is still experimental technology. In a PoS consensus blockchain, decentralization of stake is a vital security requirement. In DLS-Tezos 20% of coins are premined and assigned to Tezos Stiftung and DLS, <strong>creating dangerous centralization of stake and undermining the security of the consensus protocol</strong>.</p>",
+
+  "home_sect1_sub9_title": "Closed-source",
+  "home_sect1_sub9_txt": "<p>DLS has more than once shown disregard for basic blockchain ethos. The publicly available source code has not been explicitly released under an open-source license. Parts of the codebase have even been deliberately obfuscated, to make source not human-readable. <strong>Closed-source defies the basic blockchain principle of open-source, trustless, verifiable code</strong>.</p>",
+
+  "home_sect1_sub10_title": "Censorship",
+  "home_sect1_sub10_txt": "<p>A deliberate effort is underway to conflate Tezos with DLS-Tezos and stop the conversation about alternative implementations. We are banned from reaching out to Tezos ICO contributors on any Tezos community outlet (Reddit, Riot, Telegram). Administrators of those groups spread FUD around TzLibre and went as far as using our pseudonym to lure unsuspecting users into providing private contribution data in order to create confusion (<a href=\"#how\">we will never ask for your private contribution data</a>).</p><p>Blockchain's raison d'être is censorship resistance. A true blockchain community should welcome open discussion, free market competition, permissionless innovation, alternative implementations. <strong>A blockchain community that deploys censorship is a failed one</strong>.</p>",
+
 
 
 
@@ -69,14 +72,14 @@
   "home_sect2_diff_sub3_title": "Pre-launch token",
   "home_sect2_diff_sub3_txt": "<p>Following the EOS example, TzLibre will issue a pre-launch token to provide <strong>immediate liquidity</strong> to ICO contributors and prepare for launching the network. The pre-launch token is a placeholder for the TzLibre genesis block. Thanks to the pre-launch token, TzLibre can launch earlier than DLS-Tezos as it does not depend on its genesis block (which will be blinded, thus hard to fork).</p>",
 
-  "home_sect2_diff_sub4_title": "Trustless",
-  "home_sect2_diff_sub4_txt": "<p>Unlike DLS-Tezos, no one holds special veto powers in TzLibre on-chain governance decisions. <strong>All voters are equal</strong> and vote with their stake. There are no premined coins in TzLibre: founders can't influence decisions with their own stake.</p><p>Following Satoshi's example, TzLibre founders are pseudonymous to stay protected from undue pressure, coercion and special interests. TzLibre development team is open, with no developer in charge, and no private company behind.</p>",
-
   "home_sect2_diff_sub5_title": "Hardcoded Constitution",
   "home_sect2_diff_sub5_txt": "<p>TzLibre adds a hardcoded <strong>on-chain Constitution</strong> to on-chain governance. It is a set of immutable norms encoded in the protocol. These rules are hardcoded and non-negotiable. They can't be changed with on-chain governance.</p><p>Some of these rules are:</p><ul><li>763,306,929.68 coins hard cap</li><li>smart contracts immutability</li><li>transactions irreversibility</li><li>addresses uncensorability</li></ul>",
 
   "home_sect2_diff_sub6_title": "Off-chain Schelling fences",
   "home_sect2_diff_sub6_txt": "<p>Reliable blockchains, such as Bitcoin or Ethereum Classic, are trustless. Any trustless blockchain needs strong Schelling fences: an unbreakable social consensus on non-negotiable rules.</p><p>The TzLibre Schelling fences are:</p><ul><li><strong>No forks</strong><br/>To protect the network from social attacks, we shall never fork. The TzLibre network will upgrade only via on-chain governance. Forks shall only be permitted for fixing fatal issues within the on-chain governance protocol.</li><li><strong>Trustless governance</strong><br/>As soon as the developer community is mature, TzLibre founders will cease to hold an operational role and will only maintain an oversight role. No single developer will ever be in charge.</li><li><strong>Full pseudonymity</strong><br/>To be protected from coercion and undue pressure, all TzLibre developers must maintain absolute pseudonymity. In our community code will only be evaluated by its quality. No trusted entity or company will be accepted by the TzLibre community.</li></ul>",
+
+  "home_sect2_diff_sub4_title": "Trustless",
+  "home_sect2_diff_sub4_txt": "<p>Unlike DLS-Tezos, no one holds special veto powers in TzLibre on-chain governance decisions. <strong>All voters are equal</strong> and vote with their stake. There are no premined coins in TzLibre: founders can't influence decisions with their own stake.</p><p>Following Satoshi's example, TzLibre founders are pseudonymous to stay protected from undue pressure, coercion and special interests. TzLibre development team is open, with no developer in charge, and no private company behind.</p>",
 
   "home_sect2_diff_sub7_title": "Decentralized stake",
   "home_sect2_diff_sub7_txt": "<p>As with DLS-Tezos, TzLibre is also based on PoS consensus. Decentralization of stake is therefore of vital importance for the security of the network. By removing 20% of coins (TS/DLS premine), TzLibre stake is more evenly spread across multiple entities. Consensus is therefore more secure and <strong>harder to tamper with</strong>.</p>",
@@ -109,7 +112,7 @@
   "home_sect4_title": "About us",
 
   "home_sect4_sub1_title": "Who we are",
-  "home_sect4_sub1_txt": "<p>We are a team of early Tezos investors, veteran blockchain developers, and academics.</p><p>We are dreamers of a new society, where smart contracts and protocols replace politicians and lawyers. We believe decentralized governance is the right path to our future world. We are pseudonymous to protect our operational freedom from any undue pressure.</p><p><strong>Our code speaks louder than words: don't trust us, verify it.</strong></p>",
+  "home_sect4_sub1_txt": "<p>We are a team of early Tezos investors, veteran blockchain developers, and academics.</p><p>We are dreamers of a new society, where smart contracts and protocols replace politicians and lawyers. We believe decentralized governance is the right path to build our vision. We are pseudonymous to protect our operational freedom from any undue pressure.</p><p><strong>Our code speaks louder than words: don't trust us, verify it.</strong></p>",
 
   "home_sect4_sub2_title": "Our community",
   "home_sect4_sub2_txt": "<p>We are building a healthy, inclusive, respectful community to move TzLibre forward.</p><p>We believe a disruptive technology can have one foundation only: a productive community of good people, with no masters or slaves. We'll retain an operational role until the community is mature enough. We plan to then step back and only provide oversight.</p>",
@@ -126,7 +129,7 @@
 
 
 
-
+  "faq_page_title" : "TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos",
 
   "faq_title": "FAQ",
 
@@ -175,7 +178,7 @@
   "faq_sect4_title": "Code",
 
   "faq_sect4_q1_question": "How can you fork DLS-Tezos if it's not open-source?",
-  "faq_sect4_q1_answer": "<p>The DLS-Tezos codebase is public on Gitlab, and we already forked it. Arthur Breitman promised that the DLS-Tezos codebase will be released under the MIT license immediately after launch. Should we decide to launch earlier than them, or should DLS-Tezos not release code under the MIT license, we'll then choose one of the options we have to release TzLibre independently. One of the options is to release a patch to their public codebase: a TzLibre user would therefore download the public DLS-Tezos codebase from Gitlab, and then locally apply the TzLibre patch. And let us be frank: we find the idea of a closed-source blockchain utterly ludicrous.</p>",
+  "faq_sect4_q1_answer": "<p>The DLS-Tezos codebase is public on Gitlab, and we already forked it. Arthur Breitman promised that the DLS-Tezos codebase will be released under the MIT license immediately after launch. Should we decide to launch earlier than them, or should DLS-Tezos not release code under the MIT license, we'll then choose one of the options we have to release TzLibre independently. One of the options is to release a patch to their public codebase: a TzLibre user would therefore download the public DLS-Tezos codebase from Gitlab, and then locally apply the TzLibre patch.</p>",
 
   "faq_sect4_q2_question": "What did you fork?",
   "faq_sect4_q2_answer": "<p>We forked the public <a href=\"https://gitlab.com/tezos\" target=\"_blank\">DLS-Tezos repo</a>.</p>",
@@ -184,7 +187,7 @@
   "faq_sect4_q3_answer": "<p>We recently created a <a href=\"https://github.com/tezos/fundraiser-tools/pull/5\" target=\"_blank\">PR</a> to fix the broken DLS-Tezos fundraiser tools. Please follow us on Github to get updates as we gradually release more code to the public.</p>",
 
   "faq_sect4_q4_question": "Are you going to use DLS-Tezos genesis?",
-  "faq_sect4_q4_answer": "<p>No. The TZL pre-launch token, like the EOS pre-launch token, is a placeholder for the TzLibre genesis.</p>",
+  "faq_sect4_q4_answer": "<p>Not necessarily. The TZL pre-launch token, like the EOS pre-launch token, is a placeholder for the TzLibre genesis.</p>",
 
   "faq_sect4_q5_question": "Why won't you use the DLS-Tezos genesis?",
   "faq_sect4_q5_answer": "<p>We need to be totally independent from DLS-Tezos genesis mainly for two reasons: unknown launch date and blinded genesis. Since Tezos contribution data is available on the public BTC and ETH blockchains we don't really need to depend upon their genesis block in the first place.</p>",
@@ -202,6 +205,19 @@
 
   "faq_sect5_q3_question": "Why should Tezos Stiftung fund the development of TzLibre?",
   "faq_sect5_q3_answer": "<p>Tezos Stiftung must follow Swiss law and abide to its immutable charter by supporting development of the Tezos idea. We understand that while Tezos is an idea, DLS-Tezos and TzLibre are two different implementations of it. Should Tezos Stiftung choose not to abide to its charter, any Swiss contributor might then bring the case toward a Swiss judge. To increase legal leverage for our case, coin splitting will involve cryptographically signing a pseudonymous, authentic, non-repudiable request to Tezos Stiftung to fund TzLibre.</p>",
+
+  "faq_sect5_q4_question": "Are you going to directly get funding from Tezos Stiftung?",
+  "faq_sect5_q4_answer": "<p>No. Tezos Stiftung will have to support the development of TzLibre by independent developers, not necessarily us. Funding should follow the principles of maximum fairness, transparency and merit. TS could, for example, set up public bounties for specific TzLibre development goals.</p>",
+
+  "faq_sect5_q5_question": "Why does TzLibre need funding?",
+  "faq_sect5_q5_answer": "<p>TzLibre introduces substantial changes over DLS-Tezos, and thus needs substantial work. It's also critical to create Libre-aware versions of all DLS-Tezos products.</p>",
+
+  "faq_sect5_q6_question": "Is there any example of a Foundation supporting competing teams?",
+  "faq_sect5_q6_answer": "<p>Yes. The Aragon Foundation, for example, has announced support for competing teams.</p>",
+
+  "faq_sect5_q7_question": "Are you trying to steal funds from Tezos Stiftung?",
+  "faq_sect5_q7_answer": "<p>No, quite the opposite. Right now DLS holds a de-facto monopoly on the TS funds. By forcing TS to also support a competing implementation, we introduce healthy free market competition. This will help TS to allocate funds more efficiently.</p>",
+
 
   "faq_sect6_title": "Support",
 
@@ -239,6 +255,12 @@
   "faq_sect8_q3_question": "How big is your development team?",
   "faq_sect8_q3_answer": "<p>We have a small yet highly skilled team of blockchain veterans and functional programming experts.</p>",
 
+  "faq_sect8_q4_question": "Are you against DLS-Tezos?",
+  "faq_sect8_q4_answer": "<p>No, quite the opposite. We are Tezos contributors, and we are set to explore a different path toward success, putting ICO contributors interest first. This is our way to hedge our bets and to stop being dependent upon DLS. As with ETH and ETC, we see DLS-Tezos and TzLibre as complementary. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don't sit on their monopoly. We're giving them a run for their money.</p>",
+
+  "faq_sect8_q5_question": "Why are you doing it?",
+  "faq_sect8_q5_answer": "<p>We launched TzLibre for idealistic as well as financial reasons. As anarcho-capitalists we find the two deeply connected. Tezos is an idea and it should be implemented by multiple, competing teams. Many contributors are extremely dissatisfied with DLS execution. We believe DLS is not only executing poorly, but also totally violating the original blockchain ethos. We are Tezos contributors ourselves: we're also aiming to double our stake and hedge our bets between XTZ and TZL. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don't sit on their monopoly. We're giving them a run for their money.</p>",
+
   "faq_sect9_title": "Communication",
 
   "faq_sect9_q1_question": "Why are you using a Telegram channel?",
@@ -252,26 +274,72 @@
 
   "faq_sect10_title": "Other",
 
-  "faq_sect10_q1_question": "Will I lose XTZ if I split?",
-  "faq_sect10_q1_answer": "<p>No. Splitting allows a Tezos contributor to claim TZL at a 1:1 ratio with XTZ.</p>",
-
-  "faq_sect10_q2_question": "Will every Tezos contributor get TZL?",
-  "faq_sect10_q2_answer": "<p>No. Only contributors who split will get TZL coins. We want to protect TzLibre users and safeguard the financial interest of the TzLibre network.</p>",
-
   "faq_sect10_q3_question": "Why don't you propose a protocol upgrade to DLS-Tezos instead of forking it?",
-  "faq_sect10_q3_answer": "<p>We believe DLS-Tezos is starting from wrong assumptions. It'd be extremely hard for a trusted chain to \"become trustless\". We can't see how that might happen, and we're fed up with DLS delays. We believe it's smarter, faster and more efficient to fork and start from scratch. Nevertheless, we'd love to see a Libre-like proposal to DLS-Tezos: veto power removed, premined coins to DLS and TF destroyed, money supply capped. We'd love to see that happen, but we find it very unlikely.</p>",
-
-  "faq_sect10_q4_question": "Are you against DLS-Tezos?",
-  "faq_sect10_q4_answer": "<p>No, quite the opposite. We are Tezos contributors, and we are set to explore a different path toward success, putting ICO contributors interest first. This is our way to hedge our bets and to stop being dependent upon DLS. As with ETH and ETC, we see DLS-Tezos and TzLibre as complementary. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don't sit on their monopoly. We're giving them a run for their money.</p>",
-
-  "faq_sect10_q5_question": "Why are you doing it?",
-  "faq_sect10_q5_answer": "<p>We launched TzLibre for idealistic as well as financial reasons. As anarcho-capitalists we find the two deeply connected. Tezos is an idea and it should be implemented by multiple, competing teams. Many contributors are extremely dissatisfied with DLS execution. We believe DLS is not only executing poorly, but also totally violating the original blockchain ethos. We are Tezos contributors ourselves: we're also aiming to double our stake and hedge our bets between XTZ and TZL. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don't sit on their monopoly. We're giving them a run for their money.</p>",
+  "faq_sect10_q3_answer": "<p>We believe DLS-Tezos is building on wrong assumptions. It'd be extremely hard for a trusted chain to \"become trustless\". We can't see how that might happen, and we're fed up with DLS delays. We believe it's smarter, faster and more efficient to fork and start from scratch. Nevertheless, we'd love to see a Libre-like proposal to DLS-Tezos: veto power removed, premined coins to DLS and TF destroyed, money supply capped. We'd love to see that happen, but we find it very unlikely.</p>",
 
   "faq_sect10_q6_question": "Will the fork benefit Tezos contributors?",
-  "faq_sect10_q6_answer": "<p>Yes. Contributors can directly benefit from the fork, as they can double their stake and hedge their bets. Both DLS-Tezos and TzLibre work toward the same goal: implementing a decentralized, self-governing, digital commonwealth. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don't sit on their monopoly. We're giving them a run for their money.</p>"
+  "faq_sect10_q6_answer": "<p>Yes. Contributors can directly benefit from the fork, as they can double their stake and hedge their bets. Both DLS-Tezos and TzLibre work toward the same goal: implementing a decentralized, self-governing, digital commonwealth. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don't sit on their monopoly. We're giving them a run for their money.</p>",
+  
+  "verify_page_title": "TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos",
+  "verify_title": "Verify your ETH address",
+  "verify_sect1_txt" : "Did you whitelist an ETH address to split your XTZ?<br/>Enter the address you used during the whitelisting process to check its status:",
+  "verify_sect1_button" : "Verify",
+  "verify_success_txt": "<p>This ETH address is correctly whitelisted and linked to this Tezos address<strong><span id='tzAddressWL'></span></strong></p><hr><p>You can split up to<strong><span id='tzBalanceWL'>0 TZL</strong></p>",
+  "verify_error_txt" : "<p>This ETH address does not appear to be whitelisted yet, or it's not correct.</p><p>If you've made the required TX just a few minutes ago, please come back later. Otherwise, repeat the whitelisting process and pay great attention to all the data you're entering.</p>",
 
 
 
-
-
+  "wl_app_page_title": "TzLibre | trustless whitelisting",
+  "wl_app_title": "Trustless whitelisting to get TZL",
+  "wl_app_sect1_txt1": "This whitelisting process is the first step required to get your TZLs.",
+  "wl_app_sect1_txt2": "Choose an ETH address that you own and whitelist it, to link it to your Tezos address. Notice that you can link just a SINGLE ETH address to each Tezos address: if you have more Tezos addresses, then you should use a different ETH address for each one.",
+  "wl_app_sect1_txt3": "If you feel confident with the command line, you can head to this <a href='' target='_blank'>Github repo</a>, a fork of the official DLS-Tezos Fundraiser tool.",
+  "wl_app_sect1_txt4": "Otherwise, here's a simple form to create the required TX data.<br/>Here we go!",
+  "wl_app_sect2_txt1": "1. Save this page and disconnect",
+  "wl_app_sect2_txt2": "In this process you're going to handle very sensitive data. You don't want to leak this data, and we will never ask you for sensitive data.",
+  "wl_app_sect2_txt3": "We strongly suggest you to:",
+  "wl_app_sect2_txt4": "Download this page",
+  "wl_app_sect2_txt5": "Disconnect every network connection",
+  "wl_app_sect2_txt6": "Open the saved page and fill in the form to generate the TX data",
+  "wl_app_sect2_txt7": "Then you will save the TX data in a text file, close this page and safely reconnect to the internet.",
+  "wl_app_sect3_txt1": "2. Fill in the form",
+  "wl_app_sect3_txt2": "Be sure to be disconnected, then fill in this form. Some of this data are in the PDF you got during the ICO.",
+  "wl_app_sect3_txt1": "ETH address to whitelist",
+  "wl_app_sect3_txt2": "Remember that you can link only ONE specific ETH address for each Tezos address you own",
+  "wl_app_sect3_txt3": "Tezos address",
+  "wl_app_sect3_txt4": "Tezos mnemonic seed",
+  "wl_app_sect3_txt5": "Email used for the Tezos ICO",
+  "wl_app_sect3_txt6": "Password used for the Tezos ICO",
+  "wl_app_sect3_txt7": "I accept to...",
+  "wl_app_sect3_txt8": "Generate TX data",
+  "wl_app_sect4_txt1": "3. Verify TX data",
+  "wl_app_sect4_txt2": "Your Tezos public key",
+  "wl_app_sect4_txt3": "ETH address signature",
+  "wl_app_sect4_txt4": "Statement signature",
+  "wl_app_sect4_txt5": "TX data",
+  "wl_app_sect4_txt6": "From (your ETH address)",
+  "wl_app_sect4_txt7": "To (Contract address)",
+  "wl_app_sect4_txt8": "ETH value to send",
+  "wl_app_sect4_txt9": "Gas limit",
+  "wl_app_sect4_txt10": "Gas price",
+  "wl_app_tosave_txt1": "1. Make this transaction",
+  "wl_app_tosave_txt2": "FROM (your ETH address)",
+  "wl_app_tosave_txt3": "TO (contract address)",
+  "wl_app_tosave_txt4": "ETH VALUE TO SEND",
+  "wl_app_tosave_txt5": "TX DATA",
+  "wl_app_tosave_txt6": "GAS LIMIT",
+  "wl_app_tosave_txt7": "GAS PRICE",
+  "wl_app_tosave_txt8": "2. Check and wait",
+  "wl_app_tosave_txt9": "Check the transaction progress on https://etherscan.io, then wait some minutes for the Oracle callback.",
+  "wl_app_tosave_txt10": "3. Verify your whitelisting status",
+  "wl_app_tosave_txt11": "Go to https://... [// TODO put the verification page address here] and enter the ETH address you have whitelisted. If everything is correct, you'll also know how many TZL you can split.",
+  "wl_app_tosave_txt12": "4. Stay tuned",
+  "wl_app_tosave_txt13": "Subscribe to our Telegram channel https://t.me/tzlibre to be notified when you will be able to split your TZL.",
+  "wl_app_sect5_txt1": "4. Make the transaction",
+  "wl_app_sect5_txt2": "If the TX data look correct, you can now:",
+  "wl_app_sect5_txt3": "Download the TX data and save it in a text file",
+  "wl_app_sect5_txt4": "Close this page and reconnect to the internet",
+  "wl_app_sect5_txt5": "Make the transaction with your favorite wallet (from the ETH address you specified) and verify it",
+  "wl_app_sect5_txt6": "Follow the instructions attached in the text file",
+  "wl_app_sect5_txt7": "Download TX data and instructions"
 }
