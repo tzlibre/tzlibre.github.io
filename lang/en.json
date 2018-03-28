@@ -288,8 +288,75 @@
   "verify_error_txt" : "<p>This ETH address does not appear to be whitelisted yet, or it's not correct.</p><p>If you've made the required TX just a few minutes ago, please come back later. Otherwise, repeat the whitelisting process and pay great attention to all the data you're entering.</p>",
 
 
+  "wl_page_title": "Whitelist @ TzLibre ",
+
+
+
+  "wl_what_title": "What is",
+
+  "wl_what_intro": "Tezos Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.",
+
+  "wl_what_sub1_title": "What t1",
+  "wl_what_sub1_txt": "<p>Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.</p>",
+
+  "wl_what_sub2_title": "What t2",
+  "wl_what_sub2_txt": "<p>Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non <strong>luctus diam neque</strong> sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapieno.</p>",
+
+
+
+
+  "wl_howto_title": "How to",
+
+  "wl_howto_intro": "Tezos is a great idea with a huge disruptive potential. As per its immutable charter, Tezos Stiftung is obliged by Swiss law to fund the correct implementation of this idea. We believe DLS-Tezos is the wrong way to implement it. <br/>Specifically, we recognize these major flaws in DLS-Tezos:",
+
+  "wl_howto_sub1_title": "No hard cap",
+  "wl_howto_sub1_txt": "<p>XTZ supply is not hard-capped. Instead, XTZ supply is constantly inflated ad infinitum.</p><p>Via on-chain governance the <strong>inflation rate can be increased automatically, without even the need for an explicit hard fork</strong> (as in a traditional blockchain). Unsophisticated users might not even notice the increase of monetary base. This is eerily similar to how fiat currencies are debased. We predict that, using Keynesian talking points, special interests will soon begin to push their own agenda to inflate the XTZ money supply, and thus dilute ICO contributors.</p>",
+
+  "wl_howto_sub2_title": "Premined coins",
+  "wl_howto_sub2_txt": "<p>20% of XTZ supply is premined out of thin air and assigned for free to Tezos Stiftung (TS) and DLS.</p><p>This is unfair to ICO contributors, who had to pay a high price to buy their XTZ. It also opens an attack vector: TS/DLS can be coerced into dumping their stake onto the market, potentially driving XTZ price to zero. They could also be forced to transfer their stake to an attacker who could then use it to manipulate XTZ market price.</p><p>Tezos Stiftung now holds more than $500M in contributions: this is more than enough to fund competing teams developing the Tezos idea. <strong>Premined coins are not only unnecessary: they directly harm the financial interest of ICO contributors</strong>.</p>",
+
+
+
+
+  "wl_protocol_title": "Protocol",
+
+  "wl_protocol_intro": "Tezos is a great idea with a huge disruptive potential. As per its immutable charter, Tezos Stiftung is obliged by Swiss law to fund the correct implementation of this idea. We believe DLS-Tezos is the wrong way to implement it. <br/>Specifically, we recognize these major flaws in DLS-Tezos:",
+
+  "wl_protocol_sub1_title": "No hard cap",
+  "wl_protocol_sub1_txt": "<p>XTZ supply is not hard-capped. Instead, XTZ supply is constantly inflated ad infinitum.</p><p>Via on-chain governance the <strong>inflation rate can be increased automatically, without even the need for an explicit hard fork</strong> (as in a traditional blockchain). Unsophisticated users might not even notice the increase of monetary base. This is eerily similar to how fiat currencies are debased. We predict that, using Keynesian talking points, special interests will soon begin to push their own agenda to inflate the XTZ money supply, and thus dilute ICO contributors.</p>",
+
+  "wl_protocol_sub2_title": "Premined coins",
+  "wl_protocol_sub2_txt": "<p>20% of XTZ supply is premined out of thin air and assigned for free to Tezos Stiftung (TS) and DLS.</p><p>This is unfair to ICO contributors, who had to pay a high price to buy their XTZ. It also opens an attack vector: TS/DLS can be coerced into dumping their stake onto the market, potentially driving XTZ price to zero. They could also be forced to transfer their stake to an attacker who could then use it to manipulate XTZ market price.</p><p>Tezos Stiftung now holds more than $500M in contributions: this is more than enough to fund competing teams developing the Tezos idea. <strong>Premined coins are not only unnecessary: they directly harm the financial interest of ICO contributors</strong>.</p>",
+
+
+  "wl_cltools_title": "Command-line tools",
+
+  "wl_cltools_sub1_title": "Who we are",
+  "wl_cltools_sub1_txt": "<p>We are a team of early Tezos investors, veteran blockchain developers, and academics.</p><p>We are dreamers of a new society, where smart contracts and protocols replace politicians and lawyers. We believe decentralized governance is the right path to build our vision. We are pseudonymous to protect our operational freedom from any undue pressure.</p><p><strong>Our code speaks louder than words: don't trust us, verify it.</strong></p>",
+
+  "wl_cltools_sub2_title": "Our community",
+  "wl_cltools_sub2_txt": "<p>We are building a healthy, inclusive, respectful community to move TzLibre forward.</p><p>We believe a disruptive technology can have one foundation only: a productive community of good people, with no masters or slaves. We'll retain an operational role until the community is mature enough. We plan to then step back and only provide oversight.</p>",
+
+  "wl_cltools_sub3_title": "Our philosophy",
+  "wl_cltools_sub3_txt": "<p>Our background is free market anarcho-capitalism, and we believe Bitcoin is a milestone in human evolution toward freedom.</p><p>We firmly oppose statism and its favourite weapon: inflation. We want to build a world without trusted parties, based purely on merit. We fight for transparency and the free market of ideas, goods and services.</p><p>We oppose monopolies in every shape or form, and we don't believe in copyright. We dream of a world without governments, borders, passports: a really, fully decentralized world.</p>",
+
+
+
+
+  "wl_webtools_title": "Web tools",
+
+  "wl_webtools_sub1_title": "Who we are",
+  "wl_webtools_sub1_txt": "<p>We are a team of early Tezos investors, veteran blockchain developers, and academics.</p><p>We are dreamers of a new society, where smart contracts and protocols replace politicians and lawyers. We believe decentralized governance is the right path to build our vision. We are pseudonymous to protect our operational freedom from any undue pressure.</p><p><strong>Our code speaks louder than words: don't trust us, verify it.</strong></p>",
+
+  "wl_webtools_sub2_title": "Our community",
+  "wl_webtools_sub2_txt": "<p>We are building a healthy, inclusive, respectful community to move TzLibre forward.</p><p>We believe a disruptive technology can have one foundation only: a productive community of good people, with no masters or slaves. We'll retain an operational role until the community is mature enough. We plan to then step back and only provide oversight.</p>",
+
+
+
+
 
   "wl_app_page_title": "TzLibre | trustless whitelisting",
+
   "wl_app_title": "Trustless whitelisting to get TZL",
   "wl_app_sect1_txt1": "This whitelisting process is the first step required to get your TZLs.",
   "wl_app_sect1_txt2": "Choose an ETH address that you own and whitelist it, to link it to your Tezos address. Notice that you can link just a SINGLE ETH address to each Tezos address: if you have more Tezos addresses, then you should use a different ETH address for each one.",
@@ -342,4 +409,5 @@
   "wl_app_sect5_txt5": "Make the transaction with your favorite wallet (from the ETH address you specified) and verify it",
   "wl_app_sect5_txt6": "Follow the instructions attached in the text file",
   "wl_app_sect5_txt7": "Download TX data and instructions"
+
 }

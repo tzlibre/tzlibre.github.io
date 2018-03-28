@@ -3,7 +3,7 @@
 
 
 
-
+  "home_page_title" : "TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos",
   "cta_intro": "想要得到您的代币? ",
   "cta_button": "在电报加入我们",
   "link_manifesto": "阅读我们的宣言",
@@ -137,7 +137,7 @@
 
 
 
-
+  "faq_page_title" : "TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos",
   "faq_title": "常见问题",
 
   "faq_sect1_title": "代币分配",
