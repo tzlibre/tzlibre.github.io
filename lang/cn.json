@@ -3,16 +3,16 @@
 
 
 
-  "home_page_title" : "TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos",
+
   "cta_intro": "想要得到您的代币? ",
-  "cta_button": "在电报加入我们",
+  "cta_button": "在微博关注我们",
   "link_manifesto": "阅读我们的宣言",
 
 
+
   "home_page_title" : "TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos",
 
-
-  "home_definition": "(/tɛzɔs ˈlibɾe/) 一个具有<strong>免信任</strong>和 <strong>硬顶</strong> 方案的Tezos版本，源于DLS-Tezos的分叉。ICO贡献者可以在代币分配期间认领TZL代币。",
+  "home_definition": "(/tɛzɔs ˈlibɾe/) 一个具有<strong>免信任</strong>和<strong>硬顶</strong>方案的Tezos版本，源于DLS-Tezos的分叉。ICO贡献者可以在代币分配期间认领TZL代币。",
 
 
 
@@ -77,10 +77,10 @@
   "home_sect2_diff_sub2_txt": "<p>没有凭空创造的代币预留给特殊的群体。所有的TZL都会被分配给ICO贡献者，后者的利益得到最大的保护。不像DLS-Tezos，<strong>TzLibre的创始团队不会得到免费的代币</strong>。从这个角度来说，TZL代币更有价值。</p>",
 
   "home_sect2_diff_sub3_title": "预启动代币",
-  "home_sect2_diff_sub3_txt": "<p>我们选择EOS的方案，TzLibre将提供一个具有 <strong>即时流动性</strong> 的预启动代币给ICO贡献者，并做好发布主网络的准备。这些预启动代币将是TzLibre创世区块的占位符。因为它们，TzLibre才能够比DLS-Tezos更早上线。我们不依赖于DLS-Tezos的创世区块（况且它会被遮掩，难以分叉）。</p>",
+  "home_sect2_diff_sub3_txt": "<p>我们选择EOS的方案，TzLibre将提供一个具有<strong>即时流动性</strong> 的预启动代币给ICO贡献者，并做好发布主网络的准备。这些预启动代币将是TzLibre创世区块的占位符。因为它们，TzLibre才能够比DLS-Tezos更早上线。我们不依赖于DLS-Tezos的创世区块（况且它会被遮掩，难以分叉）。</p>",
 
   "home_sect2_diff_sub5_title": "硬编码法则",
-  "home_sect2_diff_sub5_txt": "<p>TzLibre通过硬编码制定了一定程度的 <strong>链上治理的法则</strong>。 他们是协议中一组不可变的代码规则。这些规则无论如何不可改变，包括链上治理。</p><p>其中的一些规则包括:</p><ul><li>763,306,929.68的代币硬顶</li><li>智能合约不变性</li><li>交易不可逆性</li><li>地址抗审查性</li></ul>",
+  "home_sect2_diff_sub5_txt": "<p>TzLibre通过硬编码制定了一定程度的<strong>链上治理的法则</strong>。 他们是协议中一组不可变的代码规则。这些规则无论如何不可改变，包括链上治理。</p><p>其中的一些规则包括:</p><ul><li>763,306,929.68的代币硬顶</li><li>智能合约不变性</li><li>交易不可逆性</li><li>地址抗审查性</li></ul>",
 
   "home_sect2_diff_sub6_title": "链下谢林围栏",
   "home_sect2_diff_sub6_txt": "<p>任何可靠的区块链，比如比特币和以太坊经典都是免信任的。每一个免信任的区块链都需要强有力的谢林围栏: 伴随不变规则而生成牢固的社会共识。</p><p>TzLibre的谢林围栏如下：</p><ul><li><strong>永不分叉</strong><br/>为了保护网络免受攻击，我们永不分叉。TzLibre网络的升级只能通过链上治理进行。唯一的例外是修复链上治理协议中万一存在的致命错误。</li><li><strong>免信任治理</strong><br/>一旦开发人员社区成熟，TzLibre的创始团队将不再担任运营职务，只会保留一个监督的角色。没有任何一个开发人员会作为负责人的角色而存在。</li><li><strong>所有人匿名</strong><br/>为了避免胁迫和过度的压力，所有TzLibre的开发人员必须使用假名。无论是谁，我们评估代码的唯一标准就是代码的质量。TzLibre绝对不会接受任何受信任的实体或者公司。</li></ul>",
@@ -107,10 +107,10 @@
 
   "home_sect3_title": "如何分配",
 
-  "home_sect3_txt": "<p>A所有的Tezos ICO贡献者都可以基于XTZ(aka \"DLS tezzies\") 得到1:1比例的TZL(aka \"Libre tezzies\"). 请务必在我们的代币分配阶段认领。</p><p>您需要在一个安全的机器上签名。一方面证明您对某个地址中代币的所有权，一方面证明您代表个人意愿认领代币。当前我们正在升级代币分割程序。有最新的进展，我们会将详细信息贴入我们的公共 <a href=\"https://t.me/tzlibre\">电报频道</a>.</p><p><strong>不要分享您的任何敏感信息</strong> （私钥，助记词，密码，邮件）。我们绝不会询问您任何敏感信息。我们也不会通过私人渠道联系您并索要钱或敏感信息。如有遇到上述情况，麻烦通知我们。</p>",
+  "home_sect3_txt": "<p>A所有的Tezos ICO贡献者都可以基于XTZ(aka \"DLS tezzies\") 得到1:1比例的TZL(aka \"Libre tezzies\"). 请务必在我们的代币分配阶段认领。</p><p>您需要在一个安全的机器上签名。一方面证明您对某个地址中代币的所有权，一方面证明您代表个人意愿认领代币。当前我们正在升级代币分割程序。有最新的进展，我们会将详细信息贴入我们的<a href=\"http://weibo.com/TzLibre\">微博</a>.</p><p><strong>不要分享您的任何敏感信息</strong> （私钥，助记词，密码，邮件）。我们绝不会询问您任何敏感信息。我们也不会通过私人渠道联系您并索要钱或敏感信息。如有遇到上述情况，麻烦通知我们。</p>",
 
   "home_sect3_timeframe_title": "时间段",
-  "home_sect3_timeframe_text": "<p>代币分配将会很快进行。我们希望当我们的公共电报频道达到 <strong>1000 人</strong> 的时候开始，以便达到有效的临界值。分配将会持续几天。关于具体的开始和结束时间我们会在 <a href=\"https://t.me/tzlibre\">电报频道</a>公布。</p>",
+  "home_sect3_timeframe_text": "<p>代币分配将会很快进行。我们希望当我们的公共电报频道达到<strong>1000人</strong> 的时候开始，以便达到有效的临界值。分配将会持续几天。关于具体的开始和结束时间我们会在<a href=\"http://weibo.com/TzLibre\">微博</a>公布。</p>",
 
 
 
@@ -128,8 +128,8 @@
   "home_sect4_sub3_txt": "<p>O我们的背景是自由市场的无政府资本主义，我们相信比特币是人类向着自由进化的里程碑。</p><p>我们坚决反对国家主义以及他们最爱的手段：通货膨胀。我们希望建立一个免信任，纯粹基于每个人长处的世界。我们争取透明，还有充满想法、商品、服务的自由市场。</p><p>我们反对各种形式的垄断，我们不相信版权。我们梦想一个没有政府、边界、护照的世界：一个真实的，完全没有中心化的美好世界。</p>",
 
   "home_sect4_sub4_title": "加入我们",
-  "home_sect4_sub4_txt": "<p>加入我们的公共电报频道，获取最新资讯，阅读历史内容，或者联系我们。</p>",
-  "home_sect4_sub4_txt2": "<p>你可以通过 <a href=\"https://t.me/tz_libre\" target=\"_blank\">电报</a> 或者 <a href=\"https://www.reddit.com/user/tzlibre\" target=\"_blank\">Reddit</a>联系我们</p>",
+  "home_sect4_sub4_txt": "<p>关注我们官方微博，获取最新资讯，阅读历史内容，或者联系我们。</p>",
+  "home_sect4_sub4_txt2": "<p>你可以通过 <a href=\"http://weibo.com/TzLibre\" target=\"_blank\">微博</a> 或者 <a href=\"https://www.reddit.com/user/tzlibre\" target=\"_blank\">Reddit</a>联系我们</p>",
 
   "home_sect4_sub5_title": "支持我们",
   "home_sect4_sub5_txt": "<p>TzLibre是一个由理想驱动的自费组织。我们没有给自己预留代币。 如果愿意，您可以给我们捐赠ETC代币到我们的以太坊经典的地址：</p>",
@@ -143,13 +143,13 @@
   "faq_sect1_title": "代币分配",
 
   "faq_sect1_q1_question": "我如何认领代币？",
-  "faq_sect1_q1_answer": "<p>利用参与ICO的数据和DLS发布的工具您可以生成自己的私钥。我们强烈推荐您在一个安全的机器上或者一个断网的机器上执行这项操作。之后，您需要签署一条信息，证明对这个地址的所有权以及对TzLibre的支持意愿。最后，您需要发送这条签署信息。在认领代币之前，我们建议您至少对代币分配以及加密签名的工作原理有所了解。此外，请将我们的 <a href=\"https://tzlibre.github.io\" target=\"_blank\">web</a>和<a href=\"https://t.me/tzlibre\" target=\"_blank\">电报</a>地址加入书签。我们正在升级整个代币分配的流程，后续的进展我们都会统一发布在公共的<a href=\"https://t.me/tzlibre\" target=\"_blank\">电报频道</a>。</p>",
+  "faq_sect1_q1_answer": "<p>利用参与ICO的数据和DLS发布的工具您可以生成自己的私钥。我们强烈推荐您在一个安全的机器上或者一个断网的机器上执行这项操作。之后，您需要签署一条信息，证明对这个地址的所有权以及对TzLibre的支持意愿。最后，您需要发送这条签署信息。在认领代币之前，我们建议您至少对代币分配以及加密签名的工作原理有所了解。此外，请将我们的 <a href=\"https://tzlibre.github.io\" target=\"_blank\">web</a>和<a href=\"http://weibo.com/TzLibre\" target=\"_blank\">微博</a>地址加入书签。我们正在升级整个代币分配的流程，后续的进展我们都会统一发布在公共的<a href=\"http://weibo.com/TzLibre\" target=\"_blank\">微博</a>。</p>",
 
   "faq_sect1_q2_question": "代币分配之后会发生什么？",
   "faq_sect1_q2_answer": "<p>分配之后，您将收到TZL预启动代币。当主网上线之后，这些代币可以兑换成主网令牌。</p>",
 
   "faq_sect1_q3_question": "关于代币分配，我如何得到更新与详细情况？",
-  "faq_sect1_q3_answer": "<p>我们正在升级优化整个分配流程。最新情报会发布在<a href=\"https://t.me/tzlibre\">电报频道</a>。</p>",
+  "faq_sect1_q3_answer": "<p>我们正在升级优化整个分配流程。最新情报会发布在<a href=\"http://weibo.com/TzLibre\">微博</a>。</p>",
 
   "faq_sect1_q4_question": "参加代币分配是否会导致我丢失DLS-tezzies？",
   "faq_sect1_q4_answer": "<p>N绝不会。代币分配允许Tezos贡献者得到1比1的TZL。换句话说，Tezos贡献者会同时获得TZL和XTZ。</p>",
@@ -160,10 +160,10 @@
   "faq_sect2_title": "时间点",
 
   "faq_sect2_q1_question": "何时分配？",
-  "faq_sect2_q1_answer": "<p>当电报群的人数达到1000的时候，代币分配就会在几天之内开始。这是为了达到一个项目用户的有效临界，并保护TzLibre用户的集体权益。整个分配会持续几天。当前我们正在升级优化整个分配流程。最新情报会发布在电报频道里。</p>",
+  "faq_sect2_q1_answer": "<p>当电报群的人数达到1000的时候，代币分配就会在几天之内开始。这是为了达到一个项目用户的有效临界，并保护TzLibre用户的集体权益。整个分配会持续几天。当前我们正在升级优化整个分配流程。最新情报会发布在微博里。</p>",
 
   "faq_sect2_q2_question": "TZL预启动代币何时能上交易所交易？",
-  "faq_sect2_q2_answer": "<p>代币分配结束之后，一旦技术上没有问题，TZL预启动代币就可以在交易所交易。当前我们正在升级优化整个分配流程。最新情报会发布在电报频道里.</p>",
+  "faq_sect2_q2_answer": "<p>代币分配结束之后，一旦技术上没有问题，TZL预启动代币就可以在交易所交易。当前我们正在升级优化整个分配流程。最新情报会发布在微博里.</p>",
 
   "faq_sect2_q3_question": "你们的代码何时开源？",
   "faq_sect2_q3_answer": "<p>为了保持我们的竞争优势，我们会在临上线的时候发布我们的节点代码。</p>",
@@ -271,10 +271,10 @@
   "faq_sect9_title": "沟通",
 
   "faq_sect9_q1_question": "你们为何使用电报频道？",
-  "faq_sect9_q1_answer": "<p>在被那些可恶的人恶意攻击之后，我们不得不将我们的<a href=\"https://www.reddit.com/r/tzlibre\" target=\"_blank\">subreddit</a>设置成私人的。目前我们只通过我们的公共<a href=\"https://www.t.me/tzlibre\" target=\"_blank\">电报频道</a>。</p>",
+  "faq_sect9_q1_answer": "<p>在被那些可恶的人恶意攻击之后，我们不得不将我们的<a href=\"https://www.reddit.com/r/tzlibre\" target=\"_blank\">subreddit</a>设置成私人的。目前我们只通过我们的公共<a href=\"https://www.t.me/tzlibre\" target=\"_blank\">电报频道</a>发布消息。</p>",
 
   "faq_sect9_q2_question": "我如何联系你们？",
-  "faq_sect9_q2_answer": "<p>你可以直接在<a href=\"https://t.me/tz_libre\" target=\"_blank\">电报</a>或者<a href=\"https://www.reddit.com/user/tzlibre\" target=\"_blank\">Reddit</a>给我们发送消息。我们正在积极地设置其他的安全沟通渠道。</p>",
+  "faq_sect9_q2_answer": "<p>你可以直接在<a href=\"http://weibo.com/TzLibre\" target=\"_blank\">微博</a>或者<a href=\"https://www.reddit.com/user/tzlibre\" target=\"_blank\">Reddit</a>给我们发送消息。我们正在积极地设置其他的安全沟通渠道。</p>",
 
   "faq_sect9_q3_question": "为何之前我没有听到过TzLibre？",
   "faq_sect9_q3_answer": "<p>我们在2018年2月23日发布了<a href=\"https://ipfs.infura.io/ipns/QmT7A5yRJ1AMRUCXV6Ct2GvXxSbfWHHs7LCgm2kTFhsxbq\" target=\"_blank\">我们的宣言</a>。从那之后我们在任何Tezos相关频道（Reddit，电报，Riot）的发言都受到审查。不幸的是，那些带有敌意的人同样用这些频道宣传关于这个分叉的恶言恶语。</p>",
