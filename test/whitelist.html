@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title data-id="default_page_title">Tz Libre | a fork of DLS Tezos</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#1F260B">
+    <meta name="theme-color" content="#1F260B">
+    <link href="/test/style/style.css" rel="stylesheet">
+    <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS Tezos">
+  </head>
+
+  <body>
+
+    <header class="header-mini">
+      <div class="content">
+        <div class="header-main">
+          <h1>
+            <a href="index.html"><strong>tz</strong>libre</a>
+          </h1>
+        </div>
+        <img src="/images/tzllogo-base.svg" alt="tzlibre logo" class="logo">
+      </div>
+    </header>
+
+    <nav class="nav-primary">
+      <ul class="content">
+        <li class="{{ nav1_class }}">
+          <a href="/index.html" data-id="home_title">Project</a>
+        </li>
+        <li class="{{ nav2_class }}">
+          <a href="/faq.html" data-id="faq_title">FAQ</a>
+        </li>
+        <li class="selected">
+          <a href="/test/whitelist.html" data-id="wl_page_title">Whitelist</a>
+        </li>
+        <li class="{{ nav4_class }}">
+          <a href="/test/verify.html" data-id="verify_page_title">Verify</a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="nav-secondary">
+      <ul class="content">
+        <li>
+          <a href="#introduction" data-id="wl_what_title">Introduction</a>
+        </li>
+        <li>
+          <a href="#approach" data-id="wl_howto_title">Approach</a>
+        </li>
+        <li>
+          <a href="#protocol" data-id="wl_protocol_title">Protocol</a>
+        </li>
+        <li>
+          <a href="#commandline" data-id="wl_cltools_title">Command-line tools</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main">
+
+      <div class="content">
+
+        <a name="introduction"></a>
+
+        <div class="block">
+
+          <h2 data-id="wl_what_title">Introduction</h2>
+
+          <div data-id="wl_what_intro">
+            <p>Whitelisting is the first step to split XTZ coins and get TZL coins. Contributors who whitelist their own address will be allowed to split their XTZ and receive TZL pre-launch tokens. Contributors who don&apos;t whitelist their address will
+              not be able to split.</p>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_what_sub1_title">Who</h4>
+            <div class="row-main" data-id="wl_what_sub1_txt">
+              <p>All Tezos ICO contributors can whitelist.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_what_sub2_title">When</h4>
+            <div class="row-main" data-id="wl_what_sub2_txt">
+              <p>The whitelist is now open. Our community is currently discussing whether to close the whitelist before splitting begins to reward early adopters, or to keep whitelisting open for longer to accomodate late adopters. We&apos;ll announce on
+                our Telegram channel when the whitelist has closed.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_what_sub3_title">How it works</h4>
+            <div class="row-main" data-id="wl_what_sub3_txt">
+              <p>Whitelisting is a trustless and pseudonymous process based on an Ethereum smart contract. During whitelisting three tasks are executed: proving ownership of a DLS-Tezos ICO contribution address, associating it with an Ethereum address, signing
+                a pseudonymous declaration.</p>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <h4 data-id="wl_what_sub4_title">Methods</h4>
+            <div class="row-main" data-id="wl_what_sub4_txt">
+              <p>We suggest to manually follow the protocol. If you&apos;re not an expert you can use the command line tools. If you use the command line tool we encourage you to at least read the source code before executing it.</p>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <h4 data-id="wl_what_sub5_title">Next steps</h4>
+            <div class="row-main" data-id="wl_what_sub5_txt">
+              <p>After whitelisting we&apos;ll issue a pre-launch TZL token on the Ethereum blockchain. TZL tokens will only be credited to whitelisted Ethereum addresses. Following the EOS example, pre-launch tokens will be converted into native coins token
+                when TzLibre mainnet launches. We&apos;re currently ugrading the splitting process, and will post updates on our public
+                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a>.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_what_sub6_title">Security</h4>
+            <div class="row-main" data-id="wl_what_sub6_txt">
+              <p>You should only handle sensitive data, such as contribution data, on a machine that is not compromised. You can also disconnect your machine from any network while handling sensitive contribution data. If you&apos;re not certain about the
+                security of your machine you should use a physically airgapped one.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <a name="approach"></a>
+
+        <div class="block">
+
+          <h2 data-id="wl_howto_title">Approach</h2>
+
+          <div data-id="wl_howto_intro">
+            <p>The whitelist procedure is completely trustless and consists of the invocation of the Ethereum smart contract method <span class="inline-code">whitelist</span> of the <span class="inline-code">TzLibreRegistry</span> Ethereum smart contract
+              with three parameters:</p>
+            <ul>
+              <li>the signature of the Ethereum address made through the Tz private key</li>
+              <li>the signature of a declaration made through the Tz private key</li>
+              <li>the Tz public key, to verify signatures</li>
+            </ul>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_howto_sub1_title">Smart contract</h4>
+            <div class="row-main" data-id="wl_howto_sub1_txt">
+              <p>In order to split your Libre tezzies (TZL) you must whitelist an ETH address under your control and prove ownership of the DLS-Tezos private key whose funds you&apos;re going to split into Libre tezzies.This is done by providing a couple
+                of digital signatures to the <span class="inline-code">TzLibreRegistry</span> Ethereum smart contract.
+                <a href="https://github.com/tzlibre/tzlibre-registry" target="_blank">The Solidity code of the registry contract</a> is available on GitHub and deployed on <span style="text-decoration: line-through">the Ethereum Mainnet at the address [ TODO: 0x... ADD_LINK_TO_ETHERSCAN ]</span> Ropsten at the address
+                <a
+                  href="https://ropsten.etherscan.io/address/0x183601c3d1b9e421cbe789843e8312de30700c6a">0x183601C3d1B9e421CBE789843e8312De30700C6a</a>. This contract therefore assigns the correct amount of Libre tezzies (at a ratio of one to one with DLS tezzies got during ICO)</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_howto_sub2_title">Oracle</h4>
+            <div class="row-main" data-id="wl_howto_sub2_txt">
+              <p>Due to the limitations of Ethereum smart contracts, the procedure resorts to
+                <a href="https://oraclize.it" target="_blank"> Oraclize</a>, an external oracle. This platform verifies the signature and contribution to the DLS-Tezos ICO using public data from the BTC and ETH blockchains. The source code of the
+                <a href="https://github.com/tzlibre/registry-oracle-container"
+                  target="_blank">Docker container</a> run by Oraclize is available on GitHub and is deployed on IPFS at
+                <a href="http://ipfs.io/ipfs/QmYkdYwMdj1rJ5dHhokqLmEBVyWg5j4fkDUqwgzBivN8YA" .<="" p=""></a>
+              </p>
+              <p>
+                <a href="http://ipfs.io/ipfs/QmYkdYwMdj1rJ5dHhokqLmEBVyWg5j4fkDUqwgzBivN8YA" .<="" p="">Oraclize produces integrity proofs to prove that computation has been executed correctly. You can check the proofs produced by Oraclize at </a>
+                <a href="http://app.oraclize.it/service/monitor" target="_blank">http://app.oraclize.it/service/monitor</a> or download their
+                <a href="https://github.com/oraclize/proof-verification-tool" target="_blank">verification tool</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <a name="protocol"></a>
+
+        <div class="block">
+
+          <h2 data-id="wl_protocol_title">Protocol</h2>
+
+          <div data-id="wl_protocol_intro">
+            <p>Following this protocol you can create a verified association between an ETH address you control (and where you&apos;ll get Libre tezzies) and your TzLibre address (same as Tz address).</p>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_protocol_sub1_title">Definitions</h4>
+            <div class="row-main" data-id="wl_protocol_sub1_txt">
+              <p>The protocol employs:</p>
+              <ul>
+                <li>TzLibre public and private keys are the same as in DLS-Tezos. </li>
+                <li>
+                  <a href="https://en.wikipedia.org/wiki/EdDSA#Ed25519" target="_blank">Ed25519</a> as the digital signature algorithm (<span class="inline-code">Ed25519_sign</span>)</li>
+                <li>
+                  <a href="https://en.wikipedia.org/wiki/BLAKE_(hash_function)#Blake2b_algorithm" target="_blank">Blake2b</a> as the hashing algorithm (<span class="inline-code">Blake2b_64</span> which produces a 64 bytes long output)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_protocol_sub2_title">Method info</h4>
+            <div class="row-main">
+              <div data-id="wl_protocol_sub2_txt">
+                <p>The goal of the whitelisting protocol is to invoke the method <span class="inline-code">whitelist</span> of the <span class="inline-code">TzLibreRegistry</span> Ethereum smart contract (deployed on <span style="text-decoration: line-through">the Ethereum Mainnet at [ TODO: 0x...]</span>                  Ropsten at the address
+                  <a href="https://ropsten.etherscan.io/address/0x183601c3d1b9e421cbe789843e8312de30700c6a">0x183601C3d1B9e421CBE789843e8312De30700C6a</a>).</p>
+                <p>The method signature is <span class="inline-code">whitelist(bytes32,bytes,bytes)</span> and its ABI is:</p>
+              </div>
+              <pre>{
+  &quot;constant&quot;: false,
+  &quot;inputs&quot;: [
+    {
+      &quot;name&quot;: &quot;TZL_pk&quot;,
+      &quot;type&quot;: &quot;bytes32&quot;
+    },
+    {
+      &quot;name&quot;: &quot;ETH_addrSignature&quot;,
+      &quot;type&quot;: &quot;bytes&quot;
+    },
+    {
+      &quot;name&quot;: &quot;declarationSignature&quot;,
+      &quot;type&quot;: &quot;bytes&quot;
+    }
+  ],
+  &quot;name&quot;: &quot;whitelist&quot;,
+  &quot;outputs&quot;: [],
+  &quot;payable&quot;: true,
+  &quot;stateMutability&quot;: &quot;payable&quot;,
+  &quot;type&quot;: &quot;function&quot;
+}</pre>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_protocol_sub3_title">1. Generate parameters</h4>
+            <div class="row-main" data-id="wl_protocol_sub3_txt">
+              <p>The <span class="inline-code">whitelist</span> method accepts three parameters:</p>
+              <ul>
+                <li><span class="inline-code">TZL_pk</span>: the TzLibre public key</li>
+                <li><span class="inline-code">ETH_addrSignature</span>: the signature of an Ethereum address of your choice made through the TzLibre private key</li>
+                <li><span class="inline-code">declarationSignature</span>: the signature of a declaration statement made through the TzLibre private key</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_protocol_sub4_title"><span class="inline-code">TZL_pk</span></h4>
+            <div class="row-main">
+              <div data-id="wl_protocol_sub4_txt">
+                <p>If you already know your DLS-Tezos private (aka &quot;secret&quot;) and public key, you can skip this step. Otherwise you can generate them from the following information:</p>
+                <ul>
+                  <li><span class="inline-code">mnemonic</span>: 15 words mnemonic seed that you find it in the PDF document provided during the DSL-Tezos ICO</li>
+                  <li><span class="inline-code">email</span>: you find it in the PDF document provided during the DSL-Tezos ICO</li>
+                  <li><span class="inline-code">password</span>: you should remember it or have it written down somewhere</li>
+                </ul>
+                <p>Once you have all the required data you can follow these steps (links refer to the
+                  <a href="https://github.com/tezos/fundraiser-tools" target="_blank">fundraiser-tools</a> by official DLS-Tezos GitHub repository):</p>
+              </div>
+              <div>
+                <pre>seed = f(mnemonic, email, password)
+TZL_pk, TZL_sk = Ed25519_keys_generation(seed)</pre>
+              </div>
+              <div data-id="wl_protocol_sub4_1_txt">
+                <p><span class="inline-code">seed</span> according to
+                  <a href="https://github.com/tezos/fundraiser-tools/blob/master/pykeychecker/keychecker.py#L35" target="_blank">fundraiser-tools, lines 35 -&gt; 41</a>
+                </p>
+                <p><span class="inline-code">TZL_pk, TZL_sk</span> according to
+                  <a href="https://github.com/tezos/fundraiser-tools/blob/master/pykeychecker/keychecker.py#L45" target="_blank">fundraiser-tools, line 44</a>
+                </p>
+              </div>
+              <div data-id="wl_protocol_sub4_2_txt">
+                <p>Here is an example of inputs and outputs for this phase:</p>
+              </div>
+              <pre># inputs
+mnemonic&#xA0;=&#xA0;word1 word2 word word4 word5 word6 word7 word8 word9 word10 word11 word12 word13 word14 word15
+email&#xA0;=&#xA0;your@email.com
+password&#xA0;=&#xA0;yourPassword
+
+# byproduct
+seed&#xA0;=&#xA0;3550ad222861448c43e921e3f27f480fe0f7c628ee5afc60b7533e4e9420b519
+
+# outputs
+TZL_sk&#xA0;=&#xA0;3550ad222861448c43e921e3f27f480fe0f7c628ee5afc60b7533e4e9420b519
+TZL_pk&#xA0;=&#xA0;012f1e1c8ed3eea205c75323c6db7f2a74b3273921c06a6629056331612d275e</pre>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_protocol_sub5_title"><span class="inline-code">ETH_addrSignature</span></h4>
+            <div class="row-main">
+              <div data-id="wl_protocol_sub5_txt">
+                <p>You now must sign <span class="inline-code">ETH_addr</span> (an ETH address you control) with your TZL secret key <span class="inline-code">TZL_sk</span>:</p>
+              </div>
+              <pre>ETH_addrHash = Blake2b_64(ETH_addr)
+ETH_addrSignature = Ed25519_sign(ETH_addrHash, TZL_sk)</pre>
+              <div data-id="wl_protocol_sub5_txt2">
+                <p>Here is an example of input and output for this phase:</p>
+              </div>
+              <pre># inputs
+TZL_sk&#xA0;=&#xA0;3550ad222861448c43e921e3f27f480fe0f7c628ee5afc60b7533e4e9420b519
+ETH_addr&#xA0;=&#xA0;0x1234567890123456789012345678
+
+# byproduct
+ETH_addrHash&#xA0;=&#xA0;ba437d636f135468544ab02448be225a74bcf43c9ce0baf0e8871861bdea6c7b3412acb662d5433dbdfd42d5aa957cbfee564ba5ef2b406fde3b6f4447b6c534
+
+# output
+ETH_addrSignature&#xA0;=&#xA0;1a9871ca4357ef82ab8b427e428e1f430c78755f4d15b826d89bfc57e0309e3f468b5ea5b73921138f9a5e3d132a995c7bacd5a8a50800589e29232382e66c0d</pre>
+            </div>
+          </div>
+
+          <div class="row">
+            <a name="declaration"></a>
+            <h4 data-id="wl_protocol_sub6_title"><span class="inline-code">declarationSignature</span></h4>
+            <div class="row-main">
+              <div data-id="wl_protocol_sub6_txt">
+                <p>Finally, you have to sign the hash of the following declaration. This serves as a pseudonymous way to ask Tezos Stiftung to support TzLibre development:</p>
+              </div>
+              <pre>I hereby cryptographically prove to be a contributor of Tezos Stiftung (CHE-290.597.458), a Swiss Foundation based in Gubelstrasse 11, 6300 Zug, Switzerland. I recognize and welcome the existence multiple implementations of Tezos. I ask and expect Tezos Stiftung to foster competition among them by funding and supporting their development, marketing and growth. Funds allotted to various Tezos implementations shall always be directly proportional to their market capitalization at the time of each distribution of funds. Distribution of funds to multiple existing Tezos implementations shall begin no later than January 1st 2019 and consistently continue throughout time. Following priorities autonomously set by each community, Tezos Stiftung shall distribute funds in the most appropriate, effective and transparent way.</pre>
+              <p><em data-id="wl_protocol_sub6_translation"></em></p>
+              <div data-id="wl_protocol_sub6_txt2">
+                <p>You have to sign it with your TZL secret key <span class="inline-code">TZL_sk</span>:</p>
+              </div>
+              <pre>declarationHash = Blake2b_64(declaration)
+declarationSignature = Ed25519_sign(declarationHash, TZL_sk)</pre>
+              <div data-id="wl_protocol_sub6_txt3">
+                <p>Here is an example of input and output for this phase:</p>
+              </div>
+              <pre># inputs
+TZL_sk&#xA0;=&#xA0;3550ad222861448c43e921e3f27f480fe0f7c628ee5afc60b7533e4e9420b519
+
+declaration&#xA0;=&#xA0;I hereby cryptographically prove to be a contributor of Tezos Stiftung (CHE-290.597.458), a Swiss Foundation based in Gubelstrasse 11, 6300 Zug, Switzerland. I recognize and welcome the existence multiple implementations of Tezos. I ask and expect Tezos Stiftung to foster competition among them by funding and supporting their development, marketing and growth. Funds allotted to various Tezos implementations shall always be directly proportional to their market capitalization at the time of each distribution of funds. Distribution of funds to multiple existing Tezos implementations shall begin no later than January 1st 2019 and consistently continue throughout time. Following priorities autonomously set by each community, Tezos Stiftung shall distribute funds in the most appropriate, effective and transparent way.
+
+# byproduct
+declarationHash&#xA0;=&#xA0;a1b70612750535429cba81a412e864c84c35e19b3e0bc8ac9807d0ce736b4d24f5df8fb9e87d229a4d919a1f4f7b6dbe8ae2b241dd3082adb24c906a1186bec2 [TODO update in production]
+
+# output
+declarationSignature&#xA0;=&#xA0;4e8ffc0df77200837290a2fc4e1ac0f4edf9b7617668ef354a8c6385687a70a12bf138d684cefc8f79c93a5632dd150e23527276762a8fc0db28270be7282208 [TODO update in production]</pre>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_protocol_sub7_title">2. Verify signatures</h4>
+            <div class="row-main">
+              <div data-id="wl_protocol_sub7_txt">
+                <p>You can verify signatures with the <strong>Signatures verification tool</strong>. This check prevents you to issue an erroneous Ethereum transaction.</p>
+              </div>
+
+              <p class="block">
+                <a href="https://github.com/tzlibre/signatures-verification-tool" target="_blank" class="btn">
+                  <svg class="icon">
+                    <use href="/images/svgdefs.svg#icon-social-github-small" />
+                  </svg> <span data-id="wl_protocol_sub7_svtbtn"><strong>Signatures verification tool</strong></span></a>
+              </p>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_protocol_sub8_title">3. Invoke method</h4>
+            <div class="row-main" data-id="wl_protocol_sub8_txt">
+              <p>After verifying <span class="inline-code">ETH_addrSignature</span> and <span class="inline-code">declarationSignature</span> you can invoke the <span class="inline-code">whitelist</span> method of the <span class="inline-code">TzLibreRegistry</span>                smart contract</p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <a name="commandline"></a>
+
+        <div class="block">
+
+          <h2 data-id="wl_cltools_title">Command-line tools</h2>
+
+          <div data-id="wl_cltools_intro">
+            <p>The <strong>Command-line tools</strong> is a set of 4 tools aimed at helping reconstruct your DLS-Tezos private key and use it to follow the whitelisting procotol, that is associating your Ethereum address and signing a pseudonymous declaration.</p>
+            <p>You should use the <strong>Command-line tools</strong> only if you&apos;re not able to produce signatures by manually following the whitelisting
+              <a href="#protocol">protocol</a>.</p>
+          </div>
+
+          <p class="block">
+            <a href="https://github.com/tzlibre/fundraiser-tools" target="_blank" class="btn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-github-small" />
+              </svg> <span data-id="wl_cltools_btn"><strong>Command-line tools</strong> on GitHub</span></a>
+          </p>
+
+          <div data-id="wl_cltools_intro2">
+            <p>In line with original blockchain ethos we strongly encourage you to read the source code of all tools before executing them.</p>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_cltools_sub1_title">Estimated time</h4>
+            <div class="row-main" data-id="wl_cltools_sub1_txt">
+              <p>30 minutes</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_cltools_sub2_title">Required skills</h4>
+            <div class="row-main" data-id="wl_cltools_sub2_txt">
+              <p>Bash, Node.js, Python</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_cltools_sub3_title">Description</h4>
+            <div class="row-main" data-id="wl_cltools_sub3_txt">
+              <p>The 4 <strong>Command-line tools</strong> are:</p>
+              <ul>
+                <li><span class="inline-code">Dockerfile</span>: it allows to setup a sandboxed environment. This increases safety and stability, and allows the user to avoid installing dependencies and configuring the environment.</li>
+                <li><span class="inline-code">gen-signatures.sh</span> (Bash script): this script manages the i/o of the whole process. It launches both tools, and feeds the output of the first tool into the second one.</li>
+                <li><span class="inline-code">pykeychecker</span> (Python): this is a working fork of DLS &quot;fundraiser tools&quot;, which are currently broken. We fixed them, and then added the option of signing an Ethereum address and a pseudonymous
+                  declaration. You can verify the
+                  <a href="https://github.com/tezos/fundraiser-tools/compare/master...tzlibre:master?diff=split&amp;name=master" target="_blank">code diff</a> between the two versions.</li>
+                <li><span class="inline-code">jstxencoder</span> (Node.js): this tool generates Ethereum transaction data by encoding parameters. It takes in input <span class="inline-code">TZL_pk</span>, <span class="inline-code">ETH_addrSignature</span>,
+                  <span class="inline-code">declarationSignature</span> and correctly encodes them into an Ethereum transaction data.</li>
+              </ul>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_cltools_sub4_title">1. Generate tx data</h4>
+            <div class="row-main" data-id="wl_cltools_sub4_txt">
+              <p>Follow the instructions in the
+                <a href="https://github.com/tzlibre/fundraiser-tools/README.md" target="_blank">Readme file</a>, and save the resulting transaction data.</p>
+            </div>
+          </div>
+
+          <a name="send-tx"></a>
+          <div class="row">
+            <h4 data-id="wl_cltools_sub5_title">2. Send tx</h4>
+            <div class="row-main" data-id="wl_cltools_sub5_txt">
+              <p>Use the generated transaction data to send an Ethereum transaction with these parameters:</p>
+              <ul>
+                <li><strong>from</strong>: your Ethereum address (<span class="inline-code">ETH_addr</span>)</li>
+                <li><strong>to</strong>: <span class="inline-code">TzLibreRegistry</span> contract address <span class="inline-code">0x183601C3d1B9e421CBE789843e8312De30700C6a (Ropsten) [TODO update in production]</span></li>
+                <li><strong>tx data</strong>: [ output of step 1 ]</li>
+                <li><strong>value</strong>: 0.03 ETH (oracle fees)</li>
+                <li><strong>gas</strong>: 1000000</li>
+                <li><strong>gasPrice</strong>: 20 GWei (suggested)</li>
+              </ul>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_cltools_sub6_title">3. Verify</h4>
+            <div class="row-main" data-id="wl_cltools_sub6_txt">
+              <p>After your transaction has been mined, you should wait ~5 more minutes for Oraclize to provide its response. You then must verify that your Ethereum address has been successfully whitelisted. You can do it with our
+                <a href="verify.html"
+                  target="_blank">verification tool</a>.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_cltools_sub7_title">4. Follow updates</h4>
+            <div class="row-main" data-id="wl_cltools_sub7_txt">
+              <p>If whitlisting was successful, you should follow our public
+                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a> for updates on splitting.</p>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <div class="actionbar">
+      <div class="content">
+        <span data-id="cta_intro">Need to split your coins?</span>
+        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>Join us on Telegram</span></a>
+        </span>
+      </div>
+    </div>
+
+    <script src="/test/js/scripts.js"></script>
+
+
+
+  </body>
+
+</html>
