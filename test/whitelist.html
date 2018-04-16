@@ -24,7 +24,7 @@
       <div class="content">
         <div class="header-main">
           <h1>
-            <a href="index.html"><strong>tz</strong>libre</a>
+            <a href="/index.html"><strong>tz</strong>libre</a>
           </h1>
         </div>
         <img src="/images/tzllogo-base.svg" alt="tzlibre logo" class="logo">
@@ -40,10 +40,10 @@
           <a href="/faq.html" data-id="faq_title">FAQ</a>
         </li>
         <li class="selected">
-          <a href="/test/whitelist.html" data-id="wl_page_title">Whitelist</a>
+          <a href="whitelist.html" data-id="wl_page_title">Whitelist</a>
         </li>
         <li class="{{ nav4_class }}">
-          <a href="/test/verify.html" data-id="verify_page_title">Verify</a>
+          <a href="verify.html" data-id="verify_page_title">Verify</a>
         </li>
       </ul>
     </nav>
@@ -91,7 +91,8 @@
             <h4 data-id="wl_what_sub2_title">When</h4>
             <div class="row-main" data-id="wl_what_sub2_txt">
               <p>The whitelist is now open. Our community is currently discussing whether to close the whitelist before splitting begins to reward early adopters, or to keep whitelisting open for longer to accomodate late adopters. We&apos;ll announce on
-                our Telegram channel when the whitelist has closed.</p>
+                our
+                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a> when the whitelist has closed.</p>
             </div>
           </div>
 
@@ -105,27 +106,35 @@
 
 
           <div class="row">
-            <h4 data-id="wl_what_sub4_title">Methods</h4>
+            <h4 data-id="wl_what_sub4_title">Declaration</h4>
             <div class="row-main" data-id="wl_what_sub4_txt">
-              <p>We suggest to manually follow the protocol. If you&apos;re not an expert you can use the command line tools. If you use the command line tool we encourage you to at least read the source code before executing it.</p>
+              <p>Whitelisting involves cryptografically signing a declaration. Such declaration to support decoupling the Tezos idea from its implementations. You must read, understand and agree with the declaration before signing it. Signatures are pseudonymous
+                and not linked with your identity. You should not sign the declaration if you don&apos;t fully understand and agree with its content.</p>
             </div>
           </div>
 
 
           <div class="row">
-            <h4 data-id="wl_what_sub5_title">Next steps</h4>
+            <h4 data-id="wl_what_sub5_title">Methods</h4>
             <div class="row-main" data-id="wl_what_sub5_txt">
-              <p>After whitelisting we&apos;ll issue a pre-launch TZL token on the Ethereum blockchain. TZL tokens will only be credited to whitelisted Ethereum addresses. Following the EOS example, pre-launch tokens will be converted into native coins token
-                when TzLibre mainnet launches. We&apos;re currently ugrading the splitting process, and will post updates on our public
+              <p>We suggest to manually follow the protocol. If you&apos;re not an expert you can use the command line tools. If you use the command line tool we encourage you to at least read the source code before executing it.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="wl_what_sub6_title">Next steps</h4>
+            <div class="row-main" data-id="wl_what_sub6_txt">
+              <p>After whitelisting we&apos;ll issue a pre-launch TZL token on the Ethereum blockchain. TZL tokens will only be credited to whitelisted Ethereum addresses. Following the EOS example, pre-launch tokens will be converted into native coins when
+                TzLibre mainnet launches. We&apos;re currently ugrading the splitting process, and will post updates on our public
                 <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a>.</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="wl_what_sub6_title">Security</h4>
-            <div class="row-main" data-id="wl_what_sub6_txt">
-              <p>You should only handle sensitive data, such as contribution data, on a machine that is not compromised. You can also disconnect your machine from any network while handling sensitive contribution data. If you&apos;re not certain about the
-                security of your machine you should use a physically airgapped one.</p>
+            <h4 data-id="wl_what_sub7_title">Security</h4>
+            <div class="row-main" data-id="wl_what_sub7_txt">
+              <p>You should only handle sensitive data such as private contribution data on a machine that is not compromised (e.g. by malware, keyloggers, etc). As an additional security measure you can disconnect your machine from any network while handling
+                private contribution data. If you&apos;re not certain about the security of your machine you should use a physically airgapped one.</p>
             </div>
           </div>
 
@@ -161,8 +170,8 @@
           <div class="row">
             <h4 data-id="wl_howto_sub2_title">Oracle</h4>
             <div class="row-main" data-id="wl_howto_sub2_txt">
-              <p>Due to the limitations of Ethereum smart contracts, the procedure resorts to
-                <a href="https://oraclize.it" target="_blank"> Oraclize</a>, an external oracle. This platform verifies the signature and contribution to the DLS-Tezos ICO using public data from the BTC and ETH blockchains. The source code of the
+              <p>Due to limitations of Ethereum smart contracts, the procedure resorts to
+                <a href="https://oraclize.it" target="_blank"> Oraclize</a>, an external oracle. This platform verifies the signature and contribution to the Tezos ICO using public data from the BTC and ETH blockchains. The source code of the
                 <a href="https://github.com/tzlibre/registry-oracle-container"
                   target="_blank">Docker container</a> run by Oraclize is available on GitHub and is deployed on IPFS at
                 <a href="http://ipfs.io/ipfs/QmYkdYwMdj1rJ5dHhokqLmEBVyWg5j4fkDUqwgzBivN8YA" .<="" p=""></a>
@@ -315,7 +324,8 @@ ETH_addrSignature&#xA0;=&#xA0;1a9871ca4357ef82ab8b427e428e1f430c78755f4d15b826d8
             <h4 data-id="wl_protocol_sub6_title"><span class="inline-code">declarationSignature</span></h4>
             <div class="row-main">
               <div data-id="wl_protocol_sub6_txt">
-                <p>Finally, you have to sign the hash of the following declaration. This serves as a pseudonymous way to ask Tezos Stiftung to support TzLibre development:</p>
+                <p>Finally, you have to sign the hash of the following declaration. You have to make sure you understand and agree with the content of the declaration before signing its hash. Your signature is pseudonymous and it&apos;s not linked with your
+                  identity.</p>
               </div>
               <pre>I hereby cryptographically prove to be a contributor of Tezos Stiftung (CHE-290.597.458), a Swiss Foundation based in Gubelstrasse 11, 6300 Zug, Switzerland. I recognize and welcome the existence multiple implementations of Tezos. I ask and expect Tezos Stiftung to foster competition among them by funding and supporting their development, marketing and growth. Funds allotted to various Tezos implementations shall always be directly proportional to their market capitalization at the time of each distribution of funds. Distribution of funds to multiple existing Tezos implementations shall begin no later than January 1st 2019 and consistently continue throughout time. Following priorities autonomously set by each community, Tezos Stiftung shall distribute funds in the most appropriate, effective and transparent way.</pre>
               <p><em data-id="wl_protocol_sub6_translation"></em></p>
@@ -374,7 +384,7 @@ declarationSignature&#xA0;=&#xA0;4e8ffc0df77200837290a2fc4e1ac0f4edf9b7617668ef3
           <h2 data-id="wl_cltools_title">Command-line tools</h2>
 
           <div data-id="wl_cltools_intro">
-            <p>The <strong>Command-line tools</strong> is a set of 4 tools aimed at helping reconstruct your DLS-Tezos private key and use it to follow the whitelisting procotol, that is associating your Ethereum address and signing a pseudonymous declaration.</p>
+            <p>The <strong>Command-line tools</strong> is a set of 4 tools that help you reconstruct your DLS-Tezos private key and then use it to follow the whitelisting procotol (that is, associating your Ethereum address and signing a pseudonymous declaration).</p>
             <p>You should use the <strong>Command-line tools</strong> only if you&apos;re not able to produce signatures by manually following the whitelisting
               <a href="#protocol">protocol</a>.</p>
           </div>
@@ -405,34 +415,16 @@ declarationSignature&#xA0;=&#xA0;4e8ffc0df77200837290a2fc4e1ac0f4edf9b7617668ef3
           </div>
 
           <div class="row">
-            <h4 data-id="wl_cltools_sub3_title">Description</h4>
+            <h4 data-id="wl_cltools_sub3_title">1. Generate tx data</h4>
             <div class="row-main" data-id="wl_cltools_sub3_txt">
-              <p>The 4 <strong>Command-line tools</strong> are:</p>
-              <ul>
-                <li><span class="inline-code">Dockerfile</span>: it allows to setup a sandboxed environment. This increases safety and stability, and allows the user to avoid installing dependencies and configuring the environment.</li>
-                <li><span class="inline-code">gen-signatures.sh</span> (Bash script): this script manages the i/o of the whole process. It launches both tools, and feeds the output of the first tool into the second one.</li>
-                <li><span class="inline-code">pykeychecker</span> (Python): this is a working fork of DLS &quot;fundraiser tools&quot;, which are currently broken. We fixed them, and then added the option of signing an Ethereum address and a pseudonymous
-                  declaration. You can verify the
-                  <a href="https://github.com/tezos/fundraiser-tools/compare/master...tzlibre:master?diff=split&amp;name=master" target="_blank">code diff</a> between the two versions.</li>
-                <li><span class="inline-code">jstxencoder</span> (Node.js): this tool generates Ethereum transaction data by encoding parameters. It takes in input <span class="inline-code">TZL_pk</span>, <span class="inline-code">ETH_addrSignature</span>,
-                  <span class="inline-code">declarationSignature</span> and correctly encodes them into an Ethereum transaction data.</li>
-              </ul>
-              <p></p>
-            </div>
-          </div>
-
-          <div class="row">
-            <h4 data-id="wl_cltools_sub4_title">1. Generate tx data</h4>
-            <div class="row-main" data-id="wl_cltools_sub4_txt">
               <p>Follow the instructions in the
-                <a href="https://github.com/tzlibre/fundraiser-tools/README.md" target="_blank">Readme file</a>, and save the resulting transaction data.</p>
+                <a href="https://github.com/tzlibre/fundraiser-tools" target="_blank">Readme file</a>, and save the resulting transaction data.</p>
             </div>
           </div>
 
-          <a name="send-tx"></a>
           <div class="row">
-            <h4 data-id="wl_cltools_sub5_title">2. Send tx</h4>
-            <div class="row-main" data-id="wl_cltools_sub5_txt">
+            <h4 data-id="wl_cltools_sub4_title">2. Send tx</h4>
+            <div class="row-main" data-id="wl_cltools_sub4_txt">
               <p>Use the generated transaction data to send an Ethereum transaction with these parameters:</p>
               <ul>
                 <li><strong>from</strong>: your Ethereum address (<span class="inline-code">ETH_addr</span>)</li>
@@ -446,20 +438,20 @@ declarationSignature&#xA0;=&#xA0;4e8ffc0df77200837290a2fc4e1ac0f4edf9b7617668ef3
             </div>
           </div>
 
+          <a name="send-tx"></a>
           <div class="row">
-            <h4 data-id="wl_cltools_sub6_title">3. Verify</h4>
-            <div class="row-main" data-id="wl_cltools_sub6_txt">
-              <p>After your transaction has been mined, you should wait ~5 more minutes for Oraclize to provide its response. You then must verify that your Ethereum address has been successfully whitelisted. You can do it with our
-                <a href="verify.html"
-                  target="_blank">verification tool</a>.</p>
+            <h4 data-id="wl_cltools_sub5_title">3. Verify</h4>
+            <div class="row-main" data-id="wl_cltools_sub5_txt">
+              <p>After your transaction has been mined, you should wait 5-10 minutes for Oraclize to provide its response. You then must verify that your Ethereum address has been successfully whitelisted. You can do it with our
+                <a href="verify.html" target="_blank">verification tool</a>. <strong>Do not skip this step</strong>.</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="wl_cltools_sub7_title">4. Follow updates</h4>
-            <div class="row-main" data-id="wl_cltools_sub7_txt">
+            <h4 data-id="wl_cltools_sub6_title">4. Follow updates</h4>
+            <div class="row-main" data-id="wl_cltools_sub6_txt">
               <p>If whitlisting was successful, you should follow our public
-                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a> for updates on splitting.</p>
+                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a> to know when the whitelist closes and when splitting opens.</p>
             </div>
           </div>
 
