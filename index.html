@@ -1,370 +1,291 @@
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <title data-id="home_page_title">TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#1F260B">
-  <meta name="theme-color" content="#1F260B">
-  <link href="/style/style.css" rel="stylesheet">
-  <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
-  <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-  <meta property="og:title" data-id="home_page_title" content="TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos">
-</head>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
 
-<body class="homepage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title data-id="default_page_title">Tz Libre | a fork of DLS Tezos</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#1F260B">
+    <meta name="theme-color" content="#1F260B">
+    <link href="/style/style.css" rel="stylesheet">
+    <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS Tezos">
+  </head>
 
-  <div class="lang-switch">
-    <div class="content">
-        <button class="btn-lang-switch" data-lang="en">english</button>
-        <button class="btn-lang-switch" data-lang="ru">&#x440;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</button>
-        <button class="btn-lang-switch" data-lang="cn">&#x4E2D;&#x6587;</button>
-    </div>
-</div>
+  <body>
 
+    <div class="cover">
 
-<header>
-  <div class="content">
-    <div class="header-main">
-      <h1><a href="index.html"><strong>tz</strong>libre</a></h1>
-      <h4 data-id="home_definition">(/t&#x25B;z&#x254;s &#x2C8;lib&#x27E;e/) a <strong>trustless</strong> and <strong>hard-capped</strong> implementation of Tezos, based on a fork of DLS-Tezos. ICO contributors can claim their TZL during the coin splitting timeframe.</h4>
-    </div>
-    <img src="/images/tzllogo-base.svg" alt="tzlibre logo" class="logo">
-  </div>
-</header>
-
-<nav>
-  <ul class="content">
-    <li><a href="index.html#why" data-id="home_sect1_title">Why TzLibre</a></li>
-    <li><a href="index.html#what" data-id="home_sect2_title">What is TzLibre</a></li>
-    <li><a href="index.html#how" data-id="home_sect3_title">How to split</a></li>
-    <li><a href="index.html#about" data-id="home_sect4_title">About us</a></li>
-    <li><a href="faq.html" data-id="faq_title">FAQ</a></li>
-  </ul>
-</nav>
-
-
-  <div class="main">
-
-    <div class="content">
-
-      <a name="why"></a>
-
-      <div class="block">
-
-        <h2 data-id="home_sect1_title">Why TzLibre</h2>
-
-        <p data-id="home_sect1_intro">Tezos is a great idea with a huge disruptive potential. As per its immutable charter, Tezos Stiftung is obliged by Swiss law to fund the correct implementation of this idea. We believe DLS-Tezos is the wrong way to implement it. <br>Specifically, we recognize these major flaws in DLS-Tezos:</p>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub1_title">No hard cap</h4>
-  <div class="row-main" data-id="home_sect1_sub1_txt"><p>XTZ supply is not hard-capped. Instead, XTZ supply is constantly inflated ad infinitum.</p><p>Via on-chain governance the <strong>inflation rate can be increased automatically, without even the need for an explicit hard fork</strong> (as in a traditional blockchain). Unsophisticated users might not even notice the increase of monetary base. This is eerily similar to how fiat currencies are debased. We predict that, using Keynesian talking points, special interests will soon begin to push their own agenda to inflate the XTZ money supply, and thus dilute ICO contributors.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub2_title">Premined coins</h4>
-  <div class="row-main" data-id="home_sect1_sub2_txt"><p>20% of XTZ supply is premined out of thin air and assigned for free to Tezos Stiftung (TS) and DLS.</p><p>This is unfair to ICO contributors, who had to pay a high price to buy their XTZ. It also opens an attack vector: TS/DLS can be coerced into dumping their stake onto the market, potentially driving XTZ price to zero. They could also be forced to transfer their stake to an attacker who could then use it to manipulate XTZ market price.</p><p>Tezos Stiftung now holds more than $500M in contributions: this is more than enough to fund competing teams developing the Tezos idea. <strong>Premined coins are not only unnecessary: they directly harm the financial interest of ICO contributors</strong>.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub3_title">No pre-launch token</h4>
-  <div class="row-main" data-id="home_sect1_sub3_txt"><p>DLS has deliberately deprived investors of liquidity, while at same time announcing and missing launch at least three times. In the meanwhile, Tezos has been losing a substantial market share to the EOS pre-launch token. <strong>By choosing not to issue a pre-launch token, DLS harmed the best interest of ICO contributors</strong>.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub4_title">Tyranny of the majority</h4>
-  <div class="row-main" data-id="home_sect1_sub4_txt"><p>DLS-Tezos on-chain governance is based on unrestricted voting power. Unrestricted democracy is an obviously broken governance model. The problem with such governance mechanism is the so called &quot;tyranny of the majority&quot; or &quot;mob rule&quot;. Constitutions exist to define boundaries and protect non-negotiable rights.</p><p><strong>In DLS-Tezos a majority can vote to inflate the money supply, censor a specific address, or manipulate a smart contract</strong>.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub5_title">Not trustless</h4>
-  <div class="row-main" data-id="home_sect1_sub5_txt"><p>DLS-Tezos is not trustless, and is therefore not resilient to  manipulation.</p><p>Tezos Stiftung, DLS and its developers are trusted parties holding special powers in the network: veto, big voting stake, strong influence over other community members, and more. They also hold fiat funds, and are all under government jurisdiction and scrutiny. These attack vectors can be easily exploited by an adversary who&apos;s able to coerce TS/DLS into implementing a specific agenda (e.g. a government agency enforcing financial regulation).</p><p>A blockchain is only useful when it&apos;s trustless. Otherwise it&apos;s just a slow and expensive database. We consider DLS-Tezos an innovative distributed, trusted database. It&apos;s just a matter of time until DLS-Tezos own &quot;DAO event&quot;, where <strong>TS/DLS will be coerced by some government agency to censor or manipulate a smart contract</strong>.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub6_title">Monopoly</h4>
-  <div class="row-main" data-id="home_sect1_sub6_txt"><p>As long as DLS-Tezos is the only Tezos implementation, it holds a de-facto monopoly over ICO funds as well as over potential users. Monopoly breeds inefficiency: <strong>delays, missed deadlines and governance failures are its direct consequences</strong>. This monopoly benefits a special group, but it hurts contributors. Contributors have no other option but wait and hope.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub7_title">Tracking</h4>
-  <div class="row-main" data-id="home_sect1_sub7_txt"><p>Not only does Tezos Stiftung track users with third party tools (e.g. Google Analytics) on its websites, but it also owns a database mapping all contributors addresses to their own emails. <strong>With this database DLS-Tezos transactions can be easily de-anonymized</strong>. It is an enormous privacy breach, and it is only a matter of time until some powerful actor gets their hands on this database.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub8_title">Centralization of stake</h4>
-  <div class="row-main" data-id="home_sect1_sub8_txt"><p>PoS is still experimental technology. In a PoS consensus blockchain, decentralization of stake is a vital security requirement. In DLS-Tezos 20% of coins are premined and assigned to Tezos Stiftung and DLS, <strong>creating dangerous centralization of stake and undermining the security of the consensus protocol</strong>.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect1_sub9_title">Closed-source</h4>
-  <div class="row-main" data-id="home_sect1_sub9_txt"><p>DLS has more than once shown disregard for basic blockchain ethos. The publicly available source code has not been explicitly released under an open-source license. Parts of the codebase have even been deliberately obfuscated, to make source not human-readable. <strong>Closed-source defies the basic blockchain principle of open-source, trustless, verifiable code</strong>.</p></div>
-</div>
-
-
-<div class="row">
-  <h4 data-id="home_sect1_sub10_title">Censorship</h4>
-  <div class="row-main" data-id="home_sect1_sub10_txt"><p>A deliberate effort is underway to conflate Tezos with DLS-Tezos and stop the conversation about alternative implementations. We are banned from reaching out to Tezos ICO contributors on any Tezos community outlet (Reddit, Riot, Telegram). Administrators of those groups spread FUD around TzLibre and went as far as using our pseudonym to lure unsuspecting users into providing private contribution data in order to create confusion (<a href="#how">we will never ask for your private contribution data</a>).</p><p>Blockchain&apos;s raison d&apos;&#xEA;tre is censorship resistance. A true blockchain community should welcome open discussion, free market competition, permissionless innovation, alternative implementations. <strong>A blockchain community that deploys censorship is a failed one</strong>.</p></div>
-</div>
-
+      <div class="langswitch">
+        <ul class="content">
+          <li>
+            <button data-lang="en">english</button>
+          </li>
+          <li>
+            <button data-lang="ru">&#x440;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</button>
+          </li>
+          <li>
+            <button data-lang="cn">&#x4E2D;&#x6587;</button>
+          </li>
+        </ul>
       </div>
 
-      <a name="what"></a>
+      <header>
+        <div class="content">
+          <div class="header-main">
+            <div class="logo">
+              <img src="/images/tzllogo-symbol-green.svg" alt="tzlibre logo">
+            </div>
+            <h1><strong>tz</strong>libre</h1>
+            <h4 data-id="home_definition">(/t&#x25B;z&#x254;s &#x2C8;lib&#x27E;e/) a fork of DLS-Tezos. A <strong>trustless</strong> and <strong>hard-capped</strong> implementation of the Tezos idea. ICO contributors can claim their TZL by splitting their XTZ.</h4>
+            <h4 data-id="cta_intro">Need to split your coins?</h4>
+            <a href="whitelist.html" class="btn"><span data-id="wl_page_title">Whitelist your Tezos address</span></a>
+          </div>
+        </div>
+      </header>
 
-      <div class="block">
+      <nav class="nav-primary">
+        <ul class="content">
+          <li class="{{ nav1_class }}">
+            <a href="project.html" data-id="home_title">Project</a>
+          </li>
+          <li class="{{ nav2_class }}">
+            <a href="faq.html" data-id="faq_title">FAQ</a>
+          </li>
+          <li class="{{ nav3_class }}">
+            <a href="whitelist.html" data-id="wl_title">Whitelist</a>
+          </li>
+        </ul>
+      </nav>
 
-        <h2 data-id="home_sect2_title">What is TzLibre</h2>
-
-        <div data-id="home_sect2_intro"><p>TzLibre is a trustless and hard-capped implementation of Tezos. It is based on a fork of DLS-Tezos: it shares with it the underlying technology. The TzLibre blockchain is alternative to, and not compatible with, the DLS-Tezos blockchain.</p><p>TzLibre has been created to run Michelson smart contracts with strong requirements of immutability and uncensorability.</p></div>
-
-<h3 data-id="home_sect2_alloc_title">TZL allocation</h3>
-
-<div class="barchart limited-max">
-
-  <div class="barchart-total">
-    <span class="barchart-lbl"><strong>763,306,929.68</strong><br><span data-id="home_sect2_alloc_lbl1">Hard cap</span></span>
-  </div>
-
-  <div class="barchart-main">
-    <div class="barchart-full" style="width: 79%">
-      <span class="barchart-lbl"><strong>607,489,040.89</strong><br><span data-id="home_sect2_alloc_lbl2">ICO contributors</span></span>
     </div>
-    <div class="barchart-empty">
-      <span class="barchart-lbl"><strong>155,817,888.79</strong><br><span data-id="home_sect2_alloc_lbl3">bakers</span></span>
-    </div>
-  </div>
 
-</div>
+    <div class="main-hilite">
+      <div class="content">
+        <div class="block">
 
-<h3 data-id="home_sect2_diff_title">Main differences</h3>
+          <div class="block-row">
 
-<p data-id="home_sect2_diff_intro">The main differences with DLS-Tezos are:</p>
+            <div class="block">
+              <a href="project.html#why" class="p-link">
+                <p class="large"><strong><span data-id="home_sect1_title">Why TzLibre</span></strong> <span data-id="home_sect1_intro_short">Tezos is a great idea with a huge disruptive potential. As per its immutable charter, Tezos Stiftung is obliged by Swiss law to fund the correct implementation of this idea. We believe DLS-Tezos is the wrong way to implement it.</span></p>
+              </a>
+            </div>
 
-<div class="row">
-  <h4 data-id="home_sect2_diff_sub1_title">Hard cap</h4>
-  <div class="row-main" data-id="home_sect2_diff_sub1_txt"><p>TzLibre has a hard-capped supply of <strong>763,306,929.68 coins</strong>. The hard cap is a non-negotiable, hardcoded rule: it can&apos;t be changed via on-chain governance.</p></div>
-</div>
+            <div class="block">
+              <a href="project.html#what" class="p-link">
+                <p class="large"><strong><span data-id="home_sect2_title">What is TzLibre</span></strong> <span data-id="home_sect2_intro_short">TzLibre is a trustless and hard-capped implementation of Tezos. It is based on a fork of DLS-Tezos: it shares with it the underlying technology. The TzLibre blockchain is alternative to, and not compatible with, the DLS-Tezos blockchain.</span></p>
+              </a>
+            </div>
 
-
-<div class="row">
-  <h4 data-id="home_sect2_diff_sub2_title">No premine</h4>
-  <div class="row-main" data-id="home_sect2_diff_sub2_txt"><p>No coins are created out of thin air and assigned for free to special groups. Tezos ICO contributors are more protected because TZL coins are more evenly distributed. TZL coins are more valuable because, unlike DLS-Tezos, <strong>TzLibre founders don&apos;t get any free coin</strong>.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect2_diff_sub3_title">Pre-launch token</h4>
-  <div class="row-main" data-id="home_sect2_diff_sub3_txt"><p>Following the EOS example, TzLibre will issue a pre-launch token to provide <strong>immediate liquidity</strong> to ICO contributors and prepare for launching the network. The pre-launch token is a placeholder for the TzLibre genesis block. Thanks to the pre-launch token, TzLibre can launch earlier than DLS-Tezos as it does not depend on its genesis block (which will be blinded, thus hard to fork).</p></div>
-</div>
-
-
-<div class="row">
-  <h4 data-id="home_sect2_diff_sub4_title">Trustless</h4>
-  <div class="row-main" data-id="home_sect2_diff_sub4_txt"><p>Unlike DLS-Tezos, no one holds special veto powers in TzLibre on-chain governance decisions. <strong>All voters are equal</strong> and vote with their stake. There are no premined coins in TzLibre: founders can&apos;t influence decisions with their own stake.</p><p>Following Satoshi&apos;s example, TzLibre founders are pseudonymous to stay protected from undue pressure, coercion and special interests. TzLibre development team is open, with no developer in charge, and no private company behind.</p></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect2_diff_sub5_title">Hardcoded Constitution</h4>
-  <div class="row-main" data-id="home_sect2_diff_sub5_txt"><p>TzLibre adds a hardcoded <strong>on-chain Constitution</strong> to on-chain governance. It is a set of immutable norms encoded in the protocol. These rules are hardcoded and non-negotiable. They can&apos;t be changed with on-chain governance.</p><p>Some of these rules are:</p><ul><li>763,306,929.68 coins hard cap</li><li>smart contracts immutability</li><li>transactions irreversibility</li><li>addresses uncensorability</li></ul></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect2_diff_sub6_title">Off-chain Schelling fences</h4>
-  <div class="row-main" data-id="home_sect2_diff_sub6_txt"><p>Reliable blockchains, such as Bitcoin or Ethereum Classic, are trustless. Any trustless blockchain needs strong Schelling fences: an unbreakable social consensus on non-negotiable rules.</p><p>The TzLibre Schelling fences are:</p><ul><li><strong>No forks</strong><br>To protect the network from social attacks, we shall never fork. The TzLibre network will upgrade only via on-chain governance. Forks shall only be permitted for fixing fatal issues within the on-chain governance protocol.</li><li><strong>Trustless governance</strong><br>As soon as the developer community is mature, TzLibre founders will cease to hold an operational role and will only maintain an oversight role. No single developer will ever be in charge.</li><li><strong>Full pseudonymity</strong><br>To be protected from coercion and undue pressure, all TzLibre developers must maintain absolute pseudonymity. In our community code will only be evaluated by its quality. No trusted entity or company will be accepted by the TzLibre community.</li></ul></div>
-</div>
-
-<div class="row">
-  <h4 data-id="home_sect2_diff_sub7_title">Decentralized stake</h4>
-  <div class="row-main" data-id="home_sect2_diff_sub7_txt"><p>As with DLS-Tezos, TzLibre is also based on PoS consensus. Decentralization of stake is therefore of vital importance for the security of the network. By removing 20% of coins (TS/DLS premine), TzLibre stake is more evenly spread across multiple entities. Consensus is therefore more secure and <strong>harder to tamper with</strong>.</p></div>
-</div>
-
-        <h3 data-id="home_sect2_comp_title">Compared to other forks</h3>
-
-        <div class="tables-list">
-
-          <div class="tables-list-item">
-  <table>
-    <tbody><tr>
-      <th></th>
-      <th>Ethereum</th>
-      <th>Ethereum<br>Classic</th>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl1">Underlying technology</td>
-      <td>EVM</td>
-      <td>EVM</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl2">Market capitalization</td>
-      <td>$60bn</td>
-      <td>$2bn</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl4">No free coins to founders</td>
-      <td></td>
-      <td>&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl5">Hard cap</td>
-      <td></td>
-      <td>&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl6">Transaction immutability</td>
-      <td></td>
-      <td>&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl7">Trustless governance</td>
-      <td></td>
-      <td>&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl8">Opposes hard forks</td>
-      <td></td>
-      <td>&#x2714;</td>
-    </tr>
-  </tbody></table>
-</div>
-
-<div class="tables-list-item">
-  <table>
-    <tbody><tr>
-      <th></th>
-      <th>Zcash</th>
-      <th>ZClassic</th>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl1">Underlying technology</td>
-      <td>Zcash</td>
-      <td>Zcash</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl2">Market capitalization</td>
-      <td>$800M</td>
-      <td>$25M</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl4">No free coins to founders</td>
-      <td></td>
-      <td>&#x2714;</td>
-    </tr>
-  </tbody></table>
-</div>
-
-<div class="tables-list-item">
-  <table>
-    <tbody><tr>
-      <th></th>
-      <th>DLS-Tezos</th>
-      <th class="tdhilite">TzLibre</th>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl1">Underlying technology</td>
-      <td>Tezos</td>
-      <td class="tdhilite">Tezos</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl3">Estimated market cap</td>
-      <td>$2bn</td>
-      <td class="tdhilite">?</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl4">No free coins to founders</td>
-      <td></td>
-      <td class="tdhilite">&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl5">Hard cap</td>
-      <td></td>
-      <td class="tdhilite">&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl6">Transaction immutability</td>
-      <td></td>
-      <td class="tdhilite">&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl7">Trustless governance</td>
-      <td></td>
-      <td class="tdhilite">&#x2714;</td>
-    </tr>
-    <tr>
-      <td data-id="home_sect2_comp_lbl8">Opposes hard forks</td>
-      <td></td>
-      <td class="tdhilite">&#x2714;</td>
-    </tr>
-  </tbody></table>
-</div>
+          </div>
 
         </div>
-
       </div>
-
-      <a name="how"></a>
-
-      <div class="block">
-
-        <h2 data-id="home_sect3_title">How to split</h2>
-
-       <div data-id="home_sect3_txt"><p>All Tezos ICO contributors can get TZL coins (aka &quot;Libre tezzies&quot;) at a 1:1 ratio with their XTZ coins (aka &quot;DLS tezzies&quot;). To do so, they must split their coins during the coin splitting timeframe.</p><p>In order to split, a message must be signed on a secure machine. This will both prove ownership of a contribution address and explicit willingness to split. We&apos;re currently upgrading the splitting procedure. We will post detailed splitting instructions on our public <a href="https://t.me/tzlibre">Telegram channel</a>.</p><p><strong>Do not share your sensitive data</strong> (private key, seed words, password, email) with us nor with anyone else. We will never ask for your sensitive data. We will never contact you privately to ask for money or sensitive data. Please report us any phishing attempt.</p></div>
-
-<p><a href="https://t.me/tzlibre" target="_blank" class="btn"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg> <span data-id="cta_button">Join us on Telegram</span></a></p>
-
-<h3 data-id="home_sect3_timeframe_title">Timeframe</h3>
-<div data-id="home_sect3_timeframe_text"><p>Coin splitting will begin in the coming days, as soon as our public Telegram channel reaches <strong>1000 members</strong> to ensure sufficient critical mass. Splitting will last for a few days. The opening and closing of the coin splitting timeframe will be announced on our public <a href="https://t.me/tzlibre">Telegram channel</a>.</p></div>
-
-      </div>
-
-      <a name="about"></a>
-
-      <div class="block">
-
-        <h2 data-id="home_sect4_title">About us</h2>
-
-        <h3 data-id="home_sect4_sub1_title">Who we are</h3>
-<div data-id="home_sect4_sub1_txt"><p>We are a team of early Tezos investors, veteran blockchain developers, and academics.</p><p>We are dreamers of a new society, where smart contracts and protocols replace politicians and lawyers. We believe decentralized governance is the right path to build our vision. We are pseudonymous to protect our operational freedom from any undue pressure.</p><p><strong>Our code speaks louder than words: don&apos;t trust us, verify it.</strong></p></div>
-
-<h3 data-id="home_sect4_sub2_title">Our community</h3>
-<div data-id="home_sect4_sub2_txt"><p>We are building a healthy, inclusive, respectful community to move TzLibre forward.</p><p>We believe a disruptive technology can have one foundation only: a productive community of good people, with no masters or slaves. We&apos;ll retain an operational role until the community is mature enough. We plan to then step back and only provide oversight.</p></div>
-
-<h3 data-id="home_sect4_sub3_title">Our philosophy</h3>
-<div data-id="home_sect4_sub3_txt"><p>Our background is free market anarcho-capitalism, and we believe Bitcoin is a milestone in human evolution toward freedom.</p><p>We firmly oppose statism and its favourite weapon: inflation. We want to build a world without trusted parties, based purely on merit. We fight for transparency and the free market of ideas, goods and services.</p><p>We oppose monopolies in every shape or form, and we don&apos;t believe in copyright. We dream of a world without governments, borders, passports: a really, fully decentralized world.</p></div>
-<p><a href="https://ipfs.infura.io/ipns/QmT7A5yRJ1AMRUCXV6Ct2GvXxSbfWHHs7LCgm2kTFhsxbq" target="_blank" class="btn" data-id="link_manifesto">Read our manifesto</a></p>
-
-<div class="block-row">
-
-  <div class="block">
-    <h3 data-id="home_sect4_sub4_title">Follow us</h3>
-    <div data-id="home_sect4_sub4_txt"><p>Join our public Telegram channel to get our official news, read previous announcements, and get in touch with us.</p></div>
-    <p><a href="https://t.me/tzlibre" target="_blank" class="btn"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg> <span data-id="cta_button">Join us on Telegram</span></a></p>
-    <div data-id="home_sect4_sub4_txt2"><p>You can also contact us privately via <a href="https://t.me/tz_libre" target="_blank">Telegram</a> or <a href="https://www.reddit.com/user/tzlibre" target="_blank">Reddit</a></p></div>
-  </div>
-
-  <div class="block">
-    <h3 data-id="home_sect4_sub5_title">Support us</h3>
-    <div data-id="home_sect4_sub5_txt"><p>TzLibre is a self-funded grassroots effort driven by ideals. We chose not to premine coins to ourselves. Please support us with an ETC donation to our Ethereum Classic address:</p></div>
-    <input type="text" value="0xF468c6Bb48c76E86bEf1470990727d48247a0653" readonly>
-  </div>
-
-</div>
-
-      </div>
-
     </div>
 
-  </div>
+    <div class="main-light">
+      <div class="content">
+        <div class="block carousel">
 
-  <div class="actionbar">
-  <div class="content">
-    <span data-id="cta_intro">Need to split your coins?</span>
-    <a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg> <span data-id="cta_button">Join us on Telegram</span></a>
-  </div>
-</div>
+          <button class="btn" id="carouselbtn-next"><span>&#x2192;</span></button>
+          <button class="btn" id="carouselbtn-prev"><span>&#x2190;</span></button>
 
-  <script src="/js/scripts.js"></script>
+          <div class="carousel-strip" id="carousel">
+
+            <div class="quote">
+              <img src="/images/avatars/hoskinson.jpg" alt="Charles Hoskinson" class="avatar">
+              <p data-id="cover_quote1">As for the Tezos affair, it&apos;s a classic example of when Greed is married with Stupidity.</p>
+              <a href="https://twitter.com/iohk_charles/status/955955894671458304" target="_blank">Charles Hoskinson on Twitter</a>
+            </div>
+
+            <div class="quote">
+              <img src="/images/avatars/gevers.jpg" alt="Johann Gevers" class="avatar">
+              <p data-id="cover_quote2">We look forward to working with the global community to build Tezos into a success story.</p>
+              <a href="https://twitter.com/johanngevers/status/954452971689005056" target="_blank">Johann Gevers on Twitter</a>
+            </div>
+
+            <div class="quote">
+              <img src="/images/avatars/breitman.jpg" alt="Arthur Robert Meunier-Breitman" class="avatar">
+              <p data-id="cover_quote3">Forkers are going to fork. It&apos;s inevitable.</p>
+              <a href="https://matrix.to/#/!KNlqwBRiVdbAwkVpKO:matrix.org/$15197516223532073xDdeg:matrix.org" target="_blank">Arthur Robert Meunier-Breitman, Feb 27 2018</a>
+            </div>
+
+            <div class="quote">
+              <img src="/images/avatars/nakamoto.jpg" alt="Satoshi Nakamoto" class="avatar">
+              <p data-id="cover_quote4">If [money supply] does not increase as fast as demand, there will be deflation and early holders of money will see its value increase.</p>
+              <a href="https://www.mail-archive.com/cryptography@metzdowd.com/msg09979.html" target="_blank">Satoshi Nakamoto, Nov 8 2008</a>
+            </div>
+
+            <div class="quote">
+              <img src="/images/avatars/szabo.jpg" alt="Nick Szabo" class="avatar">
+              <p data-id="cover_quote5">Run like the plague from &quot;blockchains&quot; that are based on the politeness of strangers rather than on minimizing the need to rely on the goodwill of strangers.</p>
+              <a href="https://twitter.com/NickSzabo4/status/984550408751276032" target="_blank">Nick Szabo on Twitter</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="content">
+        <div class="block">
+          <h3 data-id="home_sect2_comp_title">Compared to other forks</h3>
+
+          <div class="tables-list">
+
+            <div class="tables-list-item">
+              <table>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th>Ethereum</th>
+                    <th>Ethereum
+                      <br>Classic</th>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl1">Underlying technology</td>
+                    <td>EVM</td>
+                    <td>EVM</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl2">Market capitalization</td>
+                    <td>$60bn</td>
+                    <td>$2bn</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl4">No free coins to founders</td>
+                    <td></td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl5">Hard cap</td>
+                    <td></td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl6">Transaction immutability</td>
+                    <td></td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl7">Trustless governance</td>
+                    <td></td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl8">Opposes hard forks</td>
+                    <td></td>
+                    <td>&#x2714;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tables-list-item">
+              <table>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th>Zcash</th>
+                    <th>ZClassic</th>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl1">Underlying technology</td>
+                    <td>Zcash</td>
+                    <td>Zcash</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl2">Market capitalization</td>
+                    <td>$1bn</td>
+                    <td>$60M</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl4">No free coins to founders</td>
+                    <td></td>
+                    <td>&#x2714;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="tables-list-item">
+              <table>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th>DLS-Tezos</th>
+                    <th class="tdhilite">TzLibre</th>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl1">Underlying technology</td>
+                    <td>Tezos</td>
+                    <td class="tdhilite">Tezos</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl3">Estimated market cap</td>
+                    <td>$2bn</td>
+                    <td class="tdhilite">?</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl4">No free coins to founders</td>
+                    <td></td>
+                    <td class="tdhilite">&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl5">Hard cap</td>
+                    <td></td>
+                    <td class="tdhilite">&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl6">Transaction immutability</td>
+                    <td></td>
+                    <td class="tdhilite">&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl7">Trustless governance</td>
+                    <td></td>
+                    <td class="tdhilite">&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl8">Opposes hard forks</td>
+                    <td></td>
+                    <td class="tdhilite">&#x2714;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-light">
+      <div class="content">
+      </div>
+    </div>
+
+    <div class="actionbar">
+      <div class="content">
+        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>Join us on Telegram</span></a>
+        </span>
+        <p data-id="actionbar_text">to get split updates</p>
+      </div>
+    </div>
+
+    <script src="/js/scripts.js"></script>
+    <script src="/js/carousel.js"></script>
 
 
-</body></html>
+  </body>
+
+</html>

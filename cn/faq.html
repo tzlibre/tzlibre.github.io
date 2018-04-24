@@ -1,336 +1,499 @@
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <title data-id="faq_page_title">TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#1F260B">
-  <meta name="theme-color" content="#1F260B">
-  <link href="/style/style.css" rel="stylesheet">
-  <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
-  <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-  <meta property="og:title" data-id="faq_page_title" content="TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos">
-</head>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
 
-  <body><div class="lang-switch">
-    <div class="content">
-        <button class="btn-lang-switch" data-lang="en">english</button>
-        <button class="btn-lang-switch" data-lang="ru">&#x440;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</button>
-        <button class="btn-lang-switch" data-lang="cn">&#x4E2D;&#x6587;</button>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title data-id="default_page_title">TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#1F260B">
+    <meta name="theme-color" content="#1F260B">
+    <link href="/style/style.css" rel="stylesheet">
+    <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:title" data-id="default_page_title" content="TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos">
+  </head>
+
+  <body>
+
+    <div class="langswitch">
+      <ul class="content">
+        <li>
+          <button data-lang="en">english</button>
+        </li>
+        <li>
+          <button data-lang="ru">&#x440;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</button>
+        </li>
+        <li>
+          <button data-lang="cn">&#x4E2D;&#x6587;</button>
+        </li>
+      </ul>
     </div>
-</div>
+
+    <header class="header-mini">
+      <div class="content">
+        <div class="header-main">
+          <h1>
+            <a href="index.html"><strong>tz</strong>libre</a>
+          </h1>
+        </div>
+        <a href="index.html" class="logo">
+          <img src="/images/tzllogo-base.svg" alt="tzlibre logo">
+        </a>
+      </div>
+    </header>
+
+    <nav class="nav-primary">
+      <ul class="content">
+        <li class="{{ nav1_class }}">
+          <a href="project.html" data-id="home_title">&#x5173;&#x4E8E;</a>
+        </li>
+        <li class="selected">
+          <a href="faq.html" data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a>
+        </li>
+        <li class="{{ nav3_class }}">
+          <a href="whitelist.html" data-id="wl_title">Whitelist</a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="nav-secondary">
+      <ul class="content">
+        <li>
+          <a href="#splitting" data-id="faq_sect1_title">&#x4EE3;&#x5E01;&#x5206;&#x914D;</a>
+        </li>
+        <li>
+          <a href="#timing" data-id="faq_sect2_title">&#x65F6;&#x95F4;&#x70B9;</a>
+        </li>
+        <li>
+          <a href="#safety" data-id="faq_sect3_title">&#x5B89;&#x5168;&#x6027;</a>
+        </li>
+        <li>
+          <a href="#code" data-id="faq_sect4_title">&#x5173;&#x4E8E;&#x4EE3;&#x7801;</a>
+        </li>
+        <li>
+          <a href="#funding" data-id="faq_sect5_title">&#x7ECF;&#x8D39;</a>
+        </li>
+        <li>
+          <a href="#support" data-id="faq_sect6_title">&#x652F;&#x6301;</a>
+        </li>
+        <li>
+          <a href="#growth" data-id="faq_sect7_title">&#x53D1;&#x5C55;</a>
+        </li>
+        <li>
+          <a href="#team" data-id="faq_sect8_title">&#x56E2;&#x961F;</a>
+        </li>
+        <li>
+          <a href="#communication" data-id="faq_sect9_title">&#x6C9F;&#x901A;</a>
+        </li>
+        <li>
+          <a href="#other" data-id="faq_sect10_title">&#x5176;&#x4ED6;</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main">
+
+      <div class="content">
+
+        <div class="block">
+
+          <h2 data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</h2>
+
+          <a name="splitting"></a>
+          <h3 data-id="faq_sect1_title">&#x4EE3;&#x5E01;&#x5206;&#x914D;</h3>
+          <div class="expandable">
+            <a name="splitting1"></a>
+            <h4 data-id="faq_sect1_q1_question">&#x6211;&#x5982;&#x4F55;&#x8BA4;&#x9886;&#x4EE3;&#x5E01;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect1_q1_answer">
+              <p>&#x5229;&#x7528;&#x53C2;&#x4E0E;ICO&#x7684;&#x6570;&#x636E;&#x548C;DLS&#x53D1;&#x5E03;&#x7684;&#x5DE5;&#x5177;&#x60A8;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x81EA;&#x5DF1;&#x7684;&#x79C1;&#x94A5;&#x3002;&#x6211;&#x4EEC;&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x60A8;&#x5728;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x65AD;&#x7F51;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x6267;&#x884C;&#x8FD9;&#x9879;&#x64CD;&#x4F5C;&#x3002;&#x4E4B;&#x540E;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x7B7E;&#x7F72;&#x4E00;&#x6761;&#x4FE1;&#x606F;&#xFF0C;&#x8BC1;&#x660E;&#x5BF9;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x7684;&#x6240;&#x6709;&#x6743;&#x4EE5;&#x53CA;&#x5BF9;TzLibre&#x7684;&#x652F;&#x6301;&#x610F;&#x613F;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x53D1;&#x9001;&#x8FD9;&#x6761;&#x7B7E;&#x7F72;&#x4FE1;&#x606F;&#x3002;&#x5728;&#x8BA4;&#x9886;&#x4EE3;&#x5E01;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x60A8;&#x81F3;&#x5C11;&#x5BF9;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x4EE5;&#x53CA;&#x52A0;&#x5BC6;&#x7B7E;&#x540D;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x6709;&#x6240;&#x4E86;&#x89E3;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8BF7;&#x5C06;&#x6211;&#x4EEC;&#x7684;
+                <a href="https://tzlibre.github.io" target="_blank">web</a>&#x548C;
+                <a href="http://weibo.com/TzLibre" target="_blank">&#x5FAE;&#x535A;</a>&#x5730;&#x5740;&#x52A0;&#x5165;&#x4E66;&#x7B7E;&#x3002;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x6574;&#x4E2A;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x8FDB;&#x5C55;&#x6211;&#x4EEC;&#x90FD;&#x4F1A;&#x7EDF;&#x4E00;&#x53D1;&#x5E03;&#x5728;&#x516C;&#x5171;&#x7684;
+                <a
+                  href="http://weibo.com/TzLibre" target="_blank">&#x5FAE;&#x535A;</a>&#x3002;</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting2"></a>
+            <h4 data-id="faq_sect1_q2_question">&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x4E4B;&#x540E;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect1_q2_answer">
+              <p>&#x5206;&#x914D;&#x4E4B;&#x540E;&#xFF0C;&#x60A8;&#x5C06;&#x6536;&#x5230;TZL&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x3002;&#x5F53;&#x4E3B;&#x7F51;&#x4E0A;&#x7EBF;&#x4E4B;&#x540E;&#xFF0C;&#x8FD9;&#x4E9B;&#x4EE3;&#x5E01;&#x53EF;&#x4EE5;&#x5151;&#x6362;&#x6210;&#x4E3B;&#x7F51;&#x4EE4;&#x724C;&#x3002;</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting3"></a>
+            <h4 data-id="faq_sect1_q3_question">&#x5173;&#x4E8E;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#xFF0C;&#x6211;&#x5982;&#x4F55;&#x5F97;&#x5230;&#x66F4;&#x65B0;&#x4E0E;&#x8BE6;&#x7EC6;&#x60C5;&#x51B5;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect1_q3_answer">
+              <p>&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x4F18;&#x5316;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x6D41;&#x7A0B;&#x3002;&#x6700;&#x65B0;&#x60C5;&#x62A5;&#x4F1A;&#x53D1;&#x5E03;&#x5728;
+                <a href="http://weibo.com/TzLibre">&#x5FAE;&#x535A;</a>&#x3002;</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting4"></a>
+            <h4 data-id="faq_sect1_q4_question">&#x53C2;&#x52A0;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x662F;&#x5426;&#x4F1A;&#x5BFC;&#x81F4;&#x6211;&#x4E22;&#x5931;DLS-tezzies&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect1_q4_answer">
+              <p>N&#x7EDD;&#x4E0D;&#x4F1A;&#x3002;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x5141;&#x8BB8;Tezos&#x8D21;&#x732E;&#x8005;&#x5F97;&#x5230;1&#x6BD4;1&#x7684;TZL&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;Tezos&#x8D21;&#x732E;&#x8005;&#x4F1A;&#x540C;&#x65F6;&#x83B7;&#x5F97;TZL&#x548C;XTZ&#x3002;</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting5"></a>
+            <h4 data-id="faq_sect1_q5_question">&#x662F;&#x5426;&#x6240;&#x6709;&#x7684;Tezos&#x8D21;&#x732E;&#x8005;&#x90FD;&#x80FD;&#x5F97;&#x5230;TZL&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect1_q5_answer">
+              <p>&#x4E0D;&#x3002;&#x53EA;&#x6709;&#x53C2;&#x4E0E;&#x4EE3;&#x5E01;&#x8BA4;&#x9886;&#x7684;&#x4EBA;&#x624D;&#x80FD;&#x5F97;&#x5230;TZL&#x4EE3;&#x5E01;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4FDD;&#x62A4;TzLibre&#x7528;&#x6237;&#x7684;&#x6743;&#x76CA;&#x3002;</p>
+            </div>
+          </div>
 
 
-<header class="header-mini">
-  <div class="content">
-    <div class="header-main">
-      <h1><a href="index.html"><strong>tz</strong>libre</a></h1>
-    </div>
-    <img src="/images/tzllogo-base.svg" alt="tzlibre logo" class="logo">
-  </div>
-</header>
+          <a name="timing"></a>
+          <h3 data-id="faq_sect2_title">&#x65F6;&#x95F4;&#x70B9;</h3>
+          <div class="expandable">
+            <a name="timing1"></a>
+            <h4 data-id="faq_sect2_q1_question">&#x4F55;&#x65F6;&#x5206;&#x914D;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect2_q1_answer">
+              <p>&#x5F53;&#x7535;&#x62A5;&#x7FA4;&#x7684;&#x4EBA;&#x6570;&#x8FBE;&#x5230;1000&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x5C31;&#x4F1A;&#x5728;&#x51E0;&#x5929;&#x4E4B;&#x5185;&#x5F00;&#x59CB;&#x3002;&#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x7528;&#x6237;&#x7684;&#x6709;&#x6548;&#x4E34;&#x754C;&#xFF0C;&#x5E76;&#x4FDD;&#x62A4;TzLibre&#x7528;&#x6237;&#x7684;&#x96C6;&#x4F53;&#x6743;&#x76CA;&#x3002;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x4F1A;&#x6301;&#x7EED;&#x51E0;&#x5929;&#x3002;&#x5F53;&#x524D;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x4F18;&#x5316;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x6D41;&#x7A0B;&#x3002;&#x6700;&#x65B0;&#x60C5;&#x62A5;&#x4F1A;&#x53D1;&#x5E03;&#x5728;&#x5FAE;&#x535A;&#x91CC;&#x3002;</p>
+            </div>
+          </div>
 
-<nav>
-  <ul class="content">
-    <li><a href="index.html#why" data-id="home_sect1_title">&#x4E3A;&#x4EC0;&#x4E48;&#x9009;&#x62E9;TzLibre</a></li>
-    <li><a href="index.html#what" data-id="home_sect2_title">TzLibre&#x662F;&#x4EC0;&#x4E48;</a></li>
-    <li><a href="index.html#how" data-id="home_sect3_title">&#x5982;&#x4F55;&#x5206;&#x914D;</a></li>
-    <li><a href="index.html#about" data-id="home_sect4_title">&#x5173;&#x4E8E;&#x6211;&#x4EEC;</a></li>
-    <li><a href="faq.html" data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a></li>
-  </ul>
-</nav>
+          <div class="expandable">
+            <a name="timing2"></a>
+            <h4 data-id="faq_sect2_q2_question">TZL&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x4F55;&#x65F6;&#x80FD;&#x4E0A;&#x4EA4;&#x6613;&#x6240;&#x4EA4;&#x6613;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect2_q2_answer">
+              <p>&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#xFF0C;&#x4E00;&#x65E6;&#x6280;&#x672F;&#x4E0A;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;TZL&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x4EA4;&#x6613;&#x6240;&#x4EA4;&#x6613;&#x3002;&#x5F53;&#x524D;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x4F18;&#x5316;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x6D41;&#x7A0B;&#x3002;&#x6700;&#x65B0;&#x60C5;&#x62A5;&#x4F1A;&#x53D1;&#x5E03;&#x5728;&#x5FAE;&#x535A;&#x91CC;.</p>
+            </div>
+          </div>
 
+          <div class="expandable">
+            <a name="timing3"></a>
+            <h4 data-id="faq_sect2_q3_question">&#x4F60;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x4F55;&#x65F6;&#x5F00;&#x6E90;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect2_q3_answer">
+              <p>&#x4E3A;&#x4E86;&#x4FDD;&#x6301;&#x6211;&#x4EEC;&#x7684;&#x7ADE;&#x4E89;&#x4F18;&#x52BF;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x4E34;&#x4E0A;&#x7EBF;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x5E03;&#x6211;&#x4EEC;&#x7684;&#x8282;&#x70B9;&#x4EE3;&#x7801;&#x3002;</p>
+            </div>
+          </div>
 
-  <div class="main">
+          <div class="expandable">
+            <a name="timing4"></a>
+            <h4 data-id="faq_sect2_q4_question">TzLibre&#x4E3B;&#x7F51;&#x4F55;&#x65F6;&#x80FD;&#x591F;&#x4E0A;&#x7EBF;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect2_q4_answer">
+              <p>&#x5F53;TzLibre&#x4E3B;&#x7F51;&#x51C6;&#x5907;&#x5C31;&#x7EEA;&#xFF0C;&#x60A8;&#x7684;&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x5C31;&#x53EF;&#x4EE5;&#x5151;&#x6362;&#x6210;&#x4E3B;&#x7F51;&#x4EE4;&#x724C;&#x3002;&#x6211;&#x4EEC;&#x8BA1;&#x5212;&#x5728;DLS-Tezos&#x4E4B;&#x540E;&#x4E0A;&#x7EBF;&#x4E3B;&#x7F51;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4FDD;&#x5BC6;&#x5E76;&#x7559;&#x5B58;&#x6211;&#x4EEC;&#x7684;&#x7ADE;&#x4E89;&#x4F18;&#x52BF;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;DLS-Tezos&#x8FC7;&#x5206;&#x62D6;&#x5EF6;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x6709;&#x80FD;&#x529B;&#x5728;&#x4ED6;&#x4EEC;&#x4E4B;&#x524D;&#x4E0A;&#x7EBF;Tezos&#x3002;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4E3B;&#x7F51;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x4F9D;&#x8D56;&#x4ED6;&#x4EEC;&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x3002;</p>
+            </div>
+          </div>
 
-    <div class="content">
+          <a name="safety"></a>
+          <h3 data-id="faq_sect3_title">&#x5B89;&#x5168;&#x6027;</h3>
+          <div class="expandable">
+            <a name="safety1"></a>
+            <h4 data-id="faq_sect3_q1_question">&#x4F60;&#x4EEC;&#x662F;&#x5426;&#x9700;&#x8981;&#x6211;&#x7684;&#x79C1;&#x4EBA;&#x6570;&#x636E;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect3_q1_answer">
+              <p>&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x4E5F;&#x7EDD;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x7D22;&#x6C42;&#x3002;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x8BE2;&#x95EE;&#x4EFB;&#x4F55;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;&#x5730;&#x5740;&#xFF0C;&#x516C;&#x94A5;&#xFF0C;&#x79C1;&#x94A5;&#xFF0C;&#x52A9;&#x8BB0;&#x8BCD;&#xFF0C;&#x90AE;&#x4EF6;&#xFF0C;&#x5BC6;&#x7801;&#xFF0C;&#x7535;&#x62A5;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#xFF0C;&#x6216;&#x5176;&#x4ED6;&#x79C1;&#x4EBA;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#x3002;</p>
+            </div>
+          </div>
 
-      <a name="faq"></a>
+          <div class="expandable">
+            <a name="safety2"></a>
+            <h4 data-id="faq_sect3_q2_question">&#x6211;&#x662F;&#x5426;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x6211;&#x7684;&#x79C1;&#x94A5;&#xFF0C;&#x6216;&#x5176;&#x4ED6;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect3_q2_answer">
+              <p>&#x4E0D;&#x3002;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x60A8;&#x7684;&#x79C1;&#x94A5;&#x3002;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x4E5F;&#x7EDD;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x7D22;&#x6C42;&#x3002;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x8BE2;&#x95EE;&#x4EFB;&#x4F55;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;&#x5730;&#x5740;&#xFF0C;&#x516C;&#x94A5;&#xFF0C;&#x79C1;&#x94A5;&#xFF0C;&#x52A9;&#x8BB0;&#x8BCD;&#xFF0C;&#x90AE;&#x4EF6;&#xFF0C;&#x5BC6;&#x7801;&#xFF0C;&#x7535;&#x62A5;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#xFF0C;&#x6216;&#x5176;&#x4ED6;&#x79C1;&#x4EBA;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#x3002;&#x5207;&#x8BB0;&#xFF0C;&#x4E0D;&#x8981;&#x4E0E;&#x6211;&#x4EEC;&#x6216;&#x8005;&#x4EFB;&#x4F55;&#x4EBA;&#x5171;&#x4EAB;&#x60A8;&#x7684;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#x3002;</p>
+            </div>
+          </div>
 
-      <div class="block">
+          <div class="expandable">
+            <a name="safety3"></a>
+            <h4 data-id="faq_sect3_q3_question">&#x6709;&#x4EBA;&#x81EA;&#x79F0;&#x662F;TzLibre&#x5E76;&#x8054;&#x7CFB;&#x4E86;&#x6211;&#xFF0C;&#x6211;&#x8BE5;&#x5982;&#x4F55;&#x505A;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect3_q3_answer">
+              <p>&#x4F1A;&#x6709;&#x4EBA;&#x5192;&#x5145;&#x6211;&#x4EEC;&#x5E76;&#x5411;Tezos&#x6295;&#x8D44;&#x8005;&#x7D22;&#x8981;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#x3002;&#x8BF7;&#x4E00;&#x5B9A;&#x4E0D;&#x8981;&#x548C;&#x4ED6;&#x4EEC;&#x5171;&#x4EAB;&#x60A8;&#x7684;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#x3002;&#x5982;&#x6709;&#x9047;&#x5230;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#xFF0C;&#x8BF7;
+                <a
+                  href="index.html#about">&#x5411;&#x6211;&#x4EEC;&#x62A5;&#x544A;</a>&#x3002;</p>
+            </div>
+          </div>
 
-        <h2 data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</h2>
+          <a name="code"></a>
+          <h3 data-id="faq_sect4_title">&#x5173;&#x4E8E;&#x4EE3;&#x7801;</h3>
+          <div class="expandable">
+            <a name="code1"></a>
+            <h4 data-id="faq_sect4_q1_question">&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5F00;&#x6E90;&#x7684;&#xFF0C;&#x4F60;&#x4EEC;&#x5982;&#x4F55;&#x5206;&#x53C9;DLS-Tezos&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect4_q1_answer">
+              <p>DLS-Tezos&#x5728;Gitlab&#x4E0A;&#x662F;&#x516C;&#x5F00;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5F97;&#x5230;&#x4E86;&#x5206;&#x53C9;&#x3002;&#x4E9A;&#x745F;&#x66FE;&#x4ECA;&#x8BF4;&#x8FC7;DLS-Tezos&#x4F1A;&#x5728;&#x4E0A;&#x7EBF;&#x4E4B;&#x540E;&#x53D6;&#x5F97;MIT&#x8BB8;&#x53EF;&#x8BC1;&#x5E76;&#x53D1;&#x5E03;&#x4EE3;&#x7801;&#x3002;&#x65E0;&#x8BBA;&#x662F;&#x6BD4;&#x4ED6;&#x4EEC;&#x66F4;&#x65E9;&#x53D1;&#x5E03;&#xFF0C;&#x8FD8;&#x662F;DLS-Tezos&#x6839;&#x672C;&#x4E0D;&#x4F1A;&#x53D1;&#x5E03;&#x5168;&#x90E8;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x4F1A;&#x6839;&#x636E;&#x60C5;&#x51B5;&#x505A;&#x51FA;&#x6211;&#x4EEC;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x5E76;&#x72EC;&#x7ACB;&#x53D1;&#x5E03;&#x6211;&#x4EEC;&#x7684;TzLibre&#x3002;&#x5176;&#x4E2D;&#x4E4B;&#x4E00;&#x7684;&#x9009;&#x62E9;&#x662F;&#x6839;&#x636E;&#x4ED6;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x53D1;&#x5E03;&#x6211;&#x4EEC;&#x7684;&#x5347;&#x7EA7;&#x5305;&#xFF1A;TzLibre&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4E0B;&#x8F7D;&#x516C;&#x5F00;&#x7248;&#x7684;DLS-Tezos&#xFF0C;&#x7136;&#x540E;&#x5728;&#x672C;&#x5730;&#x5B89;&#x88C5;&#x6211;&#x4EEC;&#x7684;TzLibre&#x5347;&#x7EA7;&#x5305;&#x3002;&#x8001;&#x5B9E;&#x8BF4;&#x6211;&#x4EEC;&#x89C9;&#x5F97;&#x4E0D;&#x5F00;&#x6E90;&#x7684;&#x533A;&#x5757;&#x94FE;&#x9879;&#x76EE;&#x662F;&#x8352;&#x8C2C;&#x53EF;&#x7B11;&#x7684;&#x3002;</p>
+            </div>
+          </div>
 
-        <h3 data-id="faq_sect1_title">&#x4EE3;&#x5E01;&#x5206;&#x914D;</h3>
-        <div class="expandable">
-  <a name="splitting1"></a>
-  <h4 data-id="faq_sect1_q1_question">&#x6211;&#x5982;&#x4F55;&#x8BA4;&#x9886;&#x4EE3;&#x5E01;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect1_q1_answer"><p>&#x5229;&#x7528;&#x53C2;&#x4E0E;ICO&#x7684;&#x6570;&#x636E;&#x548C;DLS&#x53D1;&#x5E03;&#x7684;&#x5DE5;&#x5177;&#x60A8;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x81EA;&#x5DF1;&#x7684;&#x79C1;&#x94A5;&#x3002;&#x6211;&#x4EEC;&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x60A8;&#x5728;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x65AD;&#x7F51;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x6267;&#x884C;&#x8FD9;&#x9879;&#x64CD;&#x4F5C;&#x3002;&#x4E4B;&#x540E;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x7B7E;&#x7F72;&#x4E00;&#x6761;&#x4FE1;&#x606F;&#xFF0C;&#x8BC1;&#x660E;&#x5BF9;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x7684;&#x6240;&#x6709;&#x6743;&#x4EE5;&#x53CA;&#x5BF9;TzLibre&#x7684;&#x652F;&#x6301;&#x610F;&#x613F;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x53D1;&#x9001;&#x8FD9;&#x6761;&#x7B7E;&#x7F72;&#x4FE1;&#x606F;&#x3002;&#x5728;&#x8BA4;&#x9886;&#x4EE3;&#x5E01;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x60A8;&#x81F3;&#x5C11;&#x5BF9;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x4EE5;&#x53CA;&#x52A0;&#x5BC6;&#x7B7E;&#x540D;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x6709;&#x6240;&#x4E86;&#x89E3;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8BF7;&#x5C06;&#x6211;&#x4EEC;&#x7684; <a href="https://tzlibre.github.io" target="_blank">web</a>&#x548C;<a href="http://weibo.com/TzLibre" target="_blank">&#x5FAE;&#x535A;</a>&#x5730;&#x5740;&#x52A0;&#x5165;&#x4E66;&#x7B7E;&#x3002;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x6574;&#x4E2A;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x8FDB;&#x5C55;&#x6211;&#x4EEC;&#x90FD;&#x4F1A;&#x7EDF;&#x4E00;&#x53D1;&#x5E03;&#x5728;&#x516C;&#x5171;&#x7684;<a href="http://weibo.com/TzLibre" target="_blank">&#x5FAE;&#x535A;</a>&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="code2"></a>
+            <h4 data-id="faq_sect4_q2_question">&#x4F60;&#x4EEC;&#x7A76;&#x7ADF;&#x5206;&#x53C9;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect4_q2_answer">
+              <p>&#x6211;&#x4EEC;&#x5206;&#x53C9;&#x4E86;&#x516C;&#x5F00;&#x7684;
+                <a href="https://gitlab.com/tezos" target="_blank">DLS-Tezos repo</a>.</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="splitting2"></a>
-  <h4 data-id="faq_sect1_q2_question">&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x4E4B;&#x540E;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect1_q2_answer"><p>&#x5206;&#x914D;&#x4E4B;&#x540E;&#xFF0C;&#x60A8;&#x5C06;&#x6536;&#x5230;TZL&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x3002;&#x5F53;&#x4E3B;&#x7F51;&#x4E0A;&#x7EBF;&#x4E4B;&#x540E;&#xFF0C;&#x8FD9;&#x4E9B;&#x4EE3;&#x5E01;&#x53EF;&#x4EE5;&#x5151;&#x6362;&#x6210;&#x4E3B;&#x7F51;&#x4EE4;&#x724C;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="code3"></a>
+            <h4 data-id="faq_sect4_q3_question">&#x4F60;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x4FDD;&#x5B58;&#x5728;&#x54EA;&#x91CC;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect4_q3_answer">
+              <p>&#x6211;&#x4EEC;&#x6700;&#x8FD1;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;
+                <a href="https://github.com/tezos/fundraiser-tools/pull/5" target="_blank">PR</a>&#x6765;&#x4FEE;&#x590D;&#x635F;&#x574F;&#x7684;DLS-Tezos&#x52DF;&#x8D44;&#x5DE5;&#x5177;&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x9010;&#x6B65;&#x5730;&#x516C;&#x5F00;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5728;Github&#x4E0A;&#x5173;&#x6CE8;&#x6211;&#x4EEC;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="splitting3"></a>
-  <h4 data-id="faq_sect1_q3_question">&#x5173;&#x4E8E;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#xFF0C;&#x6211;&#x5982;&#x4F55;&#x5F97;&#x5230;&#x66F4;&#x65B0;&#x4E0E;&#x8BE6;&#x7EC6;&#x60C5;&#x51B5;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect1_q3_answer"><p>&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x4F18;&#x5316;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x6D41;&#x7A0B;&#x3002;&#x6700;&#x65B0;&#x60C5;&#x62A5;&#x4F1A;&#x53D1;&#x5E03;&#x5728;<a href="http://weibo.com/TzLibre">&#x5FAE;&#x535A;</a>&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="code4"></a>
+            <h4 data-id="faq_sect4_q4_question">&#x4F60;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528;DLS-Tezos&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x5417;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect4_q4_answer">
+              <p>&#x4E0D;&#x3002;TZL&#x7684;&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x548C;EOS&#x7684;&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x62E5;&#x6709;&#x4E00;&#x6837;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x8FD9;&#x4E2A;&#x4EE3;&#x5E01;&#x5C06;&#x662F;TeLibre&#x521B;&#x4E16;&#x533A;&#x5757;&#x7684;&#x66FF;&#x8EAB;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="splitting4"></a>
-  <h4 data-id="faq_sect1_q4_question">&#x53C2;&#x52A0;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x662F;&#x5426;&#x4F1A;&#x5BFC;&#x81F4;&#x6211;&#x4E22;&#x5931;DLS-tezzies&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect1_q4_answer"><p>N&#x7EDD;&#x4E0D;&#x4F1A;&#x3002;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x5141;&#x8BB8;Tezos&#x8D21;&#x732E;&#x8005;&#x5F97;&#x5230;1&#x6BD4;1&#x7684;TZL&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;Tezos&#x8D21;&#x732E;&#x8005;&#x4F1A;&#x540C;&#x65F6;&#x83B7;&#x5F97;TZL&#x548C;XTZ&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="code5"></a>
+            <h4 data-id="faq_sect4_q5_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x7528;DLS-Tezos&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect4_q5_answer">
+              <p>&#x57FA;&#x4E8E;&#x4E24;&#x70B9;&#x539F;&#x56E0;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x4ECE;DLS-Tezos&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x72EC;&#x7ACB;&#x51FA;&#x6765;&#x3002;&#x9996;&#x5148;&#x662F;&#x4ED6;&#x4EEC;&#x8C1C;&#x4E00;&#x822C;&#x7684;&#x4E0A;&#x7EBF;&#x65F6;&#x95F4;&#x548C;&#x906E;&#x63A9;&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x6570;&#x636E;&#x3002;&#x5176;&#x6B21;&#x662F;&#x53C2;&#x4E0E;ICO&#x7684;&#x6570;&#x636E;&#x5176;&#x5B9E;&#x90FD;&#x4FDD;&#x5B58;&#x5728;BTC&#x548C;ETH&#x7684;&#x533A;&#x5757;&#x94FE;&#x4E0A;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x53C2;&#x8003;&#x4ED6;&#x4EEC;&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="splitting5"></a>
-  <h4 data-id="faq_sect1_q5_question">&#x662F;&#x5426;&#x6240;&#x6709;&#x7684;Tezos&#x8D21;&#x732E;&#x8005;&#x90FD;&#x80FD;&#x5F97;&#x5230;TZL&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect1_q5_answer"><p>&#x4E0D;&#x3002;&#x53EA;&#x6709;&#x53C2;&#x4E0E;&#x4EE3;&#x5E01;&#x8BA4;&#x9886;&#x7684;&#x4EBA;&#x624D;&#x80FD;&#x5F97;&#x5230;TZL&#x4EE3;&#x5E01;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4FDD;&#x62A4;TzLibre&#x7528;&#x6237;&#x7684;&#x6743;&#x76CA;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="code6"></a>
+            <h4 data-id="faq_sect4_q6_question">TzLibre&#x662F;&#x5426;&#x548C;DLS-Tezos&#x62E5;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4EA4;&#x6613;&#x548C;&#x5730;&#x5740;&#x683C;&#x5F0F;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect4_q6_answer">
+              <p>&#x4E0D;&#x3002;TzLibre&#x5C06;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x4EA4;&#x6613;&#x548C;&#x5730;&#x5740;&#x683C;&#x5F0F;&#x3002;</p>
+            </div>
+          </div>
 
+          <a name="funding"></a>
+          <h3 data-id="faq_sect5_title">&#x7ECF;&#x8D39;</h3>
+          <div class="expandable">
+            <a name="funding1"></a>
+            <h4 data-id="faq_sect5_q1_question">&#x4F60;&#x4EEC;&#x7684;&#x7ECF;&#x8D39;&#x4ECE;&#x4F55;&#x800C;&#x6765;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect5_q1_answer">
+              <p>&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x662F;&#x81EA;&#x8D39;&#x7684;&#x3002;</p>
+            </div>
+          </div>
 
-        <h3 data-id="faq_sect2_title">&#x65F6;&#x95F4;&#x70B9;</h3>
-        <div class="expandable">
-  <a name="timing1"></a>
-  <h4 data-id="faq_sect2_q1_question">&#x4F55;&#x65F6;&#x5206;&#x914D;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect2_q1_answer"><p>&#x5F53;&#x7535;&#x62A5;&#x7FA4;&#x7684;&#x4EBA;&#x6570;&#x8FBE;&#x5230;1000&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x5C31;&#x4F1A;&#x5728;&#x51E0;&#x5929;&#x4E4B;&#x5185;&#x5F00;&#x59CB;&#x3002;&#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x7528;&#x6237;&#x7684;&#x6709;&#x6548;&#x4E34;&#x754C;&#xFF0C;&#x5E76;&#x4FDD;&#x62A4;TzLibre&#x7528;&#x6237;&#x7684;&#x96C6;&#x4F53;&#x6743;&#x76CA;&#x3002;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x4F1A;&#x6301;&#x7EED;&#x51E0;&#x5929;&#x3002;&#x5F53;&#x524D;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x4F18;&#x5316;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x6D41;&#x7A0B;&#x3002;&#x6700;&#x65B0;&#x60C5;&#x62A5;&#x4F1A;&#x53D1;&#x5E03;&#x5728;&#x5FAE;&#x535A;&#x91CC;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="funding2"></a>
+            <h4 data-id="faq_sect5_q2_question">&#x4F60;&#x4EEC;&#x5BF9;&#x672A;&#x6765;&#x7684;&#x5F00;&#x53D1;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x7ECF;&#x8D39;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect5_q2_answer">
+              <p>&#x6211;&#x4EEC;&#x4F1A;&#x52DF;&#x96C6;&#x8D44;&#x91D1;&#x4EE5;&#x8FDB;&#x884C;&#x540E;&#x7EED;&#x7684;&#x5F00;&#x53D1;&#x3002;&#x6211;&#x4EEC;&#x671F;&#x671B;&#x5927;&#x90E8;&#x5206;&#x8D44;&#x91D1;&#x5C06;&#x6765;&#x81EA;Tezos&#x7684;&#x57FA;&#x91D1;&#x4F1A;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="timing2"></a>
-  <h4 data-id="faq_sect2_q2_question">TZL&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x4F55;&#x65F6;&#x80FD;&#x4E0A;&#x4EA4;&#x6613;&#x6240;&#x4EA4;&#x6613;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect2_q2_answer"><p>&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#xFF0C;&#x4E00;&#x65E6;&#x6280;&#x672F;&#x4E0A;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;TZL&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x4EA4;&#x6613;&#x6240;&#x4EA4;&#x6613;&#x3002;&#x5F53;&#x524D;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5347;&#x7EA7;&#x4F18;&#x5316;&#x6574;&#x4E2A;&#x5206;&#x914D;&#x6D41;&#x7A0B;&#x3002;&#x6700;&#x65B0;&#x60C5;&#x62A5;&#x4F1A;&#x53D1;&#x5E03;&#x5728;&#x5FAE;&#x535A;&#x91CC;.</p></div>
-</div>
+          <div class="expandable">
+            <a name="funding3"></a>
+            <h4 data-id="faq_sect5_q3_question">Tezos&#x57FA;&#x91D1;&#x4F1A;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x8D5E;&#x52A9;TzLibre&#x7684;&#x5F00;&#x53D1;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect5_q3_answer">
+              <p>Tezos&#x57FA;&#x91D1;&#x4F1A;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x745E;&#x58EB;&#x7684;&#x6CD5;&#x5F8B;&#x548C;&#x5BF9;&#x4E8E;&#x5B9E;&#x73B0;Tezos&#x7406;&#x5FF5;&#x4E0D;&#x53EF;&#x6539;&#x53D8;&#x7684;&#x534F;&#x8BAE;&#x3002;&#x6211;&#x4EEC;&#x90FD;&#x7406;&#x89E3;Tezos&#x662F;&#x4E00;&#x4E2A;&#x7406;&#x5FF5;&#xFF0C;DLS-Tezos&#x548C;TzLibre&#x662F;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x745E;&#x58EB;&#x57FA;&#x91D1;&#x4F1A;&#x8FDD;&#x80CC;&#x4E86;&#x5B83;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x4EFB;&#x4F55;&#x745E;&#x58EB;&#x6295;&#x8D44;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x8D77;&#x8BC9;&#x81F3;&#x6CD5;&#x9662;&#x3002;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x6CD5;&#x5F8B;&#x6548;&#x529B;&#xFF0C;&#x5728;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5411;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x63D0;&#x4EA4;&#x4E00;&#x4EFD;&#x52A0;&#x5BC6;&#x3001;&#x771F;&#x5B9E;&#x3001;&#x533F;&#x540D;&#x7684;&#x7B7E;&#x7F72;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x8D44;&#x52A9;TzLibre&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="timing3"></a>
-  <h4 data-id="faq_sect2_q3_question">&#x4F60;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x4F55;&#x65F6;&#x5F00;&#x6E90;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect2_q3_answer"><p>&#x4E3A;&#x4E86;&#x4FDD;&#x6301;&#x6211;&#x4EEC;&#x7684;&#x7ADE;&#x4E89;&#x4F18;&#x52BF;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x4E34;&#x4E0A;&#x7EBF;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x5E03;&#x6211;&#x4EEC;&#x7684;&#x8282;&#x70B9;&#x4EE3;&#x7801;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="funding1"></a>
+            <h4 data-id="faq_sect5_q4_question">&#x4F60;&#x4EEC;&#x5C06;&#x76F4;&#x63A5;&#x4ECE;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x62FF;&#x5230;&#x7ECF;&#x8D39;&#x5417;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect5_q4_answer">
+              <p>&#x4E0D;&#x3002;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x4E0D;&#x5F97;&#x4E0D;&#x8D5E;&#x52A9;&#x90A3;&#x4E9B;&#x4E3A;TzLibre&#x5F00;&#x53D1;&#x7684;&#x72EC;&#x7ACB;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF0C;&#x800C;&#x975E;&#x6211;&#x4EEC;&#x3002;&#x7ECF;&#x8D39;&#x7684;&#x4F7F;&#x7528;&#x5E94;&#x8BE5;&#x6700;&#x5927;&#x9650;&#x5EA6;&#x7684;&#x516C;&#x5F00;&#x3001;&#x900F;&#x660E;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x53EF;&#x4EE5;&#x4E3A;TzLibre&#x8BBE;&#x7ACB;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x5956;&#x52B1;&#x8BA1;&#x5212;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="timing4"></a>
-  <h4 data-id="faq_sect2_q4_question">TzLibre&#x4E3B;&#x7F51;&#x4F55;&#x65F6;&#x80FD;&#x591F;&#x4E0A;&#x7EBF;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect2_q4_answer"><p>&#x5F53;TzLibre&#x4E3B;&#x7F51;&#x51C6;&#x5907;&#x5C31;&#x7EEA;&#xFF0C;&#x60A8;&#x7684;&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x5C31;&#x53EF;&#x4EE5;&#x5151;&#x6362;&#x6210;&#x4E3B;&#x7F51;&#x4EE4;&#x724C;&#x3002;&#x6211;&#x4EEC;&#x8BA1;&#x5212;&#x5728;DLS-Tezos&#x4E4B;&#x540E;&#x4E0A;&#x7EBF;&#x4E3B;&#x7F51;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4FDD;&#x5BC6;&#x5E76;&#x7559;&#x5B58;&#x6211;&#x4EEC;&#x7684;&#x7ADE;&#x4E89;&#x4F18;&#x52BF;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;DLS-Tezos&#x8FC7;&#x5206;&#x62D6;&#x5EF6;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x6709;&#x80FD;&#x529B;&#x5728;&#x4ED6;&#x4EEC;&#x4E4B;&#x524D;&#x4E0A;&#x7EBF;Tezos&#x3002;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4E3B;&#x7F51;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x4F9D;&#x8D56;&#x4ED6;&#x4EEC;&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="funding2"></a>
+            <h4 data-id="faq_sect5_q5_question">TzLibre&#x4E3A;&#x4F55;&#x9700;&#x8981;&#x8D5E;&#x52A9;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect5_q5_answer">
+              <p>TzLibre&#x5BF9;DLS-Tezos&#x505A;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x6539;&#x52A8;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x662F;&#x4E00;&#x9879;&#x7E41;&#x91CD;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x800C;&#x4E14;&#x57FA;&#x4E8E;DLS-Tezos&#x4EA7;&#x54C1;&#x521B;&#x5EFA;&#x4E00;&#x7CFB;&#x5217;&#x652F;&#x6301;Libre&#x7248;&#x672C;&#x7684;&#x4EA7;&#x54C1;&#x4E5F;&#x5F88;&#x91CD;&#x8981;&#x3002;</p>
+            </div>
+          </div>
 
-        <h3 data-id="faq_sect3_title">&#x5B89;&#x5168;&#x6027;</h3>
-        <div class="expandable">
-  <a name="safety1"></a>
-  <h4 data-id="faq_sect3_q1_question">&#x4F60;&#x4EEC;&#x662F;&#x5426;&#x9700;&#x8981;&#x6211;&#x7684;&#x79C1;&#x4EBA;&#x6570;&#x636E;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect3_q1_answer"><p>&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x4E5F;&#x7EDD;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x7D22;&#x6C42;&#x3002;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x8BE2;&#x95EE;&#x4EFB;&#x4F55;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;&#x5730;&#x5740;&#xFF0C;&#x516C;&#x94A5;&#xFF0C;&#x79C1;&#x94A5;&#xFF0C;&#x52A9;&#x8BB0;&#x8BCD;&#xFF0C;&#x90AE;&#x4EF6;&#xFF0C;&#x5BC6;&#x7801;&#xFF0C;&#x7535;&#x62A5;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#xFF0C;&#x6216;&#x5176;&#x4ED6;&#x79C1;&#x4EBA;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="funding3"></a>
+            <h4 data-id="faq_sect5_q6_question">&#x662F;&#x5426;&#x6709;&#x8FC7;&#x5F80;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x57FA;&#x91D1;&#x4F1A;&#x8D5E;&#x52A9;&#x4E86;&#x7ADE;&#x4E89;&#x56E2;&#x961F;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect5_q6_answer">
+              <p>&#x5F53;&#x7136;&#x6709;&#x3002;&#x6BD4;&#x5982;Aragon&#x7684;&#x57FA;&#x91D1;&#x4F1A;&#x5C31;&#x5BA3;&#x5E03;&#x4E86;&#x652F;&#x6301;&#x7ADE;&#x4E89;&#x7684;&#x56E2;&#x961F;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="safety2"></a>
-  <h4 data-id="faq_sect3_q2_question">&#x6211;&#x662F;&#x5426;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x6211;&#x7684;&#x79C1;&#x94A5;&#xFF0C;&#x6216;&#x5176;&#x4ED6;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect3_q2_answer"><p>&#x4E0D;&#x3002;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x60A8;&#x7684;&#x79C1;&#x94A5;&#x3002;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x4E5F;&#x7EDD;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x7D22;&#x6C42;&#x3002;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x5411;&#x60A8;&#x8BE2;&#x95EE;&#x4EFB;&#x4F55;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;&#x5730;&#x5740;&#xFF0C;&#x516C;&#x94A5;&#xFF0C;&#x79C1;&#x94A5;&#xFF0C;&#x52A9;&#x8BB0;&#x8BCD;&#xFF0C;&#x90AE;&#x4EF6;&#xFF0C;&#x5BC6;&#x7801;&#xFF0C;&#x7535;&#x62A5;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#xFF0C;&#x6216;&#x5176;&#x4ED6;&#x79C1;&#x4EBA;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;&#x3002;&#x5207;&#x8BB0;&#xFF0C;&#x4E0D;&#x8981;&#x4E0E;&#x6211;&#x4EEC;&#x6216;&#x8005;&#x4EFB;&#x4F55;&#x4EBA;&#x5171;&#x4EAB;&#x60A8;&#x7684;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="funding3"></a>
+            <h4 data-id="faq_sect5_q7_question">&#x4F60;&#x4EEC;&#x662F;&#x6253;&#x7B97;&#x5077;&#x53D6;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x7684;&#x8D44;&#x91D1;&#x5417;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect5_q7_answer">
+              <p>&#x4E0D;&#xFF0C;&#x6070;&#x6070;&#x76F8;&#x53CD;&#x3002;&#x76EE;&#x524D;DLS&#x5784;&#x65AD;&#x4E86;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x7684;&#x8D44;&#x91D1;&#x3002;&#x901A;&#x8FC7;&#x8981;&#x6C42;&#x57FA;&#x91D1;&#x4F1A;&#x652F;&#x6301;&#x4E00;&#x4E2A;&#x7ADE;&#x4E89;&#x56E2;&#x961F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8425;&#x9020;&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x5E02;&#x573A;&#x7ADE;&#x4E89;&#x6C1B;&#x56F4;&#x3002;&#x6211;&#x4EEC;&#x6709;&#x4FE1;&#x5FC3;&#x5E2E;&#x52A9;&#x57FA;&#x91D1;&#x4F1A;&#x66F4;&#x597D;&#x5730;&#x5206;&#x914D;&#x8D44;&#x91D1;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="safety3"></a>
-  <h4 data-id="faq_sect3_q3_question">&#x6709;&#x4EBA;&#x81EA;&#x79F0;&#x662F;TzLibre&#x5E76;&#x8054;&#x7CFB;&#x4E86;&#x6211;&#xFF0C;&#x6211;&#x8BE5;&#x5982;&#x4F55;&#x505A;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect3_q3_answer"><p>&#x4F1A;&#x6709;&#x4EBA;&#x5192;&#x5145;&#x6211;&#x4EEC;&#x5E76;&#x5411;Tezos&#x6295;&#x8D44;&#x8005;&#x7D22;&#x8981;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#x3002;&#x8BF7;&#x4E00;&#x5B9A;&#x4E0D;&#x8981;&#x548C;&#x4ED6;&#x4EEC;&#x5171;&#x4EAB;&#x60A8;&#x7684;&#x79C1;&#x4EBA;&#x4FE1;&#x606F;&#x3002;&#x5982;&#x6709;&#x9047;&#x5230;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#xFF0C;&#x8BF7;<a href="index.html#about">&#x5411;&#x6211;&#x4EEC;&#x62A5;&#x544A;</a>&#x3002;</p></div>
-</div>
+          <a name="support"></a>
+          <h3 data-id="faq_sect6_title">&#x652F;&#x6301;</h3>
+          <div class="expandable">
+            <a name="support1"></a>
+            <h4 data-id="faq_sect6_q1_question">&#x4F60;&#x4EEC;&#x6709;&#x6536;&#x83B7;DLS-Tezos&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x652F;&#x6301;&#x5417;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect6_q1_answer">
+              <p>DLS-Tezos&#x793E;&#x533A;&#x7684;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x8868;&#x8FBE;&#x4E86;&#x5BF9;TzLibre&#x7684;&#x5174;&#x8DA3;&#xFF0C;&#x867D;&#x7136;&#x4ED6;&#x4EEC;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x6C89;&#x9ED8;&#x3002;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x6536;&#x5230;&#x4E86;&#x8BB8;&#x591A;&#x6765;&#x81EA;DLS-Tezos&#x7684;&#x6210;&#x5458;&#x548C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x79C1;&#x4EBA;&#x652F;&#x6301;&#x3002;&#x4E0D;&#x8FC7;&#x76EE;&#x524D;&#x4ED6;&#x4EEC;&#x4EFB;&#x7136;&#x65E0;&#x6CD5;&#x516C;&#x5F00;&#x4ED6;&#x4EEC;&#x7684;&#x8EAB;&#x4EFD;&#x3002;</p>
+            </div>
+          </div>
 
-        <h3 data-id="faq_sect4_title">&#x5173;&#x4E8E;&#x4EE3;&#x7801;</h3>
-        <div class="expandable">
-  <a name="code1"></a>
-  <h4 data-id="faq_sect4_q1_question">&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5F00;&#x6E90;&#x7684;&#xFF0C;&#x4F60;&#x4EEC;&#x5982;&#x4F55;&#x5206;&#x53C9;DLS-Tezos&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect4_q1_answer"><p>DLS-Tezos&#x5728;Gitlab&#x4E0A;&#x662F;&#x516C;&#x5F00;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5F97;&#x5230;&#x4E86;&#x5206;&#x53C9;&#x3002;&#x4E9A;&#x745F;&#x66FE;&#x4ECA;&#x8BF4;&#x8FC7;DLS-Tezos&#x4F1A;&#x5728;&#x4E0A;&#x7EBF;&#x4E4B;&#x540E;&#x53D6;&#x5F97;MIT&#x8BB8;&#x53EF;&#x8BC1;&#x5E76;&#x53D1;&#x5E03;&#x4EE3;&#x7801;&#x3002;&#x65E0;&#x8BBA;&#x662F;&#x6BD4;&#x4ED6;&#x4EEC;&#x66F4;&#x65E9;&#x53D1;&#x5E03;&#xFF0C;&#x8FD8;&#x662F;DLS-Tezos&#x6839;&#x672C;&#x4E0D;&#x4F1A;&#x53D1;&#x5E03;&#x5168;&#x90E8;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x4F1A;&#x6839;&#x636E;&#x60C5;&#x51B5;&#x505A;&#x51FA;&#x6211;&#x4EEC;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x5E76;&#x72EC;&#x7ACB;&#x53D1;&#x5E03;&#x6211;&#x4EEC;&#x7684;TzLibre&#x3002;&#x5176;&#x4E2D;&#x4E4B;&#x4E00;&#x7684;&#x9009;&#x62E9;&#x662F;&#x6839;&#x636E;&#x4ED6;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x53D1;&#x5E03;&#x6211;&#x4EEC;&#x7684;&#x5347;&#x7EA7;&#x5305;&#xFF1A;TzLibre&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4E0B;&#x8F7D;&#x516C;&#x5F00;&#x7248;&#x7684;DLS-Tezos&#xFF0C;&#x7136;&#x540E;&#x5728;&#x672C;&#x5730;&#x5B89;&#x88C5;&#x6211;&#x4EEC;&#x7684;TzLibre&#x5347;&#x7EA7;&#x5305;&#x3002;&#x8001;&#x5B9E;&#x8BF4;&#x6211;&#x4EEC;&#x89C9;&#x5F97;&#x4E0D;&#x5F00;&#x6E90;&#x7684;&#x533A;&#x5757;&#x94FE;&#x9879;&#x76EE;&#x662F;&#x8352;&#x8C2C;&#x53EF;&#x7B11;&#x7684;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="support2"></a>
+            <h4 data-id="faq_sect6_q2_question">&#x6709;&#x652F;&#x6301;TzLibre&#x7684;&#x94B1;&#x5305;&#x5417;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect6_q2_answer">
+              <p>&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x548C;&#x5927;&#x591A;&#x6570;DLS-Tezos&#x7684;&#x94B1;&#x5305;&#x5F00;&#x53D1;&#x5546;&#x4EA4;&#x6D89;&#xFF0C;&#x4EE5;&#x4FBF;&#x4ED6;&#x4EEC;&#x80FD;&#x591F;&#x53D1;&#x5E03;Libre&#x7248;&#x672C;&#x7684;&#x94B1;&#x5305;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="code2"></a>
-  <h4 data-id="faq_sect4_q2_question">&#x4F60;&#x4EEC;&#x7A76;&#x7ADF;&#x5206;&#x53C9;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect4_q2_answer"><p>&#x6211;&#x4EEC;&#x5206;&#x53C9;&#x4E86;&#x516C;&#x5F00;&#x7684;<a href="https://gitlab.com/tezos" target="_blank">DLS-Tezos repo</a>.</p></div>
-</div>
+          <div class="expandable">
+            <a name="support3"></a>
+            <h4 data-id="faq_sect6_q3_question">&#x4F60;&#x4EEC;&#x5982;&#x4F55;&#x6FC0;&#x52B1;Libre&#x7684;&#x751F;&#x6001;&#x53D1;&#x5C55;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect6_q3_answer">
+              <p>&#x6211;&#x4EEC;&#x4F1A;&#x5229;&#x7528;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x8D5E;&#x52A9;&#x57FA;&#x91D1;&#x6765;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x8D4F;&#x91D1;&#x8BA1;&#x5212;&#x3002;&#x5956;&#x8D4F;&#x90A3;&#x4E9B;&#x57FA;&#x4E8E;DLS-Tezos&#x4EA7;&#x54C1;&#x53D1;&#x5E03;Libre&#x7248;&#x672C;&#x7684;&#x56E2;&#x961F;&#xFF0C;&#x6BD4;&#x5982;&#x5F00;&#x6E90;&#x94B1;&#x5305;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x4EA7;&#x54C1;&#xFF0C;&#x5F80;&#x5F80;&#x53EA;&#x9700;&#x8981;&#x4E0D;&#x591A;&#x7684;&#x5DE5;&#x4F5C;&#x91CF;&#xFF0C;&#x5728;&#x51E0;&#x5468;&#x5185;&#x5C31;&#x80FD;&#x5B8C;&#x6210;&#x3002;&#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;&#x770B;&#x5230;&#x67D0;&#x4E2A;&#x4EA7;&#x54C1;&#x652F;&#x6301;TzLibre&#xFF0C;&#x8BF7;&#x8054;&#x7CFB;&#x6211;&#x4EEC;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="code3"></a>
-  <h4 data-id="faq_sect4_q3_question">&#x4F60;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x4FDD;&#x5B58;&#x5728;&#x54EA;&#x91CC;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect4_q3_answer"><p>&#x6211;&#x4EEC;&#x6700;&#x8FD1;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;<a href="https://github.com/tezos/fundraiser-tools/pull/5" target="_blank">PR</a>&#x6765;&#x4FEE;&#x590D;&#x635F;&#x574F;&#x7684;DLS-Tezos&#x52DF;&#x8D44;&#x5DE5;&#x5177;&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x9010;&#x6B65;&#x5730;&#x516C;&#x5F00;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5728;Github&#x4E0A;&#x5173;&#x6CE8;&#x6211;&#x4EEC;&#x3002;</p></div>
-</div>
+          <a name="growth"></a>
+          <h3 data-id="faq_sect7_title">&#x53D1;&#x5C55;</h3>
+          <div class="expandable">
+            <a name="growth1"></a>
+            <h4 data-id="faq_sect7_q1_question">TzLibre&#x5728;&#x4E0A;&#x7EBF;&#x4EE5;&#x540E;&#x6709;&#x4F55;&#x53D1;&#x5C55;&#x8BA1;&#x5212;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect7_q1_answer">
+              <p>&#x4E0A;&#x7EBF;&#x4EE5;&#x540E;&#x7684;&#x53D1;&#x5C55;&#x89C4;&#x5212;&#x4E3B;&#x8981;&#x51B3;&#x5B9A;&#x4E8E;&#x90A3;&#x4E9B;&#x4ECE;DLS-Tezos&#x8F6C;&#x5230;TzLibre&#x7684;&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x3001;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x548C;&#x5174;&#x8DA3;&#x56E2;&#x4F53;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="code4"></a>
-  <h4 data-id="faq_sect4_q4_question">&#x4F60;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528;DLS-Tezos&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x5417;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect4_q4_answer"><p>&#x4E0D;&#x3002;TZL&#x7684;&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x548C;EOS&#x7684;&#x9884;&#x542F;&#x52A8;&#x4EE3;&#x5E01;&#x62E5;&#x6709;&#x4E00;&#x6837;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x8FD9;&#x4E2A;&#x4EE3;&#x5E01;&#x5C06;&#x662F;TeLibre&#x521B;&#x4E16;&#x533A;&#x5757;&#x7684;&#x66FF;&#x8EAB;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="growth2"></a>
+            <h4 data-id="faq_sect7_q2_question">&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x4E3A;&#x4F55;&#x8981;&#x4ECE;DLS-Tezos&#x8F6C;&#x5411;TzLibre&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect7_q2_answer">
+              <p>&#x5982;&#x679C;&#x4E0D;&#x662F;100%&#x7684;Tezos ICO&#x8D21;&#x732E;&#x8005;&#x90FD;&#x5151;&#x6362;&#x4E86;TZL&#xFF0C;&#x90A3;&#x4E48;&#x81F3;&#x5C11;&#x4F1A;&#x6709;20%&#x7684;TZL&#x4EE3;&#x5E01;&#x4F1A;&#x7528;&#x6765;&#x5956;&#x52B1;&#x7ED9;&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x3002;&#x6211;&#x4EEC;&#x8BA1;&#x5212;&#x901A;&#x8FC7;&#x672A;&#x5151;&#x6362;&#x7684;&#x4EE3;&#x5E01;&#x6765;&#x589E;&#x52A0;&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x7684;&#x5956;&#x52B1;&#x3002;&#x6211;&#x4EEC;&#x9884;&#x6D4B;&#x5728;TzLibre&#x4E0A;&#x70D8;&#x7119;&#x4F1A;&#x6BD4;&#x5728;DLS-Tezos&#x4E0A;&#x70D8;&#x7119;&#x5F97;&#x5230;&#x66F4;&#x591A;&#x7684;&#x5229;&#x76CA;&#x3002;&#x6362;&#x7B97;&#x6210;&#x6295;&#x8D44;&#x56DE;&#x62A5;&#x7387;&#xFF0C;&#x5728;&#x672A;&#x6765;&#x7684;3-5&#x5E74;&#xFF0C;TzLibre&#x7684;&#x56DE;&#x62A5;&#x7387;&#x4ECB;&#x4E8E;10%&#x5230;20%&#x6BCF;&#x5E74;&#xFF0C;&#x800C;DLS-Tezos&#x53EA;&#x6709;5%&#x6BCF;&#x5E74;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="code5"></a>
-  <h4 data-id="faq_sect4_q5_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x7528;DLS-Tezos&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect4_q5_answer"><p>&#x57FA;&#x4E8E;&#x4E24;&#x70B9;&#x539F;&#x56E0;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x4ECE;DLS-Tezos&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x72EC;&#x7ACB;&#x51FA;&#x6765;&#x3002;&#x9996;&#x5148;&#x662F;&#x4ED6;&#x4EEC;&#x8C1C;&#x4E00;&#x822C;&#x7684;&#x4E0A;&#x7EBF;&#x65F6;&#x95F4;&#x548C;&#x906E;&#x63A9;&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x6570;&#x636E;&#x3002;&#x5176;&#x6B21;&#x662F;&#x53C2;&#x4E0E;ICO&#x7684;&#x6570;&#x636E;&#x5176;&#x5B9E;&#x90FD;&#x4FDD;&#x5B58;&#x5728;BTC&#x548C;ETH&#x7684;&#x533A;&#x5757;&#x94FE;&#x4E0A;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x53C2;&#x8003;&#x4ED6;&#x4EEC;&#x7684;&#x521B;&#x4E16;&#x533A;&#x5757;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="growth3"></a>
+            <h4 data-id="faq_sect7_q3_question">&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x9009;&#x62E9;&#x5728;TzLibre&#x4E0A;&#x53D1;&#x5E03;&#x667A;&#x80FD;&#x5408;&#x7EA6;&#x800C;&#x4E0D;&#x662F;DLS-Tezos&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect7_q3_answer">
+              <p>TzLibre&#x9879;&#x76EE;&#x5728;2018&#x5E74;2&#x6708;&#x53D1;&#x5E03;&#xFF0C;&#x800C;DLS-Tezos&#x9879;&#x76EE;&#x65E9;&#x5728;2014&#x5E74;8&#x6708;&#x5C31;&#x53D1;&#x5E03;&#x4E86;&#x3002;TzLibre&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x5E74;&#x8F7B;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x5176;&#x4ED6;&#x6761;&#x4EF6;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x9884;&#x6D4B;&#x4E00;&#x4E24;&#x5E74;&#x5185;TZL&#x4EE3;&#x5E01;&#x7684;&#x4EF7;&#x683C;&#x4F1A;&#x5C0F;&#x4E8E;XTZ&#x4EE3;&#x5E01;&#x7684;&#x4EF7;&#x683C;&#x3002;&#x8FD9;&#x662F;&#x4E24;&#x4E2A;&#x62E5;&#x6709;&#x76F8;&#x540C;&#x5E95;&#x5C42;&#x6280;&#x672F;&#x7684;&#x533A;&#x5757;&#x94FE;&#xFF1A;&#x4E24;&#x4E2A;&#x533A;&#x5757;&#x94FE;&#x90FD;&#x80FD;&#x591F;&#x6267;&#x884C;Michelson&#x667A;&#x80FD;&#x5408;&#x7EA6;&#x3002;&#x4E0E;&#x6B64;&#x540C;&#x65F6;TzLibre&#x66F4;&#x52A0;&#x7684;&#x5B89;&#x5168;&#x53EF;&#x9760;&#x3002;&#x6211;&#x4EEC;&#x671F;&#x671B;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x66F4;&#x4E50;&#x610F;&#x4EE5;&#x4F4E;&#x5EC9;&#x7684;&#x4EF7;&#x683C;&#x5728;TzLibre&#x4E0A;&#x90E8;&#x7F72;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x667A;&#x80FD;&#x5408;&#x7EA6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;DLS-Tezos&#x4E0A;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="code6"></a>
-  <h4 data-id="faq_sect4_q6_question">TzLibre&#x662F;&#x5426;&#x548C;DLS-Tezos&#x62E5;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4EA4;&#x6613;&#x548C;&#x5730;&#x5740;&#x683C;&#x5F0F;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect4_q6_answer"><p>&#x4E0D;&#x3002;TzLibre&#x5C06;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x4EA4;&#x6613;&#x548C;&#x5730;&#x5740;&#x683C;&#x5F0F;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="growth4"></a>
+            <h4 data-id="faq_sect7_q4_question">&#x6295;&#x8D44;&#x4EBA;&#x5458;&#x4E3A;&#x4F55;&#x8981;&#x5356;&#x51FA;XTZ&#x800C;&#x4E70;&#x5165;TZL&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect7_q4_answer">
+              <p>TzLibre&#x548C;DLS-Tezos&#x62E5;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5E95;&#x5C42;&#x6280;&#x672F;&#x548C;&#x6280;&#x672F;&#x98CE;&#x9669;&#x3002;&#x8FD9;&#x4E24;&#x8005;&#x5171;&#x540C;&#x8D2C;&#x503C;&#x7684;&#x98CE;&#x9669;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x589E;&#x503C;&#x7684;&#x7A7A;&#x95F4;&#x5374;&#x5929;&#x5DEE;&#x5730;&#x522B;&#x3002;&#x7531;&#x4E8E;TZL&#x62E5;&#x6709;&#x786C;&#x7F16;&#x7801;&#x3001;&#x4E0D;&#x53EF;&#x66F4;&#x6539;&#x7684;&#x786C;&#x9876;&#x548C;&#x4E0D;&#x542B;&#x6709;&#x9884;&#x7559;&#x4EE3;&#x5E01;&#x7B49;&#x4F18;&#x52BF;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x89C9;&#x5F97;TZL&#x6BD4;XTZ&#x66F4;&#x6709;&#x4EF7;&#x503C;&#x3002;</p>
+            </div>
+          </div>
 
-        <h3 data-id="faq_sect5_title">&#x7ECF;&#x8D39;</h3>
-        <div class="expandable">
-  <a name="funding1"></a>
-  <h4 data-id="faq_sect5_q1_question">&#x4F60;&#x4EEC;&#x7684;&#x7ECF;&#x8D39;&#x4ECE;&#x4F55;&#x800C;&#x6765;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect5_q1_answer"><p>&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x662F;&#x81EA;&#x8D39;&#x7684;&#x3002;</p></div>
-</div>
+          <a name="team"></a>
+          <h3 data-id="faq_sect8_title">&#x56E2;&#x961F;</h3>
+          <div class="expandable">
+            <a name="team1"></a>
+            <h4 data-id="faq_sect8_q1_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4F55;&#x8981;&#x533F;&#x540D;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect8_q1_answer">
+              <p>&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x533F;&#x540D;&#x662F;&#x4E3A;&#x4E86;&#x7EF4;&#x62A4;TzLibre&#x7684;&#x72EC;&#x7ACB;&#x6027;&#x3002;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4EBA;&#x5E94;&#x8BE5;&#x5F71;&#x54CD;&#x5230;TzLibre&#x7684;&#x5F00;&#x53D1;&#x8005;&#x3002;&#x6211;&#x4EEC;&#x76F8;&#x4FE1;&#x56FD;&#x5BB6;&#x8BA4;&#x53EF;&#x8EAB;&#x4EFD;&#x5C5E;&#x4E8E;&#x6CD5;&#x5B9A;&#x4E16;&#x754C;&#xFF0C;&#x4F46;&#x4E0D;&#x5C5E;&#x4E8E;&#x533A;&#x5757;&#x94FE;&#x4E16;&#x754C;&#x3002;&#x5C31;&#x50CF;&#x4E2D;&#x672C;&#x806A;&#x4E00;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x76F8;&#x4FE1;&#x65E0;&#x79C1;&#x3001;&#x5F00;&#x653E;&#x3001;&#x533F;&#x540D;&#x7684;&#x521B;&#x65B0;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="funding2"></a>
-  <h4 data-id="faq_sect5_q2_question">&#x4F60;&#x4EEC;&#x5BF9;&#x672A;&#x6765;&#x7684;&#x5F00;&#x53D1;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x7ECF;&#x8D39;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect5_q2_answer"><p>&#x6211;&#x4EEC;&#x4F1A;&#x52DF;&#x96C6;&#x8D44;&#x91D1;&#x4EE5;&#x8FDB;&#x884C;&#x540E;&#x7EED;&#x7684;&#x5F00;&#x53D1;&#x3002;&#x6211;&#x4EEC;&#x671F;&#x671B;&#x5927;&#x90E8;&#x5206;&#x8D44;&#x91D1;&#x5C06;&#x6765;&#x81EA;Tezos&#x7684;&#x57FA;&#x91D1;&#x4F1A;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="team2"></a>
+            <h4 data-id="faq_sect8_q2_question">&#x6211;&#x8BE5;&#x5982;&#x4F55;&#x76F8;&#x4FE1;&#x4F60;&#x4EEC;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect8_q2_answer">
+              <p>&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x3002;&#x6211;&#x4EEC;&#x575A;&#x6301;&#x533A;&#x5757;&#x94FE;&#x7684;&#x672C;&#x6E90;&#x7406;&#x5FF5;&#xFF1A; &quot;&#x9A8C;&#x8BC1;&#xFF0C;&#x800C;&#x975E;&#x4FE1;&#x4EFB;&quot;&#x3002; &#x6211;&#x4EEC;&#x610F;&#x8BC6;&#x5230;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x4EBA;&#x90FD;&#x80FD;&#x63A5;&#x53D7;TzLibre&#x3002;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x4FE1;&#x4EFB;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#xFF0C;&#x90A3;&#x4E48;TzLibre&#x5E76;&#x4E0D;&#x9002;&#x5408;&#x4F60;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="funding3"></a>
-  <h4 data-id="faq_sect5_q3_question">Tezos&#x57FA;&#x91D1;&#x4F1A;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x8D5E;&#x52A9;TzLibre&#x7684;&#x5F00;&#x53D1;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect5_q3_answer"><p>Tezos&#x57FA;&#x91D1;&#x4F1A;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x745E;&#x58EB;&#x7684;&#x6CD5;&#x5F8B;&#x548C;&#x5BF9;&#x4E8E;&#x5B9E;&#x73B0;Tezos&#x7406;&#x5FF5;&#x4E0D;&#x53EF;&#x6539;&#x53D8;&#x7684;&#x534F;&#x8BAE;&#x3002;&#x6211;&#x4EEC;&#x90FD;&#x7406;&#x89E3;Tezos&#x662F;&#x4E00;&#x4E2A;&#x7406;&#x5FF5;&#xFF0C;DLS-Tezos&#x548C;TzLibre&#x662F;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x745E;&#x58EB;&#x57FA;&#x91D1;&#x4F1A;&#x8FDD;&#x80CC;&#x4E86;&#x5B83;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x4EFB;&#x4F55;&#x745E;&#x58EB;&#x6295;&#x8D44;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x8D77;&#x8BC9;&#x81F3;&#x6CD5;&#x9662;&#x3002;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x6CD5;&#x5F8B;&#x6548;&#x529B;&#xFF0C;&#x5728;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5411;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x63D0;&#x4EA4;&#x4E00;&#x4EFD;&#x52A0;&#x5BC6;&#x3001;&#x771F;&#x5B9E;&#x3001;&#x533F;&#x540D;&#x7684;&#x7B7E;&#x7F72;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x8D44;&#x52A9;TzLibre&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="team3"></a>
+            <h4 data-id="faq_sect8_q3_question">&#x4F60;&#x4EEC;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x591A;&#x5927;&#x7684;&#x5F00;&#x53D1;&#x56E2;&#x961F;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect8_q3_answer">
+              <p>&#x6211;&#x4EEC;&#x7684;&#x56E2;&#x961F;&#x5F88;&#x5C0F;&#x4F46;&#x5374;&#x5305;&#x542B;&#x4E86;&#x6280;&#x80FD;&#x9AD8;&#x8D85;&#x7684;&#x533A;&#x5757;&#x94FE;&#x8D44;&#x6DF1;&#x4E13;&#x5BB6;&#xFF0C;&#x4EE5;&#x53CA;&#x529F;&#x80FD;&#x6A21;&#x5757;&#x7684;&#x7F16;&#x7A0B;&#x4E13;&#x5BB6;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="funding1"></a>
-  <h4 data-id="faq_sect5_q4_question">&#x4F60;&#x4EEC;&#x5C06;&#x76F4;&#x63A5;&#x4ECE;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x62FF;&#x5230;&#x7ECF;&#x8D39;&#x5417;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect5_q4_answer"><p>&#x4E0D;&#x3002;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x4E0D;&#x5F97;&#x4E0D;&#x8D5E;&#x52A9;&#x90A3;&#x4E9B;&#x4E3A;TzLibre&#x5F00;&#x53D1;&#x7684;&#x72EC;&#x7ACB;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF0C;&#x800C;&#x975E;&#x6211;&#x4EEC;&#x3002;&#x7ECF;&#x8D39;&#x7684;&#x4F7F;&#x7528;&#x5E94;&#x8BE5;&#x6700;&#x5927;&#x9650;&#x5EA6;&#x7684;&#x516C;&#x5F00;&#x3001;&#x900F;&#x660E;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x53EF;&#x4EE5;&#x4E3A;TzLibre&#x8BBE;&#x7ACB;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x5956;&#x52B1;&#x8BA1;&#x5212;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="team3"></a>
+            <h4 data-id="faq_sect8_q4_question">&#x6211;&#x4EEC;&#x5728;&#x4E0E;DLS-Tezos&#x4E3A;&#x654C;&#x5417;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect8_q4_answer">
+              <p>&#x4E0D;&#x662F;&#xFF0C;&#x6070;&#x6070;&#x76F8;&#x53CD;&#x3002;&#x6211;&#x4EEC;&#x90FD;&#x662F;Tezos&#x7684;&#x8D21;&#x732E;&#x8005;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x63A2;&#x5BFB;&#x6210;&#x529F;&#x7684;&#x9053;&#x8DEF;&#x4E0A;&#x8D70;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5411;&#x3002;ICO&#x8D21;&#x732E;&#x8005;&#x7684;&#x5229;&#x76CA;&#x4E00;&#x76F4;&#x90FD;&#x662F;&#x7B2C;&#x4E00;&#x4F4D;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x5E0C;&#x671B;&#x8D4C;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x5411;&#x4E0A;&#xFF0C;&#x5E76;&#x4ECE;DLS&#x72EC;&#x7ACB;&#x5F00;&#x6765;&#x3002;&#x5C31;&#x50CF;ETH&#x548C;ETC&#x7684;&#x5173;&#x7CFB;&#x4E00;&#x6837;&#xFF0C;DLS-Tezos&#x548C;TzLibre&#x5E94;&#x8BE5;&#x662F;&#x4E92;&#x8865;&#x7684;&#x3002;&#x6700;&#x540E;&#x8981;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;&#x4E86;DLS&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5904;&#x4E8E;&#x5784;&#x65AD;&#x5730;&#x4F4D;&#x65E0;&#x6240;&#x4E8B;&#x4E8B;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x628A;&#x5F97;&#x5230;&#x7684;&#x94B1;&#x8FD0;&#x4F5C;&#x8D77;&#x6765;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="funding2"></a>
-  <h4 data-id="faq_sect5_q5_question">TzLibre&#x4E3A;&#x4F55;&#x9700;&#x8981;&#x8D5E;&#x52A9;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect5_q5_answer"><p>TzLibre&#x5BF9;DLS-Tezos&#x505A;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x6539;&#x52A8;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x662F;&#x4E00;&#x9879;&#x7E41;&#x91CD;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x800C;&#x4E14;&#x57FA;&#x4E8E;DLS-Tezos&#x4EA7;&#x54C1;&#x521B;&#x5EFA;&#x4E00;&#x7CFB;&#x5217;&#x652F;&#x6301;Libre&#x7248;&#x672C;&#x7684;&#x4EA7;&#x54C1;&#x4E5F;&#x5F88;&#x91CD;&#x8981;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="team3"></a>
+            <h4 data-id="faq_sect8_q5_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x6837;&#x505A;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect8_q5_answer">
+              <p>&#x6211;&#x4EEC;&#x53D1;&#x5E03;TzLibre&#x4E00;&#x65B9;&#x9762;&#x662F;&#x4E3A;&#x4E86;&#x7406;&#x60F3;&#x4E00;&#x65B9;&#x9762;&#x662F;&#x4E3A;&#x4E86;&#x8D22;&#x52A1;&#x3002;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x65E0;&#x653F;&#x5E9C;&#x7684;&#x8D44;&#x672C;&#x673A;&#x6784;&#xFF0C;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x8FD9;&#x4E24;&#x65B9;&#x9762;&#x6709;&#x7740;&#x6DF1;&#x5C42;&#x8054;&#x7CFB;&#x3002;Tezos&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x7406;&#x5FF5;&#xFF0C;&#x7406;&#x5E94;&#x7531;&#x591A;&#x4E2A;&#x7ADE;&#x4E89;&#x56E2;&#x961F;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x8BB8;&#x591A;&#x7684;&#x8D21;&#x732E;&#x8005;&#x660E;&#x663E;&#x5BF9;DLS&#x7684;&#x6267;&#x884C;&#x529B;&#x8868;&#x8FBE;&#x4E86;&#x4E0D;&#x6EE1;&#x3002;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;DLS&#x4E0D;&#x4EC5;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x529B;&#xFF0C;&#x800C;&#x4E14;&#x5B8C;&#x5168;&#x8FDD;&#x53CD;&#x4E86;&#x533A;&#x5757;&#x94FE;&#x7684;&#x672C;&#x6765;&#x7CBE;&#x795E;&#x3002;&#x6211;&#x4EEC;&#x81EA;&#x8EAB;&#x4E5F;&#x662F;Tezos&#x7684;&#x8D21;&#x732E;&#x8005;&#xFF1A;&#x6211;&#x4EEC;&#x4E5F;&#x5E0C;&#x671B;&#x62E5;&#x6709;&#x53CC;&#x500D;&#x7684;&#x4EFD;&#x989D;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5728;XTZ&#x548C;TZL&#x4E4B;&#x95F4;&#x5BF9;&#x51B2;&#x98CE;&#x9669;&#x3002;&#x6700;&#x540E;&#x8981;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;&#x4E86;DLS&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5904;&#x4E8E;&#x5784;&#x65AD;&#x5730;&#x4F4D;&#x65E0;&#x6240;&#x4E8B;&#x4E8B;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x628A;&#x5F97;&#x5230;&#x7684;&#x94B1;&#x8FD0;&#x4F5C;&#x8D77;&#x6765;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="funding3"></a>
-  <h4 data-id="faq_sect5_q6_question">&#x662F;&#x5426;&#x6709;&#x8FC7;&#x5F80;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x57FA;&#x91D1;&#x4F1A;&#x8D5E;&#x52A9;&#x4E86;&#x7ADE;&#x4E89;&#x56E2;&#x961F;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect5_q6_answer"><p>&#x5F53;&#x7136;&#x6709;&#x3002;&#x6BD4;&#x5982;Aragon&#x7684;&#x57FA;&#x91D1;&#x4F1A;&#x5C31;&#x5BA3;&#x5E03;&#x4E86;&#x652F;&#x6301;&#x7ADE;&#x4E89;&#x7684;&#x56E2;&#x961F;&#x3002;</p></div>
-</div>
+          <a name="communication"></a>
+          <h3 data-id="faq_sect9_title">&#x6C9F;&#x901A;</h3>
+          <div class="expandable">
+            <a name="communication1"></a>
+            <h4 data-id="faq_sect9_q1_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4F55;&#x4F7F;&#x7528;&#x7535;&#x62A5;&#x9891;&#x9053;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect9_q1_answer">
+              <p>&#x5728;&#x88AB;&#x90A3;&#x4E9B;&#x53EF;&#x6076;&#x7684;&#x4EBA;&#x6076;&#x610F;&#x653B;&#x51FB;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x5C06;&#x6211;&#x4EEC;&#x7684;
+                <a href="https://www.reddit.com/r/tzlibre" target="_blank">subreddit</a>&#x8BBE;&#x7F6E;&#x6210;&#x79C1;&#x4EBA;&#x7684;&#x3002;&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x53EA;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x7684;&#x516C;&#x5171;
+                <a href="https://www.t.me/tzlibre" target="_blank">&#x7535;&#x62A5;&#x9891;&#x9053;</a>&#x53D1;&#x5E03;&#x6D88;&#x606F;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="funding3"></a>
-  <h4 data-id="faq_sect5_q7_question">&#x4F60;&#x4EEC;&#x662F;&#x6253;&#x7B97;&#x5077;&#x53D6;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x7684;&#x8D44;&#x91D1;&#x5417;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect5_q7_answer"><p>&#x4E0D;&#xFF0C;&#x6070;&#x6070;&#x76F8;&#x53CD;&#x3002;&#x76EE;&#x524D;DLS&#x5784;&#x65AD;&#x4E86;Tezos&#x57FA;&#x91D1;&#x4F1A;&#x7684;&#x8D44;&#x91D1;&#x3002;&#x901A;&#x8FC7;&#x8981;&#x6C42;&#x57FA;&#x91D1;&#x4F1A;&#x652F;&#x6301;&#x4E00;&#x4E2A;&#x7ADE;&#x4E89;&#x56E2;&#x961F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8425;&#x9020;&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x5E02;&#x573A;&#x7ADE;&#x4E89;&#x6C1B;&#x56F4;&#x3002;&#x6211;&#x4EEC;&#x6709;&#x4FE1;&#x5FC3;&#x5E2E;&#x52A9;&#x57FA;&#x91D1;&#x4F1A;&#x66F4;&#x597D;&#x5730;&#x5206;&#x914D;&#x8D44;&#x91D1;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="communication2"></a>
+            <h4 data-id="faq_sect9_q2_question">&#x6211;&#x5982;&#x4F55;&#x8054;&#x7CFB;&#x4F60;&#x4EEC;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect9_q2_answer">
+              <p>&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;
+                <a href="http://weibo.com/TzLibre" target="_blank">&#x5FAE;&#x535A;</a>&#x6216;&#x8005;
+                <a href="https://www.reddit.com/user/tzlibre" target="_blank">Reddit</a>&#x7ED9;&#x6211;&#x4EEC;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x3002;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x79EF;&#x6781;&#x5730;&#x8BBE;&#x7F6E;&#x5176;&#x4ED6;&#x7684;&#x5B89;&#x5168;&#x6C9F;&#x901A;&#x6E20;&#x9053;&#x3002;</p>
+            </div>
+          </div>
 
-        <h3 data-id="faq_sect6_title">&#x652F;&#x6301;</h3>
-        <div class="expandable">
-  <a name="support1"></a>
-  <h4 data-id="faq_sect6_q1_question">&#x4F60;&#x4EEC;&#x6709;&#x6536;&#x83B7;DLS-Tezos&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x652F;&#x6301;&#x5417;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect6_q1_answer"><p>DLS-Tezos&#x793E;&#x533A;&#x7684;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x8868;&#x8FBE;&#x4E86;&#x5BF9;TzLibre&#x7684;&#x5174;&#x8DA3;&#xFF0C;&#x867D;&#x7136;&#x4ED6;&#x4EEC;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x6C89;&#x9ED8;&#x3002;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x6536;&#x5230;&#x4E86;&#x8BB8;&#x591A;&#x6765;&#x81EA;DLS-Tezos&#x7684;&#x6210;&#x5458;&#x548C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x79C1;&#x4EBA;&#x652F;&#x6301;&#x3002;&#x4E0D;&#x8FC7;&#x76EE;&#x524D;&#x4ED6;&#x4EEC;&#x4EFB;&#x7136;&#x65E0;&#x6CD5;&#x516C;&#x5F00;&#x4ED6;&#x4EEC;&#x7684;&#x8EAB;&#x4EFD;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="communication3"></a>
+            <h4 data-id="faq_sect9_q3_question">&#x4E3A;&#x4F55;&#x4E4B;&#x524D;&#x6211;&#x6CA1;&#x6709;&#x542C;&#x5230;&#x8FC7;TzLibre&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect9_q3_answer">
+              <p>&#x6211;&#x4EEC;&#x5728;2018&#x5E74;2&#x6708;23&#x65E5;&#x53D1;&#x5E03;&#x4E86;
+                <a href="https://ipfs.infura.io/ipfs/QmYEcSaYEMm3xQqBK6wZT9uc2SCDJyU7pBU82KQQHMdXxo" target="_blank">&#x6211;&#x4EEC;&#x7684;&#x5BA3;&#x8A00;</a>&#x3002;&#x4ECE;&#x90A3;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x4EFB;&#x4F55;Tezos&#x76F8;&#x5173;&#x9891;&#x9053;&#xFF08;Reddit&#xFF0C;&#x7535;&#x62A5;&#xFF0C;Riot&#xFF09;&#x7684;&#x53D1;&#x8A00;&#x90FD;&#x53D7;&#x5230;&#x5BA1;&#x67E5;&#x3002;&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;&#x90A3;&#x4E9B;&#x5E26;&#x6709;&#x654C;&#x610F;&#x7684;&#x4EBA;&#x540C;&#x6837;&#x7528;&#x8FD9;&#x4E9B;&#x9891;&#x9053;&#x5BA3;&#x4F20;&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x5206;&#x53C9;&#x7684;&#x6076;&#x8A00;&#x6076;&#x8BED;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="support2"></a>
-  <h4 data-id="faq_sect6_q2_question">&#x6709;&#x652F;&#x6301;TzLibre&#x7684;&#x94B1;&#x5305;&#x5417;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect6_q2_answer"><p>&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x548C;&#x5927;&#x591A;&#x6570;DLS-Tezos&#x7684;&#x94B1;&#x5305;&#x5F00;&#x53D1;&#x5546;&#x4EA4;&#x6D89;&#xFF0C;&#x4EE5;&#x4FBF;&#x4ED6;&#x4EEC;&#x80FD;&#x591F;&#x53D1;&#x5E03;Libre&#x7248;&#x672C;&#x7684;&#x94B1;&#x5305;&#x3002;</p></div>
-</div>
+          <a name="other"></a>
+          <h3 data-id="faq_sect10_title">&#x5176;&#x4ED6;</h3>
+          <div class="expandable">
+            <a name="other3"></a>
+            <h4 data-id="faq_sect10_q3_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4F55;&#x4E0D;&#x5728;DLS-Tezos&#x534F;&#x8BAE;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x505A;&#x5347;&#x7EA7;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x5206;&#x53C9;&#x5B83;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect10_q3_answer">
+              <p>&#x6211;&#x4EEC;&#x89C9;&#x5F97;DLS-Tezos&#x884C;&#x8FDB;&#x4E8E;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x5047;&#x8BBE;&#x4E2D;&#x3002;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x4FE1;&#x4EFB;&#x7684;&#x94FE;&#xFF0C;&#x5B83;&#x5B9E;&#x5728;&#x96BE;&#x4EE5;&#x53BB;&#x505A;&#x5230;&#x514D;&#x4FE1;&#x4EFB;&#x673A;&#x5236;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x4E0D;&#x5230;&#x5B83;&#x7684;&#x5C06;&#x6765;&#xFF0C;&#x4E5F;&#x538C;&#x5026;&#x4E86;DLS&#x4E00;&#x800C;&#x518D;&#x7684;&#x62D6;&#x5EF6;&#x3002;&#x76F4;&#x63A5;&#x5206;&#x53C9;&#x5E76;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x5C06;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x806A;&#x660E;&#x5FEB;&#x901F;&#x5E76;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5C3D;&#x7BA1;&#x5982;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5F88;&#x4E50;&#x610F;&#x770B;&#x5230;DLS-Tezos&#x5C06;&#x6765;&#x5229;&#x7528;Libre&#x7684;&#x534F;&#x8BAE;&#xFF1A;&#x514D;&#x53BB;&#x6295;&#x7968;&#x7279;&#x6743;&#xFF0C;&#x9500;&#x6BC1;DLS&#x548C;&#x57FA;&#x91D1;&#x4F1A;&#x7684;&#x9884;&#x7559;&#x4EE3;&#x5E01;&#xFF0C;&#x8BBE;&#x7F6E;&#x4F9B;&#x5E94;&#x91CF;&#x4E0A;&#x9650;&#x3002;&#x6211;&#x4EEC;&#x5F88;&#x4E50;&#x610F;&#x770B;&#x5230;&#x8FD9;&#x4E9B;&#xFF0C;&#x4F46;&#x8FD9;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x53EF;&#x80FD;&#x3002;</p>
+            </div>
+          </div>
 
-<div class="expandable">
-  <a name="support3"></a>
-  <h4 data-id="faq_sect6_q3_question">&#x4F60;&#x4EEC;&#x5982;&#x4F55;&#x6FC0;&#x52B1;Libre&#x7684;&#x751F;&#x6001;&#x53D1;&#x5C55;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect6_q3_answer"><p>&#x6211;&#x4EEC;&#x4F1A;&#x5229;&#x7528;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x8D5E;&#x52A9;&#x57FA;&#x91D1;&#x6765;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x8D4F;&#x91D1;&#x8BA1;&#x5212;&#x3002;&#x5956;&#x8D4F;&#x90A3;&#x4E9B;&#x57FA;&#x4E8E;DLS-Tezos&#x4EA7;&#x54C1;&#x53D1;&#x5E03;Libre&#x7248;&#x672C;&#x7684;&#x56E2;&#x961F;&#xFF0C;&#x6BD4;&#x5982;&#x5F00;&#x6E90;&#x94B1;&#x5305;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x4EA7;&#x54C1;&#xFF0C;&#x5F80;&#x5F80;&#x53EA;&#x9700;&#x8981;&#x4E0D;&#x591A;&#x7684;&#x5DE5;&#x4F5C;&#x91CF;&#xFF0C;&#x5728;&#x51E0;&#x5468;&#x5185;&#x5C31;&#x80FD;&#x5B8C;&#x6210;&#x3002;&#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;&#x770B;&#x5230;&#x67D0;&#x4E2A;&#x4EA7;&#x54C1;&#x652F;&#x6301;TzLibre&#xFF0C;&#x8BF7;&#x8054;&#x7CFB;&#x6211;&#x4EEC;&#x3002;</p></div>
-</div>
+          <div class="expandable">
+            <a name="other6"></a>
+            <h4 data-id="faq_sect10_q6_question">&#x5206;&#x53C9;&#x4F1A;&#x4F7F;Tezos&#x8D21;&#x732E;&#x8005;&#x53D7;&#x76CA;&#x5417;&#xFF1F;</h4>
+            <div class="expandable-content" data-id="faq_sect10_q6_answer">
+              <p>&#x662F;&#x7684;&#x3002;&#x8D21;&#x732E;&#x8005;&#x53EF;&#x4EE5;&#x5F88;&#x76F4;&#x63A5;&#x5730;&#x4ECE;&#x4E2D;&#x53D7;&#x76CA;&#x3002;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x53CC;&#x500D;&#x7684;&#x4EFD;&#x989D;&#x5E76;&#x5BF9;&#x51B2;&#x98CE;&#x9669;&#x3002;DLS-Tezos&#x548C;TzLibre&#x5728;&#x4E3A;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x6807;&#x800C;&#x594B;&#x6597;&#xFF1A;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x3001;&#x81EA;&#x6CBB;&#x7684;&#x6570;&#x5B57;&#x8054;&#x90A6;&#x3002;&#x6700;&#x540E;&#x8981;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;&#x4E86;DLS&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5904;&#x4E8E;&#x5784;&#x65AD;&#x5730;&#x4F4D;&#x65E0;&#x6240;&#x4E8B;&#x4E8B;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x628A;&#x5F97;&#x5230;&#x7684;&#x94B1;&#x8FD0;&#x4F5C;&#x8D77;&#x6765;&#x3002;</p>
+            </div>
+          </div>
 
-        <h3 data-id="faq_sect7_title">&#x53D1;&#x5C55;</h3>
-        <div class="expandable">
-  <a name="growth1"></a>
-  <h4 data-id="faq_sect7_q1_question">TzLibre&#x5728;&#x4E0A;&#x7EBF;&#x4EE5;&#x540E;&#x6709;&#x4F55;&#x53D1;&#x5C55;&#x8BA1;&#x5212;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect7_q1_answer"><p>&#x4E0A;&#x7EBF;&#x4EE5;&#x540E;&#x7684;&#x53D1;&#x5C55;&#x89C4;&#x5212;&#x4E3B;&#x8981;&#x51B3;&#x5B9A;&#x4E8E;&#x90A3;&#x4E9B;&#x4ECE;DLS-Tezos&#x8F6C;&#x5230;TzLibre&#x7684;&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x3001;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x548C;&#x5174;&#x8DA3;&#x56E2;&#x4F53;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="growth2"></a>
-  <h4 data-id="faq_sect7_q2_question">&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x4E3A;&#x4F55;&#x8981;&#x4ECE;DLS-Tezos&#x8F6C;&#x5411;TzLibre&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect7_q2_answer"><p>&#x5982;&#x679C;&#x4E0D;&#x662F;100%&#x7684;Tezos ICO&#x8D21;&#x732E;&#x8005;&#x90FD;&#x5151;&#x6362;&#x4E86;TZL&#xFF0C;&#x90A3;&#x4E48;&#x81F3;&#x5C11;&#x4F1A;&#x6709;20%&#x7684;TZL&#x4EE3;&#x5E01;&#x4F1A;&#x7528;&#x6765;&#x5956;&#x52B1;&#x7ED9;&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x3002;&#x6211;&#x4EEC;&#x8BA1;&#x5212;&#x901A;&#x8FC7;&#x672A;&#x5151;&#x6362;&#x7684;&#x4EE3;&#x5E01;&#x6765;&#x589E;&#x52A0;&#x70D8;&#x7119;&#x4EBA;&#x5458;&#x7684;&#x5956;&#x52B1;&#x3002;&#x6211;&#x4EEC;&#x9884;&#x6D4B;&#x5728;TzLibre&#x4E0A;&#x70D8;&#x7119;&#x4F1A;&#x6BD4;&#x5728;DLS-Tezos&#x4E0A;&#x70D8;&#x7119;&#x5F97;&#x5230;&#x66F4;&#x591A;&#x7684;&#x5229;&#x76CA;&#x3002;&#x6362;&#x7B97;&#x6210;&#x6295;&#x8D44;&#x56DE;&#x62A5;&#x7387;&#xFF0C;&#x5728;&#x672A;&#x6765;&#x7684;3-5&#x5E74;&#xFF0C;TzLibre&#x7684;&#x56DE;&#x62A5;&#x7387;&#x4ECB;&#x4E8E;10%&#x5230;20%&#x6BCF;&#x5E74;&#xFF0C;&#x800C;DLS-Tezos&#x53EA;&#x6709;5%&#x6BCF;&#x5E74;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="growth3"></a>
-  <h4 data-id="faq_sect7_q3_question">&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x9009;&#x62E9;&#x5728;TzLibre&#x4E0A;&#x53D1;&#x5E03;&#x667A;&#x80FD;&#x5408;&#x7EA6;&#x800C;&#x4E0D;&#x662F;DLS-Tezos&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect7_q3_answer"><p>TzLibre&#x9879;&#x76EE;&#x5728;2018&#x5E74;2&#x6708;&#x53D1;&#x5E03;&#xFF0C;&#x800C;DLS-Tezos&#x9879;&#x76EE;&#x65E9;&#x5728;2014&#x5E74;8&#x6708;&#x5C31;&#x53D1;&#x5E03;&#x4E86;&#x3002;TzLibre&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x5E74;&#x8F7B;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x5176;&#x4ED6;&#x6761;&#x4EF6;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x9884;&#x6D4B;&#x4E00;&#x4E24;&#x5E74;&#x5185;TZL&#x4EE3;&#x5E01;&#x7684;&#x4EF7;&#x683C;&#x4F1A;&#x5C0F;&#x4E8E;XTZ&#x4EE3;&#x5E01;&#x7684;&#x4EF7;&#x683C;&#x3002;&#x8FD9;&#x662F;&#x4E24;&#x4E2A;&#x62E5;&#x6709;&#x76F8;&#x540C;&#x5E95;&#x5C42;&#x6280;&#x672F;&#x7684;&#x533A;&#x5757;&#x94FE;&#xFF1A;&#x4E24;&#x4E2A;&#x533A;&#x5757;&#x94FE;&#x90FD;&#x80FD;&#x591F;&#x6267;&#x884C;Michelson&#x667A;&#x80FD;&#x5408;&#x7EA6;&#x3002;&#x4E0E;&#x6B64;&#x540C;&#x65F6;TzLibre&#x66F4;&#x52A0;&#x7684;&#x5B89;&#x5168;&#x53EF;&#x9760;&#x3002;&#x6211;&#x4EEC;&#x671F;&#x671B;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x66F4;&#x4E50;&#x610F;&#x4EE5;&#x4F4E;&#x5EC9;&#x7684;&#x4EF7;&#x683C;&#x5728;TzLibre&#x4E0A;&#x90E8;&#x7F72;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x667A;&#x80FD;&#x5408;&#x7EA6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;DLS-Tezos&#x4E0A;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="growth4"></a>
-  <h4 data-id="faq_sect7_q4_question">&#x6295;&#x8D44;&#x4EBA;&#x5458;&#x4E3A;&#x4F55;&#x8981;&#x5356;&#x51FA;XTZ&#x800C;&#x4E70;&#x5165;TZL&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect7_q4_answer"><p>TzLibre&#x548C;DLS-Tezos&#x62E5;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5E95;&#x5C42;&#x6280;&#x672F;&#x548C;&#x6280;&#x672F;&#x98CE;&#x9669;&#x3002;&#x8FD9;&#x4E24;&#x8005;&#x5171;&#x540C;&#x8D2C;&#x503C;&#x7684;&#x98CE;&#x9669;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x589E;&#x503C;&#x7684;&#x7A7A;&#x95F4;&#x5374;&#x5929;&#x5DEE;&#x5730;&#x522B;&#x3002;&#x7531;&#x4E8E;TZL&#x62E5;&#x6709;&#x786C;&#x7F16;&#x7801;&#x3001;&#x4E0D;&#x53EF;&#x66F4;&#x6539;&#x7684;&#x786C;&#x9876;&#x548C;&#x4E0D;&#x542B;&#x6709;&#x9884;&#x7559;&#x4EE3;&#x5E01;&#x7B49;&#x4F18;&#x52BF;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x89C9;&#x5F97;TZL&#x6BD4;XTZ&#x66F4;&#x6709;&#x4EF7;&#x503C;&#x3002;</p></div>
-</div>
-
-        <h3 data-id="faq_sect8_title">&#x56E2;&#x961F;</h3>
-        <div class="expandable">
-  <a name="team1"></a>
-  <h4 data-id="faq_sect8_q1_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4F55;&#x8981;&#x533F;&#x540D;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect8_q1_answer"><p>&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x533F;&#x540D;&#x662F;&#x4E3A;&#x4E86;&#x7EF4;&#x62A4;TzLibre&#x7684;&#x72EC;&#x7ACB;&#x6027;&#x3002;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4EBA;&#x5E94;&#x8BE5;&#x5F71;&#x54CD;&#x5230;TzLibre&#x7684;&#x5F00;&#x53D1;&#x8005;&#x3002;&#x6211;&#x4EEC;&#x76F8;&#x4FE1;&#x56FD;&#x5BB6;&#x8BA4;&#x53EF;&#x8EAB;&#x4EFD;&#x5C5E;&#x4E8E;&#x6CD5;&#x5B9A;&#x4E16;&#x754C;&#xFF0C;&#x4F46;&#x4E0D;&#x5C5E;&#x4E8E;&#x533A;&#x5757;&#x94FE;&#x4E16;&#x754C;&#x3002;&#x5C31;&#x50CF;&#x4E2D;&#x672C;&#x806A;&#x4E00;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x76F8;&#x4FE1;&#x65E0;&#x79C1;&#x3001;&#x5F00;&#x653E;&#x3001;&#x533F;&#x540D;&#x7684;&#x521B;&#x65B0;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="team2"></a>
-  <h4 data-id="faq_sect8_q2_question">&#x6211;&#x8BE5;&#x5982;&#x4F55;&#x76F8;&#x4FE1;&#x4F60;&#x4EEC;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect8_q2_answer"><p>&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x3002;&#x6211;&#x4EEC;&#x575A;&#x6301;&#x533A;&#x5757;&#x94FE;&#x7684;&#x672C;&#x6E90;&#x7406;&#x5FF5;&#xFF1A; &quot;&#x9A8C;&#x8BC1;&#xFF0C;&#x800C;&#x975E;&#x4FE1;&#x4EFB;&quot;&#x3002; &#x6211;&#x4EEC;&#x610F;&#x8BC6;&#x5230;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x4EBA;&#x90FD;&#x80FD;&#x63A5;&#x53D7;TzLibre&#x3002;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x4FE1;&#x4EFB;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#xFF0C;&#x90A3;&#x4E48;TzLibre&#x5E76;&#x4E0D;&#x9002;&#x5408;&#x4F60;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="team3"></a>
-  <h4 data-id="faq_sect8_q3_question">&#x4F60;&#x4EEC;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x591A;&#x5927;&#x7684;&#x5F00;&#x53D1;&#x56E2;&#x961F;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect8_q3_answer"><p>&#x6211;&#x4EEC;&#x7684;&#x56E2;&#x961F;&#x5F88;&#x5C0F;&#x4F46;&#x5374;&#x5305;&#x542B;&#x4E86;&#x6280;&#x80FD;&#x9AD8;&#x8D85;&#x7684;&#x533A;&#x5757;&#x94FE;&#x8D44;&#x6DF1;&#x4E13;&#x5BB6;&#xFF0C;&#x4EE5;&#x53CA;&#x529F;&#x80FD;&#x6A21;&#x5757;&#x7684;&#x7F16;&#x7A0B;&#x4E13;&#x5BB6;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="team3"></a>
-  <h4 data-id="faq_sect8_q4_question">&#x6211;&#x4EEC;&#x5728;&#x4E0E;DLS-Tezos&#x4E3A;&#x654C;&#x5417;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect8_q4_answer"><p>&#x4E0D;&#x662F;&#xFF0C;&#x6070;&#x6070;&#x76F8;&#x53CD;&#x3002;&#x6211;&#x4EEC;&#x90FD;&#x662F;Tezos&#x7684;&#x8D21;&#x732E;&#x8005;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x63A2;&#x5BFB;&#x6210;&#x529F;&#x7684;&#x9053;&#x8DEF;&#x4E0A;&#x8D70;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5411;&#x3002;ICO&#x8D21;&#x732E;&#x8005;&#x7684;&#x5229;&#x76CA;&#x4E00;&#x76F4;&#x90FD;&#x662F;&#x7B2C;&#x4E00;&#x4F4D;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x5E0C;&#x671B;&#x8D4C;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x5411;&#x4E0A;&#xFF0C;&#x5E76;&#x4ECE;DLS&#x72EC;&#x7ACB;&#x5F00;&#x6765;&#x3002;&#x5C31;&#x50CF;ETH&#x548C;ETC&#x7684;&#x5173;&#x7CFB;&#x4E00;&#x6837;&#xFF0C;DLS-Tezos&#x548C;TzLibre&#x5E94;&#x8BE5;&#x662F;&#x4E92;&#x8865;&#x7684;&#x3002;&#x6700;&#x540E;&#x8981;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;&#x4E86;DLS&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5904;&#x4E8E;&#x5784;&#x65AD;&#x5730;&#x4F4D;&#x65E0;&#x6240;&#x4E8B;&#x4E8B;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x628A;&#x5F97;&#x5230;&#x7684;&#x94B1;&#x8FD0;&#x4F5C;&#x8D77;&#x6765;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="team3"></a>
-  <h4 data-id="faq_sect8_q5_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x6837;&#x505A;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect8_q5_answer"><p>&#x6211;&#x4EEC;&#x53D1;&#x5E03;TzLibre&#x4E00;&#x65B9;&#x9762;&#x662F;&#x4E3A;&#x4E86;&#x7406;&#x60F3;&#x4E00;&#x65B9;&#x9762;&#x662F;&#x4E3A;&#x4E86;&#x8D22;&#x52A1;&#x3002;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x65E0;&#x653F;&#x5E9C;&#x7684;&#x8D44;&#x672C;&#x673A;&#x6784;&#xFF0C;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x8FD9;&#x4E24;&#x65B9;&#x9762;&#x6709;&#x7740;&#x6DF1;&#x5C42;&#x8054;&#x7CFB;&#x3002;Tezos&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x7406;&#x5FF5;&#xFF0C;&#x7406;&#x5E94;&#x7531;&#x591A;&#x4E2A;&#x7ADE;&#x4E89;&#x56E2;&#x961F;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x8BB8;&#x591A;&#x7684;&#x8D21;&#x732E;&#x8005;&#x660E;&#x663E;&#x5BF9;DLS&#x7684;&#x6267;&#x884C;&#x529B;&#x8868;&#x8FBE;&#x4E86;&#x4E0D;&#x6EE1;&#x3002;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;DLS&#x4E0D;&#x4EC5;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x529B;&#xFF0C;&#x800C;&#x4E14;&#x5B8C;&#x5168;&#x8FDD;&#x53CD;&#x4E86;&#x533A;&#x5757;&#x94FE;&#x7684;&#x672C;&#x6765;&#x7CBE;&#x795E;&#x3002;&#x6211;&#x4EEC;&#x81EA;&#x8EAB;&#x4E5F;&#x662F;Tezos&#x7684;&#x8D21;&#x732E;&#x8005;&#xFF1A;&#x6211;&#x4EEC;&#x4E5F;&#x5E0C;&#x671B;&#x62E5;&#x6709;&#x53CC;&#x500D;&#x7684;&#x4EFD;&#x989D;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5728;XTZ&#x548C;TZL&#x4E4B;&#x95F4;&#x5BF9;&#x51B2;&#x98CE;&#x9669;&#x3002;&#x6700;&#x540E;&#x8981;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;&#x4E86;DLS&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5904;&#x4E8E;&#x5784;&#x65AD;&#x5730;&#x4F4D;&#x65E0;&#x6240;&#x4E8B;&#x4E8B;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x628A;&#x5F97;&#x5230;&#x7684;&#x94B1;&#x8FD0;&#x4F5C;&#x8D77;&#x6765;&#x3002;</p></div>
-</div>
-
-        <h3 data-id="faq_sect9_title">&#x6C9F;&#x901A;</h3>
-        <div class="expandable">
-  <a name="communication1"></a>
-  <h4 data-id="faq_sect9_q1_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4F55;&#x4F7F;&#x7528;&#x7535;&#x62A5;&#x9891;&#x9053;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect9_q1_answer"><p>&#x5728;&#x88AB;&#x90A3;&#x4E9B;&#x53EF;&#x6076;&#x7684;&#x4EBA;&#x6076;&#x610F;&#x653B;&#x51FB;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x5C06;&#x6211;&#x4EEC;&#x7684;<a href="https://www.reddit.com/r/tzlibre" target="_blank">subreddit</a>&#x8BBE;&#x7F6E;&#x6210;&#x79C1;&#x4EBA;&#x7684;&#x3002;&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x53EA;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x7684;&#x516C;&#x5171;<a href="https://www.t.me/tzlibre" target="_blank">&#x7535;&#x62A5;&#x9891;&#x9053;</a>&#x53D1;&#x5E03;&#x6D88;&#x606F;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="communication2"></a>
-  <h4 data-id="faq_sect9_q2_question">&#x6211;&#x5982;&#x4F55;&#x8054;&#x7CFB;&#x4F60;&#x4EEC;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect9_q2_answer"><p>&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;<a href="http://weibo.com/TzLibre" target="_blank">&#x5FAE;&#x535A;</a>&#x6216;&#x8005;<a href="https://www.reddit.com/user/tzlibre" target="_blank">Reddit</a>&#x7ED9;&#x6211;&#x4EEC;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x3002;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x79EF;&#x6781;&#x5730;&#x8BBE;&#x7F6E;&#x5176;&#x4ED6;&#x7684;&#x5B89;&#x5168;&#x6C9F;&#x901A;&#x6E20;&#x9053;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="communication3"></a>
-  <h4 data-id="faq_sect9_q3_question">&#x4E3A;&#x4F55;&#x4E4B;&#x524D;&#x6211;&#x6CA1;&#x6709;&#x542C;&#x5230;&#x8FC7;TzLibre&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect9_q3_answer"><p>&#x6211;&#x4EEC;&#x5728;2018&#x5E74;2&#x6708;23&#x65E5;&#x53D1;&#x5E03;&#x4E86;<a href="https://ipfs.infura.io/ipns/QmT7A5yRJ1AMRUCXV6Ct2GvXxSbfWHHs7LCgm2kTFhsxbq" target="_blank">&#x6211;&#x4EEC;&#x7684;&#x5BA3;&#x8A00;</a>&#x3002;&#x4ECE;&#x90A3;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x4EFB;&#x4F55;Tezos&#x76F8;&#x5173;&#x9891;&#x9053;&#xFF08;Reddit&#xFF0C;&#x7535;&#x62A5;&#xFF0C;Riot&#xFF09;&#x7684;&#x53D1;&#x8A00;&#x90FD;&#x53D7;&#x5230;&#x5BA1;&#x67E5;&#x3002;&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;&#x90A3;&#x4E9B;&#x5E26;&#x6709;&#x654C;&#x610F;&#x7684;&#x4EBA;&#x540C;&#x6837;&#x7528;&#x8FD9;&#x4E9B;&#x9891;&#x9053;&#x5BA3;&#x4F20;&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x5206;&#x53C9;&#x7684;&#x6076;&#x8A00;&#x6076;&#x8BED;&#x3002;</p></div>
-</div>
-
-        <h3 data-id="faq_sect10_title">&#x5176;&#x4ED6;</h3>
-        <div class="expandable">
-  <a name="other3"></a>
-  <h4 data-id="faq_sect10_q3_question">&#x4F60;&#x4EEC;&#x4E3A;&#x4F55;&#x4E0D;&#x5728;DLS-Tezos&#x534F;&#x8BAE;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x505A;&#x5347;&#x7EA7;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x5206;&#x53C9;&#x5B83;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect10_q3_answer"><p>&#x6211;&#x4EEC;&#x89C9;&#x5F97;DLS-Tezos&#x884C;&#x8FDB;&#x4E8E;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x5047;&#x8BBE;&#x4E2D;&#x3002;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x4FE1;&#x4EFB;&#x7684;&#x94FE;&#xFF0C;&#x5B83;&#x5B9E;&#x5728;&#x96BE;&#x4EE5;&#x53BB;&#x505A;&#x5230;&#x514D;&#x4FE1;&#x4EFB;&#x673A;&#x5236;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x4E0D;&#x5230;&#x5B83;&#x7684;&#x5C06;&#x6765;&#xFF0C;&#x4E5F;&#x538C;&#x5026;&#x4E86;DLS&#x4E00;&#x800C;&#x518D;&#x7684;&#x62D6;&#x5EF6;&#x3002;&#x76F4;&#x63A5;&#x5206;&#x53C9;&#x5E76;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x5C06;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x806A;&#x660E;&#x5FEB;&#x901F;&#x5E76;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5C3D;&#x7BA1;&#x5982;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5F88;&#x4E50;&#x610F;&#x770B;&#x5230;DLS-Tezos&#x5C06;&#x6765;&#x5229;&#x7528;Libre&#x7684;&#x534F;&#x8BAE;&#xFF1A;&#x514D;&#x53BB;&#x6295;&#x7968;&#x7279;&#x6743;&#xFF0C;&#x9500;&#x6BC1;DLS&#x548C;&#x57FA;&#x91D1;&#x4F1A;&#x7684;&#x9884;&#x7559;&#x4EE3;&#x5E01;&#xFF0C;&#x8BBE;&#x7F6E;&#x4F9B;&#x5E94;&#x91CF;&#x4E0A;&#x9650;&#x3002;&#x6211;&#x4EEC;&#x5F88;&#x4E50;&#x610F;&#x770B;&#x5230;&#x8FD9;&#x4E9B;&#xFF0C;&#x4F46;&#x8FD9;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x53EF;&#x80FD;&#x3002;</p></div>
-</div>
-
-<div class="expandable">
-  <a name="other6"></a>
-  <h4 data-id="faq_sect10_q6_question">&#x5206;&#x53C9;&#x4F1A;&#x4F7F;Tezos&#x8D21;&#x732E;&#x8005;&#x53D7;&#x76CA;&#x5417;&#xFF1F;</h4>
-  <div class="expandable-content" data-id="faq_sect10_q6_answer"><p>&#x662F;&#x7684;&#x3002;&#x8D21;&#x732E;&#x8005;&#x53EF;&#x4EE5;&#x5F88;&#x76F4;&#x63A5;&#x5730;&#x4ECE;&#x4E2D;&#x53D7;&#x76CA;&#x3002;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x53CC;&#x500D;&#x7684;&#x4EFD;&#x989D;&#x5E76;&#x5BF9;&#x51B2;&#x98CE;&#x9669;&#x3002;DLS-Tezos&#x548C;TzLibre&#x5728;&#x4E3A;&#x76F8;&#x540C;&#x7684;&#x76EE;&#x6807;&#x800C;&#x594B;&#x6597;&#xFF1A;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x3001;&#x81EA;&#x6CBB;&#x7684;&#x6570;&#x5B57;&#x8054;&#x90A6;&#x3002;&#x6700;&#x540E;&#x8981;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;&#x4E86;DLS&#x4E00;&#x4E2A;&#x5065;&#x5EB7;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x4E0D;&#x4F1A;&#x5904;&#x4E8E;&#x5784;&#x65AD;&#x5730;&#x4F4D;&#x65E0;&#x6240;&#x4E8B;&#x4E8B;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x628A;&#x5F97;&#x5230;&#x7684;&#x94B1;&#x8FD0;&#x4F5C;&#x8D77;&#x6765;&#x3002;</p></div>
-</div>
+        </div>
 
       </div>
 
     </div>
 
-  </div>
+    <div class="actionbar">
+      <div class="content">
+        <span data-id="cta_button_actionbar"><a href="http://weibo.com/TzLibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-weibo-small"/></svg><span>&#x5728;&#x5FAE;&#x535A;&#x5173;&#x6CE8;&#x6211;&#x4EEC;</span></a>
+        </span>
+        <p data-id="actionbar_text">to know more</p>
+      </div>
+    </div>
 
-  <div class="actionbar">
-  <div class="content">
-    <span data-id="cta_intro">&#x60F3;&#x8981;&#x5F97;&#x5230;&#x60A8;&#x7684;&#x4EE3;&#x5E01;? </span>
-    <a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg> <span data-id="cta_button">&#x5728;&#x5FAE;&#x535A;&#x5173;&#x6CE8;&#x6211;&#x4EEC;</span></a>
-  </div>
-</div>
-
-  <script src="/js/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
 
 
-</body></html>
+
+
+  </body>
+
+</html>

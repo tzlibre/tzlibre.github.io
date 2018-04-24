@@ -2,7 +2,11 @@
 
   'use strict';
 
-  // Enable rollover effects
+  /*
+
+      Enable rollover effects
+
+  */
 
   function detectTouch()
   {
@@ -11,7 +15,25 @@
     }
   }
 
-  // Expandable texts
+  /*
+
+      Enable smooth scrolling
+
+  */
+
+  function enableSmoothScroll()
+  {
+    // adding a delay to avoid problems with direct links to anchors
+    setTimeout( function(){
+      document.getElementsByTagName( 'html' )[0].classList.add( 'smoothScroll' );
+    }, 500 );
+  }
+
+  /*
+
+      Expandable texts
+
+  */
 
   function setExpanders()
   {
@@ -35,65 +57,71 @@
     }
   }
 
-  // Startup
+  /*
+
+      Language management
+
+  */
+
+  var LANGs = ['en', 'ru', 'cn'];
+
+  // parse url and get lang and page e.g {lang:'ru', page:'faq.html'} ()
+  function parseUrl( url )
+  {
+    var fields = url.split('/');
+    var page = '';
+    var langcode = 'en';
+    if (fields.length > 2) {
+      page = fields[fields.length-1];
+      if (LANGs.indexOf(fields[fields.length - 2]) > -1) {
+        langcode = fields[fields.length - 2];
+      }
+    }
+    return {
+      langcode: langcode,
+      page: page
+    };
+  }
+
+  // set current lang
+  var parsedUrl = parseUrl(window.location.href);
+
+  function getBtnListener( langcode )
+  {
+    return function () {
+      var langcodeUrl = '/';
+      if (langcode != 'en') {
+        langcodeUrl = '/' + langcode + '/';
+      }
+      var newUrl = langcodeUrl +  parsedUrl.page;
+      window.location.href = newUrl;
+    };
+  }
+
+  function setActiveLang()
+  {
+    var btnsLangs = document.querySelectorAll( '.langswitch button' );
+    for (var i = 0; i < btnsLangs.length; i++) {
+      var btnLang = btnsLangs[i];
+      var langcode = btnLang.getAttribute( 'data-lang' );
+      // set event listener for lang selector
+      btnLang.addEventListener('click', getBtnListener(langcode));
+      // set active current langcode
+      if (langcode == parsedUrl.langcode) {
+        btnLang.classList.add( 'selected' );
+      }
+    }
+  }
+
+  /*
+
+      Startup
+
+  */
 
   detectTouch();
+  enableSmoothScroll();
   setExpanders();
+  setActiveLang();
 
 })( window );
-
-// list of lang supported
-
-var LANGs = ['en', 'ru', 'cn'];
-
-// parse url and get lang and page e.g {lang:'ru', page:'faq.html'} ()
-
-function parseUrl(url) {
-  var fields = url.split('/');
-  var page = '';
-  var langcode = 'en';
-
-  if (fields.length > 2) {
-    page = fields[fields.length-1];
-    if (LANGs.indexOf(fields[fields.length - 2]) > -1) {
-      langcode = fields[fields.length - 2];
-    }
-  }
-  return {
-    langcode: langcode,
-    page: page
-  }
-}
-
-function getBtnListener (langcode) {
-  return function () {
-    var langcodeUrl = '/'
-
-    if (langcode != 'en') {
-      langcodeUrl = '/' + langcode + '/';
-    }
-    var newUrl = langcodeUrl +  parsedUrl.page;
-    window.location.href = newUrl;
-  }
-}
-
-// set current lang
-var parsedUrl = parseUrl(window.location.href);
-
-// parse again if hash change
-window.addEventListener("hashchange",function(event){
-  parsedUrl = parseUrl(window.location.href);
-})
-
-var btsLangs = document.querySelectorAll('.btn-lang-switch');
-for (var i = 0; i < btsLangs.length; i++) {
-  var btnLang = btsLangs[i];
-  var langcode = btnLang.getAttribute( 'data-lang' )
-
-  // set event listener for lang selector
-  btnLang.addEventListener('click', getBtnListener(langcode))
-  // set active current langcode
-  if (langcode == parsedUrl.langcode) {
-    btnLang.className = btnLang.className + ' active';
-  }
-}
