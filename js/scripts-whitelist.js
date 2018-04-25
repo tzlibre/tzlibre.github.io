@@ -85,7 +85,7 @@ function whitelist_or_verify () {
   start_loading()
 
   let elements = get_elements()
-  let pkh = elements.pkh.value
+  let pkh = elements.pkh.value.trim()
 
   post(pkh).then((res) => {
     if (res.pkh !== pkh || res.ok === false) {
