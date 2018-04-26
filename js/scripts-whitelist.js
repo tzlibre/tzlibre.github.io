@@ -53,7 +53,7 @@ function fill_success_box (wl_json) {
   let elements = get_elements()
   elements.success_addr.innerText = wl_json.pkh
   elements.success_tzl_amount.innerText = `${wl_json.h_TZL} TZL`
-  elements.success_timestamp.innerText = moment(wl_json.timestamp.toString())
+  elements.success_timestamp.innerText = moment(wl_json.whitelist_time.toString())
 }
 
 function success (wl_json) {
