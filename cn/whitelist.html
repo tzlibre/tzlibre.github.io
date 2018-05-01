@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <title data-id="default_page_title">TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos</title>
+    <title data-id="default_page_title">Tz Libre | DLS Tezos&#x7684;&#x5206;&#x53C9;&#x9879;&#x76EE;</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,7 +15,7 @@
     <link href="/style/style.css" rel="stylesheet">
     <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
     <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-    <meta property="og:title" data-id="default_page_title" content="TzLibre | a trustless and hard-capped implementation of Tezos, based on a fork of DLS-Tezos">
+    <meta property="og:title" data-id="default_page_title" content="Tz Libre | DLS Tezos&#x7684;&#x5206;&#x53C9;&#x9879;&#x76EE;">
   </head>
 
   <body>
@@ -56,7 +56,7 @@
           <a href="faq.html" data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a>
         </li>
         <li class="selected">
-          <a href="whitelist.html" data-id="wl_title">Whitelist</a>
+          <a href="whitelist.html" data-id="wl_title">&#x767D;&#x540D;&#x5355;</a>
         </li>
       </ul>
     </nav>
@@ -67,54 +67,56 @@
 
         <div class="block">
 
-          <h3 data-id="wl_page_title_complete">Whitelist or verify your Tezos address</h3>
+          <h3 data-id="wl_page_title_complete">&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;&#x6216;&#x8005;&#x786E;&#x8BA4;&#x5DF2;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;</h3>
 
-          <p data-id="wl_intro">Enter your Tezos public address</p>
+          <p data-id="wl_intro">&#x8F93;&#x5165;Tezos&#x516C;&#x94A5;&#x5730;&#x5740;</p>
 
           <form action="Javascript:whitelist_or_verify()" class="singlerowform">
             <input type="text" placeholder="tz1..." id="tzaddress-whitelist" required>
-            <input type="submit" value="Add to whitelist or verify" id="submitWhitelistBtn" data-id="wl_button">
+            <input type="submit" value="&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;&#x6216;&#x786E;&#x8BA4;" id="submitWhitelistBtn" data-id="wl_button">
           </form>
 
           <div class="formresult" id="whitelist-success" data-id="wl_success_txt">
-            <p>This Tezos address is correctly whitelisted <strong><span id="tzAddressWL"></span></strong></p>
+            <p>&#x60A8;&#x7684;Tezos&#x5730;&#x5740;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;<strong><span id="tzAddressWL"></span></strong></p>
             <hr>
-            <p>You are allowed to split<strong><span id="tzBalanceWL">0 TZL</span></strong></p>
+            <p>&#x60A8;&#x5C06;&#x53EF;&#x4EE5;&#x8BA4;&#x9886;<strong><span id="tzBalanceWL">0 TZL</span></strong></p>
             <hr>
-            <p>Timestamp<strong><span id="tzDateWL"></span></strong></p>
+            <p>&#x65F6;&#x95F4;<strong><span id="tzDateWL"></span></strong></p>
             <hr>
             <p class="result-followup">
-              <a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><span>Continue: stay up-to-date</span></a>
+              <a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><span>&#x4E0B;&#x4E00;&#x6B65;: &#x5173;&#x6CE8;&#x540E;&#x7EED;&#x52A8;&#x6001;</span></a>
             </p>
           </div>
           <div class="formresult formresult-error" id="whitelist-error" data-id="wl_error_txt">
-            <p>This Tezos address is not yet whitelisted. If you have trouble adding your address to the whitelist, please
-              <a href="https://t.me/tz_libre" target="_blank">contact us</a>
-            </p>
+            <p>&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5C06;&#x6B64;&#x5730;&#x5740;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;&#x3002;&#x8BF7;&#x518D;&#x6B21;&#x786E;&#x8BA4;&#x53C2;&#x52A0;ICO&#x65F6;&#x7684;PDF&#x6587;&#x4EF6;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x5C1D;&#x8BD5;&#x4E00;&#x6B21;&#x3002;&#x6700;&#x597D;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;&#x706B;&#x72D0;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x5C31;&#x66F4;&#x597D;&#x4E86;&#x3002;&#x5982;&#x679C;&#x95EE;&#x9898;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#xFF0C;&#x4F60;&#x80FD;&#x591F;&#x5728;
+              <a
+                href="https://t.me/tz_libre" target="_blank">&#x7535;&#x62A5;&#x9891;&#x9053;&#x8054;&#x7CFB;&#x6211;&#x4EEC;</a>&#x3002;</p>
           </div>
 
           <div class="row">
-            <h4 data-id="wl_sub1_title">Who</h4>
+            <h4 data-id="wl_sub1_title">&#x53C2;&#x4E0E;&#x8005;</h4>
             <div class="row-main" data-id="wl_sub1_txt">
-              <p>Any Tezos ICO contributor can participate.</p>
+              <p>&#x4EFB;&#x4F55;Tezos&#x7684;ICO&#x8D21;&#x732E;&#x8005;&#x90FD;&#x5177;&#x6709;&#x8D44;&#x683C;&#x3002;</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="wl_sub2_title">When</h4>
+            <h4 data-id="wl_sub2_title">&#x65F6;&#x95F4;&#x70B9;</h4>
             <div class="row-main" data-id="wl_sub2_txt">
-              <p>The whitelist is currently open. Our community is still discussing whether to close the whitelist in the coming days (to reward early adopters), or to close it later (to accomodate late adopters). We&apos;ll announce on our
-                <a href="https://t.me/tzlibre"
-                  target="_blank">Telegram channel</a> when the whitelist has closed.</p>
+              <p>&#x767D;&#x540D;&#x5355;&#x6536;&#x96C6;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x793E;&#x533A;&#x56E2;&#x961F;&#x6B63;&#x5728;&#x8BA8;&#x8BBA;&#x662F;&#x5426;&#x5728;&#x672A;&#x6765;&#x51E0;&#x5929;&#x7ED3;&#x675F;&#x767D;&#x540D;&#x5355;&#x7684;&#x6536;&#x96C6;&#x3002;(&#x4E3A;&#x4E86;&#x9F13;&#x52B1;&#x65E9;&#x671F;&#x652F;&#x6301;&#x8005;),
+                &#x6216;&#x8005;&#x6301;&#x7EED;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;(&#x4E3A;&#x4E86;&#x5305;&#x542B;&#x6240;&#x6709;&#x652F;&#x6301;&#x8005;). &#x5177;&#x4F53;&#x7684;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x6211;&#x4EEC;&#x7684;
+                <a
+                  href="https://t.me/tzlibre" target="_blank">&#x7535;&#x62A5;&#x9891;&#x9053;</a>&#x516C;&#x5E03;&#x3002;</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="wl_sub3_title">Next steps</h4>
+            <h4 data-id="wl_sub3_title">&#x9700;&#x8981;&#x5E2E;&#x52A9;&#xFF1F;</h4>
             <div class="row-main" data-id="wl_sub3_txt">
-              <p>When splitting begins, we&apos;ll issue a pre-launch TZL token on the Ethereum blockchain. Only whitelisted addresses will be allowed to claim TZL tokens. Following the EOS example, pre-launch tokens will then be converted into native coins
-                when TzLibre mainnet launches. We&apos;re currently ugrading the splitting process, and will post updates on our public
-                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a>.</p>
+              <p>&#x5982;&#x679C;&#x4F60;&#x65E0;&#x6CD5;&#x6210;&#x529F;&#x63D0;&#x4EA4;Tezos&#x5730;&#x5740;&#xFF0C;&#x8BF7;&#x518D;&#x6B21;&#x786E;&#x8BA4;&#x53C2;&#x52A0;ICO&#x65F6;&#x7684;PDF&#x6587;&#x4EF6;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x5C1D;&#x8BD5;&#x4E00;&#x6B21;&#x3002;&#x6700;&#x597D;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;&#x706B;&#x72D0;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x5C31;&#x66F4;&#x597D;&#x4E86;&#x3002;&#x5982;&#x679C;&#x95EE;&#x9898;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#xFF0C;&#x4F60;&#x80FD;&#x591F;&#x5728;
+                <a
+                  href="https://t.me/tz_libre" target="_blank">&#x7535;&#x62A5;&#x9891;&#x9053;&#x8054;&#x7CFB;&#x6211;&#x4EEC;</a>&#x3002;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;Tezos&#x5730;&#x5740;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#xFF1A;<span class="inline-code">tz1QwKhhwkG7wpCHkrhEvUop</span>&#x3002;
+                  </p>
             </div>
           </div>
 
@@ -135,7 +137,7 @@
       <div class="content">
         <span data-id="cta_button_actionbar"><a href="http://weibo.com/TzLibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-weibo-small"/></svg><span>&#x5728;&#x5FAE;&#x535A;&#x5173;&#x6CE8;&#x6211;&#x4EEC;</span></a>
         </span>
-        <p data-id="actionbar_text">to know more</p>
+        <p data-id="actionbar_text">&#x83B7;&#x53D6;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7684;&#x6700;&#x65B0;&#x8D44;&#x8BAF;</p>
       </div>
     </div>
 
