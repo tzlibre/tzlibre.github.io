@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title data-id="default_page_title">Tz Libre | a fork of DLS Tezos</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#1F260B">
+    <meta name="theme-color" content="#1F260B">
+    <link href="/style/style.css" rel="stylesheet">
+    <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS Tezos">
+  </head>
+
+  <body>
+
+    <div class="langswitch">
+      <ul class="content">
+        <li>
+          <button data-lang="en">english</button>
+        </li>
+        <li>
+          <button data-lang="ru">&#x440;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</button>
+        </li>
+        <li>
+          <button data-lang="cn">&#x4E2D;&#x6587;</button>
+        </li>
+        <li class="priceticker">
+          <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+            <span class="priceticker-block"><span class="priceticker-lbl">1 TZL =</span><span class="priceticker-value" id="priceTickerValue">0 USD</span></span>
+            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
+            <span class="priceticker-block"><span class="priceticker-arrow">&gt;</span></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+    <header class="header-mini">
+      <div class="content">
+        <div class="header-main">
+          <h1>
+            <a href="index.html">
+              <svg xmlns="http://www.w3.org/2000/svg" width="86" height="110" viewBox="0 0 86 110">
+                <path fill-rule="evenodd" d="M38.925 91.336c0 2.414 1.082 4.53 3.244 6.35 2.163 1.82 5.564 2.73 10.203 2.73 5.505 0 10.125-1.048 13.86-3.145 3.735-2.097 5.603-7.676 5.603-16.736 0-9.02-1.868-14.58-5.603-16.677-3.735-2.097-15.57-3.007-35.505-2.73l41.757-35.312H22.412v29.97c0 5.857.452 9.922 1.356 12.197.904 2.275 2.33 3.947 4.276 5.015 1.946 1.068 4.276 1.602 6.989 1.602 2.162 0 5.426-.672 9.79-2.018v9.259c-5.347 1.305-9.436 1.958-12.267 1.958-4.09 0-7.775-.83-11.059-2.493-3.283-1.661-5.78-4.075-7.49-7.24s-2.565-8.21-2.565-15.134V24.867H0v-9.2h11.442V0h10.97v15.668h63.165v10.148l-31.081 26.41c9.947.554 16.907 2.433 20.878 5.638 5.268 4.194 7.903 11.75 7.903 22.671 0 10.96-2.625 18.546-7.874 22.76-5.249 4.214-12.73 6.32-22.44 6.32-5.073 0-9.408-.8-13.005-2.403-3.598-1.603-6.508-3.907-8.73-6.914-2.22-3.007-3.331-5.994-3.331-8.962v-.593h11.028v.593z"
+                />
+              </svg>libre</a>
+          </h1>
+        </div>
+        <a href="index.html" class="logo">
+          <img src="/images/tzllogo-base.svg" alt="tzlibre logo">
+        </a>
+      </div>
+    </header>
+
+    <nav class="nav-primary">
+      <ul class="content">
+        <li class="{{ nav1_class }}">
+          <a href="project.html" data-id="home_title">Project</a>
+        </li>
+        <li class="selected">
+          <a href="faq.html" data-id="faq_title">FAQ</a>
+        </li>
+        <li class="{{ nav3_class }}">
+          <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
+        </li>
+        <li class="{{ nav4_class }}">
+          <a href="claim.html" data-id="split_title">2. Claim</a>
+        </li>
+        <li class="{{ nav5_class }}">
+          <a href="sign.html" data-id="sign_title">3. Sign</a>
+        </li>
+        <li class="{{ nav6_class }}">
+          <a href="verify.html" data-id="verify_title">Verify</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <nav class="nav-secondary">
+      <ul class="content">
+        <li>
+          <a href="#splitting" data-id="faq_sect1_title">Splitting</a>
+        </li>
+        <li>
+          <a href="#timing" data-id="faq_sect2_title">Timing</a>
+        </li>
+        <li>
+          <a href="#safety" data-id="faq_sect3_title">Safety</a>
+        </li>
+        <li>
+          <a href="#code" data-id="faq_sect4_title">Code</a>
+        </li>
+        <li>
+          <a href="#funding" data-id="faq_sect5_title">Funding</a>
+        </li>
+        <li>
+          <a href="#support" data-id="faq_sect6_title">Support</a>
+        </li>
+        <li>
+          <a href="#growth" data-id="faq_sect7_title">Growth</a>
+        </li>
+        <li>
+          <a href="#team" data-id="faq_sect8_title">Team</a>
+        </li>
+        <li>
+          <a href="#communication" data-id="faq_sect9_title">Communication</a>
+        </li>
+        <li>
+          <a href="#other" data-id="faq_sect10_title">Other</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main">
+
+      <div class="content">
+
+        <div class="block">
+
+          <h2 data-id="faq_title">FAQ</h2>
+
+          <a name="splitting"></a>
+          <h3 data-id="faq_sect1_title">Splitting</h3>
+          <div class="expandable">
+            <a name="splitting1"></a>
+            <h4 data-id="faq_sect1_q1_question">How can I split?</h4>
+            <div class="expandable-content" data-id="faq_sect1_q1_answer">
+              <p>Using contribution data and DLS tools you will need to build your private key. We strongly suggest to do so on an airgapped machine, or at a least on a machine that is temporarily disconnected. You will then need to sign a message to prove
+                ownership of your address, and a declaration of support for multiple Tezos implementations. Finally, you&apos;ll need to broadcast the signed message. Before splitting, we suggest you to do your own research on how coin splits and cryptographic
+                signatures work. Also, we suggest you to bookmark our official
+                <a href="https://tzlibre.github.io" target="_blank">web</a> and
+                <a href="https://t.me/tzlibre" target="_blank">Telegram</a> addresses. We&apos;re currently upgrading the splitting process and will announce it on our public
+                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a>.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting2"></a>
+            <h4 data-id="faq_sect1_q2_question">What happens after the split?</h4>
+            <div class="expandable-content" data-id="faq_sect1_q2_answer">
+              <p>After splitting your coins you will receive the TZL pre-launch token. The pre-launch token will be converted into the TzLibre mainnet token at time of launch.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting3"></a>
+            <h4 data-id="faq_sect1_q3_question">Where can I find more details about the split?</h4>
+            <div class="expandable-content" data-id="faq_sect1_q3_answer">
+              <p>We&apos;re currently upgrading the splitting process. Updates will be announced on our public
+                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a>.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting4"></a>
+            <h4 data-id="faq_sect1_q4_question">Will I lose my DLS-tezzies if I split?</h4>
+            <div class="expandable-content" data-id="faq_sect1_q4_answer">
+              <p>No. Splitting allows a Tezos contributor to claim TZL at a 1:1 ratio with XTZ. Contributors who split will own both TZL and XTZ.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="splitting5"></a>
+            <h4 data-id="faq_sect1_q5_question">Does every Tezos contributor get TZL?</h4>
+            <div class="expandable-content" data-id="faq_sect1_q5_answer">
+              <p>No. Only contributors who split will get TZL coins. We want to safeguard the financial interest of TzLibre users.</p>
+            </div>
+          </div>
+
+
+          <a name="timing"></a>
+          <h3 data-id="faq_sect2_title">Timing</h3>
+          <div class="expandable">
+            <a name="timing1"></a>
+            <h4 data-id="faq_sect2_q1_question">When can I split?</h4>
+            <div class="expandable-content" data-id="faq_sect2_q1_answer">
+              <p>Coin splitting will begin in the coming days as soon as our public Telegram channel reaches 1000 members. This ensures sufficient critical mass and protects TzLibre users. Splitting will be open for a few days. We&apos;re currently upgrading
+                the splitting procedure and will announce it on our public Telegram channel.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="timing2"></a>
+            <h4 data-id="faq_sect2_q2_question">When will the TZL pre-launch token be traded on exchanges?</h4>
+            <div class="expandable-content" data-id="faq_sect2_q2_answer">
+              <p>The TZL pre-launch token will be traded on exchanges as soon as technically possible after the splitting process is completed. We&apos;re currently upgrading the splitting procedure and will announce it on our public Telegram channel.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="timing3"></a>
+            <h4 data-id="faq_sect2_q3_question">When will you release the node codebase?</h4>
+            <div class="expandable-content" data-id="faq_sect2_q3_answer">
+              <p>We will release the node codebase shortly before launch in order to maintain our competitive advantage.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="timing4"></a>
+            <h4 data-id="faq_sect2_q4_question">When will the TzLibre mainnet launch?</h4>
+            <div class="expandable-content" data-id="faq_sect2_q4_answer">
+              <p>When the TzLibre mainnet is ready the pre-launch token will be converted into the native TZL token. We plan to launch the TzLibre mainnet after DLS-Tezos, in order to retain our competitive advantage. This said, we&apos;re ready to launch
+                earlier than DLS-Tezos should they further delay their own launch. Specifically, we&apos;re not dependent on their genesis block.</p>
+            </div>
+          </div>
+
+          <a name="safety"></a>
+          <h3 data-id="faq_sect3_title">Safety</h3>
+          <div class="expandable">
+            <a name="safety1"></a>
+            <h4 data-id="faq_sect3_q1_question">Do you need my private data?</h4>
+            <div class="expandable-content" data-id="faq_sect3_q1_answer">
+              <p>We don&apos;t need your private data, and will never ask for it. More specifically, we do not need and will not ask for: private key, seed words, email, password.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="safety2"></a>
+            <h4 data-id="faq_sect3_q2_question">Do I need to provide my private key, or any other personal data?</h4>
+            <div class="expandable-content" data-id="faq_sect3_q2_answer">
+              <p>No, we don&apos;t need your private keys. We do not need your private data, and we will never ask for it. More precisely, we do not need and will not ask for: private key, seed words, email, password. Never share your private data with us
+                or with anyone else.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="safety3"></a>
+            <h4 data-id="faq_sect3_q3_question">I&apos;ve been contacted by someone claiming to be TzLibre: what should I do?</h4>
+            <div class="expandable-content" data-id="faq_sect3_q3_answer">
+              <p>We are aware of scammers using our name to phish private data. Do not share your private data, and please
+                <a href="index.html#about">report us</a> any phishing attempt.</p>
+            </div>
+          </div>
+
+          <a name="code"></a>
+          <h3 data-id="faq_sect4_title">Code</h3>
+          <div class="expandable">
+            <a name="code1"></a>
+            <h4 data-id="faq_sect4_q1_question">How can you fork DLS-Tezos if it&apos;s not open-source?</h4>
+            <div class="expandable-content" data-id="faq_sect4_q1_answer">
+              <p>The DLS-Tezos codebase is public on Gitlab, and we already forked it. Arthur Breitman promised that the DLS-Tezos codebase will be released under the MIT license immediately after launch. Should we decide to launch earlier than them, or
+                should DLS-Tezos not release code under the MIT license, we&apos;ll then choose one of the options we have to release TzLibre independently. One of the options is to release a patch to their public codebase: a TzLibre user would therefore
+                download the public DLS-Tezos codebase from Gitlab, and then locally apply the TzLibre patch.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="code2"></a>
+            <h4 data-id="faq_sect4_q2_question">What did you fork?</h4>
+            <div class="expandable-content" data-id="faq_sect4_q2_answer">
+              <p>We forked the public
+                <a href="https://gitlab.com/tezos" target="_blank">DLS-Tezos repo</a>.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="code3"></a>
+            <h4 data-id="faq_sect4_q3_question">Where is your code?</h4>
+            <div class="expandable-content" data-id="faq_sect4_q3_answer">
+              <p>We recently created a
+                <a href="https://github.com/tezos/fundraiser-tools/pull/5" target="_blank">PR</a> to fix the broken DLS-Tezos fundraiser tools. Please follow us on Github to get updates as we gradually release more code to the public.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="code4"></a>
+            <h4 data-id="faq_sect4_q4_question">Are you going to use DLS-Tezos genesis?</h4>
+            <div class="expandable-content" data-id="faq_sect4_q4_answer">
+              <p>Not necessarily. The TZL pre-launch token, like the EOS pre-launch token, is a placeholder for the TzLibre genesis.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="code5"></a>
+            <h4 data-id="faq_sect4_q5_question">Why won&apos;t you use the DLS-Tezos genesis?</h4>
+            <div class="expandable-content" data-id="faq_sect4_q5_answer">
+              <p>We need to be totally independent from DLS-Tezos genesis mainly for two reasons: unknown launch date and blinded genesis. Since Tezos contribution data is available on the public BTC and ETH blockchains we don&apos;t really need to depend
+                upon their genesis block in the first place.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="code6"></a>
+            <h4 data-id="faq_sect4_q6_question">Does TzLibre have the same tx format as DLS-Tezos?</h4>
+            <div class="expandable-content" data-id="faq_sect4_q6_answer">
+              <p>No. TzLibre has a different tx format.</p>
+            </div>
+          </div>
+
+          <a name="funding"></a>
+          <h3 data-id="faq_sect5_title">Funding</h3>
+          <div class="expandable">
+            <a name="funding1"></a>
+            <h4 data-id="faq_sect5_q1_question">How are you currently funded?</h4>
+            <div class="expandable-content" data-id="faq_sect5_q1_answer">
+              <p>We&apos;re currently self-funded.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="funding2"></a>
+            <h4 data-id="faq_sect5_q2_question">How will you fund further development?</h4>
+            <div class="expandable-content" data-id="faq_sect5_q2_answer">
+              <p>We will fund further development with donations. We expect most donations to come from Tezos Stiftung.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="funding3"></a>
+            <h4 data-id="faq_sect5_q3_question">Why should Tezos Stiftung fund the development of TzLibre?</h4>
+            <div class="expandable-content" data-id="faq_sect5_q3_answer">
+              <p>Tezos Stiftung must follow Swiss law and abide to its immutable charter by supporting development of the Tezos idea. We understand that while Tezos is an idea, DLS-Tezos and TzLibre are two different implementations of it. Should Tezos Stiftung
+                choose not to abide to its charter, any Swiss contributor might then bring the case toward a Swiss judge. To increase legal leverage for our case, coin splitting will involve cryptographically signing a pseudonymous, authentic, non-repudiable
+                request to Tezos Stiftung to fund TzLibre.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="funding1"></a>
+            <h4 data-id="faq_sect5_q4_question">Are you going to directly get funding from Tezos Stiftung?</h4>
+            <div class="expandable-content" data-id="faq_sect5_q4_answer">
+              <p>No. Tezos Stiftung will have to support the development of TzLibre by independent developers, not necessarily us. Funding should follow the principles of maximum fairness, transparency and merit. TS could, for example, set up public bounties
+                for specific TzLibre development goals.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="funding2"></a>
+            <h4 data-id="faq_sect5_q5_question">Why does TzLibre need funding?</h4>
+            <div class="expandable-content" data-id="faq_sect5_q5_answer">
+              <p>TzLibre introduces substantial changes over DLS-Tezos, and thus needs substantial work. It&apos;s also critical to create Libre-aware versions of all DLS-Tezos products.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="funding3"></a>
+            <h4 data-id="faq_sect5_q6_question">Is there any example of a Foundation supporting competing teams?</h4>
+            <div class="expandable-content" data-id="faq_sect5_q6_answer">
+              <p>Yes. The Aragon Foundation, for example, has announced support for competing teams.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="funding3"></a>
+            <h4 data-id="faq_sect5_q7_question">Are you trying to steal funds from Tezos Stiftung?</h4>
+            <div class="expandable-content" data-id="faq_sect5_q7_answer">
+              <p>No, quite the opposite. Right now DLS holds a de-facto monopoly on the TS funds. By forcing TS to also support a competing implementation, we introduce healthy free market competition. This will help TS to allocate funds more efficiently.</p>
+            </div>
+          </div>
+
+          <a name="support"></a>
+          <h3 data-id="faq_sect6_title">Support</h3>
+          <div class="expandable">
+            <a name="support1"></a>
+            <h4 data-id="faq_sect6_q1_question">Are you supported by DLS-Tezos developers?</h4>
+            <div class="expandable-content" data-id="faq_sect6_q1_answer">
+              <p>A silent majority of the DLS-Tezos community is interested in TzLibre. We received support from numerous members and developers of DLS-Tezos products in private. They are still afraid to go public about their interest and support.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="support2"></a>
+            <h4 data-id="faq_sect6_q2_question">Which wallets will support TzLibre?</h4>
+            <div class="expandable-content" data-id="faq_sect6_q2_answer">
+              <p>We are currently talking with the developers of some of the major DLS-Tezos wallets in order to plan a Libre version of their product.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="support3"></a>
+            <h4 data-id="faq_sect6_q3_question">How will you incentivize development of the Libre ecosystem?</h4>
+            <div class="expandable-content" data-id="faq_sect6_q3_answer">
+              <p>We&apos;ll use incoming donations to set up a bouty campaign. Bounties will fund the release of a Libre version for all major DLS-Tezos products, such as open-source wallets. For most products the required work will be minimal, and can be
+                completed in a matter weeks. Please contacts us to suggest a product you&apos;d like to support TzLibre.</p>
+            </div>
+          </div>
+
+          <a name="growth"></a>
+          <h3 data-id="faq_sect7_title">Growth</h3>
+          <div class="expandable">
+            <a name="growth1"></a>
+            <h4 data-id="faq_sect7_q1_question">How will TzLibre grow after launch?</h4>
+            <div class="expandable-content" data-id="faq_sect7_q1_answer">
+              <p>After launch, growth will mainly be driven by bakers, developers and investors moving from DLS-Tezos to TzLibre.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="growth2"></a>
+            <h4 data-id="faq_sect7_q2_question">Why should a baker leave DLS-Tezos to join TzLibre?</h4>
+            <div class="expandable-content" data-id="faq_sect7_q2_answer">
+              <p>At least 20% of TZL coins will be allotted to reward bakers. If less than 100% of Tezos ICO contributors redeem their TZL, we plan to increase bakers rewards with unredeemed coins. We predict that baking on TzLibre will be more profitable
+                than baking on DLS-Tezos. We forecast bakers ROI, in the first 3-5 years, could be between 10%/y and 20%/y, compared to DLS-Tezos ~5%/y.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="growth3"></a>
+            <h4 data-id="faq_sect7_q3_question">Why should a developer deploy smart contracts on TzLibre rather than DLS-Tezos?</h4>
+            <div class="expandable-content" data-id="faq_sect7_q3_answer">
+              <p>TzLibre was announced in February 2018, while DLS-Tezos was announced in August 2014. TzLibre is a much younger project and we therefore expect, ceteris paribus, the price of TZL coins to be lower than XTZ coins for the first 1-2 years.
+                The underlying technology of the two blockchains is the same: both blockchains can execute Michelson smart contracts. At the same time TzLibre exhibits stronger security features. We therefore expect developers to deploy contracts on TzLibre
+                rather than on DLS-Tezos in order to build on a safer platform at a fraction of the cost.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="growth4"></a>
+            <h4 data-id="faq_sect7_q4_question">Why should an investor sell XTZ to buy TZL?</h4>
+            <div class="expandable-content" data-id="faq_sect7_q4_answer">
+              <p>Both TzLibre and DLS-Tezos share the same underlying technology and its technological risk. While the investment downside is therefore comparable, the upside of the two is widely different. Additionally, TZL is a better store of value than
+                XTZ thanks to its hardcoded, non-negotiable hard cap and the lack of premined coins.</p>
+            </div>
+          </div>
+
+          <a name="team"></a>
+          <h3 data-id="faq_sect8_title">Team</h3>
+          <div class="expandable">
+            <a name="team1"></a>
+            <h4 data-id="faq_sect8_q1_question">Why are you pseudonymous?</h4>
+            <div class="expandable-content" data-id="faq_sect8_q1_answer">
+              <p>We are pseudonymous to protect the independence of TzLibre. No one shall ever influence TzLibre developers. We believe state sanctioned identities belong to the fiat world, not to the blockchain one. Like Satoshi Nakamoto, we believe in
+                permissionless, open, pseudonymous innovation.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="team2"></a>
+            <h4 data-id="faq_sect8_q2_question">How can I trust you?</h4>
+            <div class="expandable-content" data-id="faq_sect8_q2_answer">
+              <p>You should not. We believe in the original blockchain ethos: &quot;don&apos;t trust, verify&quot;. We are aware that TzLibre is not for everyone. If you&apos;re looking for trusted third parties TzLibre is not for you.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="team3"></a>
+            <h4 data-id="faq_sect8_q3_question">How big is your development team?</h4>
+            <div class="expandable-content" data-id="faq_sect8_q3_answer">
+              <p>We have a small yet highly skilled team of blockchain veterans and functional programming experts.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="team3"></a>
+            <h4 data-id="faq_sect8_q4_question">Are you against DLS-Tezos?</h4>
+            <div class="expandable-content" data-id="faq_sect8_q4_answer">
+              <p>No, quite the opposite. We are Tezos contributors, and we are set to explore a different path toward success, putting ICO contributors interest first. This is our way to hedge our bets and to stop being dependent upon DLS. As with ETH and
+                ETC, we see DLS-Tezos and TzLibre as complementary. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don&apos;t sit on their monopoly. We&apos;re giving them a run for their money.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="team3"></a>
+            <h4 data-id="faq_sect8_q5_question">Why are you doing it?</h4>
+            <div class="expandable-content" data-id="faq_sect8_q5_answer">
+              <p>We launched TzLibre for idealistic as well as financial reasons. As anarcho-capitalists we find the two deeply connected. Tezos is an idea and it should be implemented by multiple, competing teams. Many contributors are extremely dissatisfied
+                with DLS execution. We believe DLS is not only executing poorly, but also totally violating the original blockchain ethos. We are Tezos contributors ourselves: we&apos;re also aiming to double our stake and hedge our bets between XTZ and
+                TZL. Last but not least, we are putting healthy pressure on DLS to improve, making sure they don&apos;t sit on their monopoly. We&apos;re giving them a run for their money.</p>
+            </div>
+          </div>
+
+          <a name="communication"></a>
+          <h3 data-id="faq_sect9_title">Communication</h3>
+          <div class="expandable">
+            <a name="communication1"></a>
+            <h4 data-id="faq_sect9_q1_question">Why are you using a Telegram channel?</h4>
+            <div class="expandable-content" data-id="faq_sect9_q1_answer">
+              <p>After being attacked by trolls we were forced to make
+                <a href="https://www.reddit.com/r/tzlibre" target="_blank">our subreddit</a> private. We now communicate officially only via our public
+                <a href="https://www.t.me/tzlibre" target="_blank">Telegram channel</a>.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="communication2"></a>
+            <h4 data-id="faq_sect9_q2_question">How can I contact you?</h4>
+            <div class="expandable-content" data-id="faq_sect9_q2_answer">
+              <p>You can direct message us on
+                <a href="https://t.me/tz_libre" target="_blank">Telegram</a> or
+                <a href="https://www.reddit.com/user/tzlibre" target="_blank">Reddit</a>. We&apos;re currently setting up additional channels for secure communication.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="communication3"></a>
+            <h4 data-id="faq_sect9_q3_question">Why didn&apos;t I hear about TzLibre before?</h4>
+            <div class="expandable-content" data-id="faq_sect9_q3_answer">
+              <p>We published
+                <a href="https://ipfs.infura.io/ipfs/QmYEcSaYEMm3xQqBK6wZT9uc2SCDJyU7pBU82KQQHMdXxo" target="_blank">our Manifesto</a> on February 23rd 2018. Since then we&apos;ve been totally censored on every Tezos channel (Reddit, Telegram, Riot). Sadly, trolls also use those outlets to spread FUD about the upcoming fork.</p>
+            </div>
+          </div>
+
+          <a name="other"></a>
+          <h3 data-id="faq_sect10_title">Other</h3>
+          <div class="expandable">
+            <a name="other3"></a>
+            <h4 data-id="faq_sect10_q3_question">Why don&apos;t you propose a protocol upgrade to DLS-Tezos instead of forking it?</h4>
+            <div class="expandable-content" data-id="faq_sect10_q3_answer">
+              <p>We believe DLS-Tezos is building on wrong assumptions. It&apos;d be extremely hard for a trusted chain to &quot;become trustless&quot;. We can&apos;t see how that might happen, and we&apos;re fed up with DLS delays. We believe it&apos;s
+                smarter, faster and more efficient to fork and start from scratch. Nevertheless, we&apos;d love to see a Libre-like proposal to DLS-Tezos: veto power removed, premined coins to DLS and TF destroyed, money supply capped. We&apos;d love
+                to see that happen, but we find it very unlikely.</p>
+            </div>
+          </div>
+
+          <div class="expandable">
+            <a name="other6"></a>
+            <h4 data-id="faq_sect10_q6_question">Will the fork benefit Tezos contributors?</h4>
+            <div class="expandable-content" data-id="faq_sect10_q6_answer">
+              <p>Yes. Contributors can directly benefit from the fork, as they can double their stake and hedge their bets. Both DLS-Tezos and TzLibre work toward the same goal: implementing a decentralized, self-governing, digital commonwealth. Last but
+                not least, we are putting healthy pressure on DLS to improve, making sure they don&apos;t sit on their monopoly. We&apos;re giving them a run for their money.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="actionbar">
+      <div class="content">
+        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Join us on Telegram</span></a>
+        </span>
+        <p data-id="actionbar_text">to stay up-to-date</p>
+      </div>
+    </div>
+
+    <script src="/js/scripts.js"></script>
+
+    <!-- <a href="https://test.tzlibre.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://test.tzlibre.io/test-page.png" alt="This is a test page"></a> -->
+
+
+  </body>
+
+</html>
