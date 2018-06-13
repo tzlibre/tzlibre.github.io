@@ -1,137 +1,30 @@
-const url_root = 'https://www.tzlibre.io'
-const url_split = url_root + '/api/v1/split'
+const step_not_allowed = error_step_not_allowed(PAGE)
 
-const TIMEFORMAT = 'MMMM Do YYYY, h:mm a'
-
-let elements
-let wl_info
-
-function get_elements () {
-  if (elements === undefined) {
-    elements = {}
-
-    elements.form = document.getElementById('split-form')
-
-    elements.pkh = document.getElementById('split-pkh')
-    elements.eth_addr = document.getElementById('split-eth-addr')
-    elements.pk = document.getElementById('split-pk')
-    elements.signature = document.getElementById('split-eth-addr-signature')
-    elements.decl_accept = document.getElementById('split-accept-declaration')
-    elements.submit = document.getElementById('split-submit')
-
-    elements.success = document.getElementById('split-success')
-
-    elements.succ_tzl_pkh = document.getElementById('split-succ-tzl-pkh')
-    elements.succ_eth_addr = document.getElementById('split-succ-eth-addr')
-    elements.succ_time = document.getElementById('split-succ-time')
-
-    elements.nextstep = document.getElementById('claimNextStepURL')
-    elements.modal_already_claimed_btn = document.getElementById('modal-already-claimed-btn')
-    elements.modal_already_signed_btn = document.getElementById('modal-already-signed-btn')
-
-    // modals:
-
-    // #modal-cloak
-    // #modal-not-whitelisted
-    // #modal-already-split
-    // #modal-error-tzl-addr
-    // #modal-error-eth-addr
-    // #modal-error-generic
-  }
-
-  return elements
-}
+Object.assign(error_handlers, {
+  '201': step_not_allowed,
+  '301': step_not_allowed,
+  '302': step_not_allowed
+})
 
 function reset () {
-  let elements = get_elements()
-  elements.submit.removeAttribute('disabled')
-  elements.success.style.display = 'none'
+  app_data.loading = false
+  claim_data.success = false
+  next_steps_data.show = false
 }
 
-function start_loading () {
-  let submit_btn = get_elements().submit
-  submit_btn.classList.add('loading')
-  submit_btn.setAttribute('disabled', '')
-}
+function success (claim_json) {
+  claim_data.tzl_pkh = claim_json.tzl_pkh
+  claim_data.eth_addr = claim_json.eth_addr
+  claim_data.timestamp = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
+  claim_data.success = true
 
-function stop_loading () {
-  let submit_btn = get_elements().submit
-  submit_btn.classList.remove('loading')
-  submit_btn.removeAttribute('disabled')
-}
+  modal_data.verify_url = `/verify.html?pkh=${claim_json.tzl_pkh}`
 
-function fill_success_info (split_json) {
-  let elements = get_elements()
-  elements.succ_tzl_pkh.innerText = split_json.tzl_pkh
-  elements.succ_eth_addr.innerText = split_json.eth_addr
-  elements.succ_time.innerText = moment(split_json.timestamp).format(TIMEFORMAT).toString()
-  elements.nextstep.setAttribute('href', elements.nextstep.getAttribute('href') + '?pkh=' + split_json.tzl_pkh + '&eth=' + split_json.eth_addr)
-}
-
-function success (split_json) {
-  let elements = get_elements()
-  fill_success_info(split_json)
-  elements.submit.setAttribute('disabled', '')
-  stop_loading()
-  elements.success.style.display = 'block'
-}
-
-function error_no_wl () {
-  stop_loading()
-  showModal('modal-not-whitelisted')
-}
-
-function error_already_claimed () {
-  stop_loading()
-  let elements = get_elements()
-  let pkh = elements.pkh.value.trim()
-  let eth = elements.eth_addr.value.trim()
-  let sign_url = `/sign.html?pkh=${pkh}&eth=${eth}`
-  elements.modal_already_claimed_btn.setAttribute('href', sign_url)
-  showModal('modal-already-claimed')
-}
-
-function error_already_signed () {
-  stop_loading()
-  let elements = get_elements()
-  let pkh = elements.pkh.value.trim()
-  let verify_url = `/verify.html?pkh=${pkh}`
-  elements.modal_already_signed_btn.setAttribute('href', verify_url)
-  showModal('modal-already-signed')
-}
-
-function error_wrong_tzl_addr () {
-  stop_loading()
-  showModal('modal-error-tzl-addr')
-}
-
-function error_wrong_eth_addr () {
-  stop_loading()
-  showModal('modal-error-eth-addr')
-}
-
-function error_generic (err) {
-  console.log('Something bad occurred :(')
-  console.log(err)
-  stop_loading()
-  showModal('modal-error-generic')
-}
-
-const error_handlers = {
-  '101': error_wrong_tzl_addr,
-  '102': error_wrong_eth_addr,
-  '201': error_no_wl,
-  '301': error_already_claimed,
-  '302': error_already_signed
-}
-
-function error (error_json) {
-  if (error_handlers.hasOwnProperty(error_json.code)) {
-    error_handlers[error_json.code]()
-    return
-  }
-
-  error_generic(error_json)
+  next_steps_data.sign_url = `/sign.html?pkh=${claim_json.tzl_pkh}&eth=${claim_json.eth_addr}`
+  next_steps_data.opt1 = claim_json.opt2 && !claim_json.opt3
+  next_steps_data.opt2 = !claim_json.opt2 && !claim_json.opt3
+  next_steps_data.opt3 = !!claim_json.opt3
+  next_steps_data.show = true
 }
 
 async function post (body) {
@@ -142,35 +35,85 @@ async function post (body) {
     },
     body: JSON.stringify(body)
   }
-  let response = await fetch(url_split, options)
+  let response = await fetch(url_claim, options)
   return response.json()
 }
 
-function split () {
+function post_claim (data) {
+  return post(data)
+}
+
+function claim () {
   reset()
   start_loading()
 
-  let elements = get_elements()
-  let pkh = elements.pkh.value.trim()
-  let body = {
-    tzl_pkh: pkh,
-    eth_addr: elements.eth_addr.value.trim(),
-    acc_declaration: elements.decl_accept.checked,
+  let data = {
+    tzl_pkh: document.getElementById('claim-pkh').value.trim(),
+    eth_addr: document.getElementById('claim-eth-addr').value.trim(),
+    acc_declaration: document.getElementById('claim-accept-declaration').checked
   }
 
-  post(body).then((res) => {
-    if (res.tzl_pkh !== body.tzl_pkh || !res.ok) {
+  post_claim(data)
+    .then((res) => {
+      if (!res.ok || !res.hasOwnProperty('tzl_pkh') || res.tzl_pkh !== data.tzl_pkh) {
       error(res)
       return
     }
 
     success(res)
-  }).catch(function (err) {
-    error_generic(err)
-  })
+    })
+    .then(() => { stop_loading() })
+    .catch(function (err) {
+      error_generic(err)
+    })
 }
 
+// ///////////////////////// APPs //////////////////////////
+
+let app_data = {
+  loading: false
+}
+
+let v_app = new Vue({
+  el: '#claim-form',
+  data: app_data
+})
+
+let claim_data = {
+  success: false,
+  tzl_pkh: '',
+  eth_addr: '',
+  timestamp: ''
+}
+
+let v_claim = new Vue({
+  el: '#claim-success',
+  data: claim_data
+})
+
+let modal_data = {
+  verify_url: ''
+}
+
+let v_modal = new Vue({
+  el: '#modal-step-not-allowed',
+  data: modal_data
+})
+
+let next_steps_data = {
+  show: false,
+  sign_url: '',
+  opt1: false,
+  opt2: false,
+  opt3: false
+}
+
+let v_next_steps = new Vue({
+  el: '#next-steps',
+  data: next_steps_data
+})
+
+// ///////////////////////////// MAIN ////////////////////////
+
 // set PKH field
-let params = new URLSearchParams(window.location.search)
-if ( params.has( 'pkh' ) )
-  get_elements().pkh.value = params.get( 'pkh' )
+parse_qs('claim-pkh', 'claim-eth-addr')

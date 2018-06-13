@@ -1,40 +1,22 @@
-const TZL_USD_EXPECTED_PRICE = 1 / 3 // 1 TZL = 0.33333333333333333 USD
-
-const url_root = 'https://www.tzlibre.io'
-const url_split = url_root + '/api/v1/split'
-const url_whitelist = url_root + '/api/v1/whitelist'
-
-const TIMEFORMAT = 'MMMM Do YYYY, h:mm a'
-
-function is_empty (obj) {
-  return Object.keys(obj).length === 0 && obj.constructor === Object
-}
-
 function reset () {
   app_data.loading = false
   app_data.error_handled = false
   whitelist_data.show = false
   whitelist_data.not_claimed = false
-  split_data.show = false
+  claim_data.show = false
   noairdrops_data.show = false
   airdrops_data.show = false
   airdrops_data.rounds = []
   next_steps_data.show = false
-  next_steps_data.show_opt1 = false
-  next_steps_data.show_opt2 = false
-  next_steps_data.show_opt3 = false
-}
-
-function start_loading () {
-  app_data.loading = true
-}
-
-function stop_loading () {
-  app_data.loading = false
+  next_steps_data.opt1 = false
+  next_steps_data.opt2 = false
+  next_steps_data.opt3 = false
 }
 
 function success_whitelist (wl_json) {
   if (is_empty(wl_json)) {
+    let pkh = document.getElementById('verify-pkh').value.trim()
+    modal_no_wl_data.whitelist_url = `/whitelist.html?pkh=${pkh}`
     return -1
   }
 
@@ -49,75 +31,72 @@ function success_whitelist (wl_json) {
   whitelist_data.h_TZL = wl_json.h_TZL
   whitelist_data.whitelist_time = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
   whitelist_data.show = true
-  whitelist_data.claim_url = `/claim.html?pkh=${wl_json.pkh}`
+  next_steps_data.claim_url = `/claim.html?pkh=${wl_json.pkh}`
 
   return amount
 }
 
-function success_split (split_json) {
-  if (is_empty(split_json)) {
+function success_claim (claim_json) {
+  if (is_empty(claim_json)) {
     return false
   }
 
-  if (split_json.hasOwnProperty('ok') && !split_json.ok) {
-    error(split_json)
+  if (claim_json.hasOwnProperty('ok') && !claim_json.ok) {
+    error(claim_json)
     return true // leave handling to error fn
   }
 
-  split_data.eth_addr = split_json.eth_addr
-  split_data.timestamp = moment(split_json.timestamp).format(TIMEFORMAT).toString()
-  split_data.show = true
-  split_data.valid_proof = split_json.valid_proof
-  split_data.sign_url = `/sign.html?pkh=${split_json.tzl_pkh}&eth=${split_json.eth_addr}`
+  let claimed = true
+  let signed = !!claim_json.valid_proof
+  let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
+  let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
 
-  let valid_proof = !!split_json.valid_proof
+  claim_data.eth_addr = claim_json.eth_addr
+  claim_data.timestamp = ts
+  claim_data.show = true
+  claim_data.signed = signed
+  claim_data.sign_ts = proof_ts
 
   // next_steps
-  if (valid_proof) {
+  next_steps_data.claimed = claimed
+  next_steps_data.signed = signed
+  next_steps_data.opt1 = claim_json.opt2 && !claim_json.opt3
+  claim_data.opt2 = next_steps_data.opt2 = !claim_json.opt2 && !claim_json.opt3
+  next_steps_data.opt3 = !!claim_json.opt3
+  next_steps_data.sign_url = `/sign.html?pkh=${claim_json.tzl_pkh}&eth=${claim_json.eth_addr}`
+  claim_data.dispute_url = next_steps_data.dispute_url = `/sign.html?pkh=${claim_json.tzl_pkh}`
+
+  if (signed) {
     // airdrops
-    if (split_json.airdrops && split_json.airdrops.length) {
-      airdrops_data.total_airdropped_amount = split_json.total_airdropped_amount
-      airdrops_data.total_fee = split_json.total_fee
-      airdrops_data.n_airdrops = split_json.n_airdrops
-      airdrops_data.rounds = split_json.airdrops
+    if (claim_json.airdrops && claim_json.airdrops.length) {
+      airdrops_data.total_airdropped_amount = claim_json.total_airdropped_amount
+      airdrops_data.total_fee = claim_json.total_fee
+      airdrops_data.n_airdrops = claim_json.n_airdrops
+      airdrops_data.rounds = claim_json.airdrops
       airdrops_data.show = true
     } else {
       noairdrops_data.show = true
     }
-    
-    next_steps_data.show_opt1 = split_json.opt2 && !split_json.opt3
-    next_steps_data.show_opt2 = !split_json.opt2 && !split_json.opt3
-    next_steps_data.show_opt3 = split_json.opt3
-    next_steps_data.show = true
   }
 
-  return { has_split: true, valid_proof }
+  return { has_claimed: claimed, signed }
 }
 
-function success ([r_whitelist, r_split]) {
+function success ([r_whitelist, r_claim]) {
   let whitelisted_amount = success_whitelist(r_whitelist)
-  let { has_split, valid_proof } = success_split(r_split)
+  let { has_claimed, signed } = success_claim(r_claim)
 
-  if (whitelisted_amount === -1 && !has_split) {
+  if (whitelisted_amount === -1 && !has_claimed) {
     showModal('modal-not-whitelisted')
     return
   }
 
-  if (whitelisted_amount === 0 && !has_split) {
+  if (whitelisted_amount === 0 && !has_claimed) {
     showModal('modal-zero-owner')
     return
   }
 
-  if (whitelisted_amount > 0 && !has_split) {
-    whitelist_data.not_claimed = true
-    showModal('modal-not-split')
-    return
-  }
-
-  if (!valid_proof) {
-    showModal('modal-not-signed')
-    return
-  }
+  next_steps_data.show = true
 }
 
 function error (error_json) {
@@ -131,14 +110,6 @@ function error (error_json) {
   }
 
   error_generic(error_json)
-}
-
-function error_generic (err) {
-  reset()
-  app_data.error_handled = true
-  console.log('Something bad occurred :(')
-  console.log(err)
-  showModal('modal-error-generic')
 }
 
 function confirmed (airdrops) {
@@ -167,9 +138,9 @@ function get_whitelist (pkh) {
   return get(url)
 }
 
-function get_split (pkh) {
+function get_claim (pkh) {
   let qs = `?tzl_pkh=${pkh}`
-  let url = url_split + qs
+  let url = url_claim + qs
   return get(url)
 }
 
@@ -184,19 +155,20 @@ function verify () {
     }
     return res
   })
-  let p_split = get_split(pkh).then(res => {
+  let p_claim = get_claim(pkh).then(res => {
     if (res.hasOwnProperty('tzl_pkh') && res.tzl_pkh !== pkh) {
       error_generic(res)
     }
     return res
   })
 
-  Promise.all([p_whitelist, p_split])
+  Promise.all([p_whitelist, p_claim])
     .then((args) => {
       success(args)
       stop_loading()
     })
     .catch((err) => {
+      console.log(err)
       error_generic(err)
       stop_loading()
     })
@@ -214,12 +186,20 @@ let v_app = new Vue({
   data: app_data
 })
 
+let modal_no_wl_data = {
+  whitelist_url: ''
+}
+
+let modal_no_wl = new Vue({
+  el: '#modal-not-whitelisted',
+  data: modal_no_wl_data
+})
+
 let whitelist_data = {
   show: false,
   pkh: '',
   h_TZL: '',
   whitelist_time: '',
-  claim_url: 'pippo',
   not_claimed: false
 }
 
@@ -228,27 +208,24 @@ let v_whitelist = new Vue({
   data: whitelist_data
 })
 
-let v_whitelist_modal = new Vue({
-  el: '#modal-not-split-act',
-  data: whitelist_data
-})
-
-let split_data = {
+let claim_data = {
   show: false,
   eth_addr: '',
   timestamp: '',
-  sign_url: '',
-  valid_proof: false
+  signed: false,
+  sign_ts: '',
+  opt2: false,
+  dispute_url: ''
 }
 
-let v_split = new Vue({
-  el: '#verify-split-box',
-  data: split_data
+let v_claim = new Vue({
+  el: '#verify-claim-box',
+  data: claim_data
 })
 
-let v_split_modal = new Vue({
-  el: '#modal-not-signed-act',
-  data: split_data
+let v_sign = new Vue({
+  el: '#verify-sign-box',
+  data: claim_data
 })
 
 let noairdrops_data = {
@@ -276,18 +253,21 @@ let v_airdrops = new Vue({
 
 let next_steps_data = {
   show: false,
-  show_opt1: false,
-  show_opt2: false,
-  show_opt3: false
+  claimed: false,
+  claim_url: '',
+  signed: false,
+  sign_url: '',
+  dispute_url: '',
+  opt1: false,
+  opt2: false,
+  opt3: false
 }
 
 let v_next_steps = new Vue({
-  el: '#verify-next-steps-box',
+  el: '#next-steps',
   data: next_steps_data
 })
 
-// set PKH field
-let params = new URLSearchParams(window.location.search)
-if ( params.has( 'pkh' ) ) {
-  document.getElementById('verify-pkh').value = params.get('pkh')
-}
+// ///////////////////////////// MAIN ////////////////////////
+
+parse_qs('verify-pkh')

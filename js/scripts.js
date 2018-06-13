@@ -119,11 +119,13 @@
 
   */
 
-  function showTickerValues( price )
+  function showTickerValues( price, variation )
   {
     // Update Ticker
-    price = Math.round( price * 100 ) / 100;
-    document.getElementById( 'priceTickerValue' ).innerText = price + ' USD';
+    var p = Math.round( price * 100 ) / 100,
+      v = Math.round( variation * 10 ) / 10,
+      c = v < 0? 'variation-negative' : 'variation-positive';
+    document.getElementById( 'priceTickerValue' ).innerHTML = p + ' USD<span class="' + c + '"> ' + v + '%</span>';
 
     // Update Market Cap
     // var hardcap = 763306929.68,
@@ -140,8 +142,10 @@
   {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
-      if ( xmlHttp.readyState == 4 && xmlHttp.status == 200 )
-        showTickerValues( JSON.parse( xmlHttp.responseText ).usd_tzl_price );
+      if ( xmlHttp.readyState == 4 && xmlHttp.status == 200 ) {
+        var r = JSON.parse( xmlHttp.responseText );
+        showTickerValues( r.usd_tzl_price, r.usd_tzl_perc_24h );
+      }
     }
     xmlHttp.open( 'GET', 'https://ticker.tzlibre.io/api/v1/ticker', true );
     xmlHttp.send( null );

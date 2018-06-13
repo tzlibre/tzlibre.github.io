@@ -1,77 +1,28 @@
-const url = 'https://www.tzlibre.io/api/v1/whitelist'
-const TIMEFORMAT = 'MMMM Do YYYY, h:mm a'
-let elements
+const step_not_allowed = error_step_not_allowed(PAGE)
 
-function get_elements () {
-  if (elements === undefined) {
-    elements = {}
-    elements.pkh = document.getElementById('tzaddress-whitelist')
-    elements.submit_button = document.getElementById('submitWhitelistBtn')
-    elements.success_box = document.getElementById('whitelist-success')
-    elements.error_box = document.getElementById('whitelist-error')
-    elements.success_addr = document.getElementById('tzAddressWL')
-    elements.success_tzl_amount = document.getElementById('tzBalanceWL')
-    elements.success_timestamp = document.getElementById('tzDateWL')
-    elements.claim_link = document.getElementById('whitelist-claimlink')
-    elements.nextstep = document.getElementById('whitelistNextStepURL')
-  }
-
-  return elements
-}
+Object.assign(error_handlers, {
+  '202': step_not_allowed // already whitelisted
+})
 
 function reset () {
-  hide_success_box()
-}
-
-function start_loading () {
-  let submit_btn = get_elements().submit_button
-  submit_btn.classList.add('loading')
-  submit_btn.setAttribute('disabled', '')
-}
-
-function stop_loading () {
-  let submit_btn = get_elements().submit_button
-  submit_btn.classList.remove('loading')
-  submit_btn.removeAttribute('disabled')
-}
-
-function show_success_box () {
-  get_elements().success_box.style.display = 'block'
-}
-
-function hide_success_box () {
-  get_elements().success_box.style.display = 'none'
-}
-
-function show_error () {
-  showModal('modal-error')
-}
-
-function fill_success_box (wl_json) {
-  let elements = get_elements()
-  elements.success_addr.innerText = wl_json.pkh
-  elements.success_tzl_amount.innerText = `${wl_json.h_TZL} TZL`
-  elements.success_timestamp.innerText = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
-  elements.nextstep.setAttribute('href', elements.nextstep.getAttribute('href') + '?pkh=' + wl_json.pkh)
-}
-
-function hide_claim_link () {
-  get_elements().claim_link.style.display = 'none'
+  wl_data.show = false
+  next_steps_data.show = false
 }
 
 function success (wl_json) {
-  fill_success_box(wl_json)
-  hide_claim_link()
-  stop_loading()
-  show_success_box()
+  // output
+  wl_data.timestamp = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
+  wl_data.pkh = wl_json.pkh
+  wl_data.amount = wl_json.h_TZL
+  wl_data.success = true
+
+  modal_data.verify_url = `/verify.html?pkh=${wl_json.tzl_pkh}`
+
+  next_steps_data.claim_url=  `/claim.html?pkh=${wl_json.pkh}`
+  next_steps_data.show = true
 }
 
-function error () {
-  stop_loading()
-  show_error()
-}
-
-async function post (pkh) {
+async function post_whitelist (pkh) {
   let body = { pkh: pkh }
   let options = {
     method: 'POST',
@@ -80,23 +31,74 @@ async function post (pkh) {
     },
     body: JSON.stringify(body)
   }
-  let response = await fetch(url, options)
+  let response = await fetch(url_whitelist, options)
   return response.json()
 }
 
-function whitelist_or_verify () {
+function whitelist () {
   reset()
   start_loading()
 
-  let elements = get_elements()
-  let pkh = elements.pkh.value.trim()
-
-  post(pkh).then((res) => {
-    if (res.pkh !== pkh || res.ok === false) {
-      error()
+  let pkh = document.getElementById('whitelist-pkh').value
+  post_whitelist(pkh).then(res => {
+    if (!res.ok || !res.hasOwnProperty('pkh') || res.pkh !== pkh) {
+      error(res)
       return
     }
 
     success(res)
-  }).catch((err) => error())
+  })
+  .then(() => { stop_loading() })
+  .catch((err) => {
+    stop_loading()
+    error_generic(err)
+  })
 }
+
+// ///////////////////////// APPs //////////////////////////
+
+let app_data = {
+  loading: false,
+  error_handled: false
+}
+
+let v_app = new Vue({
+  el: '#whitelist-form',
+  data: app_data
+})
+
+let wl_data = {
+  success: false,
+  timestamp: '',
+  pkh: '',
+  amount: ''
+}
+
+let v_wl = new Vue({
+  el: '#whitelist-success',
+  data: wl_data
+})
+
+let modal_data = {
+  verify_url: ''
+}
+
+let v_modal = new Vue({
+  el: '#modal-step-not-allowed',
+  data: modal_data
+})
+
+let next_steps_data = {
+  show: false,
+  claim_url: ''
+}
+
+let v_next_steps = new Vue({
+  el: '#next-steps',
+  data: next_steps_data
+})
+
+// ///////////////////////////// MAIN ////////////////////////
+
+// set PKH field
+parse_qs('whitelist-pkh')
