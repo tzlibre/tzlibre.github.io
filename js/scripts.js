@@ -122,11 +122,11 @@
   function showTickerValues( price, variation )
   {
     // Update Ticker
-    var p = Math.round( price * 100 ) / 100,
+    var p = price.toFixed(2)
         v,
         c;
 
-    if (v > 0) {
+    if (variation >= 0) {
       v = '+' + variation.toFixed(2);
       c = 'variation-positive';
     } else {
