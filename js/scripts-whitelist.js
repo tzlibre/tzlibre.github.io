@@ -20,6 +20,8 @@ function success (wl_json) {
 
   next_steps_data.claim_url=  `/claim.html?pkh=${wl_json.pkh}`
   next_steps_data.show = true
+
+  scroll_to('results')
 }
 
 async function post_whitelist (pkh) {

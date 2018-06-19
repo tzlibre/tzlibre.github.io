@@ -50,6 +50,7 @@ function success_claim (claim_json) {
   let signed = !!claim_json.valid_proof
   let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
+  let opt2 = !claim_json.opt2 && !claim_json.opt3
 
   claim_data.eth_addr = claim_json.eth_addr
   claim_data.timestamp = ts
@@ -61,7 +62,7 @@ function success_claim (claim_json) {
   next_steps_data.claimed = claimed
   next_steps_data.signed = signed
   next_steps_data.opt1 = claim_json.opt2 && !claim_json.opt3
-  claim_data.opt2 = next_steps_data.opt2 = !claim_json.opt2 && !claim_json.opt3
+  claim_data.opt2 = next_steps_data.opt2 = opt2
   next_steps_data.opt3 = !!claim_json.opt3
   next_steps_data.sign_url = `/sign.html?pkh=${claim_json.tzl_pkh}&eth=${claim_json.eth_addr}`
   claim_data.dispute_url = next_steps_data.dispute_url = `/sign.html?pkh=${claim_json.tzl_pkh}`
@@ -79,6 +80,9 @@ function success_claim (claim_json) {
     }
   }
 
+  if (!opt2) { next_steps_data.show = true }
+  scroll_to('results')
+
   return { has_claimed: claimed, signed }
 }
 
@@ -95,8 +99,6 @@ function success ([r_whitelist, r_claim]) {
     showModal('modal-zero-owner')
     return
   }
-
-  next_steps_data.show = true
 }
 
 function error (error_json) {
@@ -260,12 +262,18 @@ let next_steps_data = {
   dispute_url: '',
   opt1: false,
   opt2: false,
-  opt3: false
+  opt3: false,
+  show_floating_btn: true
 }
 
 let v_next_steps = new Vue({
   el: '#next-steps',
-  data: next_steps_data
+  data: next_steps_data,
+  methods: {
+    visibility_changed (is_visible) {
+      next_steps_data.show_floating_btn = !is_visible
+    }
+  }
 })
 
 // ///////////////////////////// MAIN ////////////////////////

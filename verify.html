@@ -97,112 +97,107 @@
             <input type="submit" value="Verify" data-id="verify_button" id="verify-submit" v-bind:class="{ loading: loading }" :disabled="loading">
           </form>
 
-          <!-- if not whitelisted -->
-          <!-- a modal inform the user to go to the whitelist page -->
+          <div id="results">
 
-          <!-- if whitelisted and not claimed -->
-          <div id="verify-whitelist-box" v-if="show">
-            <div class="formresult">
-              <p class="timestamp">{{ whitelist_time }}</p>
+            <!-- if not whitelisted -->
+            <!-- a modal inform the user to go to the whitelist page -->
+
+            <!-- if whitelisted and not claimed -->
+            <div id="verify-whitelist-box" v-if="show">
+              <div class="formresult">
+                <p class="timestamp">{{ whitelist_time }}</p>
+                <div class="formresult-cols">
+                  <div>
+                    <p data-id="verify_result_success">This Tezos address is whitelisted</p>
+                    <p><strong>{{ pkh }}</strong></p>
+                  </div>
+                  <div>
+                    <p v-if="not_claimed" data-id="verify_result_whitelisted">Whitelisted qty</p>
+                    <p v-else="" data-id="verify_result_claimed">Claimed qty</p>
+                    <p class="bigdata">{{ h_TZL }} TZL</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- if claimed -->
+            <div id="verify-claim-box" v-if="show &amp;&amp; !signed">
+              <div class="formresult">
+                <p class="timestamp">{{ timestamp }}</p>
+                <p data-id="verify_result_split" v-if="!opt2">This is the linked Ethereum address (Not your address? See &quot;Next steps&quot;)</p>
+                <p data-id="verify_result_split_opt2" v-else="">This is the linked Ethereum address (Not your address?
+                  <a v-bind:href="dispute_url">Dispute it</a>)</p>
+                <p><strong>{{ eth_addr }}</strong></p>
+              </div>
+            </div>
+
+            <!-- if signed -->
+            <div id="verify-sign-box" v-if="show &amp;&amp; signed">
+              <div class="formresult">
+                <p class="timestamp">{{ timestamp }}</p>
+                <p data-id="verify_result_sign">A valid proof of ownership has been provided. The TZL claim has been cryptographically signed by the Tezos address owner.</p>
+              </div>
+            </div>
+
+
+            <!-- if not airdropped -->
+            <div class="formresult" id="verify-noairdrops-box" v-if="show">
               <div class="formresult-cols">
                 <div>
-                  <p data-id="verify_result_success">This Tezos address is whitelisted</p>
-                  <p><strong>{{ pkh }}</strong></p>
+                  <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
+                  <p class="bigdata">0 TZL</p>
                 </div>
                 <div>
-                  <p v-if="not_claimed" data-id="verify_result_whitelisted">Whitelisted qty</p>
-                  <p v-else="" data-id="verify_result_claimed">Claimed qty</p>
-                  <p class="bigdata">{{ h_TZL }} TZL</p>
+                  <p data-id="verify_result_airdrops">Airdrops</p>
+                  <p><strong data-id="verify_result_noairdrops">No airdrop yet</strong></p>
                 </div>
               </div>
             </div>
 
-            <div class="nextstepbox" v-if="not_claimed">
-              <h3 data-id="nextstep_title">Next steps</h3>
-              <p>
-                <a v-bind:href="claim_url" class="btn">
-                  <span data-id="nextstep_whitelist">Claim TZL</span>
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- if claimed -->
-          <div id="verify-claim-box" v-if="show &amp;&amp; !signed">
-            <div class="formresult">
-              <p class="timestamp">{{ timestamp }}</p>
-              <p data-id="verify_result_split" v-if="!opt2">This is the linked Ethereum address (Not your address? See &quot;Next steps&quot;)</p>
-              <p data-id="verify_result_split_opt2" v-else="">This is the linked Ethereum address (Not your address?
-                <a v-bind:href="dispute_url">Dispute it</a>)</p>
-              <p><strong>{{ eth_addr }}</strong></p>
-            </div>
-          </div>
-
-          <!-- if signed -->
-          <div id="verify-sign-box" v-if="show &amp;&amp; signed">
-            <div class="formresult">
-              <p class="timestamp">{{ timestamp }}</p>
-              <p data-id="verify_result_sign">A valid proof of ownership has been provided. The TZL claim has been cryptographically signed by the Tezos address owner.</p>
-            </div>
-          </div>
-
-
-          <!-- if not airdropped -->
-          <div class="formresult" id="verify-noairdrops-box" v-if="show">
-            <div class="formresult-cols">
-              <div>
-                <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
-                <p class="bigdata">0 TZL</p>
-              </div>
-              <div>
-                <p data-id="verify_result_airdrops">Airdrops</p>
-                <p><strong data-id="verify_result_noairdrops">No airdrop yet</strong></p>
-              </div>
-            </div>
-          </div>
-
-          <!-- if airdropped -->
-          <div class="formresult" id="verify-airdrops-box" v-if="show">
-            <div class="formresult-cols">
-              <div>
-                <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
-                <p class="bigdata">{{ total_airdropped_amount }} TZL</p>
-              </div>
-              <div>
-                <p data-id="verify_result_miningfees">Ethereum mining fees</p>
-                <p class="bigdata">{{ total_fee }} TZL</p>
-              </div>
-              <div>
-                <p data-id="verify_result_airdrops">Airdrops</p>
-                <p class="bigdata">{{ n_airdrops }}</p>
-              </div>
-            </div>
-            <div class="verify-airdrop-details" v-for="airdrop in augment(confirmed(rounds))">
-              <p class="timestamp">{{ airdrop.timestamp }}</p>
+            <!-- if airdropped -->
+            <div class="formresult" id="verify-airdrops-box" v-if="show">
               <div class="formresult-cols">
                 <div>
-                  <p>amount: {{ airdrop.amount }} TZL</p>
+                  <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
+                  <p class="bigdata">{{ total_airdropped_amount }} TZL</p>
                 </div>
                 <div>
-                  <p>tx fee: {{ airdrop.tx_fee }} TZL (~{{ airdrop.tx_fee_eth }} ETH)</p>
+                  <p data-id="verify_result_miningfees">Ethereum mining fees</p>
+                  <p class="bigdata">{{ total_fee }} TZL</p>
                 </div>
                 <div>
-                  <p>txid:
-                    <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid }}</a>
-                  </p>
+                  <p data-id="verify_result_airdrops">Airdrops</p>
+                  <p class="bigdata">{{ n_airdrops }}</p>
+                </div>
+              </div>
+              <div class="verify-airdrop-details" v-for="airdrop in augment(confirmed(rounds))">
+                <p class="timestamp">{{ airdrop.timestamp }}</p>
+                <div class="formresult-cols">
+                  <div>
+                    <p>amount: {{ airdrop.amount }} TZL</p>
+                  </div>
+                  <div>
+                    <p>tx fee: {{ airdrop.tx_fee }} TZL (~{{ airdrop.tx_fee_eth }} ETH)</p>
+                  </div>
+                  <div>
+                    <p>txid:
+                      <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid }}</a>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
 
 
           <!-- next steps -->
-          <div class="nextstepbox" id="next-steps" v-if="show">
+          <a name="next-steps"></a>
+          <div class="nextstepbox" id="next-steps" v-if="show" v-observe-visibility="visibility_changed">
+            <h3 data-id="nextstep_title">Next steps</h3>
+            <a href="#next-steps" class="ns-btn-float" data-id="nextstep_title" v-if="show_floating_btn">Next steps</a>
 
             <!-- if only whitelisted -->
             <div v-if="!claimed">
-              <h3 data-id="nextstep_title">Next steps</h3>
               <a v-bind:href="claim_url" class="btn">
                 <span data-id="split_page_title">Claim your TZL tokens</span>
               </a>
@@ -211,7 +206,6 @@
 
             <!-- if only claimed -->
             <div v-if="claimed &amp;&amp; !signed &amp;&amp; !opt2">
-              <h3 data-id="nextstep_title">Next steps</h3>
               <div class="nextstepslist">
 
                 <div>
@@ -242,7 +236,6 @@
 
             <!-- if signed -->
             <div v-if="signed &amp;&amp; !opt2">
-              <h3 data-id="nextstep_title">Next steps</h3>
               <div class="nextstepslist">
 
                 <div>
@@ -344,6 +337,7 @@
 
     <script src="/js/vue.min.js"></script>
     <!-- <script src="/js/vue.js"></script> -->
+    <script src="/js/vue-observe-visibility.min.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>

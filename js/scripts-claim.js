@@ -25,6 +25,8 @@ function success (claim_json) {
   next_steps_data.opt2 = !claim_json.opt2 && !claim_json.opt3
   next_steps_data.opt3 = !!claim_json.opt3
   next_steps_data.show = true
+
+  scroll_to('results')
 }
 
 async function post (body) {

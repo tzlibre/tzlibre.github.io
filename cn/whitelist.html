@@ -122,16 +122,18 @@
             <input type="submit" value="&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;&#x6216;&#x786E;&#x8BA4;" id="submitWhitelistBtn" data-id="wl_button" v-bind:class="{ loading: loading }" :disabled="loading">
           </form>
 
-          <div id="whitelist-success" class="formresult" v-if="success">
-            <p class="timestamp">{{ timestamp }}</p>
-            <div class="formresult-cols">
-              <div>
-                <p data-id="wl_success_text">&#x60A8;&#x7684;Tezos&#x5730;&#x5740;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;</p>
-                <p><strong>{{ pkh }}</strong></p>
-              </div>
-              <div>
-                <p data-id="wl_success_text2">&#x60A8;&#x5C06;&#x53EF;&#x4EE5;&#x8BA4;&#x9886;</p>
-                <p class="bigdata">{{ amount }} TZL</p>
+          <div id="results">
+            <div id="whitelist-success" class="formresult" v-if="success">
+              <p class="timestamp">{{ timestamp }}</p>
+              <div class="formresult-cols">
+                <div>
+                  <p data-id="wl_success_text">&#x60A8;&#x7684;Tezos&#x5730;&#x5740;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;</p>
+                  <p><strong>{{ pkh }}</strong></p>
+                </div>
+                <div>
+                  <p data-id="wl_success_text2">&#x60A8;&#x5C06;&#x53EF;&#x4EE5;&#x8BA4;&#x9886;</p>
+                  <p class="bigdata">{{ amount }} TZL</p>
+                </div>
               </div>
             </div>
           </div>

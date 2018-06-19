@@ -89,9 +89,29 @@
 
           <h3 data-id="sign_page_title">Sign your claim</h3>
 
-          <p data-id="sign_intro">Sign your Ethereum address with your Tezos key to prove ownership.
-            <br>Need help?
-            <a href="https://github.com/tzlibre/fundraiser-tools" target="_blank"><span>Download</span></a> our tools from GitHub.</p>
+          <p data-id="sign_intro">Prove ownership of your Tezos address by signing your current Ethereum address with your Tezos key. You won&apos;t be able to change your Ethereum address afterwards, and we strongly suggest to use a brand new Ethereum address. Need help?
+            <a
+              href="https://t.me/tz_libre" target="_blank"><span>Contact us</span></a> or check our tools on Github:</p>
+
+          <a href="https://github.com/tzlibre/fundraiser-tools" target="_blank" class="btn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-github-small" />
+            </svg>
+            <span>CL tool</span>
+          </a>
+
+          <span> </span>
+
+          <a href="https://github.com/tzlibre/signature-webtool" target="_blank" class="btn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-github-small" />
+            </svg>
+            <span>Web tool</span>
+          </a>
+
+          <br>
+          <br>
+          <br>
 
           <form action="Javascript:sign()" class="" id="sign-form">
 
@@ -109,11 +129,13 @@
 
           </form>
 
-          <div id="sign-success" v-if="success">
-            <div class="formresult">
-              <p class="timestamp">{{ timestamp }}</p>
-              <p data-id="sign_result_success">Your signature has been verified and saved. Your signature is valid and can&apos;t be changed. You provided a valid proof of ownership and the Tezos address (a/k/a Tezos public key hash) <strong>{{ tzl_pkh }}</strong> is now indisputably
-                linked to the Ethereum address <strong>{{ eth_addr }}</strong>.</p>
+          <div id="results">
+            <div id="sign-success" v-if="success">
+              <div class="formresult">
+                <p class="timestamp">{{ timestamp }}</p>
+                <p data-id="sign_result_success">Your signature has been verified and saved. Your signature is valid and can&apos;t be changed. You provided a valid proof of ownership and the Tezos address (a/k/a Tezos public key hash) <strong>{{ tzl_pkh }}</strong> is now indisputably
+                  linked to the Ethereum address <strong>{{ eth_addr }}</strong>.</p>
+              </div>
             </div>
           </div>
 

@@ -135,15 +135,17 @@ I request that any third-party product developed with Tezos Stiftung funding sha
 
           </form>
 
-          <div id="claim-success" v-if="success">
-            <div class="formresult">
-              <p class="timestamp">{{ timestamp }}</p>
-              <p data-id="split_result_success">Your claim has been submitted. The Tezos address</p>
-              <div class="block-row">
-                <div class="block">
-                  <p><strong>{{ tzl_pkh }}</strong>
-                    <br><span data-id="split_result_nowlinked">is linked with the Ethereum address</span>
-                    <br><strong>{{ eth_addr }}</strong></p>
+          <div id="results">
+            <div id="claim-success" v-if="success">
+              <div class="formresult">
+                <p class="timestamp">{{ timestamp }}</p>
+                <p data-id="split_result_success">Your claim has been submitted. The Tezos address</p>
+                <div class="block-row">
+                  <div class="block">
+                    <p><strong>{{ tzl_pkh }}</strong>
+                      <br><span data-id="split_result_nowlinked">is linked with the Ethereum address</span>
+                      <br><strong>{{ eth_addr }}</strong></p>
+                  </div>
                 </div>
               </div>
             </div>

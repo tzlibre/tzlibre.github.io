@@ -64,3 +64,8 @@ function parse_qs (pkh_name, eth_name) {
     document.getElementById(eth_name).value = params.get('eth')
   }
 }
+
+function scroll_to (id) {
+  let _scroll = function() { document.getElementById(id).scrollIntoView() }
+  setTimeout(_scroll, 100)
+}

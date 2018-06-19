@@ -25,6 +25,8 @@ function success (sign_json) {
   next_steps_data.opt2 = !sign_json.opt2 && !sign_json.opt3
   next_steps_data.opt3 = !!sign_json.opt3
   next_steps_data.show = true
+
+  scroll_to('results')
 }
 
 async function get_claim (pkh) {
@@ -74,7 +76,7 @@ function sign () {
 	error(claim_res)
         return
       }
-      
+
       if (claim_res.hasOwnProperty('tzl_pkh') && claim_res.tzl_pkh !== data.tzl_pkh) {
 	error_generic()
         return

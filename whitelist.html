@@ -120,16 +120,18 @@
             <input type="submit" value="Add to whitelist" id="submitWhitelistBtn" data-id="wl_button" v-bind:class="{ loading: loading }" :disabled="loading">
           </form>
 
-          <div id="whitelist-success" class="formresult" v-if="success">
-            <p class="timestamp">{{ timestamp }}</p>
-            <div class="formresult-cols">
-              <div>
-                <p data-id="wl_success_text">This Tezos address is correctly whitelisted</p>
-                <p><strong>{{ pkh }}</strong></p>
-              </div>
-              <div>
-                <p data-id="wl_success_text2">You are allowed to claim</p>
-                <p class="bigdata">{{ amount }} TZL</p>
+          <div id="results">
+            <div id="whitelist-success" class="formresult" v-if="success">
+              <p class="timestamp">{{ timestamp }}</p>
+              <div class="formresult-cols">
+                <div>
+                  <p data-id="wl_success_text">This Tezos address is correctly whitelisted</p>
+                  <p><strong>{{ pkh }}</strong></p>
+                </div>
+                <div>
+                  <p data-id="wl_success_text2">You are allowed to claim</p>
+                  <p class="bigdata">{{ amount }} TZL</p>
+                </div>
               </div>
             </div>
           </div>

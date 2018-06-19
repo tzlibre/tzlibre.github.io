@@ -123,8 +123,17 @@
   {
     // Update Ticker
     var p = Math.round( price * 100 ) / 100,
-      v = Math.round( variation * 10 ) / 10,
-      c = v < 0? 'variation-negative' : 'variation-positive';
+        v,
+        c;
+
+    if (v > 0) {
+      v = '+' + variation.toFixed(2);
+      c = 'variation-positive';
+    } else {
+      v = variation.toFixed(2);
+      c = 'variation-negative';
+    }
+
     document.getElementById( 'priceTickerValue' ).innerHTML = p + ' USD<span class="' + c + '"> ' + v + '%</span>';
 
     // Update Market Cap
