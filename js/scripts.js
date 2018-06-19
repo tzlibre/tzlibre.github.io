@@ -122,7 +122,7 @@
   function showTickerValues( price, variation )
   {
     // Update Ticker
-    var p = price.toFixed(2)
+    var p = price.toFixed(2),
         v,
         c;
 
