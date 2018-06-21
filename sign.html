@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <title data-id="default_page_title">Tz Libre | a fork of DLS Tezos</title>
+    <title data-id="default_page_title">Tz Libre | a fork of DLS KYC Tezos</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,7 +15,7 @@
     <link href="/style/style.css" rel="stylesheet">
     <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
     <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS Tezos">
+    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS KYC Tezos">
   </head>
 
   <body>
@@ -89,9 +89,9 @@
 
           <h3 data-id="sign_page_title">Sign your claim</h3>
 
-          <p data-id="sign_intro">Prove ownership of your Tezos address by signing your current Ethereum address with your Tezos key. You won&apos;t be able to change your Ethereum address afterwards, and we strongly suggest to use a brand new Ethereum address. Need help?
-            <a
-              href="https://t.me/tz_libre" target="_blank"><span>Contact us</span></a> or check our tools on Github:</p>
+          <p data-id="sign_intro">Prove ownership of your Tezos address by signing your current Ethereum address with your Tezos key. You won&apos;t be able to change your Ethereum address afterwards, and we suggest to use a brand new Ethereum address. Your signature will be
+            public. To produce your signature
+            <a href="https://github.com/tzlibre/signature-webtool/releases/download/v1.2/tzlibre-signature-webtool.html" download="tzlibre-signature-webtool.html"><span>download our web tool</span></a>, then open it and follow the instructions. If you&apos;re a developer you can clone one of our signing repos directly from Github:</p>
 
           <a href="https://github.com/tzlibre/fundraiser-tools" target="_blank" class="btn">
             <svg class="icon">
@@ -108,6 +108,10 @@
             </svg>
             <span>Web tool</span>
           </a>
+
+          <p data-id="sign_help">Need help?
+            <a href="https://t.me/tz_libre" target="_blank"><span>Contact us</span></a>
+          </p>
 
           <br>
           <br>
@@ -147,7 +151,7 @@
               <div class="nextstepslist">
 
                 <div>
-                  <p>Meet other TZL traders and learn where you can trade TZL</p>
+                  <p>Track TZL airdrops and meet other TZL traders</p>
                   <p v-if="opt1">
                     <a href="https://t.me/joinchat/G9-DfhMKURr6J7VhUYZ6Tw" target="_blank" class="btn">
                       <svg class="icon">
@@ -155,9 +159,9 @@
                       </svg><span data-id="nextstep_sign">Trade TZL</span></a>
                   </p>
                   <p v-if="opt3">
-                    <a href="https://t.me/tz_libre" target="_blank" class="btn">
+                    <a href="https://t.me/joinchat/G9-DflDz6IwHnVcUUW9aOw" target="_blank" class="btn">
                       <svg class="icon">
-                        <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+                        <use href="/images/svgdefs.svg#icon-social-telegram-group" />
                       </svg><span data-id="nextstep_sign">Trade TZL</span></a>
                   </p>
                 </div>
@@ -264,8 +268,8 @@
 
     </div>
 
-    <script src="/js/vue.min.js"></script>
-    <!-- <script src="/js/vue.js"></script> -->
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>

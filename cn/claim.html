@@ -66,7 +66,7 @@
           <a href="faq.html" data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a>
         </li>
         <li class="{{ nav3_class }}">
-          <a href="whitelist.html" data-id="wl_title">1. &#x767D;&#x540D;&#x5355;</a>
+          <a href="whitelist.html" data-id="wl_title">&#x767D;&#x540D;&#x5355;</a>
         </li>
         <li class="selected">
           <a href="claim.html" data-id="split_title">2. Claim</a>
@@ -100,17 +100,15 @@
           <div class="row">
             <h4 data-id="split_sub2_title">When</h4>
             <div class="row-main" data-id="split_sub2_txt">
-              <p>The whitelist is currently open. Our community is still discussing whether to close the whitelist in the coming days (to reward early adopters), or to close it later (to accomodate late adopters). We&apos;ll announce on our
-                <a href="https://t.me/tzlibre"
-                  target="_blank">Telegram channel</a> when the whitelist has been closed.</p>
+              <p>Our community is still discussing when to stop accepting claims. We&apos;ll announce it on our
+                <a href="https://t.me/tzlibre" target="_blank">Telegram channel</a>.</p>
             </div>
           </div>
 
           <div class="row">
             <h4 data-id="split_sub3_title">Need help?</h4>
             <div class="row-main" data-id="split_sub3_txt">
-              <p>If you&apos;re having trouble adding your Tezos public key hash (a/k/a Tezos address) to the whitelist, please doublecheck your contribution PDF and try again. Please use the latest version of the Firefox browser, preferably in private mode.
-                If you still can&apos;t whitelist your address, you can
+              <p>Only the first two fields are mandatory. You should use the latest version of the Firefox browser, preferably in private mode. If you still can&apos;t claim TZL you can
                 <a href="https://t.me/tz_libre" target="_blank">contact us</a>.</p>
             </div>
           </div>
@@ -119,7 +117,7 @@
 
             <label for="claim-pkh" data-id="wl_intro">&#x8F93;&#x5165;Tezos&#x516C;&#x94A5;&#x5730;&#x5740;</label>
             <input type="text" placeholder="tz1..." id="claim-pkh" required>
-            <label for="claim-eth-addr" data-id="eth_address">Ethereum address</label>
+            <label for="claim-eth-addr" data-id="eth_address">Current Ethereum address</label>
             <input type="text" placeholder="0x..." id="claim-eth-addr" required>
             <label data-id="split_declaration_title">Declaration of support</label>
             <pre data-id="split_declaration">As a contributor to Tezos Stiftung (CHE-290.597.458) I recognize, welcome and support the existence of multiple implementations of the Tezos idea.
@@ -141,11 +139,11 @@ I request that any third-party product developed with Tezos Stiftung funding sha
             <div id="claim-success" v-if="success">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
-                <p data-id="split_result_success">Your claim has been submitted!</p>
+                <p data-id="split_result_success">Your claim has been submitted. The Tezos address</p>
                 <div class="block-row">
                   <div class="block">
                     <p><strong>{{ tzl_pkh }}</strong>
-                      <br><span data-id="split_result_nowlinked">is now linked with this Ethereum address:</span>
+                      <br><span data-id="split_result_nowlinked">is linked with the Ethereum address</span>
                       <br><strong>{{ eth_addr }}</strong></p>
                   </div>
                 </div>
@@ -165,19 +163,19 @@ I request that any third-party product developed with Tezos Stiftung funding sha
                   <a href="https://t.me/joinchat/G9-DflMeFgwZSwDI5V-Vew" target="_blank" class="btn">
                     <svg class="icon">
                       <use href="/images/svgdefs.svg#icon-social-telegram-group" />
-                    </svg><span data-id="nextstep_group">Get airdrop details</span></a>
+                    </svg><span data-id="nextstep_group">How to sign</span></a>
                 </p>
                 <p v-if="opt3">
-                  <a href="https://t.me/tz_libre" target="_blank" class="btn">
+                  <a href="https://t.me/joinchat/G9-DflDz6IwHnVcUUW9aOw" target="_blank" class="btn">
                     <svg class="icon">
-                      <use href="/images/svgdefs.svg#icon-social-telegram-small" />
-                    </svg><span data-id="nextstep_contact">Get airdrop details</span></a>
+                      <use href="/images/svgdefs.svg#icon-social-telegram-group" />
+                    </svg><span data-id="nextstep_contact">TzLibre Signatures</span></a>
                 </p>
               </div>
 
               <div>
                 <p>Sign your claim</p>
-                <a v-bind:href="sign_url" class="btn"><span data-id="nextstep_claim_ok">Sign your TZL claim</span></a>
+                <a v-bind:href="sign_url" class="btn"><span data-id="nextstep_claim_ok">Sign claim</span></a>
               </div>
 
             </div>
@@ -193,7 +191,7 @@ I request that any third-party product developed with Tezos Stiftung funding sha
       <div class="content">
         <span data-id="cta_button_actionbar"><a href="http://weibo.com/TzLibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-weibo-small"/></svg><span>&#x5728;&#x5FAE;&#x535A;&#x5173;&#x6CE8;&#x6211;&#x4EEC;</span></a>
         </span>
-        <p data-id="actionbar_text">to stay updated</p>
+        <p data-id="actionbar_text">&#x83B7;&#x53D6;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7684;&#x6700;&#x65B0;&#x8D44;&#x8BAF;</p>
       </div>
     </div>
 
@@ -208,7 +206,7 @@ I request that any third-party product developed with Tezos Stiftung funding sha
         </h4>
         <p data-id="modal_stepnotallowed_text">You are not allowed to do this now: go to Verify page to find out what to do next</p>
         <div class="modal-actions">
-          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify it</a>
+          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify</a>
         </div>
       </div>
 
@@ -252,8 +250,8 @@ I request that any third-party product developed with Tezos Stiftung funding sha
 
     </div>
 
-    <script src="/js/vue.min.js"></script>
-    <!-- <script src="/js/vue.js"></script> -->
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>

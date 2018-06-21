@@ -66,7 +66,7 @@
           <a href="faq.html" data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a>
         </li>
         <li class="selected">
-          <a href="whitelist.html" data-id="wl_title">1. &#x767D;&#x540D;&#x5355;</a>
+          <a href="whitelist.html" data-id="wl_title">&#x767D;&#x540D;&#x5355;</a>
         </li>
         <li class="{{ nav4_class }}">
           <a href="claim.html" data-id="split_title">2. Claim</a>
@@ -127,11 +127,11 @@
               <p class="timestamp">{{ timestamp }}</p>
               <div class="formresult-cols">
                 <div>
-                  <p data-id="wl_success_text">&#x60A8;&#x7684;Tezos&#x5730;&#x5740;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;</p>
+                  <p data-id="wl_success_text">This Tezos address is correctly whitelisted</p>
                   <p><strong>{{ pkh }}</strong></p>
                 </div>
                 <div>
-                  <p data-id="wl_success_text2">&#x60A8;&#x5C06;&#x53EF;&#x4EE5;&#x8BA4;&#x9886;</p>
+                  <p data-id="wl_success_text2">You are allowed to claim</p>
                   <p class="bigdata">{{ amount }} TZL</p>
                 </div>
               </div>
@@ -158,7 +158,7 @@
       <div class="content">
         <span data-id="cta_button_actionbar"><a href="http://weibo.com/TzLibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-weibo-small"/></svg><span>&#x5728;&#x5FAE;&#x535A;&#x5173;&#x6CE8;&#x6211;&#x4EEC;</span></a>
         </span>
-        <p data-id="actionbar_text">to stay updated</p>
+        <p data-id="actionbar_text">&#x83B7;&#x53D6;&#x4EE3;&#x5E01;&#x5206;&#x914D;&#x7684;&#x6700;&#x65B0;&#x8D44;&#x8BAF;</p>
       </div>
     </div>
 
@@ -178,14 +178,16 @@
       </div>
 
       <div class="modal modal-warning" id="modal-error-whitelist">
-        <h4><span data-id="wl_error_title">We couldn&apos;t add this address to the whitelist</span>
+        <h4><span data-id="wl_error_title">Error</span>
           <svg class="alert-icon">
             <use href="/images/svgdefs.svg#icon-alert" />
           </svg>
         </h4>
-        <p data-id="wl_error_txt">&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5C06;&#x6B64;&#x5730;&#x5740;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;&#x3002;&#x8BF7;&#x518D;&#x6B21;&#x786E;&#x8BA4;&#x53C2;&#x52A0;ICO&#x65F6;&#x7684;PDF&#x6587;&#x4EF6;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x5C1D;&#x8BD5;&#x4E00;&#x6B21;&#x3002;&#x6700;&#x597D;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;&#x706B;&#x72D0;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x5C31;&#x66F4;&#x597D;&#x4E86;&#x3002;&#x5982;&#x679C;&#x95EE;&#x9898;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#xFF0C;&#x4F60;&#x80FD;&#x591F;&#x5728;
-          <a
-            href="https://t.me/tz_libre" target="_blank">&#x7535;&#x62A5;&#x9891;&#x9053;&#x8054;&#x7CFB;&#x6211;&#x4EEC;</a>&#x3002;</p>
+        <p data-id="wl_error_txt">
+          <p>&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5C06;&#x6B64;&#x5730;&#x5740;&#x52A0;&#x5165;&#x767D;&#x540D;&#x5355;&#x3002;&#x8BF7;&#x518D;&#x6B21;&#x786E;&#x8BA4;&#x53C2;&#x52A0;ICO&#x65F6;&#x7684;PDF&#x6587;&#x4EF6;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x5C1D;&#x8BD5;&#x4E00;&#x6B21;&#x3002;&#x6700;&#x597D;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;&#x706B;&#x72D0;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x5C31;&#x66F4;&#x597D;&#x4E86;&#x3002;&#x5982;&#x679C;&#x95EE;&#x9898;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#xFF0C;&#x4F60;&#x80FD;&#x591F;&#x5728;
+            <a
+              href="https://t.me/tz_libre" target="_blank">&#x7535;&#x62A5;&#x9891;&#x9053;&#x8054;&#x7CFB;&#x6211;&#x4EEC;</a>&#x3002;</p>
+        </p>
         <div class="modal-actions">
           <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
         </div>
@@ -199,7 +201,7 @@
         </h4>
         <p data-id="modal_stepnotallowed_text">You are not allowed to do this now: go to Verify page to find out what to do next</p>
         <div class="modal-actions">
-          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify it</a>
+          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify</a>
         </div>
       </div>
 
@@ -219,8 +221,8 @@
 
     </div>
 
-    <script src="/js/vue.min.js"></script>
-    <!-- <script src="/js/vue.js"></script> -->
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>

@@ -66,7 +66,7 @@
           <a href="faq.html" data-id="faq_title">&#x412;&#x43E;&#x43F;&#x440;&#x43E;&#x441; - &#x43E;&#x442;&#x432;&#x435;&#x442;</a>
         </li>
         <li class="{{ nav3_class }}">
-          <a href="whitelist.html" data-id="wl_title">1. &#x411;&#x435;&#x43B;&#x44B;&#x439; &#x441;&#x43F;&#x438;&#x441;&#x43E;&#x43A;</a>
+          <a href="whitelist.html" data-id="wl_title">&#x411;&#x435;&#x43B;&#x44B;&#x439; &#x441;&#x43F;&#x438;&#x441;&#x43E;&#x43A;</a>
         </li>
         <li class="{{ nav4_class }}">
           <a href="claim.html" data-id="split_title">2. Claim</a>
@@ -89,9 +89,9 @@
 
           <h3 data-id="sign_page_title">Sign your claim</h3>
 
-          <p data-id="sign_intro">Prove ownership of your Tezos address by signing your current Ethereum address with your Tezos key. You won&apos;t be able to change your Ethereum address afterwards, and we strongly suggest to use a brand new Ethereum address. Need help?
-            <a
-              href="https://t.me/tz_libre" target="_blank"><span>Contact us</span></a> or check our tools on Github:</p>
+          <p data-id="sign_intro">Prove ownership of your Tezos address by signing your current Ethereum address with your Tezos key. You won&apos;t be able to change your Ethereum address afterwards, and we suggest to use a brand new Ethereum address. Your signature will be
+            public. To produce your signature
+            <a href="https://github.com/tzlibre/signature-webtool/releases/download/v1.1/tzlibre-signature-webtool.html" download="tzlibre-signature-webtool.html"><span>download our web tool</span></a>, then open it and follow the instructions. If you&apos;re a developer you can clone one of our signing repos directly from Github:</p>
 
           <a href="https://github.com/tzlibre/fundraiser-tools" target="_blank" class="btn">
             <svg class="icon">
@@ -109,19 +109,23 @@
             <span>Web tool</span>
           </a>
 
+          <p data-id="sign_help">Need help?
+            <a href="https://t.me/tz_libre" target="_blank"><span>Contact us</span></a>
+          </p>
+
           <br>
           <br>
           <br>
 
           <form action="Javascript:sign()" class="" id="sign-form">
 
-            <label for="sign-pkh" data-id="wl_intro">&#x412;&#x432;&#x435;&#x434;&#x438;&#x442;&#x435; &#x441;&#x432;&#x43E;&#x439; &#x43F;&#x443;&#x431;&#x43B;&#x438;&#x447;&#x43D;&#x44B;&#x439; &#x430;&#x434;&#x440;&#x435;&#x441; Tezos (= Tezos address)</label>
+            <label for="sign-pkh" data-id="wl_intro">&#x412;&#x432;&#x435;&#x434;&#x438;&#x442;&#x435; &#x441;&#x432;&#x43E;&#x439; &#x441;&#x435;&#x43A;&#x440;&#x435;&#x442;&#x43D;&#x44B;&#x439; &#x43A;&#x43B;&#x44E;&#x447; Tezos (a / k / a Tezos address)</label>
             <input type="text" placeholder="tz1..." id="sign-pkh" required>
-            <label for="sign-eth-addr" data-id="eth_address">Ethereum address</label>
+            <label for="sign-eth-addr" data-id="eth_address">Current Ethereum address</label>
             <input type="text" placeholder="0x..." id="sign-eth-addr" required>
             <label for="sign-pk" data-id="tezos_publickey">Tezos public key</label>
             <input type="text" id="sign-pk" required>
-            <label for="sign-eth-addr-signature" data-id="eth_signature">Ethereum address signature</label>
+            <label for="sign-eth-addr-signature" data-id="eth_signature">Cryptographic signature</label>
             <input type="text" id="sign-eth-addr-signature" required>
             <div class="formaction">
               <input type="submit" id="sign-submit" data-id="sign_button" v-bind:class="{ loading: loading }" :disabled="loading" value="Sign">
@@ -133,8 +137,8 @@
             <div id="sign-success" v-if="success">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
-                <p data-id="sign_result_success">Your signature has been verified and saved. Your signature is valid and can&apos;t be changed. You provided a valid proof of ownership and the Tezos address (a/k/a Tezos public key hash) <strong>{{ tzl_pkh }}</strong> is now indisputably
-                  linked to the Ethereum address <strong>{{ eth_addr }}</strong>.</p>
+                <p data-id="sign_result_success">Your signature has been verified and saved: it is valid and can&apos;t be changed or updated. You provided a valid proof of ownership and the Tezos address (a/k/a Tezos public key hash) <strong>{{ tzl_pkh }}</strong> is now indisputably
+                  and permanently linked to the Ethereum address <strong>{{ eth_addr }}</strong>.</p>
               </div>
             </div>
           </div>
@@ -147,18 +151,18 @@
               <div class="nextstepslist">
 
                 <div>
-                  <p>Meet other TZL traders and learn where you can trade TZL</p>
+                  <p>Track TZL airdrops and meet other TZL traders</p>
                   <p v-if="opt1">
                     <a href="https://t.me/joinchat/G9-DfhMKURr6J7VhUYZ6Tw" target="_blank" class="btn">
                       <svg class="icon">
                         <use href="/images/svgdefs.svg#icon-social-telegram-group" />
-                      </svg><span data-id="nextstep_sign">Get trading details</span></a>
+                      </svg><span data-id="nextstep_sign">Trade TZL</span></a>
                   </p>
                   <p v-if="opt3">
-                    <a href="https://t.me/tz_libre" target="_blank" class="btn">
+                    <a href="https://t.me/joinchat/G9-DflDz6IwHnVcUUW9aOw" target="_blank" class="btn">
                       <svg class="icon">
-                        <use href="/images/svgdefs.svg#icon-social-telegram-small" />
-                      </svg><span data-id="nextstep_sign">Get trading details</span></a>
+                        <use href="/images/svgdefs.svg#icon-social-telegram-group" />
+                      </svg><span data-id="nextstep_sign">Trade TZL</span></a>
                   </p>
                 </div>
 
@@ -179,9 +183,9 @@
 
     <div class="actionbar">
       <div class="content">
-        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
+        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
         </span>
-        <p data-id="actionbar_text">to stay updated</p>
+        <p data-id="actionbar_text">&#x447;&#x442;&#x43E;&#x431;&#x44B; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x438;&#x442;&#x44C; &#x43E;&#x431;&#x43D;&#x43E;&#x432;&#x43B;&#x435;&#x43D;&#x43D;&#x43E;&#x435; &#x440;&#x430;&#x437;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435;</p>
       </div>
     </div>
 
@@ -196,7 +200,7 @@
         </h4>
         <p data-id="modal_stepnotallowed_text">You are not allowed to do this now: go to Verify page to find out what to do next</p>
         <div class="modal-actions">
-          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify it</a>
+          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify</a>
         </div>
       </div>
 
@@ -230,7 +234,7 @@
             <use href="/images/svgdefs.svg#icon-alert" />
           </svg>
         </h4>
-        <p data-id="modal_tzlpkerror_text">Your Tezos public key seems wrong</p>
+        <p data-id="modal_tzlpkerror_text">Wrong Tezos public key. Please note: the public key is not the public key hash</p>
         <div class="modal-actions">
           <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
         </div>
@@ -242,7 +246,7 @@
             <use href="/images/svgdefs.svg#icon-alert" />
           </svg>
         </h4>
-        <p data-id="modal_addrsignatureerror_text">Your Ethereum address signature seems wrong</p>
+        <p data-id="modal_addrsignatureerror_text">Wrong signature. You must sign your Ethereum address with your Tezos key.</p>
         <div class="modal-actions">
           <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
         </div>
@@ -264,8 +268,8 @@
 
     </div>
 
-    <script src="/js/vue.min.js"></script>
-    <!-- <script src="/js/vue.js"></script> -->
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>
