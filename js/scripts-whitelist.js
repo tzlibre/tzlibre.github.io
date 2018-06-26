@@ -18,7 +18,7 @@ function success (wl_json) {
 
   modal_data.verify_url = `/verify.html?pkh=${wl_json.tzl_pkh}`
 
-  next_steps_data.claim_url=  `/claim.html?pkh=${wl_json.pkh}`
+  next_steps_data.claim_url = `/claim.html?pkh=${wl_json.pkh}`
   next_steps_data.show = true
 
   scroll_to('results')

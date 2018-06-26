@@ -8,6 +8,8 @@ function reset () {
   airdrops_data.show = false
   airdrops_data.rounds = []
   next_steps_data.show = false
+  next_steps_data.claimed = false
+  next_steps_data.signed = false
   next_steps_data.opt1 = false
   next_steps_data.opt2 = false
   next_steps_data.opt3 = false
@@ -38,12 +40,12 @@ function success_whitelist (wl_json) {
 
 function success_claim (claim_json) {
   if (is_empty(claim_json)) {
-    return false
+    return { claimed: false }
   }
 
   if (claim_json.hasOwnProperty('ok') && !claim_json.ok) {
     error(claim_json)
-    return true // leave handling to error fn
+    return { claimed: false } // leave handling to error fn
   }
 
   let claimed = true
@@ -80,24 +82,33 @@ function success_claim (claim_json) {
     }
   }
 
-  if (!opt2) { next_steps_data.show = true }
   scroll_to('results')
 
-  return { has_claimed: claimed, signed }
+  return {
+    claimed: claimed,
+    signed,
+    opt2
+  }
 }
 
 function success ([r_whitelist, r_claim]) {
   let whitelisted_amount = success_whitelist(r_whitelist)
-  let { has_claimed, signed } = success_claim(r_claim)
+  let { claimed, signed, opt2 } = success_claim(r_claim)
 
-  if (whitelisted_amount === -1 && !has_claimed) {
+  if (whitelisted_amount === -1 && !claimed) {
     showModal('modal-not-whitelisted')
     return
   }
 
-  if (whitelisted_amount === 0 && !has_claimed) {
+  if (whitelisted_amount === 0 && !claimed) {
     showModal('modal-zero-owner')
     return
+  }
+
+  whitelist_data.not_claimed = !claimed
+
+  if (!claimed || !opt2) {
+    next_steps_data.show = true
   }
 }
 
