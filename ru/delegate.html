@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <title data-id="default_page_title">Tz Libre | a fork of DLS KYC Tezos</title>
+    <title data-id="default_page_title">Tz Libre | &#x440;&#x430;&#x437;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435; DLS Tezos</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,7 +15,7 @@
     <link href="/style/style.css" rel="stylesheet">
     <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
     <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:title" data-id="default_page_title" content="Tz Libre | &#x440;&#x430;&#x437;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435; DLS Tezos">
   </head>
 
   <body>
@@ -60,18 +60,18 @@
     <nav class="nav-primary">
       <ul class="content">
         <li class="{{ nav1_class }}">
-          <a href="project.html" data-id="home_title">Project</a>
+          <a href="project.html" data-id="home_title">&#x43E; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x435;</a>
         </li>
         <li class="{{ nav2_class }}">
-          <a href="faq.html" data-id="faq_title">FAQ</a>
+          <a href="faq.html" data-id="faq_title">&#x412;&#x43E;&#x43F;&#x440;&#x43E;&#x441; - &#x43E;&#x442;&#x432;&#x435;&#x442;</a>
         </li>
-        <li class="selected">
-          <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
+        <li class="{{ nav3_class }}">
+          <a href="whitelist.html" data-id="wl_title">&#x411;&#x435;&#x43B;&#x44B;&#x439; &#x441;&#x43F;&#x438;&#x441;&#x43E;&#x43A;</a>
         </li>
         <li class="{{ nav4_class }}">
           <a href="claim.html" data-id="split_title">2. Claim</a>
         </li>
-        <li class="{{ nav5_class }}">
+        <li class="selected">
           <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
         </li>
         <li class="{{ nav6_class }}">
@@ -90,18 +90,18 @@
 
         <div class="block">
 
-          <h3 data-id="wl_page_title_complete">Whitelist your Tezos address</h3>
+          <h3 data-id="dlgt_page_title_complete">Whitelist your Tezos address</h3>
 
           <div class="row">
-            <h4 data-id="wl_sub1_title">Who</h4>
-            <div class="row-main" data-id="wl_sub1_txt">
+            <h4 data-id="dlgt_sub1_title">Who</h4>
+            <div class="row-main" data-id="dlgt_sub1_txt">
               <p>Any Tezos ICO contributor can participate.</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="wl_sub2_title">When</h4>
-            <div class="row-main" data-id="wl_sub2_txt">
+            <h4 data-id="dlgt_sub2_title">When</h4>
+            <div class="row-main" data-id="dlgt_sub2_txt">
               <p>The whitelist is currently open. Our community is still discussing whether to close the whitelist in the coming days (to reward early adopters), or to close it later (to accomodate late adopters). We&apos;ll announce on our
                 <a href="https://t.me/tzlibre"
                   target="_blank">Telegram channel</a> when the whitelist has been closed.</p>
@@ -109,36 +109,28 @@
           </div>
 
           <div class="row">
-            <h4 data-id="wl_sub3_title">Need help?</h4>
-            <div class="row-main" data-id="wl_sub3_txt">
+            <h4 data-id="dlgt_sub3_title">Need help?</h4>
+            <div class="row-main" data-id="dlgt_sub3_txt">
               <p>If you&apos;re having trouble adding your Tezos public key hash (a/k/a Tezos address) to the whitelist, please doublecheck your contribution PDF and try again. Please use the latest version of the Firefox browser, preferably in private mode.
                 If you still can&apos;t whitelist your address, you can
                 <a href="https://t.me/tz_libre" target="_blank">contact us</a>. This is how a Tezos public key hash looks like: <span class="inline-code">tz1QwKhhwkG7wpCHkrhEvUop</span>. </p>
             </div>
           </div>
 
-          <label for="tzaddress-whitelist" data-id="wl_intro">Tezos public key hash (a/k/a Tezos address)</label>
-          <form action="Javascript:whitelist()" class="singlerowform" id="whitelist-form">
-            <input type="text" placeholder="tz1..." id="whitelist-pkh" required>
-            <input type="submit" value="Add to whitelist" id="submitWhitelistBtn" data-id="wl_button" v-bind:class="{ loading: loading }" :disabled="loading">
-          </form>
+          <!--div class="row">
+                    <h4 data-id="dlgt_sub4_title"></h4>
+                    <div class="row-main" data-id="dlgt_sub4_txt"></div>
+                </div-->
 
-          <div id="results">
-            <div id="whitelist-success" class="formresult" v-if="success" v-cloak="">
-              <p class="timestamp">{{ timestamp }}</p>
-              <div class="formresult-cols">
-                <div>
-                  <p data-id="wl_success_text">This Tezos address is correctly whitelisted</p>
-                  <p><strong>{{ pkh }}</strong></p>
-                </div>
-                <div>
-                  <p data-id="wl_success_text2">You are allowed to claim</p>
-                  <p class="bigdata">{{ amount }} TZL</p>
-                </div>
-              </div>
-            </div>
+          <div class="row">
+            <h4 data-id="dlgt_sub5_title"></h4>
+            <div class="row-main" data-id="dlgt_sub5_txt"></div>
           </div>
 
+          <div class="row">
+            <h4 data-id="dlgt_sub6_title"></h4>
+            <div class="row-main" data-id="dlgt_sub6_txt"></div>
+          </div>
 
           <!-- next steps -->
           <div class="nextstepbox" id="next-steps" v-if="show" v-cloak="">
@@ -161,7 +153,7 @@
 
         <div class="actionbar-main">
 
-          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Join us on Telegram</span></a>
+          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
           </span>
 
           <span><a href="https://www.reddit.com/user/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Follow us on Reddit</span></a>
@@ -194,70 +186,9 @@
 
     </div>
 
-    <!-- Templates for modals-->
-    <div class="cloak" id="modal-cloak">
-
-      <div class="modal modal-warning" id="modal-error-tzl-addr">
-        <h4><span data-id="modal_error_title">Error</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="modal_tzladdress_text">Wrong Tezos address (public key hash)</p>
-        <div class="modal-actions">
-          <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
-        </div>
-      </div>
-
-      <div class="modal modal-warning" id="modal-error-whitelist">
-        <h4><span data-id="wl_error_title">Error</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="wl_error_txt">We couldn&apos;t whitelist this Tezos address. Please doublecheck your contribution PDF and try agai using the latest version of the Firefox browser in private mode. If you still can&apos;t whitelist your address,
-          <a href="https://t.me/tz_libre"
-            target="_blank">contact us</a>.</p>
-        <div class="modal-actions">
-          <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
-        </div>
-      </div>
-
-      <div class="modal" id="modal-step-not-allowed">
-        <h4><span data-id="modal-step-not-allowed_title">Sorry, you can&apos;t do this now</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="modal_stepnotallowed_text">You are not allowed to do this now: go to Verify page to find out what to do next</p>
-        <div class="modal-actions">
-          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify</a>
-        </div>
-      </div>
-
-      <div class="modal modal-warning" id="modal-error-generic">
-        <h4><span data-id="modal_genericerror_title">Something went wrong</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="modal_genericerror_text">Try again or
-          <a href="https://t.me/tz_libre" target="_blank">contact us</a>.</p>
-        <div class="modal-actions">
-          <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
-        </div>
-      </div>
-
-
-    </div>
-
-    <script src="/js/vue.min.js"></script>
-    <!-- <script src="/js/vue.js"></script> -->
-    <script src="/js/moment-with-locales.js"></script>
-    <script src="/js/modals.js"></script>
-    <script src="/js/utils.js"></script>
     <script src="/js/scripts.js"></script>
-    <script src="/js/scripts-whitelist.js"></script>
+
+
 
 
 

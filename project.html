@@ -34,7 +34,7 @@
         <li class="priceticker">
           <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
             <span class="priceticker-block"><span class="priceticker-lbl">1 TZL =</span><span class="priceticker-value" id="priceTickerValue">0 USD</span></span>
-            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
+            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl" data-id="marketcap">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
             <span class="priceticker-block"><span class="priceticker-arrow">&gt;</span></span>
           </a>
         </li>
@@ -72,10 +72,13 @@
           <a href="claim.html" data-id="split_title">2. Claim</a>
         </li>
         <li class="{{ nav5_class }}">
-          <a href="sign.html" data-id="sign_title">3. Sign</a>
+          <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
         </li>
         <li class="{{ nav6_class }}">
           <a href="verify.html" data-id="verify_title">Verify</a>
+        </li>
+        <li class="{{ nav7_class }}">
+          <a href="sign.html" data-id="sign_title">Sign/Dispute</a>
         </li>
       </ul>
     </nav>
@@ -231,29 +234,53 @@
             </div>
 
             <div class="barchart-main">
-              <div class="barchart-full" style="width: 79.5%">
-                <span class="barchart-lbl"><strong>607,489,040.89</strong><br><span data-id="home_sect2_alloc_lbl2">ICO contributors</span></span>
+              <div class="barchart-full" id="barContributors">
+                <span class="barchart-lbl"><strong id="barContributorsLbl">577,989,040.89</strong><br><span data-id="home_sect2_alloc_lbl2">ICO contributors</span></span>
               </div>
-              <div class="barchart-white" style="width: 20.5%">
-                <span class="barchart-lbl"><strong>155,817,888.79</strong><br><span data-id="home_sect2_alloc_lbl3">bakers</span></span>
+              <div class="barchart-white" id="barBakers">
+                <span class="barchart-lbl"><strong id="barBakersLbl">155,817,888.79</strong><br><span data-id="home_sect2_alloc_lbl3">bakers</span></span>
+              </div>
+              <div class="barchart-blank" id="barUnredeemed">
+                <span class="barchart-lbl"><strong id="barUnredeemedLbl"></strong><br><span data-id="home_sect2_alloc_lbl4">unredeemed</span></span>
               </div>
             </div>
 
-            <!--     <div class="barchart-main">
-      <div class="barchart-full" style="width: 76%">
-        <span class="barchart-lbl"><strong>577,989,040.89</strong><br/><span data-id="home_sect2_alloc_lbl2"></span></span>
-      </div>
-      <div class="barchart-white" style="width: 20.2%">
-        <span class="barchart-lbl"><strong>155,817,888.79</strong><br/><span data-id="home_sect2_alloc_lbl3"></span></span>
-      </div>
-      <div class="barchart-blank" style="width: 3.8%">
-        <span class="barchart-lbl"><strong>...</strong><br/><span data-id="home_sect2_alloc_lbl4"></span></span>
-      </div>
-    </div>
+            <div class="barchart-sidenote">
+              <span class="barchart-lbl"><strong id="barUnredeemedLbl2"></strong><br><span data-id="home_sect2_alloc_lbl4">unredeemed</span></span>
+            </div>
 
-    <div class="barchart-sidenote">
-      <span class="barchart-lbl"><strong>...</strong><br/><span data-id="home_sect2_alloc_lbl4"></span></span>
-    </div> -->
+            <script type="text/javascript">
+              function localize(n) {
+                return (n).toLocaleString('en-US', {
+                  minimumFractionDigits: 2
+                });
+              }
+
+              var barC = document.getElementById('barContributors'),
+                barB = document.getElementById('barBakers'),
+                barU = document.getElementById('barUnredeemed'),
+                barCLbl = document.getElementById('barContributorsLbl'),
+                barBLbl = document.getElementById('barBakersLbl'),
+                barULbl = document.getElementById('barUnredeemedLbl'),
+                barULbl2 = document.getElementById('barUnredeemedLbl2'),
+                amountC = 577989040.89,
+                amountB = 155817888.79,
+                amountUMin = 10000000.00,
+                amountUMax = 30000000.00,
+                amountUAvg = (amountUMin + amountUMax) / 2,
+                amountTotal = amountC + amountB,
+                barCW = Math.round((amountC - amountUAvg) / amountTotal * 100),
+                barBW = Math.round(amountB / amountTotal * 100),
+                barUW = 100 - barCW - barBW;
+
+              barC.style.width = barCW + '%';
+              barB.style.width = barBW + '%';
+              barU.style.width = barUW + '%';
+
+              barCLbl.textContent = localize(amountC - amountUMax) + ' - ' + localize(amountC - amountUMin);
+
+              barULbl.textContent = barULbl2.textContent = localize(amountUMin) + ' - ' + localize(amountUMax);
+            </script>
 
           </div>
 
@@ -365,6 +392,11 @@
                     <td>$2bn</td>
                   </tr>
                   <tr>
+                    <td data-id="home_sect2_comp_lbl9">Permissionless</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
                     <td data-id="home_sect2_comp_lbl3">Cheap transactions</td>
                     <td></td>
                     <td>&#x2714;</td>
@@ -417,6 +449,11 @@
                     <td>$60M</td>
                   </tr>
                   <tr>
+                    <td data-id="home_sect2_comp_lbl9">Permissionless</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
                     <td data-id="home_sect2_comp_lbl3">Cheap transactions</td>
                     <td></td>
                     <td>&#x2714;</td>
@@ -450,6 +487,11 @@
                     <td>$20bn</td>
                   </tr>
                   <tr>
+                    <td data-id="home_sect2_comp_lbl9">Permissionless</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
                     <td data-id="home_sect2_comp_lbl3">Cheap transactions</td>
                     <td></td>
                     <td>&#x2714;</td>
@@ -475,6 +517,11 @@
                     <td data-id="home_sect2_comp_lbl2-2">Estimated market cap</td>
                     <td>$2bn</td>
                     <td class="tdhilite">?</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl9">Permissionless</td>
+                    <td></td>
+                    <td class="tdhilite">&#x2714;</td>
                   </tr>
                   <tr>
                     <td data-id="home_sect2_comp_lbl3">Cheap transactions</td>
@@ -578,8 +625,10 @@
 
           <div class="block-row">
 
+            <a name="contacts"></a>
+
             <div class="block">
-              <h3 data-id="home_sect4_sub4_title">Follow us</h3>
+              <h3 data-id="home_sect4_sub4_title">Contact us</h3>
               <div data-id="home_sect4_sub4_txt">
                 <p>Join our public Telegram channel to get our official news, read previous announcements, and get in touch with us.</p>
               </div>
@@ -592,7 +641,7 @@
               <p><span data-id="home_sect4_sub4_txt2">You can also contact us privately via <a href="https://t.me/tz_libre" target="_blank">Telegram</a> or <a href="https://www.reddit.com/user/tzlibre" target="_blank">Reddit</a>, or write us at</span>
                 <a
                   href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm">tzlibre@protonmail.com</a> (
-                  <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a> )</p>
+                  <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>)</p>
             </div>
 
             <div class="block">
@@ -626,11 +675,42 @@
     </div>
 
     <div class="actionbar">
+
       <div class="content">
-        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Join us on Telegram</span></a>
-        </span>
-        <p data-id="actionbar_text">to stay up-to-date</p>
+
+        <div class="actionbar-main">
+
+          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Join us on Telegram</span></a>
+          </span>
+
+          <span><a href="https://www.reddit.com/user/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Follow us on Reddit</span></a>
+          </span>
+
+        </div>
+
+        <div class="actionbar-contacts">
+
+          <a href="https://t.me/tz_libre" target="_blank" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+            </svg>
+          </a>
+          <a href="https://twitter.com/tzlibre" target="_blank" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+            </svg>
+          </a>
+          <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-email-small" />
+            </svg>
+          </a>
+          <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>
+
+        </div>
+
       </div>
+
     </div>
 
     <script src="/js/scripts.js"></script>

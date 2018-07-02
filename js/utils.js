@@ -69,3 +69,19 @@ function scroll_to (id) {
   let _scroll = function() { document.getElementById(id).scrollIntoView() }
   setTimeout(_scroll, 100)
 }
+
+// i18n inquirers
+
+const re_ru = /^\/ru\//
+
+function is_ru () {
+  let res = re_ru.exec(window.location.pathname) 
+  return res && res.index === 0
+}
+
+const re_cn = /^\/cn\//
+
+function is_cn () {
+  let res = re_cn.exec(window.location.pathname) 
+  return res && res.index === 0
+}

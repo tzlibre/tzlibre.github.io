@@ -4,6 +4,7 @@ function reset () {
   whitelist_data.show = false
   whitelist_data.not_claimed = false
   claim_data.show = false
+  delegate_data.show = false
   noairdrops_data.show = false
   airdrops_data.show = false
   airdrops_data.rounds = []
@@ -15,7 +16,7 @@ function reset () {
   next_steps_data.opt3 = false
 }
 
-function success_whitelist (wl_json) {
+function success_whitelist (wl_json, lang_prefix) {
   if (is_empty(wl_json)) {
     let pkh = document.getElementById('verify-pkh').value.trim()
     modal_no_wl_data.whitelist_url = `/whitelist.html?pkh=${pkh}`
@@ -33,12 +34,12 @@ function success_whitelist (wl_json) {
   whitelist_data.h_TZL = wl_json.h_TZL
   whitelist_data.whitelist_time = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
   whitelist_data.show = true
-  next_steps_data.claim_url = `/claim.html?pkh=${wl_json.pkh}`
+  next_steps_data.claim_url = `${lang_prefix}/claim.html?pkh=${wl_json.pkh}`
 
   return amount
 }
 
-function success_claim (claim_json) {
+function success_claim (claim_json, lang_prefix) {
   if (is_empty(claim_json)) {
     return { claimed: false }
   }
@@ -49,37 +50,43 @@ function success_claim (claim_json) {
   }
 
   let claimed = true
+  let has_delegated = !!claim_json.has_delegated
   let signed = !!claim_json.valid_proof
   let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
   let opt2 = !claim_json.opt2 && !claim_json.opt3
 
   claim_data.eth_addr = claim_json.eth_addr
+  claim_data.eth_addr_confirmed = has_delegated || signed
   claim_data.timestamp = ts
   claim_data.show = true
   claim_data.signed = signed
   claim_data.sign_ts = proof_ts
 
+  if (has_delegated) {
+    delegate_data.timestamp = claim_json.delegation_ts ? moment(claim_json.delegation_ts).format(TIMEFORMAT).toString() : ts
+    delegate_data.delegated_amount = claim_json.delegated_amount
+    delegate_data.show = true
+  }
+
   // next_steps
   next_steps_data.claimed = claimed
+  next_steps_data.has_delegated = has_delegated
   next_steps_data.signed = signed
   next_steps_data.opt1 = claim_json.opt2 && !claim_json.opt3
   claim_data.opt2 = next_steps_data.opt2 = opt2
   next_steps_data.opt3 = !!claim_json.opt3
-  next_steps_data.sign_url = `/sign.html?pkh=${claim_json.tzl_pkh}&eth=${claim_json.eth_addr}`
-  claim_data.dispute_url = next_steps_data.dispute_url = `/sign.html?pkh=${claim_json.tzl_pkh}`
+  next_steps_data.delegate_url = `${lang_prefix}/delegate.html?pkh=${claim_json.tzl_pkh}`
+  claim_data.dispute_url = next_steps_data.dispute_url = `${lang_prefix}/sign.html?pkh=${claim_json.tzl_pkh}`
 
-  if (signed) {
-    // airdrops
-    if (claim_json.airdrops && claim_json.airdrops.length) {
-      airdrops_data.total_airdropped_amount = claim_json.total_airdropped_amount
-      airdrops_data.total_fee = claim_json.total_fee
-      airdrops_data.n_airdrops = claim_json.n_airdrops
-      airdrops_data.rounds = claim_json.airdrops
-      airdrops_data.show = true
-    } else {
-      noairdrops_data.show = true
-    }
+  if (claim_json.airdrops && claim_json.airdrops.length) {
+    airdrops_data.total_airdropped_amount = claim_json.total_airdropped_amount
+    airdrops_data.total_fee = claim_json.total_fee
+    airdrops_data.n_airdrops = claim_json.n_airdrops
+    airdrops_data.rounds = claim_json.airdrops
+    airdrops_data.show = true
+  } else {
+    noairdrops_data.show = true
   }
 
   scroll_to('results')
@@ -92,8 +99,12 @@ function success_claim (claim_json) {
 }
 
 function success ([r_whitelist, r_claim]) {
-  let whitelisted_amount = success_whitelist(r_whitelist)
-  let { claimed, signed, opt2 } = success_claim(r_claim)
+  let lang_prefix = ''
+  if (is_cn()) { lang_prefix = '/cn' }
+  if (is_ru()) { lang_prefix = '/ru' }
+
+  let whitelisted_amount = success_whitelist(r_whitelist, lang_prefix)
+  let { claimed, signed, opt2 } = success_claim(r_claim, lang_prefix)
 
   if (whitelisted_amount === -1 && !claimed) {
     showModal('modal-not-whitelisted')
@@ -224,6 +235,7 @@ let v_whitelist = new Vue({
 let claim_data = {
   show: false,
   eth_addr: '',
+  eth_addr_confirmed: false,
   timestamp: '',
   signed: false,
   sign_ts: '',
@@ -239,6 +251,17 @@ let v_claim = new Vue({
 let v_sign = new Vue({
   el: '#verify-sign-box',
   data: claim_data
+})
+
+let delegate_data = {
+  show: false,
+  timestamp: '',
+  delegated_amount: 0
+}
+
+let v_delegate = new Vue({
+  el: '#verify-delegate-box',
+  data: delegate_data
 })
 
 let noairdrops_data = {
@@ -268,8 +291,9 @@ let next_steps_data = {
   show: false,
   claimed: false,
   claim_url: '',
+  has_delegated: false,
+  delegate_url: '',
   signed: false,
-  sign_url: '',
   dispute_url: '',
   opt1: false,
   opt2: false,

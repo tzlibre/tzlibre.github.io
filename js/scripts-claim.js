@@ -13,14 +13,18 @@ function reset () {
 }
 
 function success (claim_json) {
+  let lang_prefix = ''
+  if (is_cn()) { lang_prefix = '/cn' }
+  if (is_ru()) { lang_prefix = '/ru' }
+
   claim_data.tzl_pkh = claim_json.tzl_pkh
   claim_data.eth_addr = claim_json.eth_addr
   claim_data.timestamp = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   claim_data.success = true
 
-  modal_data.verify_url = `/verify.html?pkh=${claim_json.tzl_pkh}`
+  modal_data.verify_url = `${lang_prefix}/verify.html?pkh=${claim_json.tzl_pkh}`
 
-  next_steps_data.sign_url = `/sign.html?pkh=${claim_json.tzl_pkh}&eth=${claim_json.eth_addr}`
+  next_steps_data.delegate_url = `${lang_prefix}/delegate.html?pkh=${claim_json.tzl_pkh}`
   next_steps_data.opt1 = claim_json.opt2 && !claim_json.opt3
   next_steps_data.opt2 = !claim_json.opt2 && !claim_json.opt3
   next_steps_data.opt3 = !!claim_json.opt3
@@ -104,7 +108,7 @@ let v_modal = new Vue({
 
 let next_steps_data = {
   show: false,
-  sign_url: '',
+  delegate_url: '',
   opt1: false,
   opt2: false,
   opt3: false

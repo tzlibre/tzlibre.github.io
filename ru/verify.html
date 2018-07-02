@@ -34,7 +34,7 @@
         <li class="priceticker">
           <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
             <span class="priceticker-block"><span class="priceticker-lbl">1 TZL =</span><span class="priceticker-value" id="priceTickerValue">0 USD</span></span>
-            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
+            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl" data-id="marketcap">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
             <span class="priceticker-block"><span class="priceticker-arrow">&gt;</span></span>
           </a>
         </li>
@@ -72,10 +72,13 @@
           <a href="claim.html" data-id="split_title">2. Claim</a>
         </li>
         <li class="{{ nav5_class }}">
-          <a href="sign.html" data-id="sign_title">3. Sign</a>
+          <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
         </li>
         <li class="selected">
           <a href="verify.html" data-id="verify_title">Verify</a>
+        </li>
+        <li class="{{ nav7_class }}">
+          <a href="sign.html" data-id="sign_title">Sign/Dispute</a>
         </li>
       </ul>
     </nav>
@@ -103,7 +106,7 @@
             <!-- a modal inform the user to go to the whitelist page -->
 
             <!-- if whitelisted and not claimed -->
-            <div id="verify-whitelist-box" v-if="show">
+            <div id="verify-whitelist-box" v-if="show" v-cloak="">
               <div class="formresult">
                 <p class="timestamp">{{ whitelist_time }}</p>
                 <div class="formresult-cols">
@@ -121,27 +124,41 @@
             </div>
 
             <!-- if claimed -->
-            <div id="verify-claim-box" v-if="show &amp;&amp; !signed">
+            <div id="verify-claim-box" v-if="show" v-cloak="">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
-                <p data-id="verify_result_split" v-if="!opt2">This is the linked Ethereum address (Not your address? See &quot;Next steps&quot;)</p>
-                <p data-id="verify_result_split_opt2" v-else="">This is the linked Ethereum address (Not your address?
-                  <a v-bind:href="dispute_url">Dispute it</a>)</p>
+                <p data-id="verify_result_split" v-if="eth_addr_confirmed">This is the linked Ethereum address</p>
+                <p data-id="verify_result_split_uncof_addr" v-else="">This is the linked Ethereum address <span class="note">(Not your address? <strong><a v-bind:href="dispute_url">Dispute it</a></strong>)</span></p>
                 <p><strong>{{ eth_addr }}</strong></p>
               </div>
             </div>
 
             <!-- if signed -->
-            <div id="verify-sign-box" v-if="show &amp;&amp; signed">
+            <div id="verify-sign-box" v-if="show &amp;&amp; signed" v-cloak="">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
                 <p data-id="verify_result_sign">A valid proof of ownership has been provided. The TZL claim has been cryptographically signed by the Tezos address owner.</p>
               </div>
             </div>
 
+            <!-- if has delegated -->
+            <div id="verify-delegate-box" v-if="show" v-cloak="">
+              <div class="formresult">
+                <p class="timestamp">{{ timestamp }}</p>
+                <div class="formresult-cols">
+                  <div>
+                    <p data-id="verify_result_dlgt">You are currently delegating our <strong>Libre Baker</strong>.</p>
+                  </div>
+                  <div>
+                    <p data-id="verify_result_dlgt_amount">Delegated qty</p>
+                    <p class="bigdata">{{ delegated_amount }} XTZ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- if not airdropped -->
-            <div class="formresult" id="verify-noairdrops-box" v-if="show">
+            <div class="formresult" id="verify-noairdrops-box" v-if="show" v-cloak="">
               <div class="formresult-cols">
                 <div>
                   <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
@@ -155,7 +172,7 @@
             </div>
 
             <!-- if airdropped -->
-            <div class="formresult" id="verify-airdrops-box" v-if="show">
+            <div class="formresult" id="verify-airdrops-box" v-if="show" v-cloak="">
               <div class="formresult-cols">
                 <div>
                   <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
@@ -170,6 +187,12 @@
                   <p class="bigdata">{{ n_airdrops }}</p>
                 </div>
               </div>
+              <!--
+    <div class="verify-airdrop-details verify-airdrop-lost">
+      <p><svg class="alert-icon"><use xlink:href="/images/svgdefs.svg#icon-alert"/></svg> 1st airdrop lost</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, suscipit.</p>
+    </div>
+-->
               <div class="verify-airdrop-details" v-for="airdrop in augment(confirmed(rounds))">
                 <p class="timestamp">{{ airdrop.timestamp }}</p>
                 <div class="formresult-cols">
@@ -186,13 +209,24 @@
                   </div>
                 </div>
               </div>
+              <!--
+    <div class="verify-airdrop-details verify-airdrop-future">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
+      <a class="btn btn-primary">Claim your next airdrop</a>
+    </div>
+    <div class="verify-airdrop-details verify-airdrop-future">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
+      <a class="btn btn-primary btn-selected">Next airdrop claimed</a>
+    </div>
+-->
             </div>
           </div>
 
 
           <!-- next steps -->
           <a name="next-steps"></a>
-          <div class="nextstepbox" id="next-steps" v-if="show" v-observe-visibility="visibility_changed">
+          <div class="nextstepbox" id="next-steps" v-if="show" v-observe-visibility="visibility_changed" v-cloak="">
+
             <h3 data-id="nextstep_title">Next steps</h3>
             <a href="#next-steps" class="ns-btn-float" data-id="nextstep_title" v-if="show_floating_btn">Next steps</a>
 
@@ -204,12 +238,12 @@
 
             </div>
 
-            <!-- if only claimed -->
-            <div v-if="claimed &amp;&amp; !signed &amp;&amp; !opt2">
+            <!-- if claimed (and signed) -->
+            <div v-if="claimed &amp;&amp; !has_delegated &amp;&amp; !opt2">
               <div class="nextstepslist">
 
                 <div>
-                  <p>Learn how to get your airdrops</p>
+                  <p data-id="nextstep_getairdrops">Learn how to get your airdrops</p>
                   <p v-if="opt1">
                     <a href="https://t.me/joinchat/G9-DflMeFgwZSwDI5V-Vew" target="_blank" class="btn">
                       <svg class="icon">
@@ -225,21 +259,20 @@
                 </div>
 
                 <div>
-                  <p>Sign your claim</p>
-                  <a v-bind:href="sign_url" class="btn"><span data-id="nextstep_claim_ok">Sign claim</span></a>
-                  <p>or dispute it</p>
-                  <a v-bind:href="dispute_url" class="btn"><span data-id="nextstep_claim_dispute">Dispute claim</span></a>
+                  <p data-id="nextstep_signclaim">Sign your claim</p>
+                  <a v-bind:href="delegate_url" class="btn"><span data-id="nextstep_claim_ok">Sign claim</span></a>
                 </div>
 
               </div>
+
             </div>
 
-            <!-- if signed -->
-            <div v-if="signed &amp;&amp; !opt2">
+            <!-- if has delegated -->
+            <div v-if="has_delegated &amp;&amp; !opt2">
               <div class="nextstepslist">
 
                 <div>
-                  <p>Track TZL airdrops and meet other TZL traders</p>
+                  <p data-id="sign_nextstep">Track TZL airdrops and meet other TZL traders</p>
                   <p v-if="opt1">
                     <a href="https://t.me/joinchat/G9-DfhMKURr6J7VhUYZ6Tw" target="_blank" class="btn">
                       <svg class="icon">
@@ -254,11 +287,6 @@
                   </p>
                 </div>
 
-                <!--div>
-    <p>2. Send a tweet</p>
-    <p>TWEET SOMETHING...</p>
-  </div-->
-
               </div>
             </div>
 
@@ -271,11 +299,42 @@
     </div>
 
     <div class="actionbar">
+
       <div class="content">
-        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
-        </span>
-        <p data-id="actionbar_text">&#x447;&#x442;&#x43E;&#x431;&#x44B; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x438;&#x442;&#x44C; &#x43E;&#x431;&#x43D;&#x43E;&#x432;&#x43B;&#x435;&#x43D;&#x43D;&#x43E;&#x435; &#x440;&#x430;&#x437;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435;</p>
+
+        <div class="actionbar-main">
+
+          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
+          </span>
+
+          <span><a href="https://www.reddit.com/user/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Follow us on Reddit</span></a>
+          </span>
+
+        </div>
+
+        <div class="actionbar-contacts">
+
+          <a href="https://t.me/tz_libre" target="_blank" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+            </svg>
+          </a>
+          <a href="https://twitter.com/tzlibre" target="_blank" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+            </svg>
+          </a>
+          <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-email-small" />
+            </svg>
+          </a>
+          <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>
+
+        </div>
+
       </div>
+
     </div>
 
     <!-- Templates for modals-->

@@ -18,6 +18,7 @@ function success (sign_json) {
   sign_data.timestamp = moment(sign_json.proof_ts).format(TIMEFORMAT).toString()
 
   modal_data.verify_url = `/verify.html?pkh=${sign_json.tzl_pkh}`
+  next_steps_data.verify_url = `/verify.html?pkh=${sign_json.tzl_pkh}`
 
   // next_steps
   next_steps_data.signed = !!sign_json.valid_proof
@@ -139,7 +140,7 @@ let v_modal = new Vue({
 let next_steps_data = {
   show: false,
   signed: false,
-  sign_url: '',
+  verify_url: '',
   opt1: false,
   opt2: false,
   opt3: false

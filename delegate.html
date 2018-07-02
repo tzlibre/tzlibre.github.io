@@ -65,13 +65,13 @@
         <li class="{{ nav2_class }}">
           <a href="faq.html" data-id="faq_title">FAQ</a>
         </li>
-        <li class="selected">
+        <li class="{{ nav3_class }}">
           <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
         </li>
         <li class="{{ nav4_class }}">
           <a href="claim.html" data-id="split_title">2. Claim</a>
         </li>
-        <li class="{{ nav5_class }}">
+        <li class="selected">
           <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
         </li>
         <li class="{{ nav6_class }}">
@@ -90,55 +90,66 @@
 
         <div class="block">
 
-          <h3 data-id="wl_page_title_complete">Whitelist your Tezos address</h3>
+          <h3 data-id="dlgt_page_title_complete">Delegate TzLibre</h3>
 
           <div class="row">
-            <h4 data-id="wl_sub1_title">Who</h4>
-            <div class="row-main" data-id="wl_sub1_txt">
-              <p>Any Tezos ICO contributor can participate.</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <h4 data-id="wl_sub2_title">When</h4>
-            <div class="row-main" data-id="wl_sub2_txt">
-              <p>The whitelist is currently open. Our community is still discussing whether to close the whitelist in the coming days (to reward early adopters), or to close it later (to accomodate late adopters). We&apos;ll announce on our
-                <a href="https://t.me/tzlibre"
-                  target="_blank">Telegram channel</a> when the whitelist has been closed.</p>
+            <h4 data-id="dlgt_sub1_title">Who</h4>
+            <div class="row-main" data-id="dlgt_sub1_txt">
+              <p>Only Tezos contributors who whitelisted and claimed TZL are eligible for TZL airdrops.</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="wl_sub3_title">Need help?</h4>
-            <div class="row-main" data-id="wl_sub3_txt">
-              <p>If you&apos;re having trouble adding your Tezos public key hash (a/k/a Tezos address) to the whitelist, please doublecheck your contribution PDF and try again. Please use the latest version of the Firefox browser, preferably in private mode.
-                If you still can&apos;t whitelist your address, you can
-                <a href="https://t.me/tz_libre" target="_blank">contact us</a>. This is how a Tezos public key hash looks like: <span class="inline-code">tz1QwKhhwkG7wpCHkrhEvUop</span>. </p>
+            <h4 data-id="dlgt_sub2_title">When</h4>
+            <div class="row-main" data-id="dlgt_sub2_txt">
+              <p>Airdrops begin 30 days after delegation and are executed on a weekly basis.</p>
             </div>
           </div>
 
-          <label for="tzaddress-whitelist" data-id="wl_intro">Tezos public key hash (a/k/a Tezos address)</label>
-          <form action="Javascript:whitelist()" class="singlerowform" id="whitelist-form">
-            <input type="text" placeholder="tz1..." id="whitelist-pkh" required>
-            <input type="submit" value="Add to whitelist" id="submitWhitelistBtn" data-id="wl_button" v-bind:class="{ loading: loading }" :disabled="loading">
-          </form>
-
-          <div id="results">
-            <div id="whitelist-success" class="formresult" v-if="success" v-cloak="">
-              <p class="timestamp">{{ timestamp }}</p>
-              <div class="formresult-cols">
-                <div>
-                  <p data-id="wl_success_text">This Tezos address is correctly whitelisted</p>
-                  <p><strong>{{ pkh }}</strong></p>
-                </div>
-                <div>
-                  <p data-id="wl_success_text2">You are allowed to claim</p>
-                  <p class="bigdata">{{ amount }} TZL</p>
-                </div>
-              </div>
+          <div class="row">
+            <h4 data-id="dlgt_sub3_title">What</h4>
+            <div class="row-main" data-id="dlgt_sub3_txt">
+              <p>To receive TZL airdrops you must delegate TzLibre to bake on the KYC-Tezos network. Delegation is a trustless process: your XTZ never leave your own wallet. You can revoke, cancel or change your delegation at any time. If you delegate TzLibre
+                you will receive TZL airdrops as reward. To learn more about KYC-Tezos delegation read this
+                <a href="http://doc.tzalpha.net/whitedoc/proof_of_stake.html#delegation" target="_blank">guide</a>
+              </p>
             </div>
           </div>
 
+          <!--div class="row">
+                    <h4 data-id="dlgt_sub4_title"></h4>
+                    <div class="row-main" data-id="dlgt_sub4_txt"></div>
+                </div-->
+
+          <div class="row">
+            <h4 data-id="dlgt_sub5_title">How</h4>
+            <div class="row-main" data-id="dlgt_sub5_txt">
+              <p></p>
+              <ol>
+                <li> Activate your XTZ allocation on the genesis block with
+                  <a href="https://stephenandrews.github.io/activatez" target="_blank">Activatez</a>. </li>
+                <li> Create a TezBox wallet with your fundraiser data: visit https://tezbox.github.io, select &apos;Restore Tezbox&apos; then &apos;Fundraiser Wallet&apos;. </li>
+                <li> Insert your data: PDF seed words, PDF email address, ICO password, and KYC activation code. </li>
+                <li> Create a new KT1 account (a special account for delegation) by clicking the &apos;Add Account&apos; button (fee: 0.25 XTZ) </li>
+                <li> Move your XTZ from your tz1 account to your KT1 account: from the main wallet select &apos;Send&apos;, enter your KT1 address in the &apos;To&apos; address, enter all your XTZ, and click &apos;Send&apos;. </li>
+                <li> In the KT1 account, select the &apos;Delegate&apos; menu and then choose &apos;Custom delegate&apos;. </li>
+                <li> Insert address <span class="inline-code">tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp</span> and confirm.
+                  <p></p>
+                  <p>You can also delegate TzLibre using the official KYC-Tezos fullnode as well as other wallets (see this
+                    <a href="https://djangobits.github.io/tezoswallets/" target="_blank">list of KYC-Tezos wallets</a>). TzLibre delegate address is <span class="inline-code">tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp</span></p>
+                </li>
+              </ol>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="dlgt_sub6_title">Need help?</h4>
+            <div class="row-main" data-id="dlgt_sub6_txt">
+              <p>
+                <a href="/project.html#contacts">Contact us</a>.</p>
+            </div>
+          </div>
 
           <!-- next steps -->
           <div class="nextstepbox" id="next-steps" v-if="show" v-cloak="">
@@ -194,70 +205,7 @@
 
     </div>
 
-    <!-- Templates for modals-->
-    <div class="cloak" id="modal-cloak">
-
-      <div class="modal modal-warning" id="modal-error-tzl-addr">
-        <h4><span data-id="modal_error_title">Error</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="modal_tzladdress_text">Wrong Tezos address (public key hash)</p>
-        <div class="modal-actions">
-          <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
-        </div>
-      </div>
-
-      <div class="modal modal-warning" id="modal-error-whitelist">
-        <h4><span data-id="wl_error_title">Error</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="wl_error_txt">We couldn&apos;t whitelist this Tezos address. Please doublecheck your contribution PDF and try agai using the latest version of the Firefox browser in private mode. If you still can&apos;t whitelist your address,
-          <a href="https://t.me/tz_libre"
-            target="_blank">contact us</a>.</p>
-        <div class="modal-actions">
-          <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
-        </div>
-      </div>
-
-      <div class="modal" id="modal-step-not-allowed">
-        <h4><span data-id="modal-step-not-allowed_title">Sorry, you can&apos;t do this now</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="modal_stepnotallowed_text">You are not allowed to do this now: go to Verify page to find out what to do next</p>
-        <div class="modal-actions">
-          <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify</a>
-        </div>
-      </div>
-
-      <div class="modal modal-warning" id="modal-error-generic">
-        <h4><span data-id="modal_genericerror_title">Something went wrong</span>
-          <svg class="alert-icon">
-            <use href="/images/svgdefs.svg#icon-alert" />
-          </svg>
-        </h4>
-        <p data-id="modal_genericerror_text">Try again or
-          <a href="https://t.me/tz_libre" target="_blank">contact us</a>.</p>
-        <div class="modal-actions">
-          <a class="btn modal-action-cancel" data-id="btn_close">Close</a>
-        </div>
-      </div>
-
-
-    </div>
-
-    <script src="/js/vue.min.js"></script>
-    <!-- <script src="/js/vue.js"></script> -->
-    <script src="/js/moment-with-locales.js"></script>
-    <script src="/js/modals.js"></script>
-    <script src="/js/utils.js"></script>
     <script src="/js/scripts.js"></script>
-    <script src="/js/scripts-whitelist.js"></script>
 
 
 

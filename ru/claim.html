@@ -34,7 +34,7 @@
         <li class="priceticker">
           <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
             <span class="priceticker-block"><span class="priceticker-lbl">1 TZL =</span><span class="priceticker-value" id="priceTickerValue">0 USD</span></span>
-            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
+            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl" data-id="marketcap">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
             <span class="priceticker-block"><span class="priceticker-arrow">&gt;</span></span>
           </a>
         </li>
@@ -72,10 +72,13 @@
           <a href="claim.html" data-id="split_title">2. Claim</a>
         </li>
         <li class="{{ nav5_class }}">
-          <a href="sign.html" data-id="sign_title">3. Sign</a>
+          <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
         </li>
         <li class="{{ nav6_class }}">
           <a href="verify.html" data-id="verify_title">Verify</a>
+        </li>
+        <li class="{{ nav7_class }}">
+          <a href="sign.html" data-id="sign_title">Sign/Dispute</a>
         </li>
       </ul>
     </nav>
@@ -136,7 +139,7 @@ I request that any third-party product developed with Tezos Stiftung funding sha
           </form>
 
           <div id="results">
-            <div id="claim-success" v-if="success">
+            <div id="claim-success" v-if="success" v-cloak="">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
                 <p data-id="split_result_success">Your claim has been submitted. The Tezos address</p>
@@ -153,12 +156,12 @@ I request that any third-party product developed with Tezos Stiftung funding sha
 
 
           <!-- next steps -->
-          <div class="nextstepbox" id="next-steps" v-if="show &amp;&amp; !opt2">
+          <div class="nextstepbox" id="next-steps" v-if="show &amp;&amp; !opt2" v-cloak="">
             <h3 data-id="nextstep_title">Next steps</h3>
             <div class="nextstepslist">
 
               <div>
-                <p>Learn how to get your airdrops</p>
+                <p data-id="nextstep_getairdrops">Learn how to get your airdrops</p>
                 <p v-if="opt1">
                   <a href="https://t.me/joinchat/G9-DflMeFgwZSwDI5V-Vew" target="_blank" class="btn">
                     <svg class="icon">
@@ -174,11 +177,12 @@ I request that any third-party product developed with Tezos Stiftung funding sha
               </div>
 
               <div>
-                <p>Sign your claim</p>
-                <a v-bind:href="sign_url" class="btn"><span data-id="nextstep_claim_ok">Sign claim</span></a>
+                <p data-id="nextstep_signclaim">Sign your claim</p>
+                <a v-bind:href="delegate_url" class="btn"><span data-id="nextstep_claim_ok">Sign claim</span></a>
               </div>
 
             </div>
+
           </div>
 
         </div>
@@ -188,11 +192,42 @@ I request that any third-party product developed with Tezos Stiftung funding sha
     </div>
 
     <div class="actionbar">
+
       <div class="content">
-        <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
-        </span>
-        <p data-id="actionbar_text">&#x447;&#x442;&#x43E;&#x431;&#x44B; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x438;&#x442;&#x44C; &#x43E;&#x431;&#x43D;&#x43E;&#x432;&#x43B;&#x435;&#x43D;&#x43D;&#x43E;&#x435; &#x440;&#x430;&#x437;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435;</p>
+
+        <div class="actionbar-main">
+
+          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
+          </span>
+
+          <span><a href="https://www.reddit.com/user/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Follow us on Reddit</span></a>
+          </span>
+
+        </div>
+
+        <div class="actionbar-contacts">
+
+          <a href="https://t.me/tz_libre" target="_blank" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+            </svg>
+          </a>
+          <a href="https://twitter.com/tzlibre" target="_blank" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+            </svg>
+          </a>
+          <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="iconbtn">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-social-email-small" />
+            </svg>
+          </a>
+          <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>
+
+        </div>
+
       </div>
+
     </div>
 
     <!-- Templates for modals-->
