@@ -58,29 +58,35 @@
     </header>
 
     <nav class="nav-primary">
-      <ul class="content">
-        <li class="{{ nav1_class }}">
-          <a href="project.html" data-id="home_title">Project</a>
-        </li>
-        <li class="{{ nav2_class }}">
-          <a href="faq.html" data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a>
-        </li>
-        <li class="{{ nav3_class }}">
-          <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
-        </li>
-        <li class="{{ nav4_class }}">
-          <a href="claim.html" data-id="split_title">2. Claim</a>
-        </li>
-        <li class="{{ nav5_class }}">
-          <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
-        </li>
-        <li class="selected">
-          <a href="verify.html" data-id="verify_title">Verify</a>
-        </li>
-        <li class="{{ nav7_class }}">
-          <a href="sign.html" data-id="sign_title">Sign/Dispute</a>
-        </li>
-      </ul>
+      <input id="collapsible" class="toggle" type="checkbox">
+      <label for="collapsible">MENU</label>
+      <div class="content">
+        <ul class="nav-primary-main">
+          <li class="{{ nav3_class }}">
+            <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
+          </li>
+          <li class="{{ nav4_class }}">
+            <a href="claim.html" data-id="split_title">2. Claim</a>
+          </li>
+          <li class="{{ nav5_class }}">
+            <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
+          </li>
+          <li class="selected">
+            <a href="verify.html" data-id="verify_title">Verify</a>
+          </li>
+          <li class="{{ nav7_class }}">
+            <a href="sign.html" data-id="sign_title">Sign/Dispute</a>
+          </li>
+        </ul>
+        <ul class="nav-primary-side">
+          <li class="{{ nav1_class }}">
+            <a href="project.html" data-id="home_title">Project</a>
+          </li>
+          <li class="{{ nav2_class }}">
+            <a href="faq.html" data-id="faq_title">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
 
@@ -90,7 +96,7 @@
 
         <div class="block">
 
-          <h3 data-id="verify_page_title">Verify your TZL claim</h3>
+          <h3 data-id="verify_page_title">Check your Tezos address</h3>
 
           <p data-id="verify_intro">Enter your
             <b>Tezos public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim</p>
@@ -167,6 +173,10 @@
                 <div>
                   <p data-id="verify_result_airdrops">Airdrops</p>
                   <p><strong data-id="verify_result_noairdrops">No airdrop yet</strong></p>
+                  <p data-id="verify_speedup_1_airdrop" v-if="speedup">Waiting too long?
+                    <br>
+                    <a href="/project.html#contacts">Contact us</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -248,13 +258,13 @@
                     <a href="https://t.me/joinchat/G9-DflMeFgwZSwDI5V-Vew" target="_blank" class="btn">
                       <svg class="icon">
                         <use href="/images/svgdefs.svg#icon-social-telegram-group" />
-                      </svg><span data-id="nextstep_group">How to delegate</span></a>
+                      </svg><span data-id="nextstep_group">TzLibre Airdrops</span></a>
                   </p>
                   <p v-if="opt3">
-                    <a href="https://t.me/joinchat/G9-DflDz6IwHnVcUUW9aOw" target="_blank" class="btn">
+                    <a href="https://t.me/joinchat/G9-DflDz6IzH2_Yy6f9NHg" target="_blank" class="btn">
                       <svg class="icon">
                         <use href="/images/svgdefs.svg#icon-social-telegram-group" />
-                      </svg><span data-id="nextstep_contact">TzLibre Signatures</span></a>
+                      </svg><span data-id="nextstep_group">TzLibre Airdrops</span></a>
                   </p>
                 </div>
 
@@ -280,7 +290,7 @@
                       </svg><span data-id="nextstep_sign">Trade TZL</span></a>
                   </p>
                   <p v-if="opt3">
-                    <a href="https://t.me/joinchat/G9-DflDz6IwHnVcUUW9aOw" target="_blank" class="btn">
+                    <a href="https://t.me/joinchat/G9-DflDz6IzH2_Yy6f9NHg" target="_blank" class="btn">
                       <svg class="icon">
                         <use href="/images/svgdefs.svg#icon-social-telegram-group" />
                       </svg><span data-id="nextstep_sign">Trade TZL</span></a>

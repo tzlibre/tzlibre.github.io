@@ -13,9 +13,7 @@ function reset () {
 }
 
 function success (claim_json) {
-  let lang_prefix = ''
-  if (is_cn()) { lang_prefix = '/cn' }
-  if (is_ru()) { lang_prefix = '/ru' }
+  let lang_prefix = get_lang_prefix()
 
   claim_data.tzl_pkh = claim_json.tzl_pkh
   claim_data.eth_addr = claim_json.eth_addr

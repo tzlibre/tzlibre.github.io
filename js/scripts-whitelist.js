@@ -10,15 +10,16 @@ function reset () {
 }
 
 function success (wl_json) {
-  // output
+  let lang_prefix = get_lang_prefix()
+
   wl_data.timestamp = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
   wl_data.pkh = wl_json.pkh
   wl_data.amount = wl_json.h_TZL
   wl_data.success = true
 
-  modal_data.verify_url = `/verify.html?pkh=${wl_json.tzl_pkh}`
+  modal_data.verify_url = `${lang_prefix}/verify.html?pkh=${wl_json.tzl_pkh}`
 
-  next_steps_data.claim_url = `/claim.html?pkh=${wl_json.pkh}`
+  next_steps_data.claim_url = `${lang_prefix}/claim.html?pkh=${wl_json.pkh}`
   next_steps_data.show = true
 
   scroll_to('results')

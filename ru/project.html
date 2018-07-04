@@ -58,29 +58,35 @@
     </header>
 
     <nav class="nav-primary">
-      <ul class="content">
-        <li class="selected">
-          <a href="project.html" data-id="home_title">Project</a>
-        </li>
-        <li class="{{ nav2_class }}">
-          <a href="faq.html" data-id="faq_title">&#x412;&#x43E;&#x43F;&#x440;&#x43E;&#x441; - &#x43E;&#x442;&#x432;&#x435;&#x442;</a>
-        </li>
-        <li class="{{ nav3_class }}">
-          <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
-        </li>
-        <li class="{{ nav4_class }}">
-          <a href="claim.html" data-id="split_title">2. Claim</a>
-        </li>
-        <li class="{{ nav5_class }}">
-          <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
-        </li>
-        <li class="{{ nav6_class }}">
-          <a href="verify.html" data-id="verify_title">Verify</a>
-        </li>
-        <li class="{{ nav7_class }}">
-          <a href="sign.html" data-id="sign_title">Sign/Dispute</a>
-        </li>
-      </ul>
+      <input id="collapsible" class="toggle" type="checkbox">
+      <label for="collapsible">MENU</label>
+      <div class="content">
+        <ul class="nav-primary-main">
+          <li class="{{ nav3_class }}">
+            <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
+          </li>
+          <li class="{{ nav4_class }}">
+            <a href="claim.html" data-id="split_title">2. Claim</a>
+          </li>
+          <li class="{{ nav5_class }}">
+            <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
+          </li>
+          <li class="{{ nav6_class }}">
+            <a href="verify.html" data-id="verify_title">Verify</a>
+          </li>
+          <li class="{{ nav7_class }}">
+            <a href="sign.html" data-id="sign_title">Sign/Dispute</a>
+          </li>
+        </ul>
+        <ul class="nav-primary-side">
+          <li class="selected">
+            <a href="project.html" data-id="home_title">Project</a>
+          </li>
+          <li class="{{ nav2_class }}">
+            <a href="faq.html" data-id="faq_title">&#x412;&#x43E;&#x43F;&#x440;&#x43E;&#x441; - &#x43E;&#x442;&#x432;&#x435;&#x442;</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
 
@@ -329,7 +335,7 @@
               </div>
             </div>
 
-            <div class="barchart-sidenote">
+            <div class="barchart-sidenote" id="barUnredeemed2">
               <span class="barchart-lbl"><strong id="barUnredeemedLbl2"></strong><br><span data-id="home_sect2_alloc_lbl4">unredeemed</span></span>
             </div>
 
@@ -343,14 +349,15 @@
               var barC = document.getElementById('barContributors'),
                 barB = document.getElementById('barBakers'),
                 barU = document.getElementById('barUnredeemed'),
+                barU2 = document.getElementById('barUnredeemed2'),
                 barCLbl = document.getElementById('barContributorsLbl'),
                 barBLbl = document.getElementById('barBakersLbl'),
                 barULbl = document.getElementById('barUnredeemedLbl'),
                 barULbl2 = document.getElementById('barUnredeemedLbl2'),
                 amountC = 577989040.89,
                 amountB = 155817888.79,
-                amountUMin = 10000000.00,
-                amountUMax = 30000000.00,
+                amountUMin = 0,
+                amountUMax = 0,
                 amountUAvg = (amountUMin + amountUMax) / 2,
                 amountTotal = amountC + amountB,
                 barCW = Math.round((amountC - amountUAvg) / amountTotal * 100),
@@ -361,9 +368,16 @@
               barB.style.width = barBW + '%';
               barU.style.width = barUW + '%';
 
-              barCLbl.textContent = localize(amountC - amountUMax) + ' - ' + localize(amountC - amountUMin);
+              if (amountUMax > 0) {
 
-              barULbl.textContent = barULbl2.textContent = localize(amountUMin) + ' - ' + localize(amountUMax);
+                barCLbl.textContent = localize(amountC - amountUMax) + ' - ' + localize(amountC - amountUMin);
+
+                barULbl.textContent = barULbl2.textContent = localize(amountUMin) + ' - ' + localize(amountUMax);
+
+              } else {
+
+                barU.style.display = barU2.style.display = 'none';
+              }
             </script>
 
           </div>

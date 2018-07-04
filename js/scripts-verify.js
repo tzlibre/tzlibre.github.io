@@ -64,7 +64,7 @@ function success_claim (claim_json, lang_prefix) {
   claim_data.sign_ts = proof_ts
 
   if (has_delegated) {
-    delegate_data.timestamp = claim_json.delegation_ts ? moment(claim_json.delegation_ts).format(TIMEFORMAT).toString() : ts
+    delegate_data.timestamp = moment().format(TIMEFORMAT).toString()
     delegate_data.delegated_amount = claim_json.delegated_amount
     delegate_data.show = true
   }
@@ -86,6 +86,7 @@ function success_claim (claim_json, lang_prefix) {
     airdrops_data.rounds = claim_json.airdrops
     airdrops_data.show = true
   } else {
+    noairdrops_data.speedup = claim_json.opt3 && !has_delegated
     noairdrops_data.show = true
   }
 
@@ -265,7 +266,8 @@ let v_delegate = new Vue({
 })
 
 let noairdrops_data = {
-  show: false
+  show: false,
+  speedup: false
 }
 
 let v_noairdrops = new Vue({

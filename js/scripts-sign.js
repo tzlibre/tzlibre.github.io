@@ -12,13 +12,15 @@ function reset () {
 }
 
 function success (sign_json) {
+  let lang_prefix = get_lang_prefix()
+
   sign_data.success = true
   sign_data.tzl_pkh = sign_json.tzl_pkh
   sign_data.eth_addr = sign_json.eth_addr
   sign_data.timestamp = moment(sign_json.proof_ts).format(TIMEFORMAT).toString()
 
-  modal_data.verify_url = `/verify.html?pkh=${sign_json.tzl_pkh}`
-  next_steps_data.verify_url = `/verify.html?pkh=${sign_json.tzl_pkh}`
+  modal_data.verify_url = `${lang_prefix}/verify.html?pkh=${sign_json.tzl_pkh}`
+  next_steps_data.verify_url = `${lang_prefix}/verify.html?pkh=${sign_json.tzl_pkh}`
 
   // next_steps
   next_steps_data.signed = !!sign_json.valid_proof

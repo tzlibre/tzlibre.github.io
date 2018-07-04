@@ -85,3 +85,11 @@ function is_cn () {
   let res = re_cn.exec(window.location.pathname) 
   return res && res.index === 0
 }
+
+function get_lang_prefix () {
+  let lang_prefix = ''
+  if (is_cn()) { lang_prefix = '/cn' }
+  if (is_ru()) { lang_prefix = '/ru' }
+
+  return lang_prefix
+}
