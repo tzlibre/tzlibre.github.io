@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <title data-id="default_page_title">Tz Libre | &#x440;&#x430;&#x437;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435; DLS Tezos</title>
+    <title data-id="default_page_title">Tz Libre | a fork of DLS KYC Tezos</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,7 +15,7 @@
     <link href="/style/style.css" rel="stylesheet">
     <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
     <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-    <meta property="og:title" data-id="default_page_title" content="Tz Libre | &#x440;&#x430;&#x437;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435; DLS Tezos">
+    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS KYC Tezos">
   </head>
 
   <body>
@@ -60,13 +60,13 @@
     <nav class="nav-primary">
       <ul class="content">
         <li class="{{ nav1_class }}">
-          <a href="project.html" data-id="home_title">&#x43E; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x435;</a>
+          <a href="project.html" data-id="home_title">Project</a>
         </li>
         <li class="{{ nav2_class }}">
           <a href="faq.html" data-id="faq_title">&#x412;&#x43E;&#x43F;&#x440;&#x43E;&#x441; - &#x43E;&#x442;&#x432;&#x435;&#x442;</a>
         </li>
         <li class="{{ nav3_class }}">
-          <a href="whitelist.html" data-id="wl_title">&#x411;&#x435;&#x43B;&#x44B;&#x439; &#x441;&#x43F;&#x438;&#x441;&#x43E;&#x43A;</a>
+          <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
         </li>
         <li class="{{ nav4_class }}">
           <a href="claim.html" data-id="split_title">2. Claim</a>
@@ -90,30 +90,29 @@
 
         <div class="block">
 
-          <h3 data-id="dlgt_page_title_complete">Whitelist your Tezos address</h3>
+          <h3 data-id="dlgt_page_title_complete">Delegate TzLibre</h3>
 
           <div class="row">
             <h4 data-id="dlgt_sub1_title">Who</h4>
             <div class="row-main" data-id="dlgt_sub1_txt">
-              <p>Any Tezos ICO contributor can participate.</p>
+              <p>Only Tezos contributors who whitelisted and claimed TZL are eligible for TZL airdrops.</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="dlgt_sub2_title">When</h4>
+            <h4 data-id="dlgt_sub2_title">What</h4>
             <div class="row-main" data-id="dlgt_sub2_txt">
-              <p>The whitelist is currently open. Our community is still discussing whether to close the whitelist in the coming days (to reward early adopters), or to close it later (to accomodate late adopters). We&apos;ll announce on our
-                <a href="https://t.me/tzlibre"
-                  target="_blank">Telegram channel</a> when the whitelist has been closed.</p>
+              <p>To receive TZL airdrops you must delegate TzLibre. Delegation is trustless: your XTZ never leave your own wallet. You can revoke, cancel or change your delegation at any time. If you delegate TzLibre you will receive TZL airdrops as reward.</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="dlgt_sub3_title">Need help?</h4>
+            <h4 data-id="dlgt_sub3_title">Info</h4>
             <div class="row-main" data-id="dlgt_sub3_txt">
-              <p>If you&apos;re having trouble adding your Tezos public key hash (a/k/a Tezos address) to the whitelist, please doublecheck your contribution PDF and try again. Please use the latest version of the Firefox browser, preferably in private mode.
-                If you still can&apos;t whitelist your address, you can
-                <a href="https://t.me/tz_libre" target="_blank">contact us</a>. This is how a Tezos public key hash looks like: <span class="inline-code">tz1QwKhhwkG7wpCHkrhEvUop</span>. </p>
+              <p>To learn more about TzLibre delegation read our
+                <a href="https://www.reddit.com/r/tzlibre/comments/8vvlns/tzlibre_update_17_overriding_kyc" target="_blank">update #17</a>. To learn more about KYC-Tezos delegation read this
+                <a href="http://doc.tzalpha.net/whitedoc/proof_of_stake.html#delegation" target="_blank">guide</a>
+              </p>
             </div>
           </div>
 
@@ -123,13 +122,35 @@
                 </div-->
 
           <div class="row">
-            <h4 data-id="dlgt_sub5_title"></h4>
-            <div class="row-main" data-id="dlgt_sub5_txt"></div>
+            <h4 data-id="dlgt_sub5_title">How</h4>
+            <div class="row-main" data-id="dlgt_sub5_txt">
+              <p></p>
+              <ol>
+                <li> Activate your XTZ allocation on the genesis block with
+                  <a href="https://stephenandrews.github.io/activatez" target="_blank">Activatez</a>. </li>
+                <li> Create a TezBox wallet with your fundraiser data: visit
+                  <a href="https://tezbox.github.io">TezBox</a>, select &apos;Restore Tezbox&apos; then &apos;Fundraiser Wallet&apos;. </li>
+                <li> Insert your data: PDF seed words, PDF email address, ICO password, and KYC activation code. </li>
+                <li> Create a new KT1 account (a special account for delegation) by clicking the &apos;Add Account&apos; button (fee: 0.25 XTZ) </li>
+                <li> Move your XTZ from your tz1 account to your KT1 account: from the main wallet select &apos;Send&apos;, enter your KT1 address in the &apos;To&apos; address, enter all your XTZ, and click &apos;Send&apos; (leave fee field blank). </li>
+                <li>
+                In the KT1 account, select the &apos;Delegate&apos; menu and then choose &apos;Custom delegate&apos;. </li>
+                <li> Insert address <span class="inline-code">tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp</span> and confirm.
+                  <p></p>
+                  <p>You can also delegate TzLibre using the official KYC-Tezos fullnode as well as other wallets (see this
+                    <a href="https://djangobits.github.io/tezoswallets/" target="_blank">list of KYC-Tezos wallets</a>). TzLibre delegate address is <span class="inline-code">tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp</span></p>
+                </li>
+              </ol>
+              <p></p>
+            </div>
           </div>
 
           <div class="row">
-            <h4 data-id="dlgt_sub6_title"></h4>
-            <div class="row-main" data-id="dlgt_sub6_txt"></div>
+            <h4 data-id="dlgt_sub6_title">Need help?</h4>
+            <div class="row-main" data-id="dlgt_sub6_txt">
+              <p>
+                <a href="/project.html#contacts">Contact us</a>.</p>
+            </div>
           </div>
 
           <!-- next steps -->
@@ -153,7 +174,7 @@
 
         <div class="actionbar-main">
 
-          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-small"/></svg><span>&#x41F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x439;&#x442;&#x435;&#x441;&#x44C; &#x43A; &#x43D;&#x430;&#x43C; &#x43D;&#x430; Telegram</span></a>
+          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Join us on Telegram</span></a>
           </span>
 
           <span><a href="https://www.reddit.com/user/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Follow us on Reddit</span></a>
