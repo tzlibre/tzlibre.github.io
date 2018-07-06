@@ -96,13 +96,27 @@
 
         <div class="block">
 
-          <h3 data-id="verify_page_title">Check your Tezos address</h3>
+          <h3 data-id="verify_page_title">Verify your Tezos ICO address</h3>
 
-          <p data-id="verify_intro">Enter your
-            <b>Tezos public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim. Need help?
-            <a href="/project.html#contacts">Contact us</a>
-          </p>
+          <div class="row">
+            <h4 data-id="verify_sub1_title">What</h4>
+            <div class="row-main" data-id="verify_sub1_txt">Enter your
+              <b>Tezos ICO public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim.</div>
+          </div>
 
+          <div class="row">
+            <h4 data-id="verify_sub2_title">How</h4>
+            <div class="row-main" data-id="verify_sub2_txt">To check the current status of your TZL claim please submit your Tezos ICO address (found in your contribution PDF). If you delegated from a different address you still need to submit your ICO address to verify your overall delegation status.
+              Data is updated every 24 hours.</div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="verify_sub3_title">Help</h4>
+            <div class="row-main" data-id="verify_sub3_txt">Need help?
+              <a href="/project.html#contacts">Contact us</a>.</div>
+          </div>
+
+          <label for="verify-pkh" data-id="wl_intro">Tezos public key hash (a/k/a Tezos address)</label>
           <form action="Javascript:verify()" class="singlerowform" id="verify-form">
             <input type="text" placeholder="tz1..." id="verify-pkh" required>
             <input type="submit" value="Verify" data-id="verify_button" id="verify-submit" v-bind:class="{ loading: loading }" :disabled="loading">
@@ -135,8 +149,8 @@
             <div id="verify-claim-box" v-if="show" v-cloak="">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
-                <p data-id="verify_result_split" v-if="eth_addr_confirmed">This is the linked Ethereum address</p>
-                <p data-id="verify_result_split_uncof_addr" v-else="">This is the linked Ethereum address <span class="note">(Not your address? <strong><a v-bind:href="dispute_url">Dispute it</a></strong>)</span></p>
+                <p data-id="verify_result_split" v-if="eth_addr_confirmed">This is the linked Ethereum address to receive airdrops</p>
+                <p data-id="verify_result_split_uncof_addr" v-else="">This is the linked Ethereum address to receive airdrops <span class="note">(Not your address? <strong><a v-bind:href="dispute_url">Dispute it</a></strong>)</span></p>
                 <p><strong>{{ eth_addr }}</strong></p>
               </div>
             </div>
@@ -172,10 +186,10 @@
                   <svg class="alert-icon">
                     <use href="/images/svgdefs.svg#icon-alert" />
                   </svg>
-                  <span data-id="verify_result_warning_missing_dlgt_short">You haven&apos;t delegated TzLibre</span>
+                  <span data-id="verify_result_warning_missing_dlgt_short">You didn&apos;t delegate TzLibre</span>
                 </p>
                 <p data-id="verify_result_warning_missing_dlgt">To receive TZL airdrops you must
-                  <a href="/delegate.html">delegate TzLibre</a>.</p>
+                  <a href="/delegate.html">delegate TzLibre</a>. If you delegated in the last 24h, please come back later.</p>
               </div>
             </div>
 
@@ -189,7 +203,7 @@
                   <span data-id="verify_result_warning_partial_dlgt_short">You delegated less than your whitelisted amount</span>
                 </p>
                 <p data-id="verify_result_warning_partial_dlgt">TZL airdrops are directly proportional to delegated quantity.
-                  <b>To receive your full airdrops you must delegate {{ whitelisted_amount }} XTZ.</b>
+                  <b>To receive your full airdrops you must delegate {{ whitelisted_amount }} XTZ. If you delegated in the last 24h, please come back later.</b>
                 </p>
               </div>
             </div>
@@ -388,7 +402,7 @@
           </svg>
         </h4>
         <p data-id="modal_notwhitelisted_text">Tezos address not whitelisted. In order to claim TZL you must whitelist your Tezos address first.</p>
-        <div class="modal-actions">
+        <div class="modal-actions" id="modal-actions-no-wl">
           <a class="btn modal-action-cancel" data-id="btn_cancel">Cancel</a>
           <a class="btn btn-primary" v-bind:href="whitelist_url" data-id="btn_whitelistit">Whitelist</a>
         </div>

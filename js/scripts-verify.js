@@ -292,7 +292,7 @@ function init_v_apps () {
   })
 
   let modal_no_wl = new Vue({
-    el: '#modal-actions-step-not-allowed',
+    el: '#modal-actions-no-wl',
     data: g_data.modal_no_wl
   })
 
