@@ -10,7 +10,7 @@ const PAGE = window.location.pathname.match(/\/(.+).html/)[1]
 function error_step_not_allowed (page) {
   return function () {
     let pkh = document.getElementById(`${page}-pkh`).value.trim()
-    modal_data.verify_url = `/verify.html?pkh=${pkh}`
+    g_data.modal.verify_url = `/verify.html?pkh=${pkh}`
     showModal('modal-step-not-allowed')
   }
 }
@@ -28,16 +28,16 @@ function is_empty (obj) {
 }
 
 function start_loading () {
-  app_data.loading = true
+  g_data.app.loading = true
 }
 
 function stop_loading () {
-  app_data.loading = false
+  g_data.app.loading = false
 }
 
 function error_generic (err) {
   reset()
-  app_data.error_handled = true
+  g_data.app.error_handled = true
   console.log('Something bad occurred :(')
   console.log(err)
   showModal('modal-error-generic')
@@ -92,4 +92,18 @@ function get_lang_prefix () {
   if (is_ru()) { lang_prefix = '/ru' }
 
   return lang_prefix
+}
+
+// ///////////////////////////// RESET DATA ////////////////////////
+
+function reset () {
+  for (let k of Object.keys(data_init)) {
+    for (let v of Object.keys(data_init[k])) {
+      let old_v = g_data[k][v]
+      let new_v = data_init[k][v]
+      if (old_v !== new_v) {
+        g_data[k][v] = new_v
+      }
+    }
+  }
 }

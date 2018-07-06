@@ -5,29 +5,23 @@ Object.assign(error_handlers, {
   '302': step_not_allowed
 })
 
-function reset () {
-  app_data.loading = false
-  sign_data.success = false
-  next_steps_data.show = false
-}
-
 function success (sign_json) {
   let lang_prefix = get_lang_prefix()
 
-  sign_data.success = true
-  sign_data.tzl_pkh = sign_json.tzl_pkh
-  sign_data.eth_addr = sign_json.eth_addr
-  sign_data.timestamp = moment(sign_json.proof_ts).format(TIMEFORMAT).toString()
+  g_data.sign.success = true
+  g_data.sign.tzl_pkh = sign_json.tzl_pkh
+  g_data.sign.eth_addr = sign_json.eth_addr
+  g_data.sign.timestamp = moment(sign_json.proof_ts).format(TIMEFORMAT).toString()
 
-  modal_data.verify_url = `${lang_prefix}/verify.html?pkh=${sign_json.tzl_pkh}`
-  next_steps_data.verify_url = `${lang_prefix}/verify.html?pkh=${sign_json.tzl_pkh}`
+  g_data.modal.verify_url = `${lang_prefix}/verify.html?pkh=${sign_json.tzl_pkh}`
+  g_data.next_steps.verify_url = `${lang_prefix}/verify.html?pkh=${sign_json.tzl_pkh}`
 
   // next_steps
-  next_steps_data.signed = !!sign_json.valid_proof
-  next_steps_data.opt1 = sign_json.opt2 && !sign_json.opt3
-  next_steps_data.opt2 = !sign_json.opt2 && !sign_json.opt3
-  next_steps_data.opt3 = !!sign_json.opt3
-  next_steps_data.show = true
+  g_data.next_steps.signed = !!sign_json.valid_proof
+  g_data.next_steps.opt1 = sign_json.opt2 && !sign_json.opt3
+  g_data.next_steps.opt2 = !sign_json.opt2 && !sign_json.opt3
+  g_data.next_steps.opt3 = !!sign_json.opt3
+  g_data.next_steps.show = true
 
   scroll_to('results')
 }
@@ -107,53 +101,77 @@ function sign () {
     })
 }
 
+// ///////////////////////////// GLOBALS ////////////////////////
+
+let g_data = {
+  app: {},
+  sign: {},
+  modal: {},
+  next_steps: {}
+}
+
+let data_init = {
+  app: {
+    loading: false
+  },
+
+  sign: {
+    success: false,
+    tzl_pkh: '',
+    eth_addr: '',
+    timestamp: ''
+  },
+
+  modal: {
+    verify_url: ''
+  },
+
+  next_steps: {
+    show: false,
+    signed: false,
+    verify_url: '',
+    opt1: false,
+    opt2: false,
+    opt3: false
+  }
+}
+
+// ///////////////////////////// INIT DATA ////////////////////////
+
+function init_data () {
+  g_data.app = Object.assign({}, data_init.app)
+  g_data.sign = Object.assign({}, data_init.sign)
+  g_data.modal = Object.assign({}, data_init.modal)
+  g_data.next_steps = Object.assign({}, data_init.next_steps)
+}
+
 // ///////////////////////// APPs //////////////////////////
 
-let app_data = {
-  loading: false
+function init_v_apps () {
+  let v_app = new Vue({
+    el: '#sign-form',
+    data: g_data.app
+  })
+
+  let v_sign = new Vue({
+    el: '#sign-success',
+    data: g_data.sign
+  })
+
+  let v_modal = new Vue({
+    el: '#modal-actions-step-not-allowed',
+    data: g_data.modal
+  })
+
+  let v_next_steps = new Vue({
+    el: '#next-steps',
+    data: g_data.next_steps
+  })
 }
 
-let v_app = new Vue({
-  el: '#sign-form',
-  data: app_data
-})
-
-let sign_data = {
-  success: false,
-  tzl_pkh: '',
-  eth_addr: '',
-  timestamp: ''
-}
-
-let v_sign = new Vue({
-  el: '#sign-success',
-  data: sign_data
-})
-
-let modal_data = {
-  verify_url: ''
-}
-
-let v_modal = new Vue({
-  el: '#modal-step-not-allowed',
-  data: modal_data
-})
-
-let next_steps_data = {
-  show: false,
-  signed: false,
-  verify_url: '',
-  opt1: false,
-  opt2: false,
-  opt3: false
-}
-
-let v_next_steps = new Vue({
-  el: '#next-steps',
-  data: next_steps_data
-})
 
 // ///////////////////////////// MAIN ////////////////////////
 
-// set PKH field
+init_data()
+init_v_apps()
 parse_qs('sign-pkh', 'sign-eth-addr')

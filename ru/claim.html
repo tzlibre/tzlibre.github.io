@@ -162,11 +162,11 @@ I request that any third-party product developed with Tezos Stiftung funding sha
 
 
           <!-- next steps -->
-          <div class="nextstepbox" id="next-steps" v-if="show &amp;&amp; !opt2" v-cloak="">
+          <div class="nextstepbox" id="next-steps" v-if="show" v-cloak="">
             <h3 data-id="nextstep_title">Next steps</h3>
             <div class="nextstepslist">
 
-              <div>
+              <div v-if="!opt2">
                 <p data-id="nextstep_getairdrops">Learn how to get your airdrops</p>
                 <p v-if="opt1">
                   <a href="https://t.me/joinchat/G9-DflMeFgwZSwDI5V-Vew" target="_blank" class="btn">
@@ -246,7 +246,7 @@ I request that any third-party product developed with Tezos Stiftung funding sha
           </svg>
         </h4>
         <p data-id="modal_stepnotallowed_text">You are not allowed to do this now: go to Verify page to find out what to do next</p>
-        <div class="modal-actions">
+        <div class="modal-actions" id="modal-actions-step-not-allowed">
           <a class="btn btn-primary" v-bind:href="verify_url" data-id="btn_verifyit">Verify</a>
         </div>
       </div>

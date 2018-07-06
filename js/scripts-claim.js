@@ -6,27 +6,21 @@ Object.assign(error_handlers, {
   '302': step_not_allowed
 })
 
-function reset () {
-  app_data.loading = false
-  claim_data.success = false
-  next_steps_data.show = false
-}
-
 function success (claim_json) {
   let lang_prefix = get_lang_prefix()
 
-  claim_data.tzl_pkh = claim_json.tzl_pkh
-  claim_data.eth_addr = claim_json.eth_addr
-  claim_data.timestamp = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
-  claim_data.success = true
+  g_data.claim.tzl_pkh = claim_json.tzl_pkh
+  g_data.claim.eth_addr = claim_json.eth_addr
+  g_data.claim.timestamp = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
+  g_data.claim.success = true
 
-  modal_data.verify_url = `${lang_prefix}/verify.html?pkh=${claim_json.tzl_pkh}`
+  g_data.modal.verify_url = `${lang_prefix}/verify.html?pkh=${claim_json.tzl_pkh}`
 
-  next_steps_data.delegate_url = `${lang_prefix}/delegate.html?pkh=${claim_json.tzl_pkh}`
-  next_steps_data.opt1 = claim_json.opt2 && !claim_json.opt3
-  next_steps_data.opt2 = !claim_json.opt2 && !claim_json.opt3
-  next_steps_data.opt3 = !!claim_json.opt3
-  next_steps_data.show = true
+  g_data.next_steps.delegate_url = `${lang_prefix}/delegate.html?pkh=${claim_json.tzl_pkh}`
+  g_data.next_steps.opt1 = claim_json.opt2 && !claim_json.opt3
+  g_data.next_steps.opt2 = !claim_json.opt2 && !claim_json.opt3
+  g_data.next_steps.opt3 = !!claim_json.opt3
+  g_data.next_steps.show = true
 
   scroll_to('results')
 }
@@ -72,52 +66,75 @@ function claim () {
     })
 }
 
+// ///////////////////////////// GLOBALS ////////////////////////
+
+let g_data = {
+  app: {},
+  claim: {},
+  modal: {},
+  next_steps: {}
+}
+
+let data_init = {
+  app: {
+    loading: false
+  },
+
+  claim: {
+    success: false,
+    tzl_pkh: '',
+    eth_addr: '',
+    timestamp: ''
+  },
+
+  modal: {
+    verify_url: ''
+  },
+
+  next_steps: {
+    show: false,
+    delegate_url: '',
+    opt1: false,
+    opt2: false,
+    opt3: false
+  }
+}
+
+// ///////////////////////////// INIT DATA ////////////////////////
+
+function init_data () {
+  g_data.app = Object.assign({}, data_init.app)
+  g_data.claim = Object.assign({}, data_init.claim)
+  g_data.modal = Object.assign({}, data_init.modal)
+  g_data.next_steps = Object.assign({}, data_init.next_steps)
+}
+
 // ///////////////////////// APPs //////////////////////////
 
-let app_data = {
-  loading: false
+function init_v_apps () {
+  let v_app = new Vue({
+    el: '#claim-form',
+    data: g_data.app
+  })
+
+  let v_claim = new Vue({
+    el: '#claim-success',
+    data: g_data.claim
+  })
+
+  let v_modal = new Vue({
+    el: '#modal-actions-step-not-allowed',
+    data: g_data.modal
+  })
+
+  let v_next_steps = new Vue({
+    el: '#next-steps',
+    data: g_data.next_steps
+  })
 }
-
-let v_app = new Vue({
-  el: '#claim-form',
-  data: app_data
-})
-
-let claim_data = {
-  success: false,
-  tzl_pkh: '',
-  eth_addr: '',
-  timestamp: ''
-}
-
-let v_claim = new Vue({
-  el: '#claim-success',
-  data: claim_data
-})
-
-let modal_data = {
-  verify_url: ''
-}
-
-let v_modal = new Vue({
-  el: '#modal-step-not-allowed',
-  data: modal_data
-})
-
-let next_steps_data = {
-  show: false,
-  delegate_url: '',
-  opt1: false,
-  opt2: false,
-  opt3: false
-}
-
-let v_next_steps = new Vue({
-  el: '#next-steps',
-  data: next_steps_data
-})
 
 // ///////////////////////////// MAIN ////////////////////////
 
-// set PKH field
+init_data()
+init_v_apps()
 parse_qs('claim-pkh', 'claim-eth-addr')

@@ -1,25 +1,7 @@
-function reset () {
-  app_data.loading = false
-  app_data.error_handled = false
-  whitelist_data.show = false
-  whitelist_data.not_claimed = false
-  claim_data.show = false
-  delegate_data.show = false
-  noairdrops_data.show = false
-  airdrops_data.show = false
-  airdrops_data.rounds = []
-  next_steps_data.show = false
-  next_steps_data.claimed = false
-  next_steps_data.signed = false
-  next_steps_data.opt1 = false
-  next_steps_data.opt2 = false
-  next_steps_data.opt3 = false
-}
-
 function success_whitelist (wl_json, lang_prefix) {
   if (is_empty(wl_json)) {
     let pkh = document.getElementById('verify-pkh').value.trim()
-    modal_no_wl_data.whitelist_url = `/whitelist.html?pkh=${pkh}`
+    g_data.modal_no_wl.whitelist_url = `/whitelist.html?pkh=${pkh}`
     return -1
   }
 
@@ -30,11 +12,12 @@ function success_whitelist (wl_json, lang_prefix) {
 
   let amount = parseFloat(wl_json.h_TZL)
 
-  whitelist_data.pkh = wl_json.pkh
-  whitelist_data.h_TZL = wl_json.h_TZL
-  whitelist_data.whitelist_time = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
-  whitelist_data.show = true
-  next_steps_data.claim_url = `${lang_prefix}/claim.html?pkh=${wl_json.pkh}`
+  g_data.whitelist.pkh = wl_json.pkh
+  g_data.whitelist.h_TZL = wl_json.h_TZL
+  g_data.whitelist.whitelist_time = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
+  g_data.whitelist.show = true
+  g_data.delegate.whitelisted_amount = amount
+  g_data.next_steps.claim_url = `${lang_prefix}/claim.html?pkh=${wl_json.pkh}`
 
   return amount
 }
@@ -56,44 +39,47 @@ function success_claim (claim_json, lang_prefix) {
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
   let opt2 = !claim_json.opt2 && !claim_json.opt3
 
-  claim_data.eth_addr = claim_json.eth_addr
-  claim_data.eth_addr_confirmed = has_delegated || signed
-  claim_data.timestamp = ts
-  claim_data.show = true
-  claim_data.signed = signed
-  claim_data.sign_ts = proof_ts
+  g_data.claim.eth_addr = claim_json.eth_addr
+  g_data.claim.eth_addr_confirmed = has_delegated || signed
+  g_data.claim.timestamp = ts
+  g_data.claim.show = true
+  g_data.claim.signed = signed
+  g_data.claim.sign_ts = proof_ts
 
   if (has_delegated) {
-    delegate_data.timestamp = moment().format(TIMEFORMAT).toString()
-    delegate_data.delegated_amount = claim_json.delegated_amount
-    delegate_data.show = true
+    g_data.delegate.has_delegated = has_delegated
+    g_data.delegate.timestamp = moment().format(TIMEFORMAT).toString()
+    g_data.delegate.delegated_amount = claim_json.delegated_amount
+    g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
   }
+  g_data.delegate.show = claimed
 
   // next_steps
-  next_steps_data.claimed = claimed
-  next_steps_data.has_delegated = has_delegated
-  next_steps_data.signed = signed
-  next_steps_data.opt1 = claim_json.opt2 && !claim_json.opt3
-  claim_data.opt2 = next_steps_data.opt2 = opt2
-  next_steps_data.opt3 = !!claim_json.opt3
-  next_steps_data.delegate_url = `${lang_prefix}/delegate.html?pkh=${claim_json.tzl_pkh}`
-  claim_data.dispute_url = next_steps_data.dispute_url = `${lang_prefix}/sign.html?pkh=${claim_json.tzl_pkh}`
+  g_data.next_steps.claimed = claimed
+  g_data.next_steps.has_delegated = has_delegated
+  g_data.next_steps.signed = signed
+  g_data.next_steps.opt1 = claim_json.opt2 && !claim_json.opt3
+  g_data.claim.opt2 = g_data.next_steps.opt2 = opt2
+  g_data.next_steps.opt3 = !!claim_json.opt3
+  g_data.next_steps.delegate_url = `${lang_prefix}/delegate.html?pkh=${claim_json.tzl_pkh}`
+  g_data.claim.dispute_url = g_data.next_steps.dispute_url = `${lang_prefix}/sign.html?pkh=${claim_json.tzl_pkh}`
 
   if (claim_json.airdrops && claim_json.airdrops.length) {
-    airdrops_data.total_airdropped_amount = claim_json.total_airdropped_amount
-    airdrops_data.total_fee = claim_json.total_fee
-    airdrops_data.n_airdrops = claim_json.n_airdrops
-    airdrops_data.rounds = claim_json.airdrops
-    airdrops_data.show = true
+    g_data.airdrops.total_airdropped_amount = claim_json.total_airdropped_amount
+    g_data.airdrops.total_fee = claim_json.total_fee
+    g_data.airdrops.n_airdrops = claim_json.n_airdrops
+    g_data.airdrops.rounds = claim_json.airdrops
+    g_data.airdrops.show = true
   } else {
-    noairdrops_data.speedup = claim_json.opt3 && !has_delegated
-    noairdrops_data.show = true
+    g_data.noairdrops.speedup = claim_json.opt3 && !has_delegated
+    g_data.noairdrops.show = true
   }
 
   scroll_to('results')
 
   return {
-    claimed: claimed,
+    claimed,
+    has_delegated,
     signed,
     opt2
   }
@@ -105,7 +91,7 @@ function success ([r_whitelist, r_claim]) {
   if (is_ru()) { lang_prefix = '/ru' }
 
   let whitelisted_amount = success_whitelist(r_whitelist, lang_prefix)
-  let { claimed, signed, opt2 } = success_claim(r_claim, lang_prefix)
+  let { claimed, has_delegated, signed, opt2 } = success_claim(r_claim, lang_prefix)
 
   if (whitelisted_amount === -1 && !claimed) {
     showModal('modal-not-whitelisted')
@@ -117,15 +103,16 @@ function success ([r_whitelist, r_claim]) {
     return
   }
 
-  whitelist_data.not_claimed = !claimed
+  g_data.whitelist.not_claimed = !claimed
 
-  if (!claimed || !opt2) {
-    next_steps_data.show = true
+  if (opt2 && has_delegated) {
+    return
   }
+  g_data.next_steps.show = true
 }
 
 function error (error_json) {
-  if (app_data.error_handled) {
+  if (g_data.app.error_handled) {
     return
   }
 
@@ -199,120 +186,165 @@ function verify () {
     })
 }
 
+// ///////////////////////////// GLOBALS ////////////////////////
+
+let g_data = {
+  app: {},
+  modal_no_wl: {},
+  whitelist: {},
+  claim: {},
+  delegate: {},
+  noairdrops: {},
+  airdrops: {},
+  next_steps: {},
+}
+
+let data_init = {
+  app: {
+    loading: false,
+    error_handled: false
+  },
+
+  modal_no_wl: {
+    whitelist_url: ''
+  },
+
+  whitelist: {
+    show: false,
+    pkh: '',
+    h_TZL: '',
+    whitelist_time: '',
+    not_claimed: false
+  },
+
+  claim: {
+    show: false,
+    eth_addr: '',
+    eth_addr_confirmed: false,
+    timestamp: '',
+    signed: false,
+    sign_ts: '',
+    opt2: false,
+    dispute_url: ''
+  },
+
+  delegate: {
+    show: false,
+    timestamp: '',
+    has_delegated: false,
+    delegated_amount: 0,
+    partial_delegation: false,
+    whitelisted_amount: 0
+  },
+
+  noairdrops: {
+    show: false,
+    speedup: false
+  },
+
+  airdrops: {
+    show: false,
+    rounds: [],
+    total_airdropped_amount: 0,
+    total_fee: 0,
+    n_airdrops: 0
+  },
+
+  next_steps: {
+    show: false,
+    claimed: false,
+    claim_url: '',
+    has_delegated: false,
+    delegate_url: '',
+    signed: false,
+    dispute_url: '',
+    opt1: false,
+    opt2: false,
+    opt3: false,
+    show_floating_btn: true
+  }
+}
+
+// ///////////////////////////// INIT DATA ////////////////////////
+
+function init_data () {
+  g_data.app = Object.assign({}, data_init.app)
+  g_data.modal_no_wl = Object.assign({}, data_init.modal_no_wl)
+  g_data.whitelist = Object.assign({}, data_init.whitelist)
+  g_data.claim = Object.assign({}, data_init.claim)
+  g_data.delegate = Object.assign({}, data_init.delegate)
+  g_data.noairdrops = Object.assign({}, data_init.noairdrops)
+  g_data.airdrops = Object.assign({}, data_init.airdrops)
+  g_data.next_steps = Object.assign({}, data_init.next_steps)
+}
+
 // ///////////////////////// APPs //////////////////////////
 
-let app_data = {
-  loading: false,
-  error_handled: false
-}
+function init_v_apps () {
+  let v_app = new Vue({
+    el: '#verify-form',
+    data: g_data.app
+  })
 
-let v_app = new Vue({
-  el: '#verify-form',
-  data: app_data
-})
+  let v_whitelist = new Vue({
+    el: '#verify-whitelist-box',
+    data: g_data.whitelist
+  })
 
-let modal_no_wl_data = {
-  whitelist_url: ''
-}
+  let modal_no_wl = new Vue({
+    el: '#modal-actions-step-not-allowed',
+    data: g_data.modal_no_wl
+  })
 
-let modal_no_wl = new Vue({
-  el: '#modal-not-whitelisted',
-  data: modal_no_wl_data
-})
+  let v_claim = new Vue({
+    el: '#verify-claim-box',
+    data: g_data.claim
+  })
 
-let whitelist_data = {
-  show: false,
-  pkh: '',
-  h_TZL: '',
-  whitelist_time: '',
-  not_claimed: false
-}
+  let v_sign = new Vue({
+    el: '#verify-sign-box',
+    data: g_data.claim
+  })
 
-let v_whitelist = new Vue({
-  el: '#verify-whitelist-box',
-  data: whitelist_data
-})
+  let v_delegate = new Vue({
+    el: '#verify-delegate-box',
+    data: g_data.delegate
+  })
 
-let claim_data = {
-  show: false,
-  eth_addr: '',
-  eth_addr_confirmed: false,
-  timestamp: '',
-  signed: false,
-  sign_ts: '',
-  opt2: false,
-  dispute_url: ''
-}
+  let v_warning_missing_dlgt = new Vue({
+    el: '#verify-warning-missing-dlgt-box',
+    data: g_data.delegate
+  })
 
-let v_claim = new Vue({
-  el: '#verify-claim-box',
-  data: claim_data
-})
+  let v_warning_partial_dlgt = new Vue({
+    el: '#verify-warning-partial-dlgt-box',
+    data: g_data.delegate
+  })
 
-let v_sign = new Vue({
-  el: '#verify-sign-box',
-  data: claim_data
-})
+  let v_noairdrops = new Vue({
+    el: '#verify-noairdrops-box',
+    data: g_data.noairdrops
+  })
 
-let delegate_data = {
-  show: false,
-  timestamp: '',
-  delegated_amount: 0
-}
+  let v_airdrops = new Vue({
+    el: '#verify-airdrops-box',
+    data: g_data.airdrops,
+    methods: { augment, confirmed }
+  })
 
-let v_delegate = new Vue({
-  el: '#verify-delegate-box',
-  data: delegate_data
-})
-
-let noairdrops_data = {
-  show: false,
-  speedup: false
-}
-
-let v_noairdrops = new Vue({
-  el: '#verify-noairdrops-box',
-  data: noairdrops_data
-})
-
-let airdrops_data = {
-  show: false,
-  rounds: [],
-  total_airdropped_amount: 0,
-  total_fee: 0,
-  n_airdrops: 0
-}
-
-let v_airdrops = new Vue({
-  el: '#verify-airdrops-box',
-  data: airdrops_data,
-  methods: { augment, confirmed }
-})
-
-let next_steps_data = {
-  show: false,
-  claimed: false,
-  claim_url: '',
-  has_delegated: false,
-  delegate_url: '',
-  signed: false,
-  dispute_url: '',
-  opt1: false,
-  opt2: false,
-  opt3: false,
-  show_floating_btn: true
-}
-
-let v_next_steps = new Vue({
-  el: '#next-steps',
-  data: next_steps_data,
-  methods: {
-    visibility_changed (is_visible) {
-      next_steps_data.show_floating_btn = !is_visible
+  let v_next_steps = new Vue({
+    el: '#next-steps',
+    data: g_data.next_steps,
+    methods: {
+      visibility_changed (is_visible) {
+        g_data.next_steps.show_floating_btn = !is_visible
+      }
     }
-  }
-})
+  })
+}
 
 // ///////////////////////////// MAIN ////////////////////////
 
+init_data()
+init_v_apps()
 parse_qs('verify-pkh')

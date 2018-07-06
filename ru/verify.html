@@ -150,7 +150,7 @@
             </div>
 
             <!-- if has delegated -->
-            <div id="verify-delegate-box" v-if="show" v-cloak="">
+            <div id="verify-delegate-box" v-if="show &amp;&amp; has_delegated" v-cloak="">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
                 <div class="formresult-cols">
@@ -162,6 +162,35 @@
                     <p class="bigdata">{{ delegated_amount }} XTZ</p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <!-- if not delegated -->
+            <div id="verify-warning-missing-dlgt-box" v-if="show &amp;&amp; !has_delegated" v-cloak="">
+              <div class="formresult">
+                <p class="warning">
+                  <svg class="alert-icon">
+                    <use href="/images/svgdefs.svg#icon-alert" />
+                  </svg>
+                  <span data-id="verify_result_warning_missing_dlgt_short">You haven&apos;t delegated TzLibre</span>
+                </p>
+                <p data-id="verify_result_warning_missing_dlgt">To receive TZL airdrops you must
+                  <a href="/delegate.html">delegate TzLibre</a>.</p>
+              </div>
+            </div>
+
+            <!-- if partially delegated -->
+            <div id="verify-warning-partial-dlgt-box" v-if="show &amp;&amp; has_delegated &amp;&amp; partial_delegation" v-cloak="">
+              <div class="formresult">
+                <p class="warning">
+                  <svg class="alert-icon">
+                    <use href="/images/svgdefs.svg#icon-alert" />
+                  </svg>
+                  <span data-id="verify_result_warning_partial_dlgt_short">You delegated less than your whitelisted amount</span>
+                </p>
+                <p data-id="verify_result_warning_partial_dlgt">TZL airdrops are directly proportional to delegated quantity.
+                  <b>To receive your full airdrops you must delegate {{ whitelisted_amount }} XTZ.</b>
+                </p>
               </div>
             </div>
 
@@ -251,10 +280,10 @@
             </div>
 
             <!-- if claimed (and signed) -->
-            <div v-if="claimed &amp;&amp; !has_delegated &amp;&amp; !opt2">
+            <div v-if="claimed &amp;&amp; !has_delegated">
               <div class="nextstepslist">
 
-                <div>
+                <div v-if="!opt2">
                   <p data-id="nextstep_getairdrops">Learn how to get your airdrops</p>
                   <p v-if="opt1">
                     <a href="https://t.me/joinchat/G9-DflMeFgwZSwDI5V-Vew" target="_blank" class="btn">
