@@ -94,6 +94,10 @@ function get_lang_prefix () {
   return lang_prefix
 }
 
+function decapitalize (str) {
+  return str.slice(0, 1).toLowerCase().concat(str.slice(1))
+}
+
 // ///////////////////////////// RESET DATA ////////////////////////
 
 function reset () {

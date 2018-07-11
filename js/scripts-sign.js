@@ -53,12 +53,24 @@ function sign () {
   reset()
   start_loading()
 
-  let data = {
-    tzl_pkh: document.getElementById('sign-pkh').value.trim(),
-    eth_addr: document.getElementById('sign-eth-addr').value.trim(),
-    tzl_pk: document.getElementById('sign-pk').value.trim(),
-    eth_addr_signature: document.getElementById('sign-eth-addr-signature').value.trim()
+  let inputs = {
+    tzl_pkh: document.getElementById('sign-pkh'),
+    eth_addr: document.getElementById('sign-eth-addr'),
+    tzl_pk: document.getElementById('sign-pk'),
+    eth_addr_signature: document.getElementById('sign-eth-addr-signature'),
   }
+
+  let data = {
+    tzl_pkh: decapitalize(inputs.tzl_pkh.value.trim()),
+    eth_addr: decapitalize(inputs.eth_addr.value.trim()),
+    tzl_pk: decapitalize(inputs.tzl_pk.value.trim()),
+    eth_addr_signature: decapitalize(inputs.eth_addr_signature.value.trim())
+  }
+
+  inputs.tzl_pkh.value = data.tzl_pkh
+  inputs.eth_addr.value = data.eth_addr
+  inputs.tzl_pk.value = data.tzl_pk
+  inputs.eth_addr_signature.value = data.eth_addr_signature
 
   get_claim(data.tzl_pkh)
     .then((claim_res) => {

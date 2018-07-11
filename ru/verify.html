@@ -101,13 +101,14 @@
           <div class="row">
             <h4 data-id="verify_sub1_title">What</h4>
             <div class="row-main" data-id="verify_sub1_txt">Enter your
-              <b>Tezos ICO public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim. Please submit <strong>only your Tezos ICO address</strong>.</div>
+              <b>Tezos ICO public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim. Please submit <strong>only your Tezos ICO address as it&apos;s shown on your ICO PDF</strong>.</div>
           </div>
 
           <div class="row">
-            <h4 data-id="verify_sub2_title">How</h4>
-            <div class="row-main" data-id="verify_sub2_txt">To check the current status of your TZL claim please submit your Tezos ICO address (found in your contribution PDF). If you delegated from a different address you still need to submit your ICO address to verify your overall delegation status.
-              Data is updated every 24 hours.</div>
+            <h4 data-id="verify_sub2_title">Already delegated?</h4>
+            <div class="row-main" data-id="verify_sub2_txt">If you delegated from a new, different address you still must submit your <strong>ICO address</strong> to verify your overall delegation status. Delegation data is updated every 24 hours and is also
+              <a href="https://tzlibre.io/delegations.csv"
+                target="_blank">available here (.CSV)</a>.</div>
           </div>
 
           <div class="row">
@@ -164,8 +165,8 @@
             </div>
 
             <!-- if has delegated -->
-            <div id="verify-delegate-box" v-if="show &amp;&amp; has_delegated" v-cloak="">
-              <div class="formresult">
+            <div id="verify-delegate-box" class="formresult" v-if="show &amp;&amp; has_delegated" v-cloak="">
+              <div>
                 <p class="timestamp">{{ timestamp }}</p>
                 <div class="formresult-cols">
                   <div>
@@ -174,6 +175,19 @@
                   <div>
                     <p data-id="verify_result_dlgt_amount">Delegated qty</p>
                     <p class="bigdata">{{ delegated_amount }} XTZ</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="verify-delegation-details" v-for="delegation in augment_delegations(delegations)">
+                <div class="formresult-cols">
+                  <div>
+                    <p><span data-id="verify-delegation-detail-contract">contract:</span>
+                      <a target="_blank" :href="delegation.tzscan_link">{{ delegation.contract }}</a>
+                    </p>
+                  </div>
+                  <div>
+                    <p><span data-id="verify-delegation-detail-amount">amount:</span><span>{{ delegation.amount }} XTZ</span></p>
                   </div>
                 </div>
               </div>
@@ -248,7 +262,7 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, suscipit.</p>
     </div>
 -->
-              <div class="verify-airdrop-details" v-for="airdrop in augment(confirmed(rounds))">
+              <div class="verify-airdrop-details" v-for="airdrop in augment_airdrops(confirmed(rounds))">
                 <p class="timestamp">{{ airdrop.timestamp }}</p>
                 <div class="formresult-cols">
                   <div>
@@ -403,8 +417,19 @@
         </h4>
         <p data-id="modal_notwhitelisted_text">Tezos address not whitelisted. In order to claim TZL you must whitelist your Tezos address first.</p>
         <div class="modal-actions" id="modal-actions-no-wl">
-          <a class="btn modal-action-cancel" data-id="btn_cancel">Cancel</a>
           <a class="btn btn-primary" v-bind:href="whitelist_url" data-id="btn_whitelistit">Whitelist</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-not-claimed">
+        <h4><span data-id="modal_notclaimed_title">Warning</span>
+          <svg class="alert-icon">
+            <use href="/images/svgdefs.svg#icon-alert" />
+          </svg>
+        </h4>
+        <p data-id="modal_notclaimed_text">You must link an Ethereum address in order to receive your TZL tokens. Please claim your TZL.</p>
+        <div class="modal-actions" id="modal-actions-no-claimed">
+          <a class="btn btn-primary" v-bind:href="claim_url" data-id="btn_claim">Claim</a>
         </div>
       </div>
 

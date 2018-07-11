@@ -37,7 +37,9 @@ function whitelist () {
   reset()
   start_loading()
 
-  let pkh = document.getElementById('whitelist-pkh').value
+  let input = document.getElementById('whitelist-pkh')
+  let pkh = decapitalize(input.value.trim())
+  input.value = pkh
   post_whitelist(pkh).then(res => {
     if (!res.ok || !res.hasOwnProperty('pkh') || res.pkh !== pkh) {
       error(res)

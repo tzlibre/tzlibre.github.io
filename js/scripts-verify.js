@@ -1,6 +1,6 @@
 function success_whitelist (wl_json, lang_prefix) {
+  let pkh = document.getElementById('verify-pkh').value.trim()
   if (is_empty(wl_json)) {
-    let pkh = document.getElementById('verify-pkh').value.trim()
     g_data.modal_no_wl.whitelist_url = `/whitelist.html?pkh=${pkh}`
     return -1
   }
@@ -12,6 +12,7 @@ function success_whitelist (wl_json, lang_prefix) {
 
   let amount = parseFloat(wl_json.h_TZL)
 
+  g_data.modal_no_claimed.claim_url = `/claim.html?pkh=${pkh}`
   g_data.whitelist.pkh = wl_json.pkh
   g_data.whitelist.h_TZL = wl_json.h_TZL
   g_data.whitelist.whitelist_time = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
@@ -29,7 +30,7 @@ function success_claim (claim_json, lang_prefix) {
 
   if (claim_json.hasOwnProperty('ok') && !claim_json.ok) {
     error(claim_json)
-    return { claimed: false } // leave handling to error fn
+    return { error: true } // leave handling to error fn
   }
 
   let claimed = true
@@ -40,7 +41,7 @@ function success_claim (claim_json, lang_prefix) {
   let opt2 = !claim_json.opt2 && !claim_json.opt3
 
   g_data.claim.eth_addr = claim_json.eth_addr
-  g_data.claim.eth_addr_confirmed = has_delegated || signed
+  g_data.claim.eth_addr_confirmed = signed // has_delegated || signed
   g_data.claim.timestamp = ts
   g_data.claim.show = true
   g_data.claim.signed = signed
@@ -48,6 +49,7 @@ function success_claim (claim_json, lang_prefix) {
 
   if (has_delegated) {
     g_data.delegate.has_delegated = has_delegated
+    g_data.delegate.delegations = claim_json.delegations
     g_data.delegate.timestamp = moment().format(TIMEFORMAT).toString()
     g_data.delegate.delegated_amount = claim_json.delegated_amount
     g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
@@ -91,15 +93,26 @@ function success ([r_whitelist, r_claim]) {
   if (is_ru()) { lang_prefix = '/ru' }
 
   let whitelisted_amount = success_whitelist(r_whitelist, lang_prefix)
-  let { claimed, has_delegated, signed, opt2 } = success_claim(r_claim, lang_prefix)
+  let {
+    error,
+    claimed,
+    has_delegated,
+    signed,
+    opt2
+  } = success_claim(r_claim, lang_prefix)
 
-  if (whitelisted_amount === -1 && !claimed) {
+  if (whitelisted_amount === -1 && !error && !claimed) {
     showModal('modal-not-whitelisted')
     return
   }
 
-  if (whitelisted_amount === 0 && !claimed) {
+  if (whitelisted_amount === 0 && !error && !claimed) {
     showModal('modal-zero-owner')
+    return
+  }
+
+  if (whitelisted_amount > 0 && !error && !claimed) {
+    showModal('modal-not-claimed')
     return
   }
 
@@ -130,12 +143,19 @@ function confirmed (airdrops) {
   })
 }
 
-function augment (airdrops) {
+function augment_airdrops (airdrops) {
   return airdrops.map(function (airdrop) {
     airdrop.tx_fee_eth = (airdrop.tx_fee * airdrop.eth_tzl_price).toFixed(6)
 
     airdrop.etherscan_link = `https://etherscan.io/tx/${airdrop.txid}`
     return airdrop
+  })
+}
+
+function augment_delegations (delegations) {
+  return delegations.map(function (delegation) {
+    delegation.tzscan_link = `http://tzscan.io/${delegation.contract}`
+    return delegation
   })
 }
 
@@ -160,7 +180,9 @@ function verify () {
   reset()
   start_loading()
 
-  let pkh = document.getElementById('verify-pkh').value
+  let input = document.getElementById('verify-pkh')
+  let pkh = decapitalize(input.value.trim())
+  input.value = pkh
   let p_whitelist = get_whitelist(pkh).then(res => {
     if (res.hasOwnProperty('pkh') && res.pkh !== pkh) {
       error_generic(res)
@@ -209,12 +231,16 @@ let data_init = {
     whitelist_url: ''
   },
 
+  modal_no_claimed: {
+    claim_url: ''
+  },
+
   whitelist: {
     show: false,
     pkh: '',
     h_TZL: '',
     whitelist_time: '',
-    not_claimed: false
+    not_claimed: true
   },
 
   claim: {
@@ -234,6 +260,7 @@ let data_init = {
     has_delegated: false,
     delegated_amount: 0,
     partial_delegation: false,
+    delegations: [],
     whitelisted_amount: 0
   },
 
@@ -270,6 +297,7 @@ let data_init = {
 function init_data () {
   g_data.app = Object.assign({}, data_init.app)
   g_data.modal_no_wl = Object.assign({}, data_init.modal_no_wl)
+  g_data.modal_no_claimed = Object.assign({}, data_init.modal_no_claimed)
   g_data.whitelist = Object.assign({}, data_init.whitelist)
   g_data.claim = Object.assign({}, data_init.claim)
   g_data.delegate = Object.assign({}, data_init.delegate)
@@ -296,6 +324,11 @@ function init_v_apps () {
     data: g_data.modal_no_wl
   })
 
+  let modal_no_claimed = new Vue({
+    el: '#modal-actions-no-claimed',
+    data: g_data.modal_no_claimed
+  })
+
   let v_claim = new Vue({
     el: '#verify-claim-box',
     data: g_data.claim
@@ -308,7 +341,8 @@ function init_v_apps () {
 
   let v_delegate = new Vue({
     el: '#verify-delegate-box',
-    data: g_data.delegate
+    data: g_data.delegate,
+    methods: { augment_delegations}
   })
 
   let v_warning_missing_dlgt = new Vue({
@@ -329,7 +363,7 @@ function init_v_apps () {
   let v_airdrops = new Vue({
     el: '#verify-airdrops-box',
     data: g_data.airdrops,
-    methods: { augment, confirmed }
+    methods: { augment_airdrops, confirmed }
   })
 
   let v_next_steps = new Vue({

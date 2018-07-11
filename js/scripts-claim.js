@@ -45,11 +45,20 @@ function claim () {
   reset()
   start_loading()
 
+  let inputs = {
+    tzl_pkh: document.getElementById('claim-pkh'),
+    eth_addr: document.getElementById('claim-eth-addr'),
+    acc_declaration: document.getElementById('claim-accept-declaration')
+  }
+
   let data = {
-    tzl_pkh: document.getElementById('claim-pkh').value.trim(),
-    eth_addr: document.getElementById('claim-eth-addr').value.trim(),
+    tzl_pkh: decapitalize(inputs.tzl_pkh.value.trim()),
+    eth_addr: decapitalize(document.getElementById('claim-eth-addr').value.trim()),
     acc_declaration: document.getElementById('claim-accept-declaration').checked
   }
+
+  inputs.tzl_pkh.value = data.tzl_pkh
+  inputs.eth_addr.value = data.eth_addr
 
   post_claim(data)
     .then((res) => {
