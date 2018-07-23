@@ -53,6 +53,8 @@ function success_claim (claim_json, lang_prefix) {
     g_data.delegate.timestamp = moment().format(TIMEFORMAT).toString()
     g_data.delegate.delegated_amount = claim_json.delegated_amount
     g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
+    g_data.delegate.accrued_delegations = claim_json.accrued_delegations
+    g_data.delegate.has_accrued_delegations = claim_json.accrued_delegations && claim_json.accrued_delegations.length > 0
   }
   g_data.delegate.show = claimed
 
@@ -159,6 +161,15 @@ function augment_delegations (delegations) {
   })
 }
 
+function augment_accrued_delegations (accrued_delegations) {
+  return accrued_delegations.map(function (acc_del) {
+    let airdrop = airdrops_config[acc_del.batch_id]
+    acc_del.airdrop = airdrop.name
+    acc_del.payout_date = moment(airdrop.payout_date).format(TIMEFORMAT_SHORT).toString()
+    return acc_del
+  })
+}
+
 async function get (url) {
   let response = await fetch(url)
   return response.json()
@@ -261,6 +272,8 @@ let data_init = {
     delegated_amount: 0,
     partial_delegation: false,
     delegations: [],
+    has_accrued_delegations: false,
+    accrued_delegations: [],
     whitelisted_amount: 0
   },
 
@@ -342,7 +355,7 @@ function init_v_apps () {
   let v_delegate = new Vue({
     el: '#verify-delegate-box',
     data: g_data.delegate,
-    methods: { augment_delegations}
+    methods: { augment_delegations }
   })
 
   let v_warning_missing_dlgt = new Vue({
@@ -353,6 +366,12 @@ function init_v_apps () {
   let v_warning_partial_dlgt = new Vue({
     el: '#verify-warning-partial-dlgt-box',
     data: g_data.delegate
+  })
+
+  let v_accrued_delegations = new Vue({
+    el: '#verify-accrued-delegations-box',
+    data: g_data.delegate,
+    methods: { augment_accrued_delegations }
   })
 
   let v_noairdrops = new Vue({

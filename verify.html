@@ -100,21 +100,21 @@
 
           <div class="row">
             <h4 data-id="verify_sub1_title">What</h4>
-            <div class="row-main" data-id="verify_sub1_txt">Enter your
-              <b>Tezos ICO public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim. Please submit <strong>only your Tezos ICO address as it&apos;s shown on your ICO PDF</strong>.</div>
+            <p class="row-main" data-id="verify_sub1_txt">Enter your
+              <b>Tezos ICO public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim. Please submit <strong>only your Tezos ICO address as it&apos;s shown on your ICO PDF</strong>.</p>
           </div>
 
           <div class="row">
             <h4 data-id="verify_sub2_title">Already delegated?</h4>
-            <div class="row-main" data-id="verify_sub2_txt">If you delegated from a new, different address you still must submit your <strong>ICO address</strong> to verify your overall delegation status. Delegation data is updated every 24 hours and is also
+            <p class="row-main" data-id="verify_sub2_txt">If you delegated from a new, different address you still must submit your <strong>ICO address</strong> to verify your overall delegation status. Delegation data is updated every 24 hours and is also
               <a href="https://tzlibre.io/delegations.csv"
-                target="_blank">available here (.CSV)</a>.</div>
+                target="_blank">available here (.CSV)</a>.</p>
           </div>
 
           <div class="row">
             <h4 data-id="verify_sub3_title">Help</h4>
-            <div class="row-main" data-id="verify_sub3_txt">Need help?
-              <a href="/project.html#contacts">Contact us</a>.</div>
+            <p class="row-main" data-id="verify_sub3_txt">Need help?
+              <a href="/project.html#contacts">Contact us</a>.</p>
           </div>
 
           <label for="verify-pkh" data-id="wl_intro">Tezos public key hash (a/k/a Tezos address)</label>
@@ -179,18 +179,25 @@
                 </div>
               </div>
 
-              <div class="verify-delegation-details" v-for="delegation in augment_delegations(delegations)">
-                <div class="formresult-cols">
-                  <div>
-                    <p><span data-id="verify-delegation-detail-contract">contract:</span>
-                      <a target="_blank" :href="delegation.tzscan_link">{{ delegation.contract }}</a>
-                    </p>
-                  </div>
-                  <div>
-                    <p><span data-id="verify-delegation-detail-amount">amount:</span><span>{{ delegation.amount }} XTZ</span></p>
-                  </div>
-                </div>
-              </div>
+              <table class="datatable">
+                <tbody>
+                  <tr>
+                    <th><span data-id="verify-delegation-detail-contract">contract</span></th>
+                    <th><span data-id="verify-delegation-detail-amount">amount</span></th>
+                  </tr>
+                  <tr class="verify-delegation-details" v-for="delegation in augment_delegations(delegations)">
+                    <td>
+                      <p>
+                        <a target="_blank" :href="delegation.tzscan_link">{{ delegation.contract }}</a>
+                      </p>
+                    </td>
+                    <td>
+                      <p><span>{{ delegation.amount }} XTZ</span></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
 
             <!-- if not delegated -->
@@ -214,7 +221,7 @@
                   <svg class="alert-icon">
                     <use href="/images/svgdefs.svg#icon-alert" />
                   </svg>
-                  <span data-id="verify_result_warning_partial_dlgt_short">You delegated less than your whitelisted amount</span>
+                  <span data-id="verify_result_warning_partial_dlgt_short">You are delegating less than your whitelisted amount</span>
                 </p>
                 <p data-id="verify_result_warning_partial_dlgt">TZL airdrops are directly proportional to delegated quantity.
                   <b>To receive your full airdrops you must delegate {{ whitelisted_amount }} XTZ. If you delegated in the last 24h, please come back later.</b>
@@ -242,6 +249,7 @@
 
             <!-- if airdropped -->
             <div class="formresult" id="verify-airdrops-box" v-if="show" v-cloak="">
+
               <div class="formresult-cols">
                 <div>
                   <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
@@ -256,39 +264,83 @@
                   <p class="bigdata">{{ n_airdrops }}</p>
                 </div>
               </div>
-              <!--
-    <div class="verify-airdrop-details verify-airdrop-lost">
-      <p><svg class="alert-icon"><use xlink:href="/images/svgdefs.svg#icon-alert"/></svg> 1st airdrop lost</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, suscipit.</p>
-    </div>
--->
-              <div class="verify-airdrop-details" v-for="airdrop in augment_airdrops(confirmed(rounds))">
-                <p class="timestamp">{{ airdrop.timestamp }}</p>
-                <div class="formresult-cols">
-                  <div>
-                    <p>amount: {{ airdrop.amount }} TZL</p>
-                  </div>
-                  <div>
-                    <p>tx fee: {{ airdrop.tx_fee }} TZL (~{{ airdrop.tx_fee_eth }} ETH)</p>
-                  </div>
-                  <div>
-                    <p>txid:
-                      <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid }}</a>
-                    </p>
+
+              <table class="datatable">
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th><span data-id="verify-delegation-detail-amount">amount</span></th>
+                    <th>TX fee</th>
+                    <th>TX ID</th>
+                  </tr>
+
+                  <!--       <tr class="verify-airdrop-details verify-airdrop-lost">
+        <td colspan="4">
+          <p><svg class="alert-icon"><use xlink:href="/images/svgdefs.svg#icon-alert"/></svg> 1st airdrop lost</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, suscipit.</p>
+        </td>
+      </tr>
+ -->
+                  <tr class="verify-airdrop-details" v-for="airdrop in augment_airdrops(confirmed(rounds))">
+                    <td>
+                      <p class="timestamp">{{ airdrop.timestamp }}</p>
+                    </td>
+                    <td>
+                      <p>{{ airdrop.amount }} TZL</p>
+                    </td>
+                    <td>
+                      <p>{{ airdrop.tx_fee }} TZL (~{{ airdrop.tx_fee_eth }} ETH)</p>
+                    </td>
+                    <td>
+                      <p>
+                        <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid }}</a>
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!--       <tr class="verify-airdrop-details verify-airdrop-future">
+        <td colspan="4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
+          <a class="btn btn-primary">Claim your next airdrop</a>
+        </td>
+      </tr>
+      <tr class="verify-airdrop-details verify-airdrop-future">
+        <td colspan="4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
+          <a class="btn btn-primary btn-selected">Next airdrop claimed</a>
+        </td>
+      </tr>
+ -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- if has accrued delegation -->
+            <div id="verify-accrued-delegations-box" v-if="show &amp;&amp; has_accrued_delegations" v-cloak="">
+              <div class="formresult">
+                <div>
+                  <p data-id-to-be-set="verify-accrued-delegations-title"><strong>Upcoming airdrops</strong></p>
+                </div>
+
+                <div class="verify-delegation-details" v-for="acc_del in augment_accrued_delegations(accrued_delegations)">
+                  <div class="formresult-cols">
+                    <div>
+                      <p><span data-id-to-be-set="verify-accrued-delegations-accrued-amount">Reward:</span><strong>{{ acc_del.accrued_amount }} TZL</strong></p>
+                    </div>
+                    <div>
+                      <p><span data-id-to-be-set="verify-accrued-delegations-airdrop"></span><span>{{ acc_del.airdrop }}</span></p>
+                    </div>
+                    <div>
+                      <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Delegation:</span><span>{{ acc_del.delegated_amount }} XTZ</span></p>
+                    </div>
+                    <div>
+                      <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Payout:</span><span>{{ acc_del.payout_date }}</span></p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!--
-    <div class="verify-airdrop-details verify-airdrop-future">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
-      <a class="btn btn-primary">Claim your next airdrop</a>
-    </div>
-    <div class="verify-airdrop-details verify-airdrop-future">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
-      <a class="btn btn-primary btn-selected">Next airdrop claimed</a>
-    </div>
--->
             </div>
+
           </div>
 
 
@@ -479,6 +531,7 @@
     <script src="/js/vue-observe-visibility.min.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
+    <script src="/js/airdrops-config.js"></script>
     <script src="/js/utils.js"></script>
     <script src="/js/scripts.js"></script>
     <script src="/js/scripts-verify.js"></script>
