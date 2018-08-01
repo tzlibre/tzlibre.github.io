@@ -13,6 +13,20 @@ const airdrops_config = {
     'ID': 'airdrop-03',
     'name': 'Airdrop 3',
     'payout_date': '2018-08-15',
-    'description': 'the third airdrop'
+    'COEFF': 0.09,
+    'BEGIN_TIMESTAMP': '2018-07-13T00:00:00Z',
+    'END_TIMESTAMP': '2018-07-19T23:59:59Z',
+    'BEGIN_BLOCK_LEVEL': 16534,
+    'END_BLOCK_LEVEL': 25773
+  },
+  'airdrop-04': {
+    'ID': 'airdrop-04',
+    'name': 'Airdrop 4',
+    'COEFF': 0.11,
+    'payout_date': '2018-08-22',
+    'BEGIN_TIMESTAMP': '2018-07-20T00:00:00Z',
+    'END_TIMESTAMP': '2018-07-26T23:59:59Z',
+    'BEGIN_BLOCK_LEVEL': 25774,
+    'END_BLOCK_LEVEL': 35709
   }
 }
