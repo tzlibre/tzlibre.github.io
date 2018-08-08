@@ -20,25 +20,57 @@
 
   <body>
 
-    <div class="langswitch">
-      <ul class="content">
-        <li>
-          <button data-lang="en">english</button>
-        </li>
-        <li>
-          <button data-lang="ru">&#x440;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</button>
-        </li>
-        <li>
-          <button data-lang="cn">&#x4E2D;&#x6587;</button>
-        </li>
-        <li class="priceticker">
-          <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
-            <span class="priceticker-block"><span class="priceticker-lbl">1 TZL =</span><span class="priceticker-value" id="priceTickerValue">0 USD</span></span>
-            <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl" data-id="marketcap">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
-            <span class="priceticker-block"><span class="priceticker-arrow">&gt;</span></span>
-          </a>
-        </li>
-      </ul>
+    <div class="topbar">
+      <div class="content">
+
+        <div id="infobar" class="infobar">
+          <div>
+            <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+              <span class="infobar-block">
+            <span class="infobar-lbl">1 TZL =</span>
+              <span class="infobar-value">{{price_usd}}</span> <span>USD</span> <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
+
+              <span class="infobar-block hideOnMobile">
+            <span class="infobar-lbl" data-id="marketcap">market cap</span>
+              <span class="infobar-value" id="marketCapValue">N/A</span>
+              </span>
+            </a>
+          </div>
+          <div>
+            <a href="http://tzscan.io/tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp#" target="_blank">
+              <span class="infobar-block">
+            <span class="infobar-lbl">Delegations</span>
+              <span class="infobar-value">{{delegations}}</span> <span>XTZ</span>
+              </span>
+            </a>
+          </div>
+          <!-- <div>
+           <a href="">
+           <span class="infobar-block">
+           <span class="infobar-lbl">Deposits</span>
+           <span class="infobar-value">{{deposits}}</span> <span>XTZ</span>
+           </span>
+           <span class="infobar-block hideOnMobile">
+           <span class="infobar-lbl">Collateral.</span>
+           <span class="infobar-value">{{collateralization}}</span>
+           </span>
+           </a>
+           </div> -->
+        </div>
+
+        <ul class="langswitch">
+          <li>
+            <button data-lang="en">en</button>
+          </li>
+          <li>
+            <button data-lang="ru">&#x440;&#x443;</button>
+          </li>
+          <li>
+            <button data-lang="cn">&#x4E2D;&#x6587;</button>
+          </li>
+        </ul>
+
+      </div>
     </div>
 
 
@@ -292,11 +324,11 @@ I request that any third-party product developed with Tezos Stiftung funding sha
     </div>
 
     <script src="/js/vue.min.js"></script>
-    <!-- <script src="/js/vue.js"></script> -->
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>
     <script src="/js/scripts.js"></script>
+    <script src="/js/scripts-infobar.js"></script>
     <script src="/js/scripts-claim.js"></script>
 
 

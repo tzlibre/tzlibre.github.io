@@ -22,25 +22,57 @@
 
     <div class="cover">
 
-      <div class="langswitch">
-        <ul class="content">
-          <li>
-            <button data-lang="en">english</button>
-          </li>
-          <li>
-            <button data-lang="ru">&#x440;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;</button>
-          </li>
-          <li>
-            <button data-lang="cn">&#x4E2D;&#x6587;</button>
-          </li>
-          <li class="priceticker">
-            <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
-              <span class="priceticker-block"><span class="priceticker-lbl">1 TZL =</span><span class="priceticker-value" id="priceTickerValue">0 USD</span></span>
-              <span class="priceticker-block hideOnMobile"><span class="priceticker-lbl" data-id="marketcap">market cap</span><span class="priceticker-value" id="marketCapValue">N/A</span></span>
-              <span class="priceticker-block"><span class="priceticker-arrow">&gt;</span></span>
-            </a>
-          </li>
-        </ul>
+      <div class="topbar">
+        <div class="content">
+
+          <div id="infobar" class="infobar">
+            <div>
+              <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+                <span class="infobar-block">
+            <span class="infobar-lbl">1 TZL =</span>
+                <span class="infobar-value">{{price_usd}}</span> <span>USD</span> <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
+
+                <span class="infobar-block hideOnMobile">
+            <span class="infobar-lbl" data-id="marketcap">market cap</span>
+                <span class="infobar-value" id="marketCapValue">N/A</span>
+                </span>
+              </a>
+            </div>
+            <div>
+              <a href="http://tzscan.io/tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp#" target="_blank">
+                <span class="infobar-block">
+            <span class="infobar-lbl">Delegations</span>
+                <span class="infobar-value">{{delegations}}</span> <span>XTZ</span>
+                </span>
+              </a>
+            </div>
+            <!-- <div>
+           <a href="">
+           <span class="infobar-block">
+           <span class="infobar-lbl">Deposits</span>
+           <span class="infobar-value">{{deposits}}</span> <span>XTZ</span>
+           </span>
+           <span class="infobar-block hideOnMobile">
+           <span class="infobar-lbl">Collateral.</span>
+           <span class="infobar-value">{{collateralization}}</span>
+           </span>
+           </a>
+           </div> -->
+          </div>
+
+          <ul class="langswitch">
+            <li>
+              <button data-lang="en">en</button>
+            </li>
+            <li>
+              <button data-lang="ru">&#x440;&#x443;</button>
+            </li>
+            <li>
+              <button data-lang="cn">&#x4E2D;&#x6587;</button>
+            </li>
+          </ul>
+
+        </div>
       </div>
 
 
@@ -276,6 +308,26 @@
                     <td></td>
                     <td>&#x2714;</td>
                   </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl5">&#x786C;&#x9876;</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl6">&#x4EA4;&#x6613;&#x4E0D;&#x53EF;&#x9006;</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl7">&#x514D;&#x4FE1;&#x4EFB;&#x6CBB;&#x7406;</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl8">&#x62B5;&#x6297;&#x786C;&#x5206;&#x53C9;</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -308,6 +360,31 @@
                     <td data-id="home_sect2_comp_lbl3">Cheap transactions</td>
                     <td></td>
                     <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl4">&#x521B;&#x59CB;&#x56E2;&#x961F;&#x6CA1;&#x6709;&#x514D;&#x8D39;&#x4EE3;&#x5E01;</td>
+                    <td></td>
+                    <td>&#xA0;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl5">&#x786C;&#x9876;</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl6">&#x4EA4;&#x6613;&#x4E0D;&#x53EF;&#x9006;</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl7">&#x514D;&#x4FE1;&#x4EFB;&#x6CBB;&#x7406;</td>
+                    <td>&#x2714;</td>
+                    <td>&#x2714;</td>
+                  </tr>
+                  <tr>
+                    <td data-id="home_sect2_comp_lbl8">&#x62B5;&#x6297;&#x786C;&#x5206;&#x53C9;</td>
+                    <td>&#x2714;</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
@@ -474,8 +551,11 @@
 
     </div>
 
+    <script src="/js/vue.min.js"></script>
     <script src="/js/scripts.js"></script>
+    <script src="/js/scripts-infobar.js"></script>
     <script src="/js/carousel.js"></script>
+
 
 
 
