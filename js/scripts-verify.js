@@ -23,6 +23,14 @@ function success_whitelist (wl_json, lang_prefix) {
   return amount
 }
 
+function filter_already_airdropped (delegations, airdrops) {
+  return delegations.filter(d => {
+    return !airdrops.some(a => {
+      return a.batch_id === d.batch_id
+    })
+  })
+}
+
 function success_claim (claim_json, lang_prefix) {
   if (is_empty(claim_json)) {
     return { claimed: false }
@@ -53,7 +61,7 @@ function success_claim (claim_json, lang_prefix) {
     g_data.delegate.timestamp = moment().format(TIMEFORMAT).toString()
     g_data.delegate.delegated_amount = claim_json.delegated_amount
     g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
-    g_data.delegate.accrued_delegations = claim_json.accrued_delegations
+    g_data.delegate.accrued_delegations = filter_already_airdropped(claim_json.accrued_delegations, claim_json.airdrops)
     g_data.delegate.has_accrued_delegations = claim_json.accrued_delegations && claim_json.accrued_delegations.length > 0
   }
   g_data.delegate.show = claimed
