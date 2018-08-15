@@ -79,8 +79,8 @@ function success_claim (claim_json, lang_prefix) {
   g_data.claim.dispute_url = g_data.next_steps.dispute_url = `${lang_prefix}/sign.html?pkh=${claim_json.tzl_pkh}`
 
   if (claim_json.airdrops && claim_json.airdrops.length) {
-    g_data.airdrops.total_airdropped_amount = claim_json.total_airdropped_amount
-    g_data.airdrops.total_fee = claim_json.total_fee
+    g_data.airdrops.total_airdropped_amount = claim_json.total_airdropped_amount.toFixed(2)
+    g_data.airdrops.total_fee = claim_json.total_fee.toFixed(2)
     g_data.airdrops.n_airdrops = claim_json.n_airdrops
     g_data.airdrops.rounds = claim_json.airdrops
     g_data.airdrops.show = true
@@ -157,7 +157,11 @@ function confirmed (airdrops) {
 
 function augment_airdrops (airdrops) {
   return airdrops.map(function (airdrop) {
-    airdrop.tx_fee_eth = (airdrop.tx_fee * airdrop.eth_tzl_price).toFixed(6)
+    airdrop.ts_to_show = moment(airdrop.timestamp).format('YYYY-MM-DD')
+    airdrop.amount_to_show = airdrop.amount.toFixed(2)
+    airdrop.tx_fee_to_show = airdrop.tx_fee.toFixed(2)
+    airdrop.tx_fee_eth = (airdrop.tx_fee * airdrop.eth_tzl_price).toFixed(4)
+    airdrop.txid_to_show = `${airdrop.txid.substr(0, 6)}...${airdrop.txid.substr(-6)}`
 
     airdrop.etherscan_link = `https://etherscan.io/tx/${airdrop.txid}`
     return airdrop
@@ -174,6 +178,13 @@ function augment_delegations (delegations) {
 function augment_accrued_delegations (accrued_delegations) {
   return accrued_delegations.map(function (acc_del) {
     let airdrop = airdrops_config[acc_del.batch_id]
+    let beg_ts = airdrop.BEGIN_TIMESTAMP
+    let end_ts = airdrop.END_TIMESTAMP
+    let from = beg_ts.substring(0, beg_ts.indexOf('T'))
+    let to = end_ts.substring(0, end_ts.indexOf('T'))
+    acc_del.delegation_period = `${from} -> ${to}`
+    acc_del.accrued_amount_to_show = acc_del.accrued_amount.toFixed(2)
+    acc_del.delegated_amount_to_show = acc_del.delegated_amount.toFixed(2)
     acc_del.airdrop = airdrop.name
     acc_del.payout_date = moment(airdrop.payout_date).format(TIMEFORMAT_SHORT).toString()
     return acc_del

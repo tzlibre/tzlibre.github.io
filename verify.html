@@ -25,7 +25,7 @@
 
         <div id="infobar" class="infobar">
           <div>
-            <a href="https://forkdelta.github.io/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
               <span class="infobar-block">
             <span class="infobar-lbl">1 TZL =</span>
               <span class="infobar-value">{{price_usd}}</span> <span>USD</span> <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
@@ -315,17 +315,17 @@
  -->
                   <tr class="verify-airdrop-details" v-for="airdrop in augment_airdrops(confirmed(rounds))">
                     <td>
-                      <p class="timestamp">{{ airdrop.timestamp }}</p>
+                      <p class="timestamp">{{ airdrop.ts_to_show }}</p>
                     </td>
                     <td>
-                      <p>{{ airdrop.amount }} TZL</p>
+                      <p>{{ airdrop.amount_to_show }} TZL</p>
                     </td>
                     <td>
-                      <p>{{ airdrop.tx_fee }} TZL (~{{ airdrop.tx_fee_eth }} ETH)</p>
+                      <p>{{ airdrop.tx_fee_to_show }} TZL (~{{ airdrop.tx_fee_eth }} ETH)</p>
                     </td>
                     <td>
                       <p>
-                        <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid }}</a>
+                        <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid_to_show }}</a>
                       </p>
                     </td>
                   </tr>
@@ -354,22 +354,55 @@
                   <p data-id-to-be-set="verify-accrued-delegations-title"><strong>Upcoming airdrops</strong></p>
                 </div>
 
-                <div class="verify-delegation-details" v-for="acc_del in augment_accrued_delegations(accrued_delegations)">
-                  <div class="formresult-cols">
-                    <div>
-                      <p><span data-id-to-be-set="verify-accrued-delegations-accrued-amount">Reward:</span><strong>{{ acc_del.accrued_amount }} TZL</strong></p>
-                    </div>
-                    <div>
-                      <p><span data-id-to-be-set="verify-accrued-delegations-airdrop"></span><span>{{ acc_del.airdrop }}</span></p>
-                    </div>
-                    <div>
-                      <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Delegation:</span><span>{{ acc_del.delegated_amount }} XTZ</span></p>
-                    </div>
-                    <div>
-                      <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Payout:</span><span>{{ acc_del.payout_date }}</span></p>
-                    </div>
-                  </div>
-                </div>
+
+                <table class="datatable">
+                  <tbody>
+                    <tr>
+                      <th>Reward Amount</th>
+                      <th>Airdrop</th>
+                      <th>Delegated Amount</th>
+                      <th>Delegation Period</th>
+                      <th>Payout Day</th>
+                    </tr>
+
+                    <tr class="verify-delegation-details" v-for="acc_del in augment_accrued_delegations(accrued_delegations)">
+                      <td>
+                        <p><strong>{{ acc_del.accrued_amount_to_show }} TZL</strong></p>
+                      </td>
+                      <td>
+                        <p><span>{{ acc_del.airdrop }}</span></p>
+                      </td>
+                      <td>
+                        <p><span>{{ acc_del.delegated_amount }} XTZ</span></p>
+                      </td>
+                      <td>
+                        <p class="timestamp"><span>{{acc_del.delegation_period }}</span></p>
+                      </td>
+                      <td>
+                        <p><span>{{ acc_del.payout_date }}</span></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- <div class="verify-delegation-details" v-for="acc_del in augment_accrued_delegations(accrued_delegations)">
+           <div class="formresult-cols">
+           <div>
+           <p><span data-id-to-be-set="verify-accrued-delegations-accrued-amount">Reward:</span><strong>{{ acc_del.accrued_amount }} TZL</strong></p>
+           </div>
+           <div>
+           <p><span data-id-to-be-set="verify-accrued-delegations-airdrop"></span><span>{{ acc_del.airdrop }}</span></p>
+           </div>
+           <div>
+           <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Delegation:</span><span>{{ acc_del.delegated_amount }} XTZ</span></p>
+           </div>
+           <div>
+           <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Payout:</span><span>{{ acc_del.payout_date }}</span></p>
+           </div>
+           </div>
+           </div> -->
+
+
               </div>
             </div>
 
