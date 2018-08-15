@@ -24,6 +24,8 @@ function success_whitelist (wl_json, lang_prefix) {
 }
 
 function filter_already_airdropped (delegations, airdrops) {
+  delegations = delegations || []
+  airdrops = airdrops || []
   return delegations.filter(d => {
     return !airdrops.some(a => {
       return a.batch_id === d.batch_id
