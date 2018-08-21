@@ -43,7 +43,7 @@ const airdrops_config = {
     "ID": "airdrop-06",
     "name": "SIXTH AIRDROP",
     "description": "the sixth airdrop is given in change for delegation",
-    "COEFF": 0.01452,
+    "COEFF": 0.1452,
     "BEGIN_TIMESTAMP": "2018-08-03T00:00:00Z",
     "END_TIMESTAMP": "2018-08-16T23:59:59Z",
     "BEGIN_BLOCK_LEVEL": 45321,
