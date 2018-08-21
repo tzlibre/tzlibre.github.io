@@ -38,5 +38,15 @@ const airdrops_config = {
     'END_TIMESTAMP': '2018-08-02T23:59:59Z',
     'BEGIN_BLOCK_LEVEL': 35710,
     'END_BLOCK_LEVEL': 45320
+  },
+  {
+    "ID": "airdrop-06",
+    "name": "SIXTH AIRDROP",
+    "description": "the sixth airdrop is given in change for delegation",
+    "COEFF": 0.01452,
+    "BEGIN_TIMESTAMP": "2018-08-03T00:00:00Z",
+    "END_TIMESTAMP": "2018-08-16T23:59:59Z",
+    "BEGIN_BLOCK_LEVEL": 45321,
+    "END_BLOCK_LEVEL": 63964
   }
 }
