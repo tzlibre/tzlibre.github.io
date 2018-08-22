@@ -39,7 +39,7 @@ const airdrops_config = {
     'BEGIN_BLOCK_LEVEL': 35710,
     'END_BLOCK_LEVEL': 45320
   },
-  {
+  'airdrop-06': {
     "ID": "airdrop-06",
     "name": "SIXTH AIRDROP",
     "description": "the sixth airdrop is given in change for delegation",
