@@ -43,7 +43,7 @@ const airdrops_config = {
     "ID": "airdrop-06",
     "name": "Airdrop 6",
     "COEFF": 0.1452,
-    'payout_date': '2018-09-02',
+    'payout_date': '2018-09-12',
     "BEGIN_TIMESTAMP": "2018-08-03T00:00:00Z",
     "END_TIMESTAMP": "2018-08-16T23:59:59Z",
     "BEGIN_BLOCK_LEVEL": 45321,
