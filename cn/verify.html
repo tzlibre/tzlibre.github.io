@@ -128,19 +128,17 @@
 
         <div class="block">
 
-          <h3 data-id="verify_page_title">Verify your Tezos ICO address</h3>
+          <h3 data-id="verify_page_title">Verify your Tezos address</h3>
 
           <div class="row">
             <h4 data-id="verify_sub1_title">What</h4>
-            <p class="row-main" data-id="verify_sub1_txt">Enter your
-              <b>Tezos ICO public key hash (a/k/a Tezos address)</b> to verify the status of your TZL claim. Please submit <strong>only your Tezos ICO address as it&apos;s shown on your ICO PDF</strong>.</p>
+            <p class="row-main" data-id="verify_sub1_txt">Enter your XTZ address to verify the status of your TZL claim. You can submit any valid XTZ address..</p>
           </div>
 
           <div class="row">
             <h4 data-id="verify_sub2_title">Already delegated?</h4>
-            <p class="row-main" data-id="verify_sub2_txt">If you delegated from a new, different address you still must submit your <strong>ICO address</strong> to verify your overall delegation status. Delegation data is updated every 24 hours and is also
-              <a href="https://tzlibre.io/delegations.csv"
-                target="_blank">available here (.CSV)</a>.</p>
+            <p class="row-main" data-id="verify_sub2_txt">Submit your address to check your delegation status. Delegation data is updated every 24 hours and is also
+              <a href="https://tzlibre.io/delegations.csv" target="_blank">available here (.CSV)</a>.</p>
           </div>
 
           <div class="row">
@@ -149,7 +147,7 @@
               <a href="/project.html#contacts">Contact us</a>.</p>
           </div>
 
-          <label for="verify-pkh" data-id="wl_intro">Tezos public key hash (a/k/a Tezos address)</label>
+          <label for="verify-pkh" data-id="wl_intro">Tezos address (a/k/a public key hash)</label>
           <form action="Javascript:verify()" class="singlerowform" id="verify-form">
             <input type="text" placeholder="tz1..." id="verify-pkh" required>
             <input type="submit" value="Verify" data-id="verify_button" id="verify-submit" v-bind:class="{ loading: loading }" :disabled="loading">
@@ -532,7 +530,7 @@
             <use href="/images/svgdefs.svg#icon-alert" />
           </svg>
         </h4>
-        <p data-id="modal_notwhitelisted_text">Tezos address not whitelisted. In order to claim TZL you must whitelist your Tezos address first.</p>
+        <p data-id="modal_notwhitelisted_text">Tezos address not found. Make sure this Tezos address is currently delegating TzLibre. If you delegated in the last 24h, please check again in 24h.</p>
         <div class="modal-actions" id="modal-actions-no-wl">
           <a class="btn btn-primary" v-bind:href="whitelist_url" data-id="btn_whitelistit">Whitelist</a>
         </div>
@@ -591,7 +589,8 @@
 
     </div>
 
-    <script src="/js/vue.min.js"></script>
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
     <script src="/js/vue-observe-visibility.min.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>

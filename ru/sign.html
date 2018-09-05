@@ -158,7 +158,7 @@
 
           <form action="Javascript:sign()" class="" id="sign-form">
 
-            <label for="sign-pkh" data-id="wl_intro">Tezos public key hash (a/k/a Tezos address)</label>
+            <label for="sign-pkh" data-id="wl_intro">Tezos address (a/k/a public key hash)</label>
             <input type="text" placeholder="tz1..." id="sign-pkh" required>
             <label for="sign-eth-addr" data-id="eth_address">Current Ethereum address</label>
             <input type="text" placeholder="0x..." id="sign-eth-addr" required>
@@ -191,7 +191,7 @@
 
                 <div>
                   <p data-id="sign_nextstep">Track TZL airdrops and meet other TZL traders</p>
-                  <a v-bind:href="verify_url" class="btn"><span data-id="verify_page_title">Verify your Tezos ICO address</span></a>
+                  <a v-bind:href="verify_url" class="btn"><span data-id="verify_page_title">Verify your Tezos address</span></a>
                 </div>
 
               </div>
@@ -322,7 +322,8 @@
 
     </div>
 
-    <script src="/js/vue.min.js"></script>
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>

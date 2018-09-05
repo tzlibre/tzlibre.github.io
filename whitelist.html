@@ -155,7 +155,7 @@
             </div>
           </div>
 
-          <label for="tzaddress-whitelist" data-id="wl_intro">Tezos public key hash (a/k/a Tezos address)</label>
+          <label for="tzaddress-whitelist" data-id="wl_intro">Tezos address (a/k/a public key hash)</label>
           <form action="Javascript:whitelist()" class="singlerowform" id="whitelist-form">
             <input type="text" placeholder="tz1..." id="whitelist-pkh" required>
             <input type="submit" value="Add to whitelist" id="submitWhitelistBtn" data-id="wl_button" v-bind:class="{ loading: loading }" :disabled="loading">
@@ -289,7 +289,8 @@
 
     </div>
 
-    <script src="/js/vue.min.js"></script>
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
     <script src="/js/utils.js"></script>
