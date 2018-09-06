@@ -94,14 +94,10 @@
       <label for="collapsible">MENU</label>
       <div class="content">
         <ul class="nav-primary-main">
-          <li class="{{ nav3_class }}">
-            <a href="whitelist.html" data-id="wl_title">1. Whitelist</a>
-          </li>
-          <li class="{{ nav4_class }}">
-            <a href="claim.html" data-id="split_title">2. Claim</a>
-          </li>
+          <!--li class="{{ nav3_class }}"><a href="whitelist.html" data-id="wl_title"></a></li>
+      <li class="{{ nav4_class }}"><a href="claim.html" data-id="split_title"></a></li-->
           <li class="{{ nav5_class }}">
-            <a href="delegate.html" data-id="dlgt_title">3. Delegate</a>
+            <a href="delegate.html" data-id="dlgt_title">Get TZL</a>
           </li>
           <li class="selected">
             <a href="verify.html" data-id="verify_title">Verify</a>
@@ -524,16 +520,17 @@
     <!-- Templates for modals-->
     <div class="cloak" id="modal-cloak">
 
-      <div class="modal" id="modal-not-whitelisted">
-        <h4><span data-id="modal_notwhitelisted_title">Notice</span>
+      <div class="modal" id="modal-not-found">
+        <h4><span data-id="modal_notfound_title">Notice</span>
           <svg class="alert-icon">
             <use href="/images/svgdefs.svg#icon-alert" />
           </svg>
         </h4>
-        <p data-id="modal_notwhitelisted_text">Tezos address not found. Make sure this Tezos address is currently delegating TzLibre. If you delegated in the last 24h, please check again in 24h.</p>
-        <div class="modal-actions" id="modal-actions-no-wl">
-          <a class="btn btn-primary" v-bind:href="whitelist_url" data-id="btn_whitelistit">Whitelist</a>
-        </div>
+        <p data-id="modal_notfound_text">Tezos address not found. Make sure this Tezos address is currently
+          <a href="/delegate.html">delegating TzLibre</a>. If you delegated in the last 24h, please check again in 24h.</p>
+        <!--div class="modal-actions" id="modal-actions-no-wl">
+        <a class="btn btn-primary" v-bind:href="whitelist_url" data-id="btn_whitelistit"></a>
+    </div-->
       </div>
 
       <div class="modal" id="modal-not-claimed">

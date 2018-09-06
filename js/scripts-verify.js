@@ -114,7 +114,7 @@ function success ([r_whitelist, r_claim]) {
   } = success_claim(r_claim, lang_prefix)
 
   if (whitelisted_amount === -1 && !error && !claimed) {
-    showModal('modal-not-whitelisted')
+    showModal('modal-not-found')
     return
   }
 
