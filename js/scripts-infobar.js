@@ -32,6 +32,8 @@ async function updateTicker () {
   }
 
   let delegations = numberWithCommas(res.delegations.toFixed(2))
+  let deposits = numberWithCommas(res.bond_bank.deposits.toFixed(2))
+  let collateralization = (res.bond_bank.collateral / 100).toFixed(2)
 
   // Update Market Cap
   // var hardcap = 763306929.68,
@@ -47,6 +49,8 @@ async function updateTicker () {
   ticker.price_variation_value = price_variation_value
   ticker.price_variation_class = price_variation_class
   ticker.delegations = delegations
+  ticker.deposits = deposits
+  ticker.collateralization = collateralization
 }
 
 // ///////////////////////////// GLOBALS ////////////////////////
@@ -60,7 +64,9 @@ function init_data () {
     price_usd: '0',
     price_variation_value: '0',
     price_variation_class: 'variation-positive',
-    delegations: '0'
+    delegations: '0',
+    deposits: '0',
+    collateralization: '100'
   }
 }
 

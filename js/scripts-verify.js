@@ -1,7 +1,6 @@
 function success_whitelist (wl_json, lang_prefix) {
   let pkh = document.getElementById('verify-pkh').value.trim()
   if (is_empty(wl_json)) {
-    g_data.modal_no_wl.whitelist_url = `/whitelist.html?pkh=${pkh}`
     return -1
   }
 
@@ -52,6 +51,7 @@ function success_claim (claim_json, lang_prefix) {
 
   g_data.claim.eth_addr = claim_json.eth_addr
   g_data.claim.eth_addr_confirmed = signed // has_delegated || signed
+  g_data.claim.eth_no_addr = claim_json.eth_addr === '0x0000000000000000000000000000000000000000'
   g_data.claim.timestamp = ts
   g_data.claim.show = true
   g_data.claim.signed = signed
@@ -213,7 +213,10 @@ function verify () {
   start_loading()
 
   let input = document.getElementById('verify-pkh')
-  let pkh = decapitalize(input.value.trim())
+  let pkh = input.value.trim()
+  if (pkh.startsWith('T')) {
+    pkh = decapitalize(pkh)
+  }
   input.value = pkh
   let p_whitelist = get_whitelist(pkh).then(res => {
     if (res.hasOwnProperty('pkh') && res.pkh !== pkh) {
@@ -244,7 +247,7 @@ function verify () {
 
 let g_data = {
   app: {},
-  modal_no_wl: {},
+  modal_not_found: {},
   whitelist: {},
   claim: {},
   delegate: {},
@@ -259,7 +262,7 @@ let data_init = {
     error_handled: false
   },
 
-  modal_no_wl: {
+  modal_not_found: {
     whitelist_url: ''
   },
 
@@ -279,6 +282,7 @@ let data_init = {
     show: false,
     eth_addr: '',
     eth_addr_confirmed: false,
+    eth_no_addr: false,
     timestamp: '',
     signed: false,
     sign_ts: '',
@@ -330,7 +334,7 @@ let data_init = {
 
 function init_data () {
   g_data.app = Object.assign({}, data_init.app)
-  g_data.modal_no_wl = Object.assign({}, data_init.modal_no_wl)
+  g_data.modal_not_found = Object.assign({}, data_init.modal_not_found)
   g_data.modal_no_claimed = Object.assign({}, data_init.modal_no_claimed)
   g_data.whitelist = Object.assign({}, data_init.whitelist)
   g_data.claim = Object.assign({}, data_init.claim)
@@ -353,9 +357,9 @@ function init_v_apps () {
     data: g_data.whitelist
   })
 
-  let modal_no_wl = new Vue({
-    el: '#modal-actions-no-wl',
-    data: g_data.modal_no_wl
+  let modal_not_found = new Vue({
+    el: '#modal-not-found',
+    data: g_data.modal_not_found
   })
 
   let modal_no_claimed = new Vue({
@@ -370,6 +374,11 @@ function init_v_apps () {
 
   let v_sign = new Vue({
     el: '#verify-sign-box',
+    data: g_data.claim
+  })
+
+  let v_warning_not_eth_addr = new Vue({
+    el: '#verify-warning-not-eth-addr',
     data: g_data.claim
   })
 
