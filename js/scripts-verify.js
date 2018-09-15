@@ -225,7 +225,9 @@ function verify () {
     return res
   })
   let p_claim = get_claim(pkh).then(res => {
-    if (res.hasOwnProperty('tzl_pkh') && res.tzl_pkh !== pkh) {
+    if (res.hasOwnProperty('tzl_pkh') &&
+        !pkh.startsWith('KT1') &&
+        res.tzl_pkh !== pkh) {
       error_generic(res)
     }
     return res
