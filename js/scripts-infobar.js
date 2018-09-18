@@ -33,7 +33,7 @@ async function updateTicker () {
 
   let delegations = numberWithCommas(res.delegations.toFixed(2))
   let deposits = numberWithCommas(res.bond_bank.deposits.toFixed(2))
-  let collateralization = (res.bond_bank.collateral / 100).toFixed(2)
+  let collateralization = (res.bond_bank.collateral * 100).toFixed(2)
 
   // Update Market Cap
   // var hardcap = 763306929.68,
