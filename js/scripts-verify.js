@@ -44,6 +44,7 @@ function success_claim (claim_json, lang_prefix) {
 
   let claimed = true
   let has_delegated = !!claim_json.has_delegated
+  let has_accrued_delegations = claim_json.accrued_delegations && claim_json.accrued_delegations.length > 0
   let signed = !!claim_json.valid_proof
   let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
@@ -63,9 +64,13 @@ function success_claim (claim_json, lang_prefix) {
     g_data.delegate.timestamp = moment().format(TIMEFORMAT).toString()
     g_data.delegate.delegated_amount = claim_json.delegated_amount
     g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
-    g_data.delegate.accrued_delegations = filter_already_airdropped(claim_json.accrued_delegations, claim_json.airdrops)
-    g_data.delegate.has_accrued_delegations = claim_json.accrued_delegations && claim_json.accrued_delegations.length > 0
   }
+
+  if (has_accrued_delegations) {
+    g_data.delegate.accrued_delegations = filter_already_airdropped(claim_json.accrued_delegations, claim_json.airdrops)
+    g_data.delegate.has_accrued_delegations = has_accrued_delegations
+  }
+
   g_data.delegate.show = claimed
 
   // next_steps

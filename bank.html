@@ -187,7 +187,7 @@
                 <li>Maximum deposit (per account): n/a</li>
                 <li>Maximum deposits (global): <strong>300,000 XTZ</strong></li>
                 <li>Withdrawal fee: <strong>0.1%</strong></li>
-                <li>Minimum collateralization: <strong>25%</strong></li>
+                <li>Minimum collateral: <strong>25%</strong></li>
               </ul>
               <p></p>
             </div>
@@ -196,7 +196,7 @@
           <div class="row">
             <h4 data-id="bank_sub7_title">RoI</h4>
             <div class="row-main" data-id="bank_sub7_txt">
-              <p>At <strong>5%/month</strong> depositing in the Bond Bank is:</p>
+              <p>With a <strong>5%/month</strong> reward, Bond Bank deposits are:</p>
               <ul>
                 <li><strong>4.4x</strong> more profitable than delegating TzLibre with a standard delegation</li>
                 <li><strong>5.6x</strong> more profitable than the best KYC-Tezos delegate (5% fee)</li>
@@ -208,21 +208,20 @@
           <div class="row">
             <h4 data-id="bank_sub8_title">How it works</h4>
             <div class="row-main" data-id="bank_sub8_txt">
-              <p>The smart contract holds a minimum of 25% of deposited XTZ locked as collateral. It will therefore allow TzLibre to withdraw up to 75% to use XTZ as baking bonds. Depositrs can withdraw their own deposit at any given time. When a depositor
-                withdraws TzLibre subsequently withdraws a corresponding part of its baking bond in order to recollateralize the smart contract.</p>
+              <p>The smart contract holds a minimum 25% of deposits locked as collateral. It allows TzLibre to withdraw up to 75% to use XTZ as baking bonds. Depositors can withdraw their own deposit at any given time. When a depositor withdraws, TzLibre
+                subsequently withdraws an equal amount of its baking bond in order to add collateral to the smart contract.</p>
             </div>
           </div>
 
           <div class="row">
             <h4 data-id="bank_sub9_title">Wallet setup</h4>
             <div class="row-main" data-id="bank_sub9_txt">
-              <p>To successfully interact with the Bond Bank you must use a wallet that enables interaction with smart contracts. There are currently only 2 wallets that allow interaction with smart contracts.</p>
+              <p>You can only use the Bond Bank with a wallet that allows interacting with smart contracts. Currently only two wallets allow that:</p>
               <ul>
-                <li>Advanced users: offical
-                  <a href="http://tezos.gitlab.io/betanet/introduction/howtoget.html" target="_blank">tezos-client</a>
-                </li>
-                <li>Normal users:
-                  <a href="https://librebox.github.io" target="_blank">LibreBox</a>
+                <li>
+                  <a href="http://tezos.gitlab.io/betanet/introduction/howtoget.html" target="_blank">tezos-client</a> (expert users)</li>
+                <li>
+                  <a href="https://librebox.github.io" target="_blank">LibreBox</a> (normal users)
                   <p></p>
                 </li>
               </ul>
@@ -234,8 +233,8 @@
             <div class="row-main" data-id="bank_sub10_txt">
               <p></p>
               <ol>
-                <li>Check you are using a smart contract enabled wallet (see above). If the wallet is not funded yet, move funds from your KT1 (e.g. the address you&apos;re currently delegating TzLibre with) or tz1 address in order to fund it.</li>
-                <li>Deposit your funds: send your funds to the smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span></li>
+                <li>Check you are using a smart contract enabled wallet (see above). If the wallet is not funded yet, move funds from your KT1 address (e.g. the address you&apos;re currently delegating TzLibre with) or tz1 address in order to fund it.</li>
+                <li>Deposit: send your funds to the smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span></li>
                 <li>Check your deposit was successful: your wallet balance will decrease by the deposited amount and you&apos;ll find the deposit in your transaction history</li>
               </ol>
               <p></p>
@@ -276,10 +275,10 @@
           <div class="row">
             <h4 data-id="bank_sub14_title">Current status</h4>
             <div class="row-main" data-id="bank_sub14_txt">
-              <p>A summary of the Bond Bank status (total deposits, collateralization %) is shown in our header bar. For more information about the contract state, open its TzScan page and go to: Code -&gt; Storage -&gt; Michelson storage. You&apos;ll find
-                the whole contract state there, in this order:</p>
+              <p>A summary of the Bond Bank status (total deposits, collateral) is shown in our header bar. For more information about the contract state, open its TzScan page and go to: Code -&gt; Storage -&gt; Michelson storage. You&apos;ll find the whole
+                contract state there, in this order:</p>
               <ul>
-                <li>Constants: max depositors, min deposit*, withdraw fee %*, min collateralization*</li>
+                <li>Constants: max depositors, min deposit*, withdraw fee %*, min collateral*</li>
                 <li>Variables: tot deposited*, tot borrowed*, deposits map (address, balance*), map size. (*fixed point values, multiplied by 10^6 as per Tezos standard)
                   <p></p>
                 </li>
