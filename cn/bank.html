@@ -130,43 +130,43 @@
 
         <div class="block">
 
-          <h3 data-id="bank_page_title_complete">Bond Bank</h3>
+          <h3 data-id="bank_page_title_complete">LibreBank</h3>
 
           <div class="row">
             <h4 data-id="bank_sub1_title">What</h4>
             <div class="row-main" data-id="bank_sub1_txt">
-              <p>Bond Bank is a more efficient way to delegate TzLibre and earn TZL.</p>
+              <p>LibreBank is the 1st Liquidity smart contract for trustless bond pooling. With LibreBank you can earn more TZL compared to traditional delegation.</p>
             </div>
           </div>
 
           <div class="row">
             <h4 data-id="bank_sub2_title">Who</h4>
             <div class="row-main" data-id="bank_sub2_txt">
-              <p>Any XTZ holder can deposit in the Bond Bank and thus earn TZL.</p>
+              <p>Any XTZ holder can deposit in the LibreBank and earn TZL.</p>
             </div>
           </div>
 
           <div class="row">
             <h4 data-id="bank_sub3_title">Why</h4>
             <div class="row-main" data-id="bank_sub3_txt">
-              <p>Delegating via the Bond Bank is more profitable than standard delegation. The Bond Bank helps TzLibre scale its baking operations, which is key to override KYC on KYC-Tezos and to raise seed funding to bootstrap TzLibre.</p>
+              <p>Delegating via LibreBank is more profitable than standard delegation. LibreBank helps TzLibre scale its baking operations, which is key to override KYC on KYC-Tezos and to raise seed funding to bootstrap TzLibre.</p>
             </div>
           </div>
 
           <div class="row">
             <h4 data-id="bank_sub4_title">How</h4>
             <div class="row-main" data-id="bank_sub4_txt">
-              <p>TzLibre Bond Bank is a Liquidity smart contract deployed on the KYC-Tezos network at the address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span>. It allows XTZ holders to deposit and withdraw XTZ at any time.</p>
+              <p>LibreBank is a Liquidity smart contract deployed on the KYC-Tezos network at the address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span>. It allows XTZ holders to deposit and withdraw XTZ at any time.</p>
             </div>
           </div>
 
           <div class="row">
-            <h4 data-id="bank_sub5_title">Current rewards</h4>
+            <h4 data-id="bank_sub5_title">Reward</h4>
             <div class="row-main" data-id="bank_sub5_txt">
               <p></p>
               <ul>
-                <li>Current reward: <strong>5%/month</strong></li>
-                <li>Current TZL price: <strong>0.033 XTZ</strong></li>
+                <li>Current interest: <strong>5%/month</strong></li>
+                <li>Fixed TZL price: <strong>0.033 XTZ</strong></li>
                 <li>Reward currency: TZL</li>
                 <li>Payout schedule: monthly</li>
                 <li>Example reward: Depositing 1000 XTZ will generate <strong>1500 TZL / month</strong></li>
@@ -183,11 +183,12 @@
             <div class="row-main" data-id="bank_sub6_txt">
               <p></p>
               <ul>
-                <li>Minimum deposit (per account): <strong>1000 XTZ</strong></li>
+                <li>Minimum deposit (per account): <strong>1,000 XTZ</strong></li>
                 <li>Maximum deposit (per account): n/a</li>
-                <li>Maximum deposits (global): <strong>300,000 XTZ</strong></li>
+                <li>Maximum deposits (global, October): <strong>500,000 XTZ</strong></li>
+                <li>Deposit fee: <strong>0.10 XTZ</strong></li>
                 <li>Withdrawal fee: <strong>0.1%</strong></li>
-                <li>Minimum collateral: <strong>25%</strong></li>
+                <li>Maximum borrow: <strong>75%</strong></li>
               </ul>
               <p></p>
             </div>
@@ -196,9 +197,9 @@
           <div class="row">
             <h4 data-id="bank_sub7_title">RoI</h4>
             <div class="row-main" data-id="bank_sub7_txt">
-              <p>With a <strong>5%/month</strong> reward, Bond Bank deposits are:</p>
+              <p>With a <strong>5%/month</strong> reward, LibreBank deposits are:</p>
               <ul>
-                <li><strong>4.4x</strong> more profitable than delegating TzLibre with a standard delegation</li>
+                <li><strong>5x</strong> more profitable than delegating TzLibre with a traditional delegation</li>
                 <li><strong>5.6x</strong> more profitable than the best KYC-Tezos delegate (5% fee)</li>
               </ul>
               <p></p>
@@ -208,15 +209,15 @@
           <div class="row">
             <h4 data-id="bank_sub8_title">How it works</h4>
             <div class="row-main" data-id="bank_sub8_txt">
-              <p>The smart contract holds a minimum 25% of deposits locked as collateral. It allows TzLibre to withdraw up to 75% to use XTZ as baking bonds. Depositors can withdraw their own deposit at any given time. When a depositor withdraws, TzLibre
-                subsequently withdraws an equal amount of its baking bond in order to add collateral to the smart contract.</p>
+              <p>The smart contract keeps a minimum collateral by allowing TzLibre to only withdraw up to 75% of deposited funds (this is hardcoded in the smart contract). Thanks to this guarantee depositors can withdraw their own deposit at any given time.
+                When a depositor withdraws, TzLibre subsequently withdraws an equal amount of its baking bond in order to add collateral to the smart contract.</p>
             </div>
           </div>
 
           <div class="row">
             <h4 data-id="bank_sub9_title">Wallet setup</h4>
             <div class="row-main" data-id="bank_sub9_txt">
-              <p>You can only use the Bond Bank with a wallet that allows interacting with smart contracts. Currently only two wallets allow that:</p>
+              <p>You must use a wallet that allows interacting with KYC-Tezos smart contracts. Currently only two wallets allow that:</p>
               <ul>
                 <li>
                   <a href="http://tezos.gitlab.io/betanet/introduction/howtoget.html" target="_blank">tezos-client</a> (expert users)</li>
@@ -233,8 +234,9 @@
             <div class="row-main" data-id="bank_sub10_txt">
               <p></p>
               <ol>
-                <li>Check you are using a smart contract enabled wallet (see above). If the wallet is not funded yet, move funds from your KT1 address (e.g. the address you&apos;re currently delegating TzLibre with) or tz1 address in order to fund it.</li>
-                <li>Deposit: send your funds to the smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span></li>
+                <li>Check you are using a smart contract enabled wallet (see above) and that you have enough balance (minimum 1002 XTZ). If the wallet is not funded, move funds from your KT1 address (e.g. the address you&apos;re currently delegating TzLibre
+                  with) or tz1 address in order to fund it</li>
+                <li>Deposit: send your funds (minimum 1000 XTZ) to the smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span> and always keep some balance (minimum 2 XTZ) inside the wallet</li>
                 <li>Check your deposit was successful: your wallet balance will decrease by the deposited amount and you&apos;ll find the deposit in your transaction history</li>
               </ol>
               <p></p>
@@ -256,8 +258,8 @@
           <div class="row">
             <h4 data-id="bank_sub12_title">More info</h4>
             <div class="row-main" data-id="bank_sub12_txt">
-              <p> The purpose of the Bond Bank is to allow for trustless lending of XTZ to increase TzLibre baking bond. By capping the borrowable amount and by spreading the remaining counterparty risk among multiple depositors, this smart contract allows
-                users to withdraw their own deposit at any time. TzLibre will borrow XTZ from the contract in order to increase its baking bonds. Larger baking bonds allow TzLibre to accept an ever growing number of delegations.</p>
+              <p> The purpose of LibreBank is to allow for trustless lending of XTZ to increase TzLibre baking bond. By capping the borrowable amount and by spreading the remaining counterparty risk among multiple depositors, this smart contract allows users
+                to withdraw their own deposit at any time. TzLibre will borrow XTZ from the contract in order to increase its baking bonds. Larger baking bonds allow TzLibre to accept an ever growing number of delegations.</p>
             </div>
           </div>
 
@@ -265,9 +267,9 @@
             <h4 data-id="bank_sub13_title">Links</h4>
             <div class="row-main" data-id="bank_sub13_txt">
               <p>
-                <a href="https://github.com/tzlibre/bond-bank" target="_blank">Github repo</a>
+                <a href="https://github.com/tzlibre/libre-bank" target="_blank">Github repository</a>
                 <br>
-                <a href=" http://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">TzScan page</a>
+                <a href=" http://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">LibreBank on TzScan</a>
               </p>
             </div>
           </div>
@@ -275,8 +277,8 @@
           <div class="row">
             <h4 data-id="bank_sub14_title">Current status</h4>
             <div class="row-main" data-id="bank_sub14_txt">
-              <p>A summary of the Bond Bank status (total deposits, collateral) is shown in our header bar. For more information about the contract state, open its TzScan page and go to: Code -&gt; Storage -&gt; Michelson storage. You&apos;ll find the whole
-                contract state there, in this order:</p>
+              <p>A summary of LibreBank&apos;s status (total deposits, collateral) is shown in our header bar. For more information about the contract state, open its TzScan page and go to: Code -&gt; Storage -&gt; Michelson storage. You&apos;ll find the
+                whole contract state there, in this order:</p>
               <ul>
                 <li>Constants: max depositors, min deposit*, withdraw fee %*, min collateral*</li>
                 <li>Variables: tot deposited*, tot borrowed*, deposits map (address, balance*), map size. (*fixed point values, multiplied by 10^6 as per Tezos standard)
@@ -287,12 +289,32 @@
           </div>
 
           <div class="row">
-            <h4 data-id="bank_sub15_title">Need help?</h4>
+            <h4 data-id="bank_sub15_title">Verify</h4>
             <div class="row-main" data-id="bank_sub15_txt">
+              <p>We encourage all users to verify our Liquidity source compiles to the deployed contract:</p>
+              <ol>
+                <li>Open the
+                  <a href="https://github.com/tzlibre/libre-bank" target="_blank">Github repository</a>
+                </li>
+                <li>Find the Liquidity source at <span class="inline-code">libre-bank.liq</span></li>
+                <li>Compile it into Michelson (you could use a
+                  <a href=" http://www.liquidity-lang.org/" target="_blank"> web tool</a>)</li>
+                <li>Verify the compiled Michelson code is the same as the Michelson code
+                  <a href=" http://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">deployed on KYC-Tezos</a> (&quot;Code&quot; section on TzScan)
+                  <p></p>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4 data-id="bank_sub16_title">Need help?</h4>
+            <div class="row-main" data-id="bank_sub16_txt">
               <p>
                 <a href="/project.html#contacts">Contact us</a>.</p>
             </div>
           </div>
+
 
         </div>
 

@@ -58,5 +58,15 @@ const airdrops_config = {
     "END_TIMESTAMP": "2018-08-30T23:59:59Z",
     "BEGIN_BLOCK_LEVEL": 63965,
     "END_BLOCK_LEVEL": 83037
+  },
+  'airdrop-08': {
+    "ID": "airdrop-08",
+    "name": "Airdrop 8",
+    "COEFF": 0.25,
+    'payout_date': '2018-10-31',
+    "BEGIN_TIMESTAMP": "2018-08-31T00:00:28Z",
+    "END_TIMESTAMP": "2018-09-30T23:59:10Z",
+    "BEGIN_BLOCK_LEVEL": 83038,
+    "END_BLOCK_LEVEL": 126241
   }
 }
