@@ -44,12 +44,14 @@ function success_claim (claim_json, lang_prefix) {
 
   let claimed = true
   let has_delegated = !!claim_json.has_delegated
-  let has_accrued_delegations = claim_json.accrued_delegations && claim_json.accrued_delegations.length > 0
+  let has_deposited = !!claim_json.has_deposited
+  let has_upcoming_payouts = claim_json.accrued_delegations && claim_json.accrued_delegations.length > 0
   let signed = !!claim_json.valid_proof
   let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
   let opt2 = !claim_json.opt2 && !claim_json.opt3
 
+  g_data.claim.tzl_pkh = claim_json.tzl_pkh
   g_data.claim.eth_addr = claim_json.eth_addr
   g_data.claim.eth_addr_confirmed = signed // has_delegated || signed
   g_data.claim.eth_no_addr = claim_json.eth_addr === '0x0000000000000000000000000000000000000000'
@@ -66,12 +68,22 @@ function success_claim (claim_json, lang_prefix) {
     g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
   }
 
-  if (has_accrued_delegations) {
-    g_data.delegate.accrued_delegations = filter_already_airdropped(claim_json.accrued_delegations, claim_json.airdrops)
-    g_data.delegate.has_accrued_delegations = has_accrued_delegations
+  if (has_deposited) {
+    g_data.deposit.has_deposited = has_deposited
+    g_data.deposit.deposits = claim_json.deposits
+    g_data.deposit.deposited_amount = claim_json.deposited_amount
   }
 
-  g_data.delegate.show = claimed
+  if (has_upcoming_payouts) {
+    let items = filter_already_airdropped(claim_json.accrued_delegations, claim_json.airdrops)
+    let total = items.map(i => i.accrued_amount).reduce((a, b) => a + b)
+    g_data.upcoming_payouts.items = items.map(i => {i.is_accruing = i.is_accruing || false; return i})
+    g_data.upcoming_payouts.total_payout_amount = total.toFixed(2)
+    g_data.upcoming_payouts.has_upcoming_payouts = has_upcoming_payouts
+    g_data.upcoming_payouts.show = has_upcoming_payouts
+  }
+
+  g_data.delegate.show = g_data.deposit.show = claimed
 
   // next_steps
   g_data.next_steps.claimed = claimed
@@ -90,7 +102,7 @@ function success_claim (claim_json, lang_prefix) {
     g_data.airdrops.rounds = claim_json.airdrops
     g_data.airdrops.show = true
   } else {
-    g_data.noairdrops.speedup = claim_json.opt3 && !has_delegated
+    g_data.noairdrops.speedup = claim_json.opt3 && !has_delegated && !has_deposited
     g_data.noairdrops.show = true
   }
 
@@ -162,11 +174,14 @@ function confirmed (airdrops) {
 
 function augment_airdrops (airdrops) {
   return airdrops.map(function (airdrop) {
-    airdrop.ts_to_show = moment(airdrop.timestamp).format('YYYY-MM-DD')
+    let reward = rewards_config[airdrop.batch_id]
+    airdrop.ts_to_show = moment(airdrop.timestamp).format(TIMEFORMAT_SHORT)
     airdrop.amount_to_show = airdrop.amount.toFixed(2)
     airdrop.tx_fee_to_show = airdrop.tx_fee.toFixed(2)
     airdrop.tx_fee_eth = (airdrop.tx_fee * airdrop.eth_tzl_price).toFixed(4)
     airdrop.txid_to_show = `${airdrop.txid.substr(0, 6)}...${airdrop.txid.substr(-6)}`
+    airdrop.for = reward.description
+    airdrop.info_link = reward.info_link
 
     airdrop.etherscan_link = `https://etherscan.io/tx/${airdrop.txid}`
     return airdrop
@@ -180,19 +195,30 @@ function augment_delegations (delegations) {
   })
 }
 
-function augment_accrued_delegations (accrued_delegations) {
-  return accrued_delegations.map(function (acc_del) {
-    let airdrop = airdrops_config[acc_del.batch_id]
-    let beg_ts = airdrop.BEGIN_TIMESTAMP
-    let end_ts = airdrop.END_TIMESTAMP
+function augment_deposits (deposits) {
+  return deposits.map(function (deposit) {
+    deposit.tzscan_link = `http://tzscan.io/${deposit.depositor}`
+    return deposit
+  })
+}
+
+function augment_upcoming_payouts (payouts) {
+  return payouts.map(function (p) {
+    let reward = rewards_config[p.batch_id]
+    let beg_ts = reward.BEGIN_TIMESTAMP
+    let end_ts = reward.END_TIMESTAMP
     let from = beg_ts.substring(0, beg_ts.indexOf('T'))
     let to = end_ts.substring(0, end_ts.indexOf('T'))
-    acc_del.delegation_period = `${from} -> ${to}`
-    acc_del.accrued_amount_to_show = acc_del.accrued_amount.toFixed(2)
-    acc_del.delegated_amount_to_show = acc_del.delegated_amount.toFixed(2)
-    acc_del.airdrop = airdrop.name
-    acc_del.payout_date = moment(airdrop.payout_date).format(TIMEFORMAT_SHORT).toString()
-    return acc_del
+    // p.period = `${from} -> ${to}`
+    p.period_from = from
+    p.period_to = to
+    p.for = reward.description
+    p.info_link = reward.info_link
+    p.reward_amount = p.accrued_amount.toFixed(2)
+    p.expected_amount_to_show = p.expected_amount ? p.expected_amount.toFixed(2) : ''
+    p.amount = p.delegated_amount.toFixed(2)
+    p.payout_date = moment(reward.payout_date).format(TIMEFORMAT_SHORT).toString()
+    return p
   })
 }
 
@@ -258,8 +284,10 @@ let g_data = {
   whitelist: {},
   claim: {},
   delegate: {},
+  deposit: {},
   noairdrops: {},
   airdrops: {},
+  upcoming_payouts: {},
   next_steps: {},
 }
 
@@ -287,6 +315,7 @@ let data_init = {
 
   claim: {
     show: false,
+    tzl_pkh: '',
     eth_addr: '',
     eth_addr_confirmed: false,
     eth_no_addr: false,
@@ -304,9 +333,14 @@ let data_init = {
     delegated_amount: 0,
     partial_delegation: false,
     delegations: [],
-    has_accrued_delegations: false,
-    accrued_delegations: [],
     whitelisted_amount: 0
+  },
+
+  deposit: {
+    show: false,
+    has_deposited: false,
+    deposited_amount: 0,
+    deposits: []
   },
 
   noairdrops: {
@@ -320,6 +354,13 @@ let data_init = {
     total_airdropped_amount: 0,
     total_fee: 0,
     n_airdrops: 0
+  },
+
+  upcoming_payouts: {
+    show: false,
+    has_upcoming_payouts: false,
+    total_payout_amount: 0,
+    items: []
   },
 
   next_steps: {
@@ -346,8 +387,10 @@ function init_data () {
   g_data.whitelist = Object.assign({}, data_init.whitelist)
   g_data.claim = Object.assign({}, data_init.claim)
   g_data.delegate = Object.assign({}, data_init.delegate)
+  g_data.deposit = Object.assign({}, data_init.deposit)
   g_data.noairdrops = Object.assign({}, data_init.noairdrops)
   g_data.airdrops = Object.assign({}, data_init.airdrops)
+  g_data.upcoming_payouts = Object.assign({}, data_init.upcoming_payouts)
   g_data.next_steps = Object.assign({}, data_init.next_steps)
 }
 
@@ -359,28 +402,13 @@ function init_v_apps () {
     data: g_data.app
   })
 
-  let v_whitelist = new Vue({
-    el: '#verify-whitelist-box',
-    data: g_data.whitelist
-  })
-
   let modal_not_found = new Vue({
     el: '#modal-not-found',
     data: g_data.modal_not_found
   })
 
-  let modal_no_claimed = new Vue({
-    el: '#modal-actions-no-claimed',
-    data: g_data.modal_no_claimed
-  })
-
-  let v_claim = new Vue({
-    el: '#verify-claim-box',
-    data: g_data.claim
-  })
-
-  let v_sign = new Vue({
-    el: '#verify-sign-box',
+  let v_account = new Vue({
+    el: '#verify-account-box',
     data: g_data.claim
   })
 
@@ -395,31 +423,22 @@ function init_v_apps () {
     methods: { augment_delegations }
   })
 
-  let v_warning_missing_dlgt = new Vue({
-    el: '#verify-warning-missing-dlgt-box',
-    data: g_data.delegate
-  })
-
-  let v_warning_partial_dlgt = new Vue({
-    el: '#verify-warning-partial-dlgt-box',
-    data: g_data.delegate
-  })
-
-  let v_accrued_delegations = new Vue({
-    el: '#verify-accrued-delegations-box',
-    data: g_data.delegate,
-    methods: { augment_accrued_delegations }
-  })
-
-  let v_noairdrops = new Vue({
-    el: '#verify-noairdrops-box',
-    data: g_data.noairdrops
+  let v_deposit = new Vue({
+    el: '#verify-deposit-box',
+    data: g_data.deposit,
+    methods: { augment_deposits }
   })
 
   let v_airdrops = new Vue({
     el: '#verify-airdrops-box',
     data: g_data.airdrops,
     methods: { augment_airdrops, confirmed }
+  })
+
+  let v_upcoming_payouts = new Vue({
+    el: '#verify-upcoming-payouts-box',
+    data: g_data.upcoming_payouts,
+    methods: { augment_upcoming_payouts }
   })
 
   let v_next_steps = new Vue({

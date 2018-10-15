@@ -151,79 +151,55 @@
 
           <label for="verify-pkh" data-id="wl_intro">Tezos address (a/k/a public key hash)</label>
           <form action="Javascript:verify()" class="singlerowform" id="verify-form">
-            <input type="text" placeholder="tz1... OR KT1..." id="verify-pkh" required>
+            <input type="text" placeholder="tz1 or KT1" id="verify-pkh" required>
             <input type="submit" value="Verify" data-id="verify_button" id="verify-submit" v-bind:class="{ loading: loading }" :disabled="loading">
           </form>
 
           <div id="results">
 
-            <!-- if not whitelisted -->
-            <!-- a modal inform the user to go to the whitelist page -->
+            <div class="formresult" id="verify-account-box" v-if="show" v-cloak="">
+              <div>
+                <p data-id-to-be-set=""><strong>Account</strong></p>
+              </div>
 
-            <!-- if whitelisted and not claimed -->
-            <div id="verify-whitelist-box" v-if="show" v-cloak="">
-              <div class="formresult">
-                <p class="timestamp">{{ whitelist_time }}</p>
-                <div class="formresult-cols">
-                  <div>
-                    <p data-id="verify_result_success">This Tezos address is whitelisted</p>
-                    <p><strong>{{ pkh }}</strong></p>
-                  </div>
-                  <div>
-                    <p v-if="not_claimed" data-id="verify_result_whitelisted">Whitelisted qty</p>
-                    <p v-else="" data-id="verify_result_claimed">Claimed qty</p>
-                    <p class="bigdata">{{ h_TZL }} TZL</p>
-                  </div>
-                </div>
+
+              <br>
+              <div>
+                <p>Your address:</p>
+                <p><span class="inline-code">{{ tzl_pkh }}</span></p>
+              </div>
+
+              <br>
+              <div v-if="!eth_no_addr">
+                <p>
+                  <span v-if="eth_addr_confirmed" class="green">&#x2714;</span>
+                  <span v-else="" class="red">&#x2718;</span>
+                  <span v-if="eth_addr_confirmed">Linked</span>
+                  <span v-else="">Unconfirmed</span>
+                  <span>Ethereum address (to receive TZL airdrops):</span></p>
+                <p><span class="inline-code">{{ eth_addr }}</span></p>
               </div>
             </div>
 
-            <!-- if claimed -->
-            <div id="verify-claim-box" v-if="show" v-cloak="">
-              <div class="formresult">
-                <p class="timestamp">{{ timestamp }}</p>
-                <p data-id="verify_result_split" v-if="eth_addr_confirmed">This is the linked Ethereum address to receive airdrops</p>
-                <p data-id="verify_result_split_uncof_addr" v-else="">This is the linked Ethereum address to receive airdrops <span class="note">(Not your address? <strong><a v-bind:href="dispute_url">Dispute it</a></strong>)</span></p>
-                <p><strong>{{ eth_addr }}</strong></p>
-              </div>
-            </div>
-
-            <!-- if ETH addr not linked -->
-            <div id="verify-warning-not-eth-addr" v-if="show &amp;&amp; eth_no_addr &amp;&amp; !signed" v-cloak="">
+            <!-- if ETH addr not linked (or not signed) -->
+            <div id="verify-warning-not-eth-addr" v-if="show &amp;&amp; (eth_no_addr || !signed)" v-cloak="">
               <div class="formresult">
                 <p class="warning">
                   <svg class="alert-icon">
                     <use href="/images/svgdefs.svg#icon-alert" />
                   </svg>
-                  <span data-id="verify_warning_not_eth_addr_short">You must link an Ethereum address</span>
+                  <span data-id="verify_warning_not_eth_addr_short">You must link your Ethereum address</span>
                 </p>
                 <p data-id="verify_warning_not_eth_addr">In order to receive TZL airdrops you must
-                  <a href="/sign.html">link an Ethereum address</a>.
+                  <a href="/sign.html">link your Ethereum address</a>.
                   <a href="/project.html#contacts">Contact us</a> if you need support.</p>
-              </div>
-            </div>
-
-            <!-- if signed -->
-            <div id="verify-sign-box" v-if="show &amp;&amp; signed" v-cloak="">
-              <div class="formresult">
-                <p class="timestamp">{{ timestamp }}</p>
-                <p data-id="verify_result_sign">A valid proof of ownership has been provided. The TZL claim has been cryptographically signed by the Tezos address owner.</p>
               </div>
             </div>
 
             <!-- if has delegated -->
             <div id="verify-delegate-box" class="formresult" v-if="show &amp;&amp; has_delegated" v-cloak="">
               <div>
-                <p class="timestamp">{{ timestamp }}</p>
-                <div class="formresult-cols">
-                  <div>
-                    <p data-id="verify_result_dlgt">You are currently delegating <strong>TzLibre</strong>.</p>
-                  </div>
-                  <div>
-                    <p data-id="verify_result_dlgt_amount">Delegated qty</p>
-                    <p class="bigdata">{{ delegated_amount }} XTZ</p>
-                  </div>
-                </div>
+                <p data-id-to-be-set=""><strong>Libre Baker delegations</strong></p>
               </div>
 
               <table class="datatable">
@@ -245,58 +221,101 @@
                 </tbody>
               </table>
 
-            </div>
+              <br>
+              <br>
 
-            <!-- if not delegated -->
-            <div id="verify-warning-missing-dlgt-box" v-if="show &amp;&amp; !has_delegated" v-cloak="">
-              <div class="formresult">
-                <p class="warning">
-                  <svg class="alert-icon">
-                    <use href="/images/svgdefs.svg#icon-alert" />
-                  </svg>
-                  <span data-id="verify_result_warning_missing_dlgt_short">You didn&apos;t delegate TzLibre</span>
-                </p>
-                <p data-id="verify_result_warning_missing_dlgt">To receive TZL airdrops you must
-                  <a href="/delegate.html">delegate TzLibre</a>. If you delegated in the last 24h, please come back later.</p>
-              </div>
-            </div>
-
-            <!-- if partially delegated -->
-            <div id="verify-warning-partial-dlgt-box" v-if="show &amp;&amp; has_delegated &amp;&amp; partial_delegation" v-cloak="">
-              <div class="formresult">
-                <p class="warning">
-                  <svg class="alert-icon">
-                    <use href="/images/svgdefs.svg#icon-alert" />
-                  </svg>
-                  <span data-id="verify_result_warning_partial_dlgt_short">You are delegating less than your whitelisted amount</span>
-                </p>
-                <p data-id="verify_result_warning_partial_dlgt">TZL airdrops are directly proportional to delegated quantity.
-                  <b>To receive your full airdrops you must delegate {{ whitelisted_amount }} XTZ. If you delegated in the last 24h, please come back later.</b>
-                </p>
-              </div>
-            </div>
-
-            <!-- if not airdropped -->
-            <div class="formresult" id="verify-noairdrops-box" v-if="show" v-cloak="">
-              <div class="formresult-cols">
+              <div>
                 <div>
-                  <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
-                  <p class="bigdata">0 TZL</p>
-                </div>
-                <div>
-                  <p data-id="verify_result_airdrops">Airdrops</p>
-                  <p><strong data-id="verify_result_noairdrops">No airdrop yet</strong></p>
-                  <p data-id="verify_speedup_1_airdrop" v-if="speedup">Waiting too long?
-                    <br>
-                    <a href="/project.html#contacts">Contact us</a>
-                  </p>
+                  <p data-id="verify_result_dlgt">You are currently delegating <strong>TzLibre</strong> for:</p>
+                  <p class="bigdata">{{ delegated_amount }} XTZ</p>
                 </div>
               </div>
+            </div>
+
+            <!-- if has deposited -->
+            <div id="verify-deposit-box" class="formresult" v-if="show &amp;&amp; has_deposited" v-cloak="">
+              <div>
+                <p data-id-to-be-set=""><strong>Libre Bank deposits</strong></p>
+              </div>
+
+              <table class="datatable">
+                <tbody>
+                  <tr>
+                    <th><span data-id="verify-deposit-detail-depositor">depositor</span></th>
+                    <th><span data-id="verify-deposit-detail-amount">amount</span></th>
+                  </tr>
+                  <tr class="verify-delegation-details" v-for="deposit in augment_deposits(deposits)">
+                    <td>
+                      <p>
+                        <a target="_blank" :href="deposit.tzscan_link">{{ deposit.depositor }}</a>
+                      </p>
+                    </td>
+                    <td>
+                      <p><span>{{ deposit.amount }} XTZ</span></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <br>
+              <br>
+
+              <div>
+                <div>
+                  <p data-id="verify_result_dpst">Total deposited amount:</p>
+                  <p class="bigdata">{{ deposited_amount }} XTZ</p>
+                </div>
+              </div>
+
             </div>
 
             <!-- if airdropped -->
             <div class="formresult" id="verify-airdrops-box" v-if="show" v-cloak="">
+              <div>
+                <p data-id-to-be-set=""><strong>Past payouts</strong></p>
+              </div>
 
+              <table class="datatable">
+                <tbody>
+                  <tr>
+                    <th>Date</th>
+                    <th>For</th>
+                    <th><span data-id="verify-delegation-detail-amount">amount</span></th>
+                    <th>TX fee</th>
+                    <th>TX ID</th>
+                  </tr>
+
+                  <tr class="verify-airdrop-details" v-for="airdrop in augment_airdrops(confirmed(rounds))">
+                    <td>
+                      <p>{{ airdrop.ts_to_show }}</p>
+                    </td>
+                    <td>
+                      <p>
+                        <a target="_blank" :href="airdrop.info_link">{{ airdrop.for }}</a>
+                      </p>
+                    </td>
+                    <td>
+                      <p><strong>{{ airdrop.amount_to_show }} TZL</strong></p>
+                    </td>
+                    <td>
+                      <div class="timestamp">
+                        <p>{{ airdrop.tx_fee_to_show }} TZL</p>
+                        <p>(~{{ airdrop.tx_fee_eth }} ETH)</p>
+                      </div>
+                    </td>
+                    <td>
+                      <p>
+                        <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid_to_show }}</a>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <br>
+              <br>
+
+              <!-- paid rewards summary -->
               <div class="formresult-cols">
                 <div>
                   <p data-id="verify_result_airdropped">The linked Ethereum address received a total of</p>
@@ -307,117 +326,66 @@
                   <p class="bigdata">{{ total_fee }} TZL</p>
                 </div>
                 <div>
-                  <p data-id="verify_result_airdrops">Airdrops</p>
+                  <p data-id="verify_result_airdrops">Payouts</p>
                   <p class="bigdata">{{ n_airdrops }}</p>
                 </div>
+              </div>
+
+            </div>
+
+            <!-- if has upcoming payouts -->
+            <div id="verify-upcoming-payouts-box" class="formresult" v-if="show &amp;&amp; has_upcoming_payouts" v-cloak="">
+              <div>
+                <p data-id-to-be-set=""><strong>Upcoming payouts</strong></p>
               </div>
 
               <table class="datatable">
                 <tbody>
                   <tr>
-                    <th></th>
-                    <th><span data-id="verify-delegation-detail-amount">amount</span></th>
-                    <th>TX fee</th>
-                    <th>TX ID</th>
+                    <th>Date</th>
+                    <th>For</th>
+                    <th>Reward Amount</th>
+                    <th>Timeframe</th>
                   </tr>
 
-                  <!--       <tr class="verify-airdrop-details verify-airdrop-lost">
-        <td colspan="4">
-          <p><svg class="alert-icon"><use xlink:href="/images/svgdefs.svg#icon-alert"/></svg> 1st airdrop lost</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, suscipit.</p>
-        </td>
-      </tr>
- -->
-                  <tr class="verify-airdrop-details" v-for="airdrop in augment_airdrops(confirmed(rounds))">
+                  <tr class="verify-delegation-details" v-for="payout in augment_upcoming_payouts(items)">
                     <td>
-                      <p class="timestamp">{{ airdrop.ts_to_show }}</p>
-                    </td>
-                    <td>
-                      <p>{{ airdrop.amount_to_show }} TZL</p>
-                    </td>
-                    <td>
-                      <p>{{ airdrop.tx_fee_to_show }} TZL (~{{ airdrop.tx_fee_eth }} ETH)</p>
+                      <p>{{ payout.payout_date }}</p>
                     </td>
                     <td>
                       <p>
-                        <a target="_blank" :href="airdrop.etherscan_link">{{ airdrop.txid_to_show }}</a>
+                        <a target="_blank" :href="payout.info_link">{{ payout.for }}</a>
                       </p>
+                    </td>
+                    <td v-if="payout.is_accruing">
+                      <div class="timestamp">
+                        <p>accrued: {{ payout.reward_amount }} TZL</p>
+                        <p>expected: {{ payout.expected_amount_to_show }} TZL</p>
+                      </div>
+                    </td>
+                    <td v-else="">
+                      <p><strong>{{ payout.reward_amount }} TZL</strong></p>
+                    </td>
+                    <td>
+                      <div class="timestamp">
+                        <p>from: {{payout.period_from }}</p>
+                        <p>to: {{payout.period_to }}</p>
+                      </div>
                     </td>
                   </tr>
 
-                  <!--       <tr class="verify-airdrop-details verify-airdrop-future">
-        <td colspan="4">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
-          <a class="btn btn-primary">Claim your next airdrop</a>
-        </td>
-      </tr>
-      <tr class="verify-airdrop-details verify-airdrop-future">
-        <td colspan="4">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, debitis.</p>
-          <a class="btn btn-primary btn-selected">Next airdrop claimed</a>
-        </td>
-      </tr>
- -->
                 </tbody>
               </table>
-            </div>
 
-            <!-- if has accrued delegation -->
-            <div id="verify-accrued-delegations-box" v-if="show &amp;&amp; has_accrued_delegations" v-cloak="">
-              <div class="formresult">
+
+              <br>
+              <br>
+
+              <div>
                 <div>
-                  <p data-id-to-be-set="verify-accrued-delegations-title"><strong>Upcoming airdrops</strong></p>
+                  <p>Total upcoming payouts:</p>
+                  <p class="bigdata">{{ total_payout_amount }} TZL</p>
                 </div>
-
-
-                <table class="datatable">
-                  <tbody>
-                    <tr>
-                      <th>Reward Amount</th>
-                      <th>Airdrop</th>
-                      <th>Delegated Amount</th>
-                      <th>Delegation Period</th>
-                      <th>Payout Day</th>
-                    </tr>
-
-                    <tr class="verify-delegation-details" v-for="acc_del in augment_accrued_delegations(accrued_delegations)">
-                      <td>
-                        <p><strong>{{ acc_del.accrued_amount_to_show }} TZL</strong></p>
-                      </td>
-                      <td>
-                        <p><span>{{ acc_del.airdrop }}</span></p>
-                      </td>
-                      <td>
-                        <p><span>{{ acc_del.delegated_amount }} XTZ</span></p>
-                      </td>
-                      <td>
-                        <p class="timestamp"><span>{{acc_del.delegation_period }}</span></p>
-                      </td>
-                      <td>
-                        <p><span>{{ acc_del.payout_date }}</span></p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <!-- <div class="verify-delegation-details" v-for="acc_del in augment_accrued_delegations(accrued_delegations)">
-           <div class="formresult-cols">
-           <div>
-           <p><span data-id-to-be-set="verify-accrued-delegations-accrued-amount">Reward:</span><strong>{{ acc_del.accrued_amount }} TZL</strong></p>
-           </div>
-           <div>
-           <p><span data-id-to-be-set="verify-accrued-delegations-airdrop"></span><span>{{ acc_del.airdrop }}</span></p>
-           </div>
-           <div>
-           <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Delegation:</span><span>{{ acc_del.delegated_amount }} XTZ</span></p>
-           </div>
-           <div>
-           <p><span data-id-to-be-set="verify-accrued-delegations-delegated-amount">Payout:</span><span>{{ acc_del.payout_date }}</span></p>
-           </div>
-           </div>
-           </div> -->
-
-
               </div>
             </div>
 
@@ -446,7 +414,7 @@
                 <div v-if="!opt2">
                   <p data-id="nextstep_getairdrops">Learn how to get your airdrops</p>
                   <p v-if="opt1">
-                    <a href="https://t.me/joinchat/G9-DflMeFgwZSwDI5V-Vew" target="_blank" class="btn">
+                    <a href="https://t.me/tzlibre_en" target="_blank" class="btn">
                       <svg class="icon">
                         <use href="/images/svgdefs.svg#icon-social-telegram-group" />
                       </svg><span data-id="nextstep_group">TzLibre Airdrops</span></a>
@@ -611,7 +579,7 @@
     <script src="/js/vue-observe-visibility.min.js"></script>
     <script src="/js/moment-with-locales.js"></script>
     <script src="/js/modals.js"></script>
-    <script src="/js/airdrops-config.js"></script>
+    <script src="/js/rewards-config.js"></script>
     <script src="/js/utils.js"></script>
     <script src="/js/scripts.js"></script>
     <script src="/js/scripts-infobar.js"></script>

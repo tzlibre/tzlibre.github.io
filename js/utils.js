@@ -4,7 +4,7 @@ const url_claim = url_root + '/api/v1/split'
 const url_sign = url_root + '/api/v1/split/sign'
 
 const TIMEFORMAT = 'MMMM Do YYYY, h:mm a'
-const TIMEFORMAT_SHORT = 'MMMM Do YYYY'
+const TIMEFORMAT_SHORT = 'MMM Do YYYY'
 const TZL_USD_EXPECTED_PRICE = 1 / 3 // 1 TZL = 0.33333333333333333 USD
 const PAGE = window.location.pathname.match(/\/(.+).html/)[1]
 
