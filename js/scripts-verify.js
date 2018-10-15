@@ -64,7 +64,7 @@ function success_claim (claim_json, lang_prefix) {
     g_data.delegate.has_delegated = has_delegated
     g_data.delegate.delegations = claim_json.delegations
     g_data.delegate.timestamp = moment().format(TIMEFORMAT).toString()
-    g_data.delegate.delegated_amount = claim_json.delegated_amount
+    g_data.delegate.delegated_amount = claim_json.delegated_amount.toFixed(2)
     g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
   }
 
