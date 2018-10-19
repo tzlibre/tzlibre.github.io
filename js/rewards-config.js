@@ -128,6 +128,7 @@ const rewards_config = {
     'info_link': 'https://www.reddit.com/r/tzlibre/comments/9jnhmz/tzlibre_update_24_librebank_librebox_october/',
     'COEFF': 1.50,
     'payout_date': '2018-11-07',
+    'payout_date': '2018-11-07',
     'BEGIN_TIMESTAMP': '2018-08-31T00:00:28Z',
     'END_TIMESTAMP': '2018-09-30T23:59:10Z',
     'BEGIN_BLOCK_LEVEL': 83038,
@@ -140,6 +141,7 @@ const rewards_config = {
     'description': 'Airdrop 9, delegation',
     'info_link': 'https://www.reddit.com/r/tzlibre/comments/9jnhmz/tzlibre_update_24_librebank_librebox_october/',
     'COEFF': 0.24,
+    'payout_date': '2018-11-07',
     'BEGIN_TIMESTAMP': '2018-10-01T00:00:00Z',
     'END_TIMESTAMP': '2018-10-31T23:59:59Z',
     'BEGIN_BLOCK_LEVEL': 126242
@@ -151,6 +153,7 @@ const rewards_config = {
     'description': 'Airdrop 9, deposit',
     'info_link': 'https://www.reddit.com/r/tzlibre/comments/9jnhmz/tzlibre_update_24_librebank_librebox_october/',
     'COEFF': 1.50,
+    'payout_date': '2018-11-07',
     'BEGIN_TIMESTAMP': '2018-10-01T00:00:00Z',
     'END_TIMESTAMP': '2018-10-31T23:59:59Z',
     'BEGIN_BLOCK_LEVEL': 126242
