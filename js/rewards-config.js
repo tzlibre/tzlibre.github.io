@@ -89,6 +89,7 @@ const rewards_config = {
     'name': 'Airdrop 7 - reconciliation',
     'description': 'Airdrop 7, reconciliation',
     'COEFF': 0.1167,
+    'payout_date': '2018-10-31',
     'BEGIN_TIMESTAMP': '2018-08-17T00:00:00Z',
     'END_TIMESTAMP': '2018-08-30T23:59:59Z',
     'BEGIN_BLOCK_LEVEL': 63965,
