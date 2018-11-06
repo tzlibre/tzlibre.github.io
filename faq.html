@@ -10,71 +10,27 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1F260B">
     <meta name="msapplication-TileColor" content="#1F260B">
     <meta name="theme-color" content="#1F260B">
     <link href="/style/style.css" rel="stylesheet">
     <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
     <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta property="og:url" content="https://tzlibre.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@tzlibre">
+    <meta name="twitter:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta name="twitter:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta name="twitter:image" content="https://tzlibre.github.io/tzl-shareimage.png">
   </head>
 
   <body>
 
-    <div class="topbar">
-      <div class="content">
-
-        <div id="infobar" class="infobar">
-          <div>
-            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
-              <span class="infobar-block">
-            <span class="infobar-lbl">1 TZL =</span>
-              <span class="infobar-value">{{price_usd}}</span> <span>USD</span> <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
-
-              <span class="infobar-block hideOnMobile">
-            <span class="infobar-lbl" data-id="marketcap">market cap</span>
-              <span class="infobar-value" id="marketCapValue">N/A</span>
-              </span>
-            </a>
-          </div>
-          <div>
-            <a href="http://tzscan.io/tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp#" target="_blank">
-              <span class="infobar-block">
-            <span class="infobar-lbl">Delegations</span>
-              <span class="infobar-value">{{delegations}}</span> <span>XTZ</span>
-              </span>
-            </a>
-          </div>
-          <div>
-            <a href="http://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">
-              <span class="infobar-block">
-                  <span class="infobar-lbl">Deposits</span>
-              <span class="infobar-value">{{deposits}}</span> <span>XTZ</span>
-              </span>
-              <span class="infobar-block hideOnMobile">
-                  <span class="infobar-lbl">Collateral</span>
-              <span class="infobar-value">{{collateralization}}</span><span>%</span>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <ul class="langswitch">
-          <li>
-            <button data-lang="en">en</button>
-          </li>
-          <li>
-            <button data-lang="ru">&#x440;&#x443;</button>
-          </li>
-          <li>
-            <button data-lang="cn">&#x4E2D;&#x6587;</button>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-
-
-    <header class="header-mini">
+    <header>
       <div class="content">
         <div class="header-main">
           <div class="wordmark">
@@ -82,47 +38,55 @@
               <img src="/images/tzllogo-wordmark.svg" alt="tzlibre wordmark">
             </a>
           </div>
+          <div id="infobar" class="priceticker hideOnMobile">
+            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+              <span class="infobar-lbl">1 TZL =</span>
+              <span class="infobar-value">{{price_usd}} USD <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
+            </a>
+          </div>
         </div>
+
         <a href="index.html" class="logo">
           <img src="/images/tzllogo-base.svg" alt="tzlibre logo">
         </a>
+        <nav class="nav-primary">
+          <input id="collapsible" class="toggle" type="checkbox">
+          <label for="collapsible">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-arrow-dropdown" />
+            </svg>
+          </label>
+          <div>
+            <ul>
+              <li class="{{ nav0_class }}">
+                <a class="hidden"><strong>MENU</strong></a>
+              </li>
+              <li class="{{ nav3_class }}">
+                <a href="delegate.html" data-id="dlgt_nav">Delegate</a>
+              </li>
+              <li class="{{ nav5_class }}">
+                <a href="deposit.html" data-id="smartdlgt_nav">Deposit</a>
+              </li>
+              <li class="{{ nav6_class }}">
+                <a href="verify.html" data-id="verify_title">Verify</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="{{ nav9_class }}">
+                <a href="https://librebox.github.io" target="_blank" data-id="wallet_title">Wallet</a>
+              </li>
+              <li class="{{ nav1_class }}">
+                <a href="project.html" data-id="home_title">Project</a>
+              </li>
+              <li class="selected">
+                <a href="faq.html" data-id="faq_title">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
       </div>
     </header>
-
-    <nav class="nav-primary">
-      <input id="collapsible" class="toggle" type="checkbox">
-      <label for="collapsible">MENU</label>
-      <div class="content">
-        <ul class="nav-primary-main">
-          <!--li class="{{ nav3_class }}"><a href="whitelist.html" data-id="wl_title"></a></li>
-      <li class="{{ nav4_class }}"><a href="claim.html" data-id="split_title"></a></li-->
-          <li class="{{ nav5_class }}">
-            <a href="delegate.html" data-id="dlgt_title">Get TZL</a>
-          </li>
-          <li class="{{ nav6_class }}">
-            <a href="verify.html" data-id="verify_title">Verify</a>
-          </li>
-          <li class="{{ nav7_class }}">
-            <a href="sign.html" data-id="sign_title">Link</a>
-          </li>
-          <li class="{{ nav8_class }}">
-            <a href="bank.html" data-id="bank_title">Bank</a>
-          </li>
-          <li class="{{ nav9_class }}">
-            <a href="https://librebox.github.io" data-id="wallet_title">Wallet</a>
-          </li>
-        </ul>
-        <ul class="nav-primary-side">
-          <li class="{{ nav1_class }}">
-            <a href="project.html" data-id="home_title">Project</a>
-          </li>
-          <li class="selected">
-            <a href="faq.html" data-id="faq_title">FAQ</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
 
     <nav class="nav-secondary">
       <ul class="content">
@@ -165,10 +129,10 @@
 
         <div class="block">
 
-          <h2 data-id="faq_title">FAQ</h2>
+          <h1 data-id="faq_title">FAQ</h1>
 
           <a name="splitting"></a>
-          <h3 data-id="faq_sect1_title">Splitting</h3>
+          <h2 data-id="faq_sect1_title">Splitting</h2>
           <div class="expandable">
             <a name="splitting1"></a>
             <h4 data-id="faq_sect1_q1_question">How can I split?</h4>
@@ -217,7 +181,7 @@
 
 
           <a name="timing"></a>
-          <h3 data-id="faq_sect2_title">Timing</h3>
+          <h2 data-id="faq_sect2_title">Timing</h2>
           <div class="expandable">
             <a name="timing1"></a>
             <h4 data-id="faq_sect2_q1_question">When can I split?</h4>
@@ -253,7 +217,7 @@
           </div>
 
           <a name="safety"></a>
-          <h3 data-id="faq_sect3_title">Safety</h3>
+          <h2 data-id="faq_sect3_title">Safety</h2>
           <div class="expandable">
             <a name="safety1"></a>
             <h4 data-id="faq_sect3_q1_question">Do you need my private data?</h4>
@@ -281,7 +245,7 @@
           </div>
 
           <a name="code"></a>
-          <h3 data-id="faq_sect4_title">Code</h3>
+          <h2 data-id="faq_sect4_title">Code</h2>
           <div class="expandable">
             <a name="code1"></a>
             <h4 data-id="faq_sect4_q1_question">How can you fork KYC-Tezos if it&apos;s not open-source?</h4>
@@ -336,7 +300,7 @@
           </div>
 
           <a name="funding"></a>
-          <h3 data-id="faq_sect5_title">Funding</h3>
+          <h2 data-id="faq_sect5_title">Funding</h2>
           <div class="expandable">
             <a name="funding1"></a>
             <h4 data-id="faq_sect5_q1_question">How are you currently funded?</h4>
@@ -397,7 +361,7 @@
           </div>
 
           <a name="support"></a>
-          <h3 data-id="faq_sect6_title">Support</h3>
+          <h2 data-id="faq_sect6_title">Support</h2>
           <div class="expandable">
             <a name="support1"></a>
             <h4 data-id="faq_sect6_q1_question">Are you supported by KYC-Tezos developers?</h4>
@@ -424,7 +388,7 @@
           </div>
 
           <a name="growth"></a>
-          <h3 data-id="faq_sect7_title">Growth</h3>
+          <h2 data-id="faq_sect7_title">Growth</h2>
           <div class="expandable">
             <a name="growth1"></a>
             <h4 data-id="faq_sect7_q1_question">How will TzLibre grow after launch?</h4>
@@ -462,7 +426,7 @@
           </div>
 
           <a name="team"></a>
-          <h3 data-id="faq_sect8_title">Team</h3>
+          <h2 data-id="faq_sect8_title">Team</h2>
           <div class="expandable">
             <a name="team1"></a>
             <h4 data-id="faq_sect8_q1_question">Why are you pseudonymous?</h4>
@@ -508,7 +472,7 @@
           </div>
 
           <a name="communication"></a>
-          <h3 data-id="faq_sect9_title">Communication</h3>
+          <h2 data-id="faq_sect9_title">Communication</h2>
           <div class="expandable">
             <a name="communication1"></a>
             <h4 data-id="faq_sect9_q1_question">Why are you using a Telegram channel?</h4>
@@ -534,12 +498,12 @@
             <h4 data-id="faq_sect9_q3_question">Why didn&apos;t I hear about TzLibre before?</h4>
             <div class="expandable-content" data-id="faq_sect9_q3_answer">
               <p>We published
-                <a href="https://ipfs.infura.io/ipfs/QmYEcSaYEMm3xQqBK6wZT9uc2SCDJyU7pBU82KQQHMdXxo" target="_blank">our Manifesto</a> on February 23rd 2018. Since then we&apos;ve been totally censored on every Tezos channel (Reddit, Telegram, Riot). Sadly, trolls also use those outlets to spread FUD about the upcoming fork.</p>
+                <a href="manifesto.html" target="_blank">our Manifesto</a> on February 23rd 2018. Since then we&apos;ve been totally censored on every Tezos channel (Reddit, Telegram, Riot). Sadly, trolls also use those outlets to spread FUD about the upcoming fork.</p>
             </div>
           </div>
 
           <a name="other"></a>
-          <h3 data-id="faq_sect10_title">Other</h3>
+          <h2 data-id="faq_sect10_title">Other</h2>
           <div class="expandable">
             <a name="other3"></a>
             <h4 data-id="faq_sect10_q3_question">Why don&apos;t you propose a protocol upgrade to KYC-Tezos instead of forking it?</h4>
@@ -573,47 +537,56 @@
 
     </div>
 
-    <div class="actionbar">
+    <footer>
 
       <div class="content">
 
-        <div class="actionbar-main">
-
-          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Telegram channel</span></a>
-          </span>
-
-          <span><a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Reddit sub</span></a>
-          </span>
-
+        <div class="footer-main">
+          <h2 data-id="contact_us">Contact us</h2>
+          <p data-id="contact_intro">We&apos;ll never ask for your personal data. Please report any phishing attempt, we are aware of fake TzLibre accounts on social media. We strongly suggest you to bookmark all of our official addresses.</p>
         </div>
 
-        <div class="actionbar-contacts">
-
-          <a href="https://t.me/tz_libre" target="_blank" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-telegram-small" />
-            </svg>
-          </a>
-          <a href="https://twitter.com/tzlibre" target="_blank" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-twitter-small" />
-            </svg>
-          </a>
-          <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-email-small" />
-            </svg>
-          </a>
-          <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>
-
+        <div class="footer-contacts">
+          <p>
+            <a href="https://t.me/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
+              </svg><span>Telegram Channel: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://twitter.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+              </svg><span>Twitter: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-reddit-small" />
+              </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+              </svg><span>Telegram: <strong>@tz_libre</strong></span></a>
+          </p>
+          <p>
+            <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-email-small" />
+              </svg><span><strong>tzlibre@protonmail.com</strong></span></a> |
+            <a href="/publickey.tzlibre@protonmail.com.asc" class="btnlabel"><span>pgp key</span></a>
+          </p>
         </div>
 
       </div>
 
-    </div>
+    </footer>
 
     <script src="/js/vue.min.js"></script>
     <script src="/js/scripts.js"></script>
+    <script src="/js/scripts-ticker.js"></script>
     <script src="/js/scripts-infobar.js"></script>
 
 

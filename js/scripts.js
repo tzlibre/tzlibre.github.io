@@ -59,58 +59,25 @@
 
   /*
 
-      Language management
+      Startup
 
   */
 
-  var LANGs = ['en', 'ru', 'cn'];
-
-  // parse url and get lang and page e.g {lang:'ru', page:'faq.html'} ()
-  function parseUrl( url )
+  function optimizeMobileMenu()
   {
-    var fields = url.split('/');
-    var page = '';
-    var langcode = 'en';
-    if (fields.length > 2) {
-      page = fields[fields.length-1];
-      if (LANGs.indexOf(fields[fields.length - 2]) > -1) {
-        langcode = fields[fields.length - 2];
+    var selectedItem = document.querySelector( '.nav-primary li.selected a' );
+    if ( !selectedItem ) return;
+    selectedItem.addEventListener( 'click', function( e ){
+      e.preventDefault();
+      if ( !isHidden( document.querySelector( '.nav-primary label' ) ) ) {
+        document.getElementById( 'collapsible' ).checked = true;
       }
-    }
-    return {
-      langcode: langcode,
-      page: page
-    };
+    });
   }
 
-  // set current lang
-  var parsedUrl = parseUrl(window.location.href);
-
-  function getBtnListener( langcode )
+  function isHidden( el )
   {
-    return function () {
-      var langcodeUrl = '/';
-      if (langcode != 'en') {
-        langcodeUrl = '/' + langcode + '/';
-      }
-      var newUrl = langcodeUrl +  parsedUrl.page;
-      window.location.href = newUrl;
-    };
-  }
-
-  function setActiveLang()
-  {
-    var btnsLangs = document.querySelectorAll( '.langswitch button' );
-    for (var i = 0; i < btnsLangs.length; i++) {
-      var btnLang = btnsLangs[i];
-      var langcode = btnLang.getAttribute( 'data-lang' );
-      // set event listener for lang selector
-      btnLang.addEventListener('click', getBtnListener(langcode));
-      // set active current langcode
-      if (langcode == parsedUrl.langcode) {
-        btnLang.classList.add( 'selected' );
-      }
-    }
+    return window.getComputedStyle( el ).display === 'none';
   }
 
   /*
@@ -121,7 +88,7 @@
 
   detectTouch();
   enableSmoothScroll();
+  optimizeMobileMenu();
   setExpanders();
-  setActiveLang();
 
 })( window );

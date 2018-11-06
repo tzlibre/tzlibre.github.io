@@ -10,71 +10,27 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1F260B">
     <meta name="msapplication-TileColor" content="#1F260B">
     <meta name="theme-color" content="#1F260B">
     <link href="/style/style.css" rel="stylesheet">
     <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
     <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta property="og:url" content="https://tzlibre.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@tzlibre">
+    <meta name="twitter:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta name="twitter:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta name="twitter:image" content="https://tzlibre.github.io/tzl-shareimage.png">
   </head>
 
   <body>
 
-    <div class="topbar">
-      <div class="content">
-
-        <div id="infobar" class="infobar">
-          <div>
-            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
-              <span class="infobar-block">
-            <span class="infobar-lbl">1 TZL =</span>
-              <span class="infobar-value">{{price_usd}}</span> <span>USD</span> <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
-
-              <span class="infobar-block hideOnMobile">
-            <span class="infobar-lbl" data-id="marketcap">market cap</span>
-              <span class="infobar-value" id="marketCapValue">N/A</span>
-              </span>
-            </a>
-          </div>
-          <div>
-            <a href="http://tzscan.io/tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp#" target="_blank">
-              <span class="infobar-block">
-            <span class="infobar-lbl">Delegations</span>
-              <span class="infobar-value">{{delegations}}</span> <span>XTZ</span>
-              </span>
-            </a>
-          </div>
-          <div>
-            <a href="http://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">
-              <span class="infobar-block">
-                  <span class="infobar-lbl">Deposits</span>
-              <span class="infobar-value">{{deposits}}</span> <span>XTZ</span>
-              </span>
-              <span class="infobar-block hideOnMobile">
-                  <span class="infobar-lbl">Collateral</span>
-              <span class="infobar-value">{{collateralization}}</span><span>%</span>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <ul class="langswitch">
-          <li>
-            <button data-lang="en">en</button>
-          </li>
-          <li>
-            <button data-lang="ru">&#x440;&#x443;</button>
-          </li>
-          <li>
-            <button data-lang="cn">&#x4E2D;&#x6587;</button>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-
-
-    <header class="header-mini">
+    <header>
       <div class="content">
         <div class="header-main">
           <div class="wordmark">
@@ -82,47 +38,55 @@
               <img src="/images/tzllogo-wordmark.svg" alt="tzlibre wordmark">
             </a>
           </div>
+          <div id="infobar" class="priceticker hideOnMobile">
+            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+              <span class="infobar-lbl">1 TZL =</span>
+              <span class="infobar-value">{{price_usd}} USD <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
+            </a>
+          </div>
         </div>
+
         <a href="index.html" class="logo">
           <img src="/images/tzllogo-base.svg" alt="tzlibre logo">
         </a>
+        <nav class="nav-primary">
+          <input id="collapsible" class="toggle" type="checkbox">
+          <label for="collapsible">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-arrow-dropdown" />
+            </svg>
+          </label>
+          <div>
+            <ul>
+              <li class="{{ nav0_class }}">
+                <a class="hidden"><strong>MENU</strong></a>
+              </li>
+              <li class="{{ nav3_class }}">
+                <a href="delegate.html" data-id="dlgt_nav">Delegate</a>
+              </li>
+              <li class="{{ nav5_class }}">
+                <a href="deposit.html" data-id="smartdlgt_nav">Deposit</a>
+              </li>
+              <li class="selected">
+                <a href="verify.html" data-id="verify_title">Verify</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="{{ nav9_class }}">
+                <a href="https://librebox.github.io" target="_blank" data-id="wallet_title">Wallet</a>
+              </li>
+              <li class="{{ nav1_class }}">
+                <a href="project.html" data-id="home_title">Project</a>
+              </li>
+              <li class="{{ nav2_class }}">
+                <a href="faq.html" data-id="faq_title">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
       </div>
     </header>
-
-    <nav class="nav-primary">
-      <input id="collapsible" class="toggle" type="checkbox">
-      <label for="collapsible">MENU</label>
-      <div class="content">
-        <ul class="nav-primary-main">
-          <!--li class="{{ nav3_class }}"><a href="whitelist.html" data-id="wl_title"></a></li>
-      <li class="{{ nav4_class }}"><a href="claim.html" data-id="split_title"></a></li-->
-          <li class="{{ nav5_class }}">
-            <a href="delegate.html" data-id="dlgt_title">Get TZL</a>
-          </li>
-          <li class="selected">
-            <a href="verify.html" data-id="verify_title">Verify</a>
-          </li>
-          <li class="{{ nav7_class }}">
-            <a href="sign.html" data-id="sign_title">Link</a>
-          </li>
-          <li class="{{ nav8_class }}">
-            <a href="bank.html" data-id="bank_title">Bank</a>
-          </li>
-          <li class="{{ nav9_class }}">
-            <a href="https://librebox.github.io" data-id="wallet_title">Wallet</a>
-          </li>
-        </ul>
-        <ul class="nav-primary-side">
-          <li class="{{ nav1_class }}">
-            <a href="project.html" data-id="home_title">Project</a>
-          </li>
-          <li class="{{ nav2_class }}">
-            <a href="faq.html" data-id="faq_title">FAQ</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
 
     <div class="main">
 
@@ -130,29 +94,18 @@
 
         <div class="block">
 
-          <h3 data-id="verify_page_title">Verify your Tezos address</h3>
-
-          <div class="row">
-            <h4 data-id="verify_sub1_title">What</h4>
-            <p class="row-main" data-id="verify_sub1_txt">Enter your XTZ address to verify the status of your TZL claim. You can submit any valid XTZ address (tz1 or KT1)..</p>
-          </div>
-
-          <div class="row">
-            <h4 data-id="verify_sub2_title">Already delegated?</h4>
-            <p class="row-main" data-id="verify_sub2_txt">Submit your KT1 address to check your delegation status. Delegation data is updated every 24 hours and is also
-              <a href="https://tzlibre.io/delegations.csv" target="_blank">available here (.CSV)</a>.</p>
-          </div>
-
-          <div class="row">
-            <h4 data-id="verify_sub3_title">Help</h4>
-            <p class="row-main" data-id="verify_sub3_txt">Need help?
-              <a href="/project.html#contacts">Contact us</a>.</p>
-          </div>
+          <h2 data-id="verify_page_title">Verify your Tezos address</h2>
 
           <label for="verify-pkh" data-id="wl_intro">Tezos address (a/k/a public key hash)</label>
           <form action="Javascript:verify()" class="singlerowform" id="verify-form">
+
             <input type="text" placeholder="tz1 or KT1" id="verify-pkh" required>
-            <input type="submit" value="Verify" data-id="verify_button" id="verify-submit" v-bind:class="{ loading: loading }" :disabled="loading">
+            <button class="btn" type="submit" v-bind:class="{ loading: loading }" :disabled="loading">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-arrow-next" />
+              </svg>
+            </button>
+
           </form>
 
           <div id="results">
@@ -162,13 +115,13 @@
                 <p data-id-to-be-set=""><strong>Account</strong></p>
               </div>
 
-
               <br>
               <div>
+
                 <p>Your address:</p>
                 <p><span class="inline-code">{{ tzl_pkh }}</span></p>
-              </div>
 
+              </div>
               <br>
               <div v-if="!eth_no_addr">
                 <p>
@@ -178,19 +131,7 @@
                   <span v-else="">Unconfirmed</span>
                   <span>Ethereum address (to receive TZL airdrops):</span></p>
                 <p><span class="inline-code">{{ eth_addr }}</span></p>
-              </div>
-            </div>
-
-            <!-- if ETH addr not linked (or not signed) -->
-            <div id="verify-warning-not-eth-addr" v-if="show &amp;&amp; (eth_no_addr || !signed)" v-cloak="">
-              <div class="formresult">
-                <p class="warning">
-                  <svg class="alert-icon">
-                    <use href="/images/svgdefs.svg#icon-alert" />
-                  </svg>
-                  <span data-id="verify_warning_not_eth_addr_short">Unconfirmed Ethereum address</span>
-                </p>
-                <p data-id="verify_warning_not_eth_addr">Please
+                <p data-id="verify_warning_not_eth_addr" v-if="show &amp;&amp; (eth_no_addr || !signed)">You can
                   <a href="/sign.html">confirm your Ethereum address</a>.
                   <a href="/project.html#contacts">Contact us</a> if you need support.</p>
               </div>
@@ -198,6 +139,7 @@
 
             <!-- if has delegated -->
             <div id="verify-delegate-box" class="formresult" v-if="show &amp;&amp; has_delegated" v-cloak="">
+
               <div>
                 <p data-id-to-be-set=""><strong>Libre Baker delegations</strong></p>
               </div>
@@ -208,6 +150,7 @@
                     <th><span data-id="verify-delegation-detail-contract">contract</span></th>
                     <th><span data-id="verify-delegation-detail-amount">amount</span></th>
                   </tr>
+
                   <tr class="verify-delegation-details" v-for="delegation in augment_delegations(delegations)">
                     <td>
                       <p>
@@ -225,17 +168,15 @@
               <br>
 
               <div>
-                <div>
-                  <p data-id="verify_result_dlgt">You are currently delegating <strong>TzLibre</strong> for:</p>
-                  <p class="bigdata">{{ delegated_amount }} XTZ</p>
-                </div>
+                <p data-id="verify_result_dlgt">You are currently delegating <strong>TzLibre</strong> for:</p>
+                <p class="bigdata">{{ delegated_amount }} XTZ</p>
               </div>
             </div>
 
             <!-- if has deposited -->
             <div id="verify-deposit-box" class="formresult" v-if="show &amp;&amp; has_deposited" v-cloak="">
               <div>
-                <p data-id-to-be-set=""><strong>Libre Bank deposits</strong></p>
+                <p data-id-to-be-set=""><strong>Libre Smart Delegations</strong></p>
               </div>
 
               <table class="datatable">
@@ -261,12 +202,24 @@
               <br>
 
               <div>
-                <div>
-                  <p data-id="verify_result_dpst">Total deposited amount:</p>
-                  <p class="bigdata">{{ deposited_amount }} XTZ</p>
-                </div>
+                <p data-id="verify_result_dpst">Total deposited amount:</p>
+                <p class="bigdata">{{ deposited_amount }} XTZ</p>
               </div>
 
+            </div>
+
+            <!-- if not deposited -->
+            <div id="verify-warning-not-deposited" v-if="show &amp;&amp; !has_deposited" v-cloak="">
+              <div class="formresult">
+                <p class="warning">
+                  <svg class="alert-icon">
+                    <use href="/images/svgdefs.svg#icon-alert" />
+                  </svg>
+                  <span>You&apos;re loosing TZL</span>
+                </p>
+                <p>Move your XTZ into
+                  <a href="/deposit.html" target="_blank"> Smart Delegation</a> to earn more TZL.</p>
+              </div>
             </div>
 
             <!-- if airdropped -->
@@ -330,7 +283,6 @@
                   <p class="bigdata">{{ n_airdrops }}</p>
                 </div>
               </div>
-
             </div>
 
             <!-- if has upcoming payouts -->
@@ -362,6 +314,7 @@
                         <p>accrued: {{ payout.reward_amount }} TZL</p>
                         <p>expected: {{ payout.expected_amount_to_show }} TZL</p>
                       </div>
+
                     </td>
                     <td v-else="">
                       <p><strong>{{ payout.reward_amount }} TZL</strong></p>
@@ -373,19 +326,15 @@
                       </div>
                     </td>
                   </tr>
-
                 </tbody>
               </table>
-
 
               <br>
               <br>
 
               <div>
-                <div>
-                  <p>Total upcoming payouts:</p>
-                  <p class="bigdata">{{ total_payout_amount }} TZL</p>
-                </div>
+                <p>Total upcoming payouts:</p>
+                <p class="bigdata">{{ total_payout_amount }} TZL</p>
               </div>
             </div>
 
@@ -394,9 +343,10 @@
 
           <!-- next steps -->
           <a name="next-steps"></a>
+
           <div class="nextstepbox" id="next-steps" v-if="show" v-observe-visibility="visibility_changed" v-cloak="">
 
-            <h3 data-id="nextstep_title">Next steps</h3>
+            <h2 data-id="nextstep_title">Next steps</h2>
             <a href="#next-steps" class="ns-btn-float" data-id="nextstep_title" v-if="show_floating_btn">Next steps</a>
 
             <!-- if only whitelisted -->
@@ -420,7 +370,7 @@
                       </svg><span data-id="nextstep_group">TzLibre Airdrops</span></a>
                   </p>
                   <p v-if="opt3">
-                    <a href="https://t.me/joinchat/G9-DflDz6IzH2_Yy6f9NHg" target="_blank" class="btn">
+                    <a href="https://t.me/joinchat/G9-DflDz6Iywb7LePonV5g" target="_blank" class="btn">
                       <svg class="icon">
                         <use href="/images/svgdefs.svg#icon-social-telegram-group" />
                       </svg><span data-id="nextstep_group">TzLibre Airdrops</span></a>
@@ -429,7 +379,9 @@
 
                 <div>
                   <p data-id="nextstep_signclaim">Delegate TzLibre</p>
-                  <a v-bind:href="delegate_url" class="btn"><span data-id="nextstep_claim_ok">Delegate</span></a>
+                  <p>
+                    <a v-bind:href="delegate_url" class="btn"><span data-id="nextstep_claim_ok">Delegate</span></a>
+                  </p>
                 </div>
 
               </div>
@@ -449,7 +401,7 @@
                       </svg><span data-id="nextstep_sign">Trade TZL</span></a>
                   </p>
                   <p v-if="opt3">
-                    <a href="https://t.me/joinchat/G9-DflDz6IzH2_Yy6f9NHg" target="_blank" class="btn">
+                    <a href="https://t.me/joinchat/G9-DflDz6Iywb7LePonV5g" target="_blank" class="btn">
                       <svg class="icon">
                         <use href="/images/svgdefs.svg#icon-social-telegram-group" />
                       </svg><span data-id="nextstep_sign">Trade TZL</span></a>
@@ -467,44 +419,81 @@
 
     </div>
 
-    <div class="actionbar">
+    <div class="main-light">
 
       <div class="content">
 
-        <div class="actionbar-main">
+        <div class="block block-tight">
 
-          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Telegram channel</span></a>
-          </span>
+          <div class="row">
+            <h4 data-id="verify_sub1_title">What</h4>
+            <p class="row-main" data-id="verify_sub1_txt">Enter your XTZ address to verify the status of your TZL claim. You can submit any valid XTZ address (tz1 or KT1).</p>
+          </div>
 
-          <span><a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Reddit sub</span></a>
-          </span>
+          <div class="row">
+            <h4 data-id="verify_sub2_title">Already delegated?</h4>
+            <p class="row-main" data-id="verify_sub2_txt">Submit your KT1 address to check your delegation status. You can download the
+              <a href="https://tzlibre.io/delegations.csv" target="_blank">Delegation data (CSV)</a>, updated every 24 hours.</p>
+          </div>
 
-        </div>
-
-        <div class="actionbar-contacts">
-
-          <a href="https://t.me/tz_libre" target="_blank" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-telegram-small" />
-            </svg>
-          </a>
-          <a href="https://twitter.com/tzlibre" target="_blank" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-twitter-small" />
-            </svg>
-          </a>
-          <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-email-small" />
-            </svg>
-          </a>
-          <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>
+          <div class="row">
+            <h4 data-id="verify_sub3_title">Help</h4>
+            <p class="row-main" data-id="verify_sub3_txt">Need help?
+              <a href="/project.html#contacts">Contact us</a>.</p>
+          </div>
 
         </div>
 
       </div>
 
     </div>
+
+    <footer>
+
+      <div class="content">
+
+        <div class="footer-main">
+          <h2 data-id="contact_us">Contact us</h2>
+          <p data-id="contact_intro">We&apos;ll never ask for your personal data. Please report any phishing attempt, we are aware of fake TzLibre accounts on social media. We strongly suggest you to bookmark all of our official addresses.</p>
+        </div>
+
+        <div class="footer-contacts">
+          <p>
+            <a href="https://t.me/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
+              </svg><span>Telegram Channel: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://twitter.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+              </svg><span>Twitter: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-reddit-small" />
+              </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+              </svg><span>Telegram: <strong>@tz_libre</strong></span></a>
+          </p>
+          <p>
+            <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-email-small" />
+              </svg><span><strong>tzlibre@protonmail.com</strong></span></a> |
+            <a href="/publickey.tzlibre@protonmail.com.asc" class="btnlabel"><span>pgp key</span></a>
+          </p>
+        </div>
+
+      </div>
+
+    </footer>
 
     <!-- Templates for modals-->
     <div class="cloak" id="modal-cloak">
@@ -515,11 +504,10 @@
             <use href="/images/svgdefs.svg#icon-alert" />
           </svg>
         </h4>
-        <p data-id="modal_notfound_text">Tezos address not found. Make sure this Tezos address is currently
-          <a href="/delegate.html">delegating TzLibre</a>. If you delegated in the last 24h, please check again in 24h.</p>
-        <!--div class="modal-actions" id="modal-actions-no-wl">
-        <a class="btn btn-primary" v-bind:href="whitelist_url" data-id="btn_whitelistit"></a>
-    </div-->
+        <p data-id="modal_notfound_text">Tezos address not found. Make sure this Tezos address is currently delegating TzLibre. If you delegated in the last 24h, please check again in 24h.</p>
+        <div class="modal-actions" id="modal-actions-no-wl">
+          <a class="btn btn-primary" href="delegate.html" data-id="dlgt_page_title">Delegate</a>
+        </div>
       </div>
 
       <div class="modal" id="modal-not-claimed">
@@ -582,6 +570,7 @@
     <script src="/js/rewards-config.js"></script>
     <script src="/js/utils.js"></script>
     <script src="/js/scripts.js"></script>
+    <script src="/js/scripts-ticker.js"></script>
     <script src="/js/scripts-infobar.js"></script>
     <script src="/js/scripts-verify.js"></script>
 

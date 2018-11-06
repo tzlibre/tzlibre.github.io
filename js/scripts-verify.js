@@ -412,11 +412,6 @@ function init_v_apps () {
     data: g_data.claim
   })
 
-  let v_warning_not_eth_addr = new Vue({
-    el: '#verify-warning-not-eth-addr',
-    data: g_data.claim
-  })
-
   let v_delegate = new Vue({
     el: '#verify-delegate-box',
     data: g_data.delegate,
@@ -427,6 +422,11 @@ function init_v_apps () {
     el: '#verify-deposit-box',
     data: g_data.deposit,
     methods: { augment_deposits }
+  })
+
+  let v_warning_not_deposited = new Vue({
+    el: '#verify-warning-not-deposited',
+    data: g_data.deposit
   })
 
   let v_airdrops = new Vue({

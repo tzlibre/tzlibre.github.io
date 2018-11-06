@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>The Tezos Libre Manifesto</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        color: #99ff00;
+        background: #000000;
+        font-family: monospace;
+        width: 47em;
+      }
+
+      a:link {
+        color: #9999ff;
+        background: #000000
+      }
+
+      a:visited {
+        color: #999999;
+        background: #000000
+      }
+
+      a:active {
+        color: #ff0000;
+        background: #000000
+      }
+
+      h1 {
+        color: #99ff00;
+        background: #000000
+      }
+
+      p {
+        color: #99ff00;
+        background: #000000
+      }
+
+      pre.ascii {
+        color: #99ff00;
+        background: #000000;
+        font-weight: bold;
+        font-family: monospace;
+      }
+
+      a.ascii {
+        background: #000000;
+        font-weight: bold;
+      }
+
+      .outline-2 {
+        padding-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <pre class="ascii">
+&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;
+&#x255A;&#x2550;&#x2550;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x255A;&#x2550;&#x2550;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
+   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;    &#x2588;&#x2588;&#x2588;&#x2554;&#x255D; &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;
+   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;   &#x2588;&#x2588;&#x2588;&#x2554;&#x255D;  &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588;&#x2551;
+   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;
+   &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
+
+    &#x2588;&#x2588;&#x2557;     &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;
+    &#x2588;&#x2588;&#x2551;     &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
+    &#x2588;&#x2588;&#x2551;     &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;
+    &#x2588;&#x2588;&#x2551;     &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;
+    &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2551;  &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;
+    &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x255A;&#x2550;&#x255D;&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x255D;&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
+
+    </pre>
+    <div id="outline-container-orgc958d75" class="outline-2">
+      <h2 id="orgc958d75"><span class="section-number-2">1</span> Introduction</h2>
+      <div class="outline-text-2" id="text-1">
+        <p>
+          <i>&quot;Nothing is stronger than an idea whose time has come&quot;</i>
+          <br> - Victor Hugo
+        </p>
+
+        <p>
+          Tezos is a great idea whose time has come: we believe in a self-governing, trustless, fully decentralized digital commonwealth.
+        </p>
+
+        <p>
+          Now that Tezos Stiftung is regaining its operational capacity, we shall prepare for serious attacks against us.
+        </p>
+      </div>
+    </div>
+
+    <div id="outline-container-org0579e19" class="outline-2">
+      <h2 id="org0579e19"><span class="section-number-2">2</span> Problem</h2>
+      <div class="outline-text-2" id="text-2">
+        <p>
+          <i>&quot;Free competition enforced by law is a grotesque contradiction in terms&quot;</i>
+          <br> - Ayn Rand
+        </p>
+
+        <p>
+          We drew a lesson from the struggle of the last months: old tools and legacy institutions are not compatible with a disruptive, decentralized paradigm shift.
+        </p>
+
+        <p>
+          We see two completely different worlds that cannot meet: the old system versus the new, centralization versus decentralization and self-governance.
+        </p>
+
+        <p>
+          We are aware of government agencies already investigating Tezos France, Tezos Stiftung and Tezos developers individually.
+        </p>
+
+        <p>
+          A state actor could easily coerce them into steering Tezos toward their agenda, forcing them to use their explicit powers (eg veto, big voting stake) and their implicit ones (eg the trust of the community).
+        </p>
+
+        <p>
+          These entities could force their way into our commonwealth and eventually manipulate, revert, censor or stop smart contracts that threaten their monopolies.
+        </p>
+      </div>
+    </div>
+
+    <div id="outline-container-org91ac965" class="outline-2">
+      <h2 id="org91ac965"><span class="section-number-2">3</span> Solution</h2>
+      <div class="outline-text-2" id="text-3">
+        <p>
+          We believe that, in order to be antifragile, Tezos needs to be resilient to any attacker, including government agencies and state actors.
+        </p>
+
+        <p>
+          To achieve that, &quot;Schelling fences&quot; should have been created to ensure social consensus on non-negotiable rules such as:
+        </p>
+        <ul class="org-ul">
+          <li>liquid development team (no leader, pseudonymous developers, etc)</li>
+          <li>voters equality (eg no veto rights, no premined stakes)</li>
+          <li>tx immutability (no tx should be censored or manipulated)</li>
+          <li>contract immutability (no contract shall ever be stopped or manipulated)</li>
+          <li>pure on-chain governance (no hard forks)</li>
+          <li>capped inflation rate</li>
+          <li>100% free software</li>
+          <li>and more &#x2026;</li>
+        </ul>
+
+        <p>
+          As Tezos investors and believers, we want to minimize the risk of the Tezos vision being hijacked by a powerful attacker.
+        </p>
+      </div>
+    </div>
+
+    <div id="outline-container-org0feb133" class="outline-2">
+      <h2 id="org0feb133"><span class="section-number-2">4</span> Tezos Libre</h2>
+      <div class="outline-text-2" id="text-4">
+
+        <p>
+          We believe the best way to realize the grand Tezos vision is to have multiple teams work toward a decentralized digital commonwealth, using different strategies but with a common goal.
+        </p>
+
+        <p>
+          Last but not least, we recently became aware of Tezos Stiftung being willing to fully enforce its charter by supporting the development of multiple Tezos implementations.
+        </p>
+
+        <p>
+          This is why we forked the existing Tezos code and created Tezos Libre. We are currently defining our operational priorities before launching Tezos Libre in production.
+        </p>
+      </div>
+    </div>
+
+    <div id="outline-container-org510f7e7" class="outline-2">
+      <h2 id="org510f7e7"><span class="section-number-2">5</span> Coopetition</h2>
+      <div class="outline-text-2" id="text-5">
+        <p>
+          We believe in &quot;coopetition&quot;: cooperative competition. Both implementations of Tezos, DLS-Tezos and Tezos Libre, will have their own place in the market.
+        </p>
+
+        <p>
+          Free market coopetition will make both projects stronger in multiple ways:
+        </p>
+        <ul class="org-ul">
+          <li>strategic hedging: more resilience against state actor attacks</li>
+          <li>codebase sharing: more development teams sharing code with each other</li>
+          <li>easier experimentation and evolution</li>
+        </ul>
+
+        <p>
+          We want Tezos to be strong, trustless, decentralized, immutable, uncensorable and - ultimately - unstoppable. We believe in individual action, and we&apos;re doing our part.
+        </p>
+
+        <p>
+          Join us on Telegram
+          <a href="http://t.me/tzlibre">http://t.me/tzlibre</a> and get involved!
+        </p>
+
+
+        <p>
+          The team, 2018-02-23
+        </p>
+      </div>
+    </div>
+
+
+  </body>
+
+</html>

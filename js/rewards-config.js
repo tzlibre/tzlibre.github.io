@@ -158,5 +158,29 @@ const rewards_config = {
     'BEGIN_TIMESTAMP': '2018-10-01T00:00:00Z',
     'END_TIMESTAMP': '2018-10-31T23:59:59Z',
     'BEGIN_BLOCK_LEVEL': 126242
+  },
+  'tzl-delegations-10': {
+    'ID': 'tzl-delegations-10',
+    'name': 'Airdrop 10 - delegation',
+    'for': 'delegation',
+    'description': 'Airdrop 10, delegation',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/9up3ba/tzlibre_update_25/',
+    'payout_date': '2018-12-07',
+    "COEFF": 0.36,
+    "BEGIN_TIMESTAMP": "2018-11-01T00:00:00Z",
+    "END_TIMESTAMP": "2018-11-30T23:59:59Z",
+    "BEGIN_BLOCK_LEVEL": 169627
+  },
+  'tzl-deposits-10': {
+    'ID': 'tzl-deposits-10',
+    'name': 'Airdrop 10 - deposit',
+    'for': 'deposit',
+    'description': 'Airdrop 10, deposit',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/9up3ba/tzlibre_update_25/',
+    'payout_date': '2018-12-07',
+    "COEFF": 1.08,
+    "BEGIN_TIMESTAMP": "2018-11-01T00:00:00Z",
+    "END_TIMESTAMP": "2018-11-30T23:59:59Z",
+    "BEGIN_BLOCK_LEVEL": 169627
   }
 }

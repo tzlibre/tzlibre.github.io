@@ -10,71 +10,27 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1F260B">
     <meta name="msapplication-TileColor" content="#1F260B">
     <meta name="theme-color" content="#1F260B">
     <link href="/style/style.css" rel="stylesheet">
     <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
     <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
-    <meta property="og:title" data-id="default_page_title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta property="og:url" content="https://tzlibre.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@tzlibre">
+    <meta name="twitter:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta name="twitter:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta name="twitter:image" content="https://tzlibre.github.io/tzl-shareimage.png">
   </head>
 
   <body>
 
-    <div class="topbar">
-      <div class="content">
-
-        <div id="infobar" class="infobar">
-          <div>
-            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
-              <span class="infobar-block">
-            <span class="infobar-lbl">1 TZL =</span>
-              <span class="infobar-value">{{price_usd}}</span> <span>USD</span> <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
-
-              <span class="infobar-block hideOnMobile">
-            <span class="infobar-lbl" data-id="marketcap">market cap</span>
-              <span class="infobar-value" id="marketCapValue">N/A</span>
-              </span>
-            </a>
-          </div>
-          <div>
-            <a href="http://tzscan.io/tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp#" target="_blank">
-              <span class="infobar-block">
-            <span class="infobar-lbl">Delegations</span>
-              <span class="infobar-value">{{delegations}}</span> <span>XTZ</span>
-              </span>
-            </a>
-          </div>
-          <div>
-            <a href="http://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">
-              <span class="infobar-block">
-                  <span class="infobar-lbl">Deposits</span>
-              <span class="infobar-value">{{deposits}}</span> <span>XTZ</span>
-              </span>
-              <span class="infobar-block hideOnMobile">
-                  <span class="infobar-lbl">Collateral</span>
-              <span class="infobar-value">{{collateralization}}</span><span>%</span>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <ul class="langswitch">
-          <li>
-            <button data-lang="en">en</button>
-          </li>
-          <li>
-            <button data-lang="ru">&#x440;&#x443;</button>
-          </li>
-          <li>
-            <button data-lang="cn">&#x4E2D;&#x6587;</button>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-
-
-    <header class="header-mini">
+    <header>
       <div class="content">
         <div class="header-main">
           <div class="wordmark">
@@ -82,47 +38,55 @@
               <img src="/images/tzllogo-wordmark.svg" alt="tzlibre wordmark">
             </a>
           </div>
+          <div id="infobar" class="priceticker hideOnMobile">
+            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+              <span class="infobar-lbl">1 TZL =</span>
+              <span class="infobar-value">{{price_usd}} USD <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
+            </a>
+          </div>
         </div>
+
         <a href="index.html" class="logo">
           <img src="/images/tzllogo-base.svg" alt="tzlibre logo">
         </a>
+        <nav class="nav-primary">
+          <input id="collapsible" class="toggle" type="checkbox">
+          <label for="collapsible">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-arrow-dropdown" />
+            </svg>
+          </label>
+          <div>
+            <ul>
+              <li class="{{ nav0_class }}">
+                <a class="hidden"><strong>MENU</strong></a>
+              </li>
+              <li class="{{ nav3_class }}">
+                <a href="delegate.html" data-id="dlgt_nav">Delegate</a>
+              </li>
+              <li class="{{ nav5_class }}">
+                <a href="deposit.html" data-id="smartdlgt_nav">Deposit</a>
+              </li>
+              <li class="{{ nav6_class }}">
+                <a href="verify.html" data-id="verify_title">Verify</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="{{ nav9_class }}">
+                <a href="https://librebox.github.io" target="_blank" data-id="wallet_title">Wallet</a>
+              </li>
+              <li class="selected">
+                <a href="project.html" data-id="home_title">Project</a>
+              </li>
+              <li class="{{ nav2_class }}">
+                <a href="faq.html" data-id="faq_title">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
       </div>
     </header>
-
-    <nav class="nav-primary">
-      <input id="collapsible" class="toggle" type="checkbox">
-      <label for="collapsible">MENU</label>
-      <div class="content">
-        <ul class="nav-primary-main">
-          <!--li class="{{ nav3_class }}"><a href="whitelist.html" data-id="wl_title"></a></li>
-      <li class="{{ nav4_class }}"><a href="claim.html" data-id="split_title"></a></li-->
-          <li class="{{ nav5_class }}">
-            <a href="delegate.html" data-id="dlgt_title">Get TZL</a>
-          </li>
-          <li class="{{ nav6_class }}">
-            <a href="verify.html" data-id="verify_title">Verify</a>
-          </li>
-          <li class="{{ nav7_class }}">
-            <a href="sign.html" data-id="sign_title">Link</a>
-          </li>
-          <li class="{{ nav8_class }}">
-            <a href="bank.html" data-id="bank_title">Bank</a>
-          </li>
-          <li class="{{ nav9_class }}">
-            <a href="https://librebox.github.io" data-id="wallet_title">Wallet</a>
-          </li>
-        </ul>
-        <ul class="nav-primary-side">
-          <li class="selected">
-            <a href="project.html" data-id="home_title">Project</a>
-          </li>
-          <li class="{{ nav2_class }}">
-            <a href="faq.html" data-id="faq_title">FAQ</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
 
     <nav class="nav-secondary">
       <ul class="content">
@@ -152,7 +116,7 @@
 
         <div class="block">
 
-          <h2 data-id="home_sect1_title">Why TzLibre</h2>
+          <h1 data-id="home_sect1_title">Why TzLibre</h1>
 
           <p data-id="home_sect1_intro">Tezos is a great, disruptive idea. We believe KYC-Tezos is the wrong way to implement it.
             <br>Specifically, we recognize these major flaws in KYC-Tezos:</p>
@@ -251,14 +215,14 @@
 
         <div class="block">
 
-          <h2 data-id="home_sect2_title">What is TzLibre</h2>
+          <h1 data-id="home_sect2_title">What is TzLibre</h1>
 
           <div data-id="home_sect2_intro">
             <p>TzLibre is a trustless and hard-capped implementation of Tezos. It is based on a fork of KYC-Tezos: it shares with it the underlying technology. The TzLibre blockchain is alternative to, and not compatible with, the KYC-Tezos blockchain.</p>
             <p>TzLibre has been created to run Michelson smart contracts with strong requirements of immutability and uncensorability.</p>
           </div>
 
-          <h3 data-id="home_sect2_alloc_title">TZL allocation</h3>
+          <h2 data-id="home_sect2_alloc_title">TZL allocation</h2>
 
           <div class="barchart limited-max">
 
@@ -325,7 +289,7 @@
 
           </div>
 
-          <h3 data-id="home_sect2_diff_title">Main differences</h3>
+          <h2 data-id="home_sect2_diff_title">Main differences</h2>
 
           <p data-id="home_sect2_diff_intro">The main differences with KYC-Tezos are:</p>
 
@@ -410,7 +374,7 @@
             </div>
           </div>
 
-          <h3 data-id="home_sect2_comp_title">Compared to other forks</h3>
+          <h2 data-id="home_sect2_comp_title">Compared to other forks</h2>
 
           <div class="tables-list">
 
@@ -653,7 +617,7 @@
 
         <div class="block">
 
-          <h2 data-id="home_sect3_title">How to claim</h2>
+          <h1 data-id="home_sect3_title">How to claim</h1>
 
           <div data-id="home_sect3_txt">
             <p>All Tezos ICO contributors can get TZL coins (aka &quot;Libre tezzies&quot;) at a 1:1 ratio with their XTZ coins (aka &quot;KYC tezzies&quot;). To do so, they must claim their coins. </p>We&apos; wi&apos;ll post detailed claim instructions
@@ -664,22 +628,23 @@
               report us any phishing attempt.</p>
           </div>
 
-          <p data-id="cta_button">
+          <div class="buttonsline" data-id="cta_button">
             <a href="https://t.me/tzlibre" target="_blank" class="btn">
               <svg class="icon">
                 <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
               </svg><span>Join us on Telegram</span></a>
-          </p>
+          </div>
 
         </div>
+
 
         <a name="about"></a>
 
         <div class="block">
 
-          <h2 data-id="home_sect4_title">About us</h2>
+          <h1 data-id="home_sect4_title">About us</h1>
 
-          <h3 data-id="home_sect4_sub1_title">Who we are</h3>
+          <h2 data-id="home_sect4_sub1_title">Who we are</h2>
           <div data-id="home_sect4_sub1_txt">
             <p>We are a team of early Tezos investors, veteran blockchain developers, and academics.</p>
             <p>We are dreamers of a new society, where smart contracts and protocols replace politicians and lawyers. We believe decentralized governance is the right path to build our vision. We are pseudonymous to protect our operational freedom from any
@@ -687,45 +652,45 @@
             <p><strong>Our code speaks louder than words: don&apos;t trust us, verify it.</strong></p>
           </div>
 
-          <h3 data-id="home_sect4_sub2_title">Our community</h3>
+          <h2 data-id="home_sect4_sub2_title">Our community</h2>
           <div data-id="home_sect4_sub2_txt">
             <p>We are building a healthy, inclusive, respectful community to move TzLibre forward.</p>
             <p>We believe a disruptive technology can have one foundation only: a productive community of good people, with no masters or slaves. We&apos;ll retain an operational role until the community is mature enough. We plan to then step back and only
               provide oversight.</p>
           </div>
 
-          <h3 data-id="home_sect4_sub3_title">Our philosophy</h3>
+          <h2 data-id="home_sect4_sub3_title">Our philosophy</h2>
           <div data-id="home_sect4_sub3_txt">
             <p>Our background is free market anarcho-capitalism, and we believe Bitcoin is a milestone in human evolution toward freedom.</p>
             <p>We firmly oppose statism and its favourite weapon: inflation. We want to build a world without trusted parties, based purely on merit. We fight for transparency and the free market of ideas, goods and services.</p>
             <p>We oppose monopolies in every shape or form, and we don&apos;t believe in copyright. We dream of a world without governments, borders, passports: a really, fully decentralized world.</p>
           </div>
-          <p>
-            <a href="https://ipfs.infura.io/ipfs/QmYEcSaYEMm3xQqBK6wZT9uc2SCDJyU7pBU82KQQHMdXxo" target="_blank" class="btn"><span data-id="link_manifesto">Read our manifesto</span></a>
-          </p>
+          <div class="buttonsline">
+            <a href="manifesto.html" target="_blank" class="btn"><span data-id="link_manifesto">Read our manifesto</span></a>
+          </div>
 
           <div class="block-row">
 
             <a name="contacts"></a>
 
             <div class="block">
-              <h3 data-id="home_sect4_sub4_title">Contact us</h3>
+              <h2 data-id="home_sect4_sub4_title">Contact us</h2>
               <div data-id="home_sect4_sub4_txt">
                 <p>Join our public Telegram channel to get our official news, read previous announcements, and get in touch with us.</p>
               </div>
-              <p data-id="cta_button">
+              <div class="buttonsline" data-id="cta_button">
                 <a href="https://t.me/tzlibre" target="_blank" class="btn">
                   <svg class="icon">
                     <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
                   </svg><span>Join us on Telegram</span></a>
-              </p>
+              </div>
               <p><span data-id="home_sect4_sub4_txt2">You can also contact us privately via <a href="https://t.me/tz_libre" target="_blank">Telegram</a> or <a href="https://www.reddit.com/r/tzlibre" target="_blank">Reddit</a>, or write us at</span>
                 <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm">tzlibre@protonmail.com</a> (
                 <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>)</p>
             </div>
 
             <div class="block">
-              <h3 data-id="home_sect4_sub5_title">Support us</h3>
+              <h2 data-id="home_sect4_sub5_title">Support us</h2>
               <div data-id="home_sect4_sub5_txt">
                 <p>TzLibre is a self-funded grassroots effort driven by ideals. We chose not to premine coins to ourselves. Please support us with an ETC donation to our Ethereum Classic address:</p>
               </div>
@@ -740,12 +705,12 @@
 
         <div class="block">
 
-          <h2 data-id="home_sect5_title">Press</h2>
+          <h1 data-id="home_sect5_title">Press</h1>
 
-          <p>
+          <div class="buttonsline">
             <a href="/press-release-2018-05-30.pdf" target="_blank" class="btn"><span data-id="link_pressrelease">Get the press release</span></a>
             <a href="/mediakit.zip" target="_blank" class="btn"><span data-id="link_mediakit">Get the Media kit</span></a>
-          </p>
+          </div>
 
         </div>
 
@@ -754,47 +719,56 @@
 
     </div>
 
-    <div class="actionbar">
+    <footer>
 
       <div class="content">
 
-        <div class="actionbar-main">
-
-          <span data-id="cta_button_actionbar"><a href="https://t.me/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-telegram-channel"/></svg><span>Telegram channel</span></a>
-          </span>
-
-          <span><a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn btn-primary"><svg class="icon"><use href="/images/svgdefs.svg#icon-social-reddit-small"/></svg><span data-id="follow_reddit">Reddit sub</span></a>
-          </span>
-
+        <div class="footer-main">
+          <h2 data-id="contact_us">Contact us</h2>
+          <p data-id="contact_intro">We&apos;ll never ask for your personal data. Please report any phishing attempt, we are aware of fake TzLibre accounts on social media. We strongly suggest you to bookmark all of our official addresses.</p>
         </div>
 
-        <div class="actionbar-contacts">
-
-          <a href="https://t.me/tz_libre" target="_blank" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-telegram-small" />
-            </svg>
-          </a>
-          <a href="https://twitter.com/tzlibre" target="_blank" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-twitter-small" />
-            </svg>
-          </a>
-          <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="iconbtn">
-            <svg class="icon">
-              <use href="/images/svgdefs.svg#icon-social-email-small" />
-            </svg>
-          </a>
-          <a href="/publickey.tzlibre@protonmail.com.asc">pgp key</a>
-
+        <div class="footer-contacts">
+          <p>
+            <a href="https://t.me/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
+              </svg><span>Telegram Channel: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://twitter.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+              </svg><span>Twitter: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-reddit-small" />
+              </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+              </svg><span>Telegram: <strong>@tz_libre</strong></span></a>
+          </p>
+          <p>
+            <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-email-small" />
+              </svg><span><strong>tzlibre@protonmail.com</strong></span></a> |
+            <a href="/publickey.tzlibre@protonmail.com.asc" class="btnlabel"><span>pgp key</span></a>
+          </p>
         </div>
 
       </div>
 
-    </div>
+    </footer>
 
     <script src="/js/vue.min.js"></script>
     <script src="/js/scripts.js"></script>
+    <script src="/js/scripts-ticker.js"></script>
     <script src="/js/scripts-infobar.js"></script>
 
 

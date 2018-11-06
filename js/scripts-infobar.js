@@ -1,15 +1,4 @@
-const TICKER_URL = 'https://ticker.tzlibre.io/api/v1/ticker'
-
-function numberWithCommas (x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-}
-
-async function get_ticker () {
-  let response = await fetch(TICKER_URL)
-  return response.json()
-}
-
-async function updateTicker () {
+async function updateTicker (ticker) {
   // let res = {
   //   'eth_tzl_price': 0.0002,
   //   'usd_tzl_price': 0.0738098038086,
@@ -17,6 +6,7 @@ async function updateTicker () {
   //   'timestamp': '2018-08-08T10:27:21.842Z',
   //   'usd_tzl_perc_24h': -10.08209938562455
   // }
+
   let res = await get_ticker()
   let price_usd = res.usd_tzl_price.toFixed(2)
   let variation = res.usd_tzl_perc_24h
@@ -24,10 +14,10 @@ async function updateTicker () {
   let price_variation_class
 
   if (variation >= 0) {
-    price_variation_value = `+${variation.toFixed(2)}%`
+    price_variation_value = `+${variation.toFixed(1)}%`
     price_variation_class = 'variation-positive'
   } else {
-    price_variation_value = `${variation.toFixed(2)}%`
+    price_variation_value = `${variation.toFixed(1)}%`
     price_variation_class = 'variation-negative'
   }
 
@@ -53,14 +43,10 @@ async function updateTicker () {
   ticker.collateralization = collateralization
 }
 
-// ///////////////////////////// GLOBALS ////////////////////////
-
-let ticker = {}
-
 // ///////////////////////////// INIT DATA ////////////////////////
 
 function init_data () {
-  ticker = {
+  return {
     price_usd: '0',
     price_variation_value: '0',
     price_variation_class: 'variation-positive',
@@ -72,7 +58,7 @@ function init_data () {
 
 // ///////////////////////// APPs //////////////////////////
 
-function init_v_apps () {
+function init_v_apps (ticker) {
   let v_infobar = new Vue({
     el: '#infobar',
     data: ticker
@@ -82,10 +68,10 @@ function init_v_apps () {
 // ///////////////////////////// MAIN ////////////////////////
 
 (async () => {
-  init_data()
-  init_v_apps()
+  let ticker = init_data()
+  init_v_apps(ticker)
   try {
-    await updateTicker()
+    await updateTicker(ticker)
   } catch (e) {
     console.error(e)
   }

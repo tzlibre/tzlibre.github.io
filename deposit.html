@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title data-id="default_page_title">Tz Libre | a fork of DLS KYC Tezos</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1F260B">
+    <meta name="msapplication-TileColor" content="#1F260B">
+    <meta name="theme-color" content="#1F260B">
+    <link href="/style/style.css" rel="stylesheet">
+    <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta property="og:url" content="https://tzlibre.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@tzlibre">
+    <meta name="twitter:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta name="twitter:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta name="twitter:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="content">
+        <div class="header-main">
+          <div class="wordmark">
+            <a href="index.html">
+              <img src="/images/tzllogo-wordmark.svg" alt="tzlibre wordmark">
+            </a>
+          </div>
+          <div id="infobar" class="priceticker hideOnMobile">
+            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+              <span class="infobar-lbl">1 TZL =</span>
+              <span class="infobar-value">{{price_usd}} USD <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html" class="logo">
+          <img src="/images/tzllogo-base.svg" alt="tzlibre logo">
+        </a>
+        <nav class="nav-primary">
+          <input id="collapsible" class="toggle" type="checkbox">
+          <label for="collapsible">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-arrow-dropdown" />
+            </svg>
+          </label>
+          <div>
+            <ul>
+              <li class="{{ nav0_class }}">
+                <a class="hidden"><strong>MENU</strong></a>
+              </li>
+              <li class="{{ nav3_class }}">
+                <a href="delegate.html" data-id="dlgt_nav">Delegate</a>
+              </li>
+              <li class="selected">
+                <a href="deposit.html" data-id="smartdlgt_nav">Deposit</a>
+              </li>
+              <li class="{{ nav6_class }}">
+                <a href="verify.html" data-id="verify_title">Verify</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="{{ nav9_class }}">
+                <a href="https://librebox.github.io" target="_blank" data-id="wallet_title">Wallet</a>
+              </li>
+              <li class="{{ nav1_class }}">
+                <a href="project.html" data-id="home_title">Project</a>
+              </li>
+              <li class="{{ nav2_class }}">
+                <a href="faq.html" data-id="faq_title">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+    </header>
+
+    <div class="main">
+
+      <div id="deposit" class="content">
+
+        <div class="block">
+
+          <div class="lp-title">
+            <h1>Deposit XTZ<span class="subtitle">e.g. deposit <strong>1000</strong> XTZ</span></h1>
+            <div class="divider"></div>
+            <h1>Mint TZL<span class="subtitle">mint <strong>{{ reward_for_1000_xtz }}</strong> TZL / month</span></h1>
+          </div>
+
+        </div>
+
+        <div class="block blurblist">
+
+          <div class="blurb">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-feature1" />
+            </svg>
+            <div class="blurb-body">
+              <h3>High ROI</h3>
+              <p>Earn {{roi_percentage}}%/month</p>
+            </div>
+          </div>
+
+          <div class="blurb">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-feature4" />
+            </svg>
+            <div class="blurb-body">
+              <h3>Trustless</h3>
+              <p>Withdraw at any time</p>
+            </div>
+          </div>
+
+          <div class="blurb">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-feature2" />
+            </svg>
+            <div class="blurb-body">
+              <h3>Politically driven</h3>
+              <p>Get active to override KYC</p>
+            </div>
+          </div>
+
+          <div class="blurb">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-feature3" />
+            </svg>
+            <div class="blurb-body">
+              <h3>Hard-capped</h3>
+              <p>Maximum 763M TZL</p>
+            </div>
+          </div>
+
+          <div class="blurb">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-feature5" />
+            </svg>
+            <div class="blurb-body">
+              <h3>No premine</h3>
+              <p>No free coins to founders</p>
+            </div>
+          </div>
+
+          <div class="blurb">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-feature6" />
+            </svg>
+            <div class="blurb-body">
+              <h3>Hardcoded constitution</h3>
+              <p>Restricted on-chain governance</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="block">
+
+          <h2>TzLibre Deposit is the <strong>1st Liquidity smart contract</strong> for trustless bond pooling</h2>
+
+          <div class="figurerow">
+            <div class="figure">
+              <div class="figure-lbl">Total deposits</div>
+              <div class="figure-main"><span>339,163.38</span><span class="figure-unit">XTZ</span></div>
+            </div>
+          </div>
+
+          <div class="figurerow">
+            <div class="figure">
+              <div class="figure-lbl">Current reward</div>
+              <div class="figure-main"><span>{{roi_percentage}}%</span><span class="figure-unit">/month</span></div>
+            </div>
+            <div class="figure">
+              <div class="figure-lbl">TZL price</div>
+              <div class="figure-main"><span>{{ tzl_xtz_price }}</span><span class="figure-unit">XTZ</span></div>
+            </div>
+          </div>
+
+          <div class="figurerow">
+
+            <h3>Monthly rewards</h3>
+
+            <div class="histogram">
+              <div class="histoblock">
+                <h4><strong>TzLibre Deposit</strong></h4>
+                <div class="histobar-container">
+                  <div class="histobar" style="width: 100%">{{roi_percentage}}%</div>
+                </div>
+              </div>
+              <div class="histoblock">
+                <h4>Solo baking</h4>
+                <div class="histobar-container">
+                  <div class="histobar" v-bind:style="roi_percentage_solo_baking_style">{{ roi_percentage_solo_baking }}%</div>
+                </div>
+              </div>
+              <div class="histoblock">
+                <h4>Other delegates</h4>
+                <div class="histobar-container">
+                  <div class="histobar" v-bind:style="roi_percentage_other_delegates_style">{{ roi_percentage_other_delegates }}%</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="figurerow">
+            <h3>Calculate your reward</h3>
+            <div class="figure">
+              <div class="figure-lbl">XTZ you deposit</div>
+              <div class="figure-input">
+                <input type="text" v-model="reward_calculator_input" placeholder="0" v-on:input="update_calculator($event.target.value)">
+              </div>
+            </div>
+            <div class="figure">
+              <div class="figure-lbl">TZL you mint</div>
+              <div class="figure-main"><span>{{ reward_calculator_output }}</span><span class="figure-unit">TZL/month</span></div>
+              <div class="figure-notes">around <span>{{ reward_calculator_output_in_xtz }} XTZ</span>, or <span>${{ reward_calculator_output_in_usd }}</span>
+                <p></p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="main-light">
+
+        <div class="content">
+
+          <div class="block">
+
+            <h2>How to deposit</h2>
+
+            <div class="stepslist">
+
+              <h4>Launch LibreBox</h4>
+              <p>You need a wallet that allows interacting with KYC-Tezos smart contracts, such as LibreBox.</p>
+              <div class="buttonsline">
+                <a href="https://librebox.github.io/" target="_blank" class="btn btn-primary"><span>Open LibreBox</span></a>
+              </div>
+              <p>Expert user? You can use the official
+                <a href="http://tezos.gitlab.io/betanet/introduction/howtoget.html" target="blank">tezos-client</a> instead of LibreBox.</p>
+
+              <h4>Create or restore your wallet</h4>
+              <p>From the splash screen you can <strong>Restore</strong> an existing wallet (quickest option), <strong>Create</strong> a new one, or <strong>Link</strong> a Ledger device.</p>
+
+              <div class="screenshot">
+                <img src="images/screenshots/screen-splash.png" alt="">
+              </div>
+
+              <h5>Restore a wallet (quick)</h5>
+              <p>Click on &quot;<strong>Restore</strong>&quot; from the splash screen.</p>
+              <p>Then choose a restore method: <strong>Seed Phrase</strong> if you have already created a wallet on LibreBox or TezBox, <strong>Private Key</strong> if you have exported an unencrypted private key from another wallet, or <strong>Fundraiser Wallet</strong>                if you&apos;re using your ICO details.</p>
+              <div class="screenshot">
+                <img src="images/screenshots/screen-restore.png" alt="">
+              </div>
+
+              <h5>Create a wallet (slow)</h5>
+              <p>If you need to create a brand new wallet click on &quot;<strong>Create LibreBox</strong>&quot; from the splash screen and follow the instructions.</p>
+              <div class="screenshot">
+                <img src="images/screenshots/screen-create.png" alt="">
+              </div>
+
+              <h4>Fund your wallet</h4>
+              <p>You must have at least 1002 XTZ in your account.</p>
+              <p>If your account balance is lower than 1002 XTZ, you must move funds from another tz1 or KT1 account (e.g. the address you&apos;re currently delegating TzLibre with).</p>
+              <div class="screenshot">
+                <img src="images/screenshots/screen-main.png" alt="">
+              </div>
+
+              <h4>Deposit your funds</h4>
+              <p>Send funds (minimum 1000 XTZ) to the TzLibre Deposit smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span>.</p>
+              <p>You must always keep minimum 2 XTZ in the account, to pay for deposit fees.</p>
+              <div class="screenshot">
+                <img src="images/screenshots/screen-send.png" alt="">
+              </div>
+
+              <h4>Check your address</h4>
+              <p>24 hours after deposit, verify your KT1 address to set your Ethereum address and track your TZL rewards.</p>
+              <div class="buttonsline">
+                <a href="verify.html" target="_blank" class="btn btn-primary"><span>Verify your Tezos address</span></a>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="block block-tight">
+
+            <h2>How to withdraw</h2>
+
+            <div class="stepslist stepslist-hidecount">
+              <h4>Send 1 XTZ to the TzLibre Deposit smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span></h4>
+            </div>
+
+          </div>
+
+          <div class="block block-tight">
+
+            <h2>Learn more</h2>
+
+            <div class="expandable">
+              <h4>Terms</h4>
+              <div class="expandable-content">
+                <ul>
+                  <li>You can deposit or withdraw at any time</li>
+                  <li>Minimum deposit (per account): <strong>1,000 XTZ</strong></li>
+                  <li>Maximum deposit (per account): <strong>none</strong></li>
+                  <li>Deposit fee: <strong>0.10 XTZ</strong></li>
+                  <li>Withdrawal fee: <strong>0.1%</strong></li>
+                  <li>Minimum collateral: <strong>25%</strong></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="expandable">
+              <h4>How bond pooling works</h4>
+              <div class="expandable-content">
+                <p>The TzLibre Deposit smart contract keeps a minimum collateral by allowing TzLibre to only withdraw up to 75% of deposited funds (this is hardcoded in the smart contract). Thanks to this guarantee depositors can withdraw their own deposit
+                  at any given time. When a depositor withdraws, TzLibre subsequently withdraws an equal amount of its baking bond in order to add collateral to the smart contract.</p>
+                <p>This allows for trustless bond pooling. TzLibre will borrow XTZ from the contract in order to increase its baking bonds. Larger baking bonds allow TzLibre to accept an ever growing number of delegations.</p>
+              </div>
+            </div>
+
+            <div class="expandable">
+              <h4>How to check contract state</h4>
+              <div class="expandable-content">
+                <p>For more information about the contract state, open its
+                  <a href="https://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">TzScan page</a> and select: Code &#x2192; Storage &#x2192; Michelson storage. You&apos;ll find the whole contract state values there, in this order:</p>
+                <ul>
+                  <li><strong>Constants</strong>: max depositors, min deposit*, withdraw fee %*, min collateral*</li>
+                  <li><strong>Variables</strong>: tot deposited*, tot borrowed*, deposits map (address, balance*), map size.</li>
+                  <p>* fixed point values, multiplied by 10^6 as per Tezos standard</p>
+                </ul>
+              </div>
+            </div>
+
+            <div class="expandable">
+              <h4>How to verify contract source code</h4>
+              <div class="expandable-content">
+                <p>We encourage our users to verify the Liquidity source compiles to the deployed contract:</p>
+                <ol>
+                  <li>Open TzLibre Deposit
+                    <a href="https://github.com/tzlibre/libre-bank" target="_blank">Github repository</a>
+                  </li>
+                  <li>Find the Liquidity source at <span class="inline-code">libre-bank.liq</span></li>
+                  <li>Compile it into Michelson (you can use this
+                    <a href=" http://www.liquidity-lang.org/" target="_blank"> web tool</a>)</li>
+                  <li>Verify the compiled Michelson code is the same as the Michelson code
+                    <a href=" http://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">deployed</a> (&quot;Code&quot; section on TzScan)</li>
+                </ol>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="main">
+
+        <div class="content">
+
+          <div class="block block-centered">
+
+            <h2>About us</h2>
+
+            <p><strong>TzLibre is a fork of KYC-Tezos.</strong></p>
+
+            <p>We&apos;re developing a permissionless, KYC-free, hard-capped implementation of Tezos.</p>
+
+            <div class="buttonsline">
+              <a href="project.html" class="btn"><span>Our project</span></a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <footer>
+
+        <div class="content">
+
+          <div class="footer-main">
+            <h2 data-id="contact_us">Contact us</h2>
+            <p data-id="contact_intro">We&apos;ll never ask for your personal data. Please report any phishing attempt, we are aware of fake TzLibre accounts on social media. We strongly suggest you to bookmark all of our official addresses.</p>
+          </div>
+
+          <div class="footer-contacts">
+            <p>
+              <a href="https://t.me/tzlibre" target="_blank" class="btn iconbtn">
+                <svg class="icon">
+                  <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
+                </svg><span>Telegram Channel: <strong>@tzlibre</strong></span></a>
+            </p>
+            <p>
+              <a href="https://twitter.com/tzlibre" target="_blank" class="btn iconbtn">
+                <svg class="icon">
+                  <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+                </svg><span>Twitter: <strong>@tzlibre</strong></span></a>
+            </p>
+            <p>
+              <a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn iconbtn">
+                <svg class="icon">
+                  <use href="/images/svgdefs.svg#icon-social-reddit-small" />
+                </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+            </p>
+            <p>
+              <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
+                <svg class="icon">
+                  <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+                </svg><span>Telegram: <strong>@tz_libre</strong></span></a>
+            </p>
+            <p>
+              <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="btn iconbtn">
+                <svg class="icon">
+                  <use href="/images/svgdefs.svg#icon-social-email-small" />
+                </svg><span><strong>tzlibre@protonmail.com</strong></span></a> |
+              <a href="/publickey.tzlibre@protonmail.com.asc" class="btnlabel"><span>pgp key</span></a>
+            </p>
+          </div>
+
+        </div>
+
+      </footer>
+
+      <!-- <script src="/js/vue.min.js"></script> -->
+      <script src="/js/vue.js"></script>
+      <script src="/js/moment-with-locales.js"></script>
+      <script src="/js/rewards-config.js"></script>
+      <script src="/js/scripts-ticker.js"></script>
+      <script src="/js/scripts.js"></script>
+      <script src="/js/scripts-infobar.js"></script>
+      <script src="/js/scripts-deposit.js"></script>
+      <script src="/js/scripts-get-tzl.js"></script>
+
+
+
+
+    </div>
+  </body>
+
+</html>
