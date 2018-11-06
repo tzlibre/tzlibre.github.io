@@ -2,7 +2,7 @@ const TICKER_URL = 'https://ticker.tzlibre.io/api/v1/ticker'
 let TICKER_CACHE = null
 
 async function get_ticker () {
-  if (TICKER_CACHE) { return ticker }
+  if (TICKER_CACHE) { return TICKER_CACHE }
   let response = await fetch(TICKER_URL)
   TICKER_CACHE = response.json()
   return TICKER_CACHE
