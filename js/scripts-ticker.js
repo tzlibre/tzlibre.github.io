@@ -1,5 +1,5 @@
 const TICKER_URL = 'https://ticker.tzlibre.io/api/v1/ticker'
-const TICKER_CACHE = null
+let TICKER_CACHE = null
 
 async function get_ticker () {
   if (TICKER_CACHE) { return ticker }
