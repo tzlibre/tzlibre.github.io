@@ -21,8 +21,8 @@ async function updateTicker (ticker) {
     price_variation_class = 'variation-negative'
   }
 
-  let delegations = numberWithCommas(res.delegations.toFixed(2))
-  let deposits = numberWithCommas(res.bond_bank.deposits.toFixed(2))
+  let delegations = numberWithCommas(res.delegations)
+  let deposits = numberWithCommas(res.bond_bank.deposits)
   let collateralization = (res.bond_bank.collateral * 100).toFixed(2)
 
   // Update Market Cap
