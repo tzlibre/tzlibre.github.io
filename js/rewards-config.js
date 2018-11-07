@@ -108,6 +108,19 @@ const rewards_config = {
     'BEGIN_BLOCK_LEVEL': 83038,
     'END_BLOCK_LEVEL': 126241
   },
+  'airdrop-08-fix': {
+    'ID': 'airdrop-08-fix',
+    'name': 'Airdrop 8 - reconciliation',
+    'for': 'delegation',
+    'description': 'Airdrop 8, delegation, reconciliation',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/9a67tv/8th_tzl_airdrop/',
+    'COEFF': 0.25,
+    'payout_date': '2018-10-31',
+    'BEGIN_TIMESTAMP': '2018-08-31T00:00:28Z',
+    'END_TIMESTAMP': '2018-09-30T23:59:10Z',
+    'BEGIN_BLOCK_LEVEL': 83038,
+    'END_BLOCK_LEVEL': 126241
+  },
   'airdrop-08-deposits': {
     'ID': 'airdrop-08-deposits',
     'name': 'Airdrop 8 - deposits',
@@ -121,11 +134,38 @@ const rewards_config = {
     'BEGIN_BLOCK_LEVEL': 83038,
     'END_BLOCK_LEVEL': 126241
   },
+  'airdrop-08-deposits-fix': {
+    'ID': 'airdrop-08-deposits-fix',
+    'name': 'Airdrop 8 - deposits - reconciliation',
+    'for': 'delegation',
+    'description': 'Airdrop 8, deposit, reconciliation',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/9a67tv/8th_tzl_airdrop/',
+    'COEFF': 0.25,
+    'payout_date': '2018-10-31',
+    'BEGIN_TIMESTAMP': '2018-08-31T00:00:28Z',
+    'END_TIMESTAMP': '2018-09-30T23:59:10Z',
+    'BEGIN_BLOCK_LEVEL': 83038,
+    'END_BLOCK_LEVEL': 126241
+  },
   'tzl-deposits-09-pre': {
     'ID': 'tzl-deposits-09-pre',
     'name': 'Airdrop 9 - pre-deposit',
     'for': 'deposit',
     'description': 'Airdrop 9, pre-deposit',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/9jnhmz/tzlibre_update_24_librebank_librebox_october/',
+    'COEFF': 1.50,
+    'payout_date': '2018-11-07',
+    'payout_date': '2018-11-07',
+    'BEGIN_TIMESTAMP': '2018-08-31T00:00:28Z',
+    'END_TIMESTAMP': '2018-09-30T23:59:10Z',
+    'BEGIN_BLOCK_LEVEL': 83038,
+    'END_BLOCK_LEVEL': 126241
+  },
+  'tzl-deposits-09-pre-fix': {
+    'ID': 'tzl-deposits-09-pre-fix',
+    'name': 'Airdrop 9 - pre-deposit - reconciliation',
+    'for': 'deposit',
+    'description': 'Airdrop 9, pre-deposit, reconciliation',
     'info_link': 'https://www.reddit.com/r/tzlibre/comments/9jnhmz/tzlibre_update_24_librebank_librebox_october/',
     'COEFF': 1.50,
     'payout_date': '2018-11-07',
