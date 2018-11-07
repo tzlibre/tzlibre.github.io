@@ -195,7 +195,7 @@
 
           <div class="figurerow">
 
-            <h3>Monthly reward</h3>
+            <h3>Monthly rewards (est.)</h3>
 
             <div class="histogram">
               <div class="histoblock">
@@ -282,7 +282,7 @@
               </div>
 
               <h4>Receive TZL tokens</h4>
-              <p>24 hours after delegation, verify your KT1 address to set your Ethereum address and track your TZL rewards.</p>
+              <p>24 hours after delegation, verify your KT1 address to link an Ethereum address.</p>
               <div class="buttonsline">
                 <a href="verify.html" target="_blank" class="btn btn-primary"><span>Verify your Tezos address</span></a>
               </div>
@@ -299,9 +299,9 @@
                 <ul>
                   <li>Next payout: <strong>{{ next_payout_date  }}</strong></li>
                   <li>Current reward: <strong>{{ roi_unit }} TZL/month</strong> for each XTZ delegated</li>
-                  <li>Current reward in XTZ value terms: <strong>{{ roi_percentage }}%/month</strong></li>
+                  <li>Current reward in XTZ value terms (est.): <strong>{{ roi_percentage }}%/month</strong></li>
                   <li>Reward update: <strong>{{ last_day }}</strong></li>
-                  <li>XTZ and USD rewards are a function of current TZL price</li>
+                  <li>XTZ and USD reward estimates are a function of current TZL price</li>
                   <li>You can revoke, cancel or change your delegation at any time</li>
                 </ul>
               </div>
@@ -412,8 +412,8 @@
     <script src="/js/scripts-ticker.js"></script>
     <script src="/js/scripts.js"></script>
     <script src="/js/scripts-infobar.js"></script>
-    <script src="/js/scripts-delegate.js"></script>
     <script src="/js/scripts-get-tzl.js"></script>
+    <script src="/js/scripts-delegate.js"></script>
 
 
 

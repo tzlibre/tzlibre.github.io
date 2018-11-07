@@ -1,27 +1,3 @@
-function success_whitelist (wl_json, lang_prefix) {
-  let pkh = document.getElementById('verify-pkh').value.trim()
-  if (is_empty(wl_json)) {
-    return -1
-  }
-
-  if (wl_json.hasOwnProperty('ok') && !wl_json.ok) {
-    error(wl_json)
-    return -2 // leave handling to error fn
-  }
-
-  let amount = parseFloat(wl_json.h_TZL)
-
-  g_data.modal_no_claimed.claim_url = `/claim.html?pkh=${pkh}`
-  g_data.whitelist.pkh = wl_json.pkh
-  g_data.whitelist.h_TZL = wl_json.h_TZL
-  g_data.whitelist.whitelist_time = moment(wl_json.whitelist_time).format(TIMEFORMAT).toString()
-  g_data.whitelist.show = true
-  g_data.delegate.whitelisted_amount = amount
-  g_data.next_steps.claim_url = `${lang_prefix}/claim.html?pkh=${wl_json.pkh}`
-
-  return amount
-}
-
 function filter_already_airdropped (delegations, airdrops) {
   delegations = delegations || []
   airdrops = airdrops || []
@@ -60,11 +36,16 @@ function success_claim (claim_json, lang_prefix) {
   g_data.claim.signed = signed
   g_data.claim.sign_ts = proof_ts
 
+  let delegation_coeff = rewards_config[CURRENT_DELEGATION_REWARD].COEFF
+  let deposit_coeff = rewards_config[CURRENT_DEPOSIT_REWARD].COEFF
+
   if (has_delegated) {
     g_data.delegate.has_delegated = has_delegated
     g_data.delegate.delegations = claim_json.delegations
     g_data.delegate.timestamp = moment().format(TIMEFORMAT).toString()
     g_data.delegate.delegated_amount = claim_json.delegated_amount.toFixed(2)
+    g_data.delegate.can_earn_more = claim_json.delegated_amount >= 1000
+    g_data.delegate.deposit_multiplier = (deposit_coeff / delegation_coeff).toFixed(1)
     g_data.delegate.partial_delegation = claim_json.delegated_amount / g_data.delegate.whitelisted_amount < 0.75
   }
 
@@ -72,6 +53,12 @@ function success_claim (claim_json, lang_prefix) {
     g_data.deposit.has_deposited = has_deposited
     g_data.deposit.deposits = claim_json.deposits
     g_data.deposit.deposited_amount = claim_json.deposited_amount
+  }
+
+  if (has_delegated || has_deposited) {
+    g_data.earn.is_earning = true
+  } else {
+    g_data.earn.is_earning = false
   }
 
   if (has_upcoming_payouts) {
@@ -92,7 +79,7 @@ function success_claim (claim_json, lang_prefix) {
   g_data.next_steps.opt1 = claim_json.opt2 && !claim_json.opt3
   g_data.claim.opt2 = g_data.next_steps.opt2 = opt2
   g_data.next_steps.opt3 = !!claim_json.opt3
-  g_data.next_steps.delegate_url = `${lang_prefix}/delegate.html?pkh=${claim_json.tzl_pkh}`
+  g_data.next_steps.delegate_url = `${lang_prefix}/deposit.html`
   g_data.claim.dispute_url = g_data.next_steps.dispute_url = `${lang_prefix}/sign.html?pkh=${claim_json.tzl_pkh}`
 
   if (claim_json.airdrops && claim_json.airdrops.length) {
@@ -116,12 +103,11 @@ function success_claim (claim_json, lang_prefix) {
   }
 }
 
-function success ([r_whitelist, r_claim]) {
+function success ([r_claim]) {
   let lang_prefix = ''
   if (is_cn()) { lang_prefix = '/cn' }
   if (is_ru()) { lang_prefix = '/ru' }
 
-  let whitelisted_amount = success_whitelist(r_whitelist, lang_prefix)
   let {
     error,
     claimed,
@@ -130,22 +116,10 @@ function success ([r_whitelist, r_claim]) {
     opt2
   } = success_claim(r_claim, lang_prefix)
 
-  if (whitelisted_amount === -1 && !error && !claimed) {
+  if (!error && !claimed) {
     showModal('modal-not-found')
     return
   }
-
-  if (whitelisted_amount === 0 && !error && !claimed) {
-    showModal('modal-zero-owner')
-    return
-  }
-
-  if (whitelisted_amount > 0 && !error && !claimed) {
-    showModal('modal-not-claimed')
-    return
-  }
-
-  g_data.whitelist.not_claimed = !claimed
 
   if (opt2 && has_delegated) {
     return
@@ -209,7 +183,6 @@ function augment_upcoming_payouts (payouts) {
     let end_ts = reward.END_TIMESTAMP
     let from = beg_ts.substring(0, beg_ts.indexOf('T'))
     let to = end_ts.substring(0, end_ts.indexOf('T'))
-    // p.period = `${from} -> ${to}`
     p.period_from = from
     p.period_to = to
     p.for = reward.description
@@ -225,12 +198,6 @@ function augment_upcoming_payouts (payouts) {
 async function get (url) {
   let response = await fetch(url)
   return response.json()
-}
-
-function get_whitelist (pkh) {
-  let qs = `?pkh=${pkh}`
-  let url = url_whitelist + qs
-  return get(url)
 }
 
 function get_claim (pkh) {
@@ -249,12 +216,6 @@ function verify () {
     pkh = decapitalize(pkh)
   }
   input.value = pkh
-  let p_whitelist = get_whitelist(pkh).then(res => {
-    if (res.hasOwnProperty('pkh') && res.pkh !== pkh) {
-      error_generic(res)
-    }
-    return res
-  })
   let p_claim = get_claim(pkh).then(res => {
     if (res.hasOwnProperty('tzl_pkh') &&
         !pkh.startsWith('KT1') &&
@@ -264,7 +225,7 @@ function verify () {
     return res
   })
 
-  Promise.all([p_whitelist, p_claim])
+  Promise.all([p_claim])
     .then((args) => {
       success(args)
       stop_loading()
@@ -280,8 +241,6 @@ function verify () {
 
 let g_data = {
   app: {},
-  modal_not_found: {},
-  whitelist: {},
   claim: {},
   delegate: {},
   deposit: {},
@@ -295,22 +254,6 @@ let data_init = {
   app: {
     loading: false,
     error_handled: false
-  },
-
-  modal_not_found: {
-    whitelist_url: ''
-  },
-
-  modal_no_claimed: {
-    claim_url: ''
-  },
-
-  whitelist: {
-    show: false,
-    pkh: '',
-    h_TZL: '',
-    whitelist_time: '',
-    not_claimed: true
   },
 
   claim: {
@@ -331,6 +274,8 @@ let data_init = {
     timestamp: '',
     has_delegated: false,
     delegated_amount: 0,
+    can_earn_more: false,
+    deposit_multiplier: 5,
     partial_delegation: false,
     delegations: [],
     whitelisted_amount: 0
@@ -341,6 +286,10 @@ let data_init = {
     has_deposited: false,
     deposited_amount: 0,
     deposits: []
+  },
+
+  earn: {
+    is_earning: true
   },
 
   noairdrops: {
@@ -382,12 +331,10 @@ let data_init = {
 
 function init_data () {
   g_data.app = Object.assign({}, data_init.app)
-  g_data.modal_not_found = Object.assign({}, data_init.modal_not_found)
-  g_data.modal_no_claimed = Object.assign({}, data_init.modal_no_claimed)
-  g_data.whitelist = Object.assign({}, data_init.whitelist)
   g_data.claim = Object.assign({}, data_init.claim)
   g_data.delegate = Object.assign({}, data_init.delegate)
   g_data.deposit = Object.assign({}, data_init.deposit)
+  g_data.earn = Object.assign({}, data_init.earn)
   g_data.noairdrops = Object.assign({}, data_init.noairdrops)
   g_data.airdrops = Object.assign({}, data_init.airdrops)
   g_data.upcoming_payouts = Object.assign({}, data_init.upcoming_payouts)
@@ -402,13 +349,13 @@ function init_v_apps () {
     data: g_data.app
   })
 
-  let modal_not_found = new Vue({
-    el: '#modal-not-found',
-    data: g_data.modal_not_found
-  })
-
   let v_account = new Vue({
     el: '#verify-account-box',
+    data: g_data.claim
+  })
+
+  let v_warning_not_eth_addr = new Vue({
+    el: '#verify-warning-not-eth-addr',
     data: g_data.claim
   })
 
@@ -418,15 +365,20 @@ function init_v_apps () {
     methods: { augment_delegations }
   })
 
+  let v_warning_not_deposited = new Vue({
+    el: '#verify-warning-can-earn-more',
+    data: g_data.delegate
+  })
+
   let v_deposit = new Vue({
     el: '#verify-deposit-box',
     data: g_data.deposit,
     methods: { augment_deposits }
   })
 
-  let v_warning_not_deposited = new Vue({
-    el: '#verify-warning-not-deposited',
-    data: g_data.deposit
+  let v_warning_not_earning = new Vue({
+    el: '#verify-warning-not-earning',
+    data: g_data.earn
   })
 
   let v_airdrops = new Vue({

@@ -190,7 +190,7 @@
 
           <div class="figurerow">
 
-            <h3>Monthly rewards</h3>
+            <h3>Monthly rewards (est.)</h3>
 
             <div class="histogram">
               <div class="histoblock">
@@ -289,8 +289,8 @@
                 <img src="images/screenshots/screen-send.png" alt="">
               </div>
 
-              <h4>Check your address</h4>
-              <p>24 hours after deposit, verify your KT1 address to set your Ethereum address and track your TZL rewards.</p>
+              <h4>Receive TZL tokens</h4>
+              <p>24 hours after deposit, verify your Tezos address to link an Ethereum address.</p>
               <div class="buttonsline">
                 <a href="verify.html" target="_blank" class="btn btn-primary"><span>Verify your Tezos address</span></a>
               </div>
@@ -320,6 +320,12 @@
                   <li>You can deposit or withdraw at any time</li>
                   <li>Minimum deposit (per account): <strong>1,000 XTZ</strong></li>
                   <li>Maximum deposit (per account): <strong>none</strong></li>
+
+                  <li>Next payout: <strong>{{ next_payout_date  }}</strong></li>
+                  <li>Current reward: <strong>{{ roi_unit }} TZL/month</strong> for each XTZ delegated</li>
+                  <li>Current reward in XTZ value terms (est.): <strong>{{ roi_percentage }}%/month</strong></li>
+                  <li>XTZ and USD reward estimates are a function of current TZL price</li>
+                  <li>Reward update: <strong>{{ last_day }}</strong></li>
                   <li>Deposit fee: <strong>0.10 XTZ</strong></li>
                   <li>Withdrawal fee: <strong>0.1%</strong></li>
                   <li>Minimum collateral: <strong>25%</strong></li>
@@ -448,8 +454,8 @@
       <script src="/js/scripts-ticker.js"></script>
       <script src="/js/scripts.js"></script>
       <script src="/js/scripts-infobar.js"></script>
-      <script src="/js/scripts-deposit.js"></script>
       <script src="/js/scripts-get-tzl.js"></script>
+      <script src="/js/scripts-deposit.js"></script>
 
 
 

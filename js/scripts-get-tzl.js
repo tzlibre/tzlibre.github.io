@@ -1,11 +1,11 @@
 const TIMEFORMAT = 'MMMM Do YYYY'
 const roi_percentage_solo_baking = 0.75
 const roi_percentage_other_delegates = 0.66
-const ticker_f = get_ticker
+const ticker_f = get_ticker_test
 
-function update_calculator (data, ticker, input, value) {
+function update_calculator (reward_id, data, ticker, input, value) {
   value = value !== undefined ? value : input
-  let current_reward = rewards_config[REWARD_ID]
+  let current_reward = rewards_config[reward_id]
   let coeff = current_reward.COEFF
   let output = input * coeff
   let tzl_xtz_price = ticker.tzl_xtz_price
@@ -17,9 +17,9 @@ function update_calculator (data, ticker, input, value) {
   data.reward_calculator_output_in_usd = (output * usd_tzl_price).toFixed(2)
 }
 
-async function update_get_tzl_page (data) {
+async function update_get_tzl_page (reward_id, data) {
   let ticker = await ticker_f()
-  let current_reward = rewards_config[REWARD_ID]
+  let current_reward = rewards_config[reward_id]
   let coeff = current_reward.COEFF
   let tzl_xtz_price = ticker.tzl_xtz_price
   let roi_percentage = (coeff * tzl_xtz_price * 100).toFixed(2)
@@ -32,22 +32,22 @@ async function update_get_tzl_page (data) {
   data.available_capacity = numberWithCommas(ticker.available_capacity)
   data.staking_balance = numberWithCommas(ticker.delegations)
   data.tzl_xtz_price = tzl_xtz_price.toFixed(4)
-  update_calculator(data, ticker, 0, '') // as in the "e.g. 1000"
+  update_calculator(reward_id, data, ticker, 0, '') // as in the "e.g. 1000"
 }
 
-async function get_update_calculator (data) {
+async function get_update_calculator (reward_id, data) {
   let ticker = await ticker_f()
 
   return function (input) {
     input = input.replace(/[^0-9.]/g, '')
-    update_calculator(data, ticker, input)
+    update_calculator(reward_id, data, ticker, input)
   }
 }
 
 // ///////////////////////////// INIT DATA ////////////////////////
 
-function init_data () {
-  let current_reward = rewards_config[REWARD_ID]
+function init_data (reward_id) {
+  let current_reward = rewards_config[reward_id]
   let coeff = current_reward.COEFF
 
   let reward_for_1000_xtz = 1000 * coeff
@@ -78,24 +78,12 @@ function init_data () {
 
 // ///////////////////////// APPs //////////////////////////
 
-async function init_v_apps (data) {
+async function init_v_app (reward_id, el, data) {
   let v_app = new Vue({
-    el: VUE_EL,
+    el,
     data,
     methods: {
-      update_calculator: await get_update_calculator(data)
+      update_calculator: await get_update_calculator(reward_id, data)
     }
   })
 }
-
-// ///////////////////////////// MAIN ////////////////////////
-
-(async () => {
-  let data = init_data()
-  await init_v_apps(data)
-  try {
-    await update_get_tzl_page(data)
-  } catch (e) {
-    console.error(e)
-  }
-})()

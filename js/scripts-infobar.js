@@ -8,7 +8,7 @@ async function updateTicker (ticker) {
   // }
 
   let res = await get_ticker()
-  let price_usd = res.usd_tzl_price.toFixed(2)
+  let price_usd = res.usd_tzl_price.toFixed(3)
   let variation = res.usd_tzl_perc_24h
   let price_variation_value
   let price_variation_class
