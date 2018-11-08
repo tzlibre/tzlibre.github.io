@@ -1,6 +1,6 @@
 const TIMEFORMAT = 'MMMM Do YYYY'
 const OTHER_DELEGATES_ROI_RATIO = 0.9
-const ticker_f = get_ticker_test
+const ticker_f = get_ticker
 
 function update_calculator (reward_id, data, ticker, input, value) {
   value = value !== undefined ? value : input
