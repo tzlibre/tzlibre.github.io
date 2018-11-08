@@ -12,7 +12,8 @@ async function get_ticker_test () {
   return {
     "eth_tzl_price":0.00026000020001,
     "usd_tzl_price":0.05260584046802331,
-    "tzl_xtz_price":0.038680765050017135,
+    "xtz_tzl_price":0.038680765050017135,
+    "roi_solo_baker": 0.0086,
     "delegations":1656094.723222,
     "available_capacity":1259117.4904936552,
     "bond_bank":{

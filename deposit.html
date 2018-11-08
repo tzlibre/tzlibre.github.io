@@ -184,7 +184,7 @@
             </div>
             <div class="figure">
               <div class="figure-lbl">TZL price</div>
-              <div class="figure-main"><span>{{ tzl_xtz_price }}</span><span class="figure-unit">XTZ</span></div>
+              <div class="figure-main"><span>{{ xtz_tzl_price }}</span><span class="figure-unit">XTZ</span></div>
             </div>
           </div>
 
@@ -315,13 +315,13 @@
 
             <div class="expandable">
               <h4>Terms</h4>
-              <div class="expandable-content">
+              <div id="deposit-terms" class="expandable-content">
                 <ul>
                   <li>You can deposit or withdraw at any time</li>
                   <li>Minimum deposit (per account): <strong>1,000 XTZ</strong></li>
                   <li>Maximum deposit (per account): <strong>none</strong></li>
 
-                  <li>Next payout: <strong>{{ next_payout_date  }}</strong></li>
+                  <li>Next payout: <strong>{{ next_payout_date }}</strong></li>
                   <li>Current reward: <strong>{{ roi_unit }} TZL/month</strong> for each XTZ delegated</li>
                   <li>Current reward in XTZ value terms (est.): <strong>{{ roi_percentage }}%/month</strong></li>
                   <li>XTZ and USD reward estimates are a function of current TZL price</li>
@@ -400,67 +400,68 @@
 
       </div>
 
-      <footer>
+    </div>
 
-        <div class="content">
+    <footer>
 
-          <div class="footer-main">
-            <h2 data-id="contact_us">Contact us</h2>
-            <p data-id="contact_intro">We&apos;ll never ask for your personal data. Please report any phishing attempt, we are aware of fake TzLibre accounts on social media. We strongly suggest you to bookmark all of our official addresses.</p>
-          </div>
+      <div class="content">
 
-          <div class="footer-contacts">
-            <p>
-              <a href="https://t.me/tzlibre" target="_blank" class="btn iconbtn">
-                <svg class="icon">
-                  <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
-                </svg><span>Telegram Channel: <strong>@tzlibre</strong></span></a>
-            </p>
-            <p>
-              <a href="https://twitter.com/tzlibre" target="_blank" class="btn iconbtn">
-                <svg class="icon">
-                  <use href="/images/svgdefs.svg#icon-social-twitter-small" />
-                </svg><span>Twitter: <strong>@tzlibre</strong></span></a>
-            </p>
-            <p>
-              <a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn iconbtn">
-                <svg class="icon">
-                  <use href="/images/svgdefs.svg#icon-social-reddit-small" />
-                </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
-            </p>
-            <p>
-              <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
-                <svg class="icon">
-                  <use href="/images/svgdefs.svg#icon-social-telegram-small" />
-                </svg><span>Telegram: <strong>@tz_libre</strong></span></a>
-            </p>
-            <p>
-              <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="btn iconbtn">
-                <svg class="icon">
-                  <use href="/images/svgdefs.svg#icon-social-email-small" />
-                </svg><span><strong>tzlibre@protonmail.com</strong></span></a> |
-              <a href="/publickey.tzlibre@protonmail.com.asc" class="btnlabel"><span>pgp key</span></a>
-            </p>
-          </div>
-
+        <div class="footer-main">
+          <h2 data-id="contact_us">Contact us</h2>
+          <p data-id="contact_intro">We&apos;ll never ask for your personal data. Please report any phishing attempt, we are aware of fake TzLibre accounts on social media. We strongly suggest you to bookmark all of our official addresses.</p>
         </div>
 
-      </footer>
+        <div class="footer-contacts">
+          <p>
+            <a href="https://t.me/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
+              </svg><span>Telegram Channel: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://twitter.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+              </svg><span>Twitter: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-reddit-small" />
+              </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+              </svg><span>Telegram: <strong>@tz_libre</strong></span></a>
+          </p>
+          <p>
+            <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-email-small" />
+              </svg><span><strong>tzlibre@protonmail.com</strong></span></a> |
+            <a href="/publickey.tzlibre@protonmail.com.asc" class="btnlabel"><span>pgp key</span></a>
+          </p>
+        </div>
 
-      <!-- <script src="/js/vue.min.js"></script> -->
-      <script src="/js/vue.js"></script>
-      <script src="/js/moment-with-locales.js"></script>
-      <script src="/js/rewards-config.js"></script>
-      <script src="/js/scripts-ticker.js"></script>
-      <script src="/js/scripts.js"></script>
-      <script src="/js/scripts-infobar.js"></script>
-      <script src="/js/scripts-get-tzl.js"></script>
-      <script src="/js/scripts-deposit.js"></script>
+      </div>
+
+    </footer>
+
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
+    <script src="/js/moment-with-locales.js"></script>
+    <script src="/js/rewards-config.js"></script>
+    <script src="/js/scripts-ticker.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/scripts-infobar.js"></script>
+    <script src="/js/scripts-get-tzl.js"></script>
+    <script src="/js/scripts-deposit.js"></script>
 
 
 
 
-    </div>
   </body>
 
 </html>
