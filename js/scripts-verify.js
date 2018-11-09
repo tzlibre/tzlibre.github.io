@@ -21,7 +21,10 @@ function success_claim (claim_json, lang_prefix) {
   let claimed = true
   let has_delegated = !!claim_json.has_delegated
   let has_deposited = !!claim_json.has_deposited
-  let has_upcoming_payouts = claim_json.accrued_delegations && claim_json.accrued_delegations.length > 0
+  let has_upcoming_payouts =
+      claim_json.accrued_delegations &&
+      claim_json.airdrops &&
+      claim_json.accrued_delegations.length - claim_json.airdrops.length > 0
   let signed = !!claim_json.valid_proof
   let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
@@ -63,7 +66,7 @@ function success_claim (claim_json, lang_prefix) {
 
   if (has_upcoming_payouts) {
     let items = filter_already_airdropped(claim_json.accrued_delegations, claim_json.airdrops)
-    let total = items.map(i => i.accrued_amount).reduce((a, b) => a + b)
+    let total = items.map(i => i.accrued_amount).reduce((a, b) => a + b, 0)
     g_data.upcoming_payouts.items = items.map(i => {i.is_accruing = i.is_accruing || false; return i})
     g_data.upcoming_payouts.total_payout_amount = total.toFixed(2)
     g_data.upcoming_payouts.has_upcoming_payouts = has_upcoming_payouts
