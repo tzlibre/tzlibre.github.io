@@ -98,7 +98,7 @@
             <h1>Delegate XTZ<span class="subtitle">e.g. delegate <strong>1000</strong> XTZ</span></h1>
             <div class="divider"></div>
 
-            <h1>Mint TZL<span class="subtitle">earn <strong>{{ reward_for_1000_xtz }}</strong> TZL / month</span></h1>
+            <h1>Mint TZL<span class="subtitle">mint <strong>{{ reward_for_1000_xtz }}</strong> TZL / month</span></h1>
           </div>
 
         </div>
@@ -223,15 +223,16 @@
           <div class="figurerow">
             <h3>Calculate your reward</h3>
             <div class="figure">
-              <div class="figure-lbl">XTZ you delegate</div>
+              <div class="figure-lbl">How many XTZ delegated?</div>
               <div class="figure-input">
                 <input type="text" v-model="reward_calculator_input" placeholder="0" v-on:input="update_calculator($event.target.value)">
               </div>
             </div>
             <div class="figure">
-              <div class="figure-lbl">TZL you mint</div>
+              <div class="figure-lbl">How many TZL you get?</div>
               <div class="figure-main"><span>{{ reward_calculator_output }}</span><span class="figure-unit">TZL/month</span></div>
-              <div class="figure-notes">around <span>{{ reward_calculator_output_in_xtz }} XTZ</span>, or <span>${{ reward_calculator_output_in_usd }}</span>
+              <div class="figure-notes">= <span>{{ reward_calculator_output_in_xtz }} XTZ</span>
+                <br>= <span>{{ reward_calculator_output_in_usd }} $</span>
                 <p></p>
               </div>
             </div>
@@ -253,22 +254,20 @@
             <div class="stepslist">
 
               <h4>Open your wallet</h4>
-              <p>Launch your XTZ wallet. If you don&apos;t have one we suggest LibreBox.</p>
-              <div class="buttonsline">
-                <a href="https://librebox.github.io/" target="_blank" class="btn btn-primary"><span>Open LibreBox</span></a>
-              </div>
+              <p>Launch your XTZ wallet. We suggest
+                <a href="https://librebox.github.io" target="_blank">LibreBox</a>.</p>
 
               <h4>Setup a delegating account</h4>
               <p>If you&apos;re already delegating another baker, skip this step.</p>
 
-              <h5>Create KT1 account</h5>
-              <p>You need a KT1 account. To create one on LibreBox/TezBox click &quot;<strong>Add Account</strong>&quot; (fee: 0.25 XTZ).</p>
+              <h5>Create KT1 address</h5>
+              <p>You need a KT1 address. To create one on LibreBox or TezBox click &quot;<strong>Add Account</strong>&quot; (fee: 0.25 XTZ).</p>
               <div class="screenshot">
                 <img src="images/screenshots/screen-createkt1.png" alt="">
               </div>
 
-              <h5>Fund KT1 account</h5>
-              <p>You must fund your KT1 account. On LibreBox/TezBox select your &quot;<strong>Main</strong>&quot; account, then click &quot;<strong>Send</strong>&quot;.</p>
+              <h5>Fund KT1 address</h5>
+              <p>You must fund your KT1 address. On LibreBox or TezBox select your &quot;<strong>Main</strong>&quot; account, then click &quot;<strong>Send</strong>&quot;.</p>
               <p>Enter your KT1 address in the &quot;<strong>To</strong>&quot; field, enter your balance in the &quot;<strong>Amount</strong>&quot; field, leave a zero &quot;<strong>Fee</strong>&quot;, then click &quot;<strong>Send</strong>&quot;.</p>
               <div class="screenshot">
                 <img src="images/screenshots/screen-fundkt1.png" alt="">
@@ -276,13 +275,13 @@
 
               <h4>Delegate TzLibre</h4>
               <p>You must delegate <span class="inline-code">tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp</span>.</p>
-              <p>On LibreBox/TezBox: Select your KT1 account, click the &quot;<strong>Delegate</strong>&quot; tab, choose &quot;<strong>Custom</strong>&quot; from the dropdown menu. Enter <span class="inline-code">tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp</span>                and click &quot;<strong>Update Delegate</strong>&quot;.</p>
+              <p>On LibreBox or TezBox: Select your KT1 account, click the &quot;<strong>Delegate</strong>&quot; tab, choose &quot;<strong>Custom</strong>&quot; from the dropdown menu. Enter <span class="inline-code">tz1iDu3tHhf7H4jyXk6rGV4FNUsMqQmRkwLp</span>                and click &quot;<strong>Update Delegate</strong>&quot;.</p>
               <div class="screenshot">
                 <img src="images/screenshots/screen-customdelegate.png" alt="">
               </div>
 
-              <h4>Receive TZL tokens</h4>
-              <p>24 hours after delegation, verify your KT1 address to link an Ethereum address.</p>
+              <h4>Track rewards</h4>
+              <p>24 hours after delegation, verify your Tezos address to track rewards and to link an Ethereum address.</p>
               <div class="buttonsline">
                 <a href="verify.html" target="_blank" class="btn btn-primary"><span>Verify your Tezos address</span></a>
               </div>
@@ -387,6 +386,12 @@
               <svg class="icon">
                 <use href="/images/svgdefs.svg#icon-social-reddit-small" />
               </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://github.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-github-small" />
+              </svg><span>Github: <strong>tzlibre</strong></span></a>
           </p>
           <p>
             <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">

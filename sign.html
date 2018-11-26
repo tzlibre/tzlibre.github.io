@@ -96,6 +96,12 @@
 
           <h2 data-id="sign_page_title">Confirm your Ethereum address</h2>
 
+          <p data-id="sign_when">After you accrue TZL rewards, you can receive your TZL tokens on any Ethereum address. To receive them you should link an Ethereum address. <strong>You can do it at any time. No accrued TZL will be lost.</strong></p>
+          <p data-id="sign_why">To link a confirmed Ethereum address you must sign it with your Tezos private key. You won&apos;t be able to change your Ethereum address afterwards. We suggest to use a brand new Ethereum address. Your signature will be public.</p>
+          <p>
+            <a href="#howto">How to sign?</a>
+          </p>
+
           <form action="Javascript:sign()" class="" id="sign-form">
 
             <label for="sign-pkh" data-id="wl_intro">Tezos address (a/k/a public key hash)</label>
@@ -151,10 +157,15 @@
 
         <div class="block block-tight">
 
+          <a name="howto"></a>
+
+          <h2>How to sign</h2>
+
           <p data-id="sign_intro1"><strong>Beginner</strong>:
             <a href="/project.html#contacts">contact us</a> to confirm your Ethereum address.</p>
 
-          <p data-id="sign_intro2"><strong>Intermediate</strong>: you can produce your signature with our web tool: download the HTML file, open it and follow the instructions.</p>
+          <p data-id="sign_intro2"><strong>Intermediate</strong>: if your KYC-Tezos wallet allows you to sign messages, you can generate the signature passing it your Ethereum address string. Otherwise you can generate your own signature and public key with our web tool: download
+            the HTML file, open it and follow the instructions.</p>
 
           <div class="buttonsline">
             <a href="https://github.com/tzlibre/signature-webtool/releases/download/v1.3/tzlibre-signature-webtool.html\" download="\&quot;tzlibre-signature-webtool.html\&quot;&quot;" class="btn">
@@ -165,13 +176,11 @@
             </a>
           </div>
 
-          <p data-id="sign_intro3"><strong>Advanced</strong>: if your KYC-Tezos wallet allows you to sign messages, you can produce the signature passing it your Ethereum address string. Alternatively you can produce your own Ed25519 signature or clone one of our repos:
-            <a href="https://github.com/tzlibre/fundraiser-tools"
-              target="_blank">command line tools</a> or
-            <a href="https://github.com/tzlibre/signature-webtool" target="_blank">web tool</a>.</p>
-
-          <p data-id="sign_info"><strong>More info</strong>: to confirm your Ethereum address you must prove ownership of your Tezos address by signing your current Ethereum address string with your Tezos private key. You won&apos;t be able to change your Ethereum address afterwards.
-            We suggest to use a brand new Ethereum address. Your signature will be public.</p>
+          <p data-id="sign_intro3"><strong>Advanced</strong>: generate a signature with tezos-client:
+            <br><span class="inline-code">$ tezos-client sign bytes [blake32(eth_address)] for [tz1_address]</span>
+            <br> Alternatively you can generate your own Ed25519 signature or clone one of our repos (
+            <a href="https://github.com/tzlibre/fundraiser-tools" target="_blank">command line tools</a> or
+            <a href="https://github.com/tzlibre/signature-webtool" target="_blank">web tool</a>).</p>
 
         </div>
 
@@ -206,6 +215,12 @@
               <svg class="icon">
                 <use href="/images/svgdefs.svg#icon-social-reddit-small" />
               </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://github.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-github-small" />
+              </svg><span>Github: <strong>tzlibre</strong></span></a>
           </p>
           <p>
             <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">

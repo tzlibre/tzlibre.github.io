@@ -21,10 +21,9 @@ function success_claim (claim_json, lang_prefix) {
   let claimed = true
   let has_delegated = !!claim_json.has_delegated
   let has_deposited = !!claim_json.has_deposited
-  let has_upcoming_payouts =
-      claim_json.accrued_delegations &&
-      claim_json.airdrops &&
-      claim_json.accrued_delegations.length - claim_json.airdrops.length > 0
+  let accrued_delegations_len = (claim_json.accrued_delegations && claim_json.accrued_delegations.length) || 0
+  let airdrops_len = (claim_json.airdrops && claim_json.airdrops.length) || 0
+  let has_upcoming_payouts = accrued_delegations_len - airdrops_len > 0
   let signed = !!claim_json.valid_proof
   let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts

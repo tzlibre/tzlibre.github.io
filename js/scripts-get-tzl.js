@@ -35,8 +35,11 @@ async function update_get_tzl_page (reward_id, data) {
   data.roi_percentage_other_delegates_style = {width: `${roi_percentage_other_delegates_width}%`}
   data.available_capacity = numberWithCommas(ticker.available_capacity)
   data.staking_balance = numberWithCommas(ticker.delegations)
+  data.total_deposits = numberWithCommas(ticker.bond_bank.deposits)
   data.xtz_tzl_price = xtz_tzl_price.toFixed(4)
   update_calculator(reward_id, data, ticker, 0, '') // as in the "e.g. 1000"
+
+  console.log('deposits:', data.total_deposits)
 }
 
 async function get_update_calculator (reward_id, data) {
@@ -72,6 +75,7 @@ function init_data (reward_id) {
     roi_percentage_other_delegates_style: {width: `${roi_percentage_other_delegates_width}%`},
     available_capacity: '...',
     staking_balance: '...',
+    total_deposits: '...',
     xtz_tzl_price: '...',
     reward_calculator_input: '',
     reward_calculator_output: (1000 * coeff).toFixed(2), // same value than in "e.g. 1000"

@@ -168,19 +168,19 @@
 
         <div class="block">
 
-          <h2>TzLibre Deposit is the <strong>1st Liquidity smart contract</strong> for trustless bond pooling</h2>
+          <h2>TzLibre Deposit is the <strong>1st Liquidity smart contract</strong> for permissionless bond pooling</h2>
 
           <div class="figurerow">
             <div class="figure">
               <div class="figure-lbl">Total deposits</div>
-              <div class="figure-main"><span>339,163.38</span><span class="figure-unit">XTZ</span></div>
+              <div class="figure-main"><span>{{ total_deposits }}</span><span class="figure-unit">XTZ</span></div>
             </div>
           </div>
 
           <div class="figurerow">
             <div class="figure">
               <div class="figure-lbl">Current reward</div>
-              <div class="figure-main"><span>{{roi_percentage}}%</span><span class="figure-unit">/month</span></div>
+              <div class="figure-main"><span>{{ roi_percentage }}%</span><span class="figure-unit">/month</span></div>
             </div>
             <div class="figure">
               <div class="figure-lbl">TZL price</div>
@@ -218,15 +218,16 @@
           <div class="figurerow">
             <h3>Calculate your reward</h3>
             <div class="figure">
-              <div class="figure-lbl">XTZ you deposit</div>
+              <div class="figure-lbl">XTZ deposited?</div>
               <div class="figure-input">
                 <input type="text" v-model="reward_calculator_input" placeholder="0" v-on:input="update_calculator($event.target.value)">
               </div>
             </div>
             <div class="figure">
-              <div class="figure-lbl">TZL you mint</div>
+              <div class="figure-lbl">Reward you get</div>
               <div class="figure-main"><span>{{ reward_calculator_output }}</span><span class="figure-unit">TZL/month</span></div>
-              <div class="figure-notes">around <span>{{ reward_calculator_output_in_xtz }} XTZ</span>, or <span>${{ reward_calculator_output_in_usd }}</span>
+              <div class="figure-notes">= <span>{{ reward_calculator_output_in_xtz }} XTZ</span>
+                <br>= <span>{{ reward_calculator_output_in_usd }} $</span>
                 <p></p>
               </div>
             </div>
@@ -250,7 +251,7 @@
               <h4>Launch LibreBox</h4>
               <p>You need a wallet that allows interacting with KYC-Tezos smart contracts, such as LibreBox.</p>
               <div class="buttonsline">
-                <a href="https://librebox.github.io/" target="_blank" class="btn btn-primary"><span>Open LibreBox</span></a>
+                <a href="https://librebox.github.io/" target="_blank" class="btn btn-primary"><span>Launch LibreBox</span></a>
               </div>
               <p>Expert user? You can use the official
                 <a href="http://tezos.gitlab.io/betanet/introduction/howtoget.html" target="blank">tezos-client</a> instead of LibreBox.</p>
@@ -289,8 +290,8 @@
                 <img src="images/screenshots/screen-send.png" alt="">
               </div>
 
-              <h4>Receive TZL tokens</h4>
-              <p>24 hours after deposit, verify your Tezos address to link an Ethereum address.</p>
+              <h4>Track rewards</h4>
+              <p>24 hours after deposit, verify your Tezos address to track rewards and to link an Ethereum address.</p>
               <div class="buttonsline">
                 <a href="verify.html" target="_blank" class="btn btn-primary"><span>Verify your Tezos address</span></a>
               </div>
@@ -338,12 +339,12 @@
               <div class="expandable-content">
                 <p>The TzLibre Deposit smart contract keeps a minimum collateral by allowing TzLibre to only withdraw up to 75% of deposited funds (this is hardcoded in the smart contract). Thanks to this guarantee depositors can withdraw their own deposit
                   at any given time. When a depositor withdraws, TzLibre subsequently withdraws an equal amount of its baking bond in order to add collateral to the smart contract.</p>
-                <p>This allows for trustless bond pooling. TzLibre will borrow XTZ from the contract in order to increase its baking bonds. Larger baking bonds allow TzLibre to accept an ever growing number of delegations.</p>
+                <p>This allows for permissionless bond pooling. TzLibre will borrow XTZ from the contract in order to increase its baking bonds. Larger baking bonds allow TzLibre to accept an ever growing number of delegations.</p>
               </div>
             </div>
 
             <div class="expandable">
-              <h4>How to check contract state</h4>
+              <h4>Smart contract state</h4>
               <div class="expandable-content">
                 <p>For more information about the contract state, open its
                   <a href="https://tzscan.io/KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX" target="_blank">TzScan page</a> and select: Code &#x2192; Storage &#x2192; Michelson storage. You&apos;ll find the whole contract state values there, in this order:</p>
@@ -356,7 +357,7 @@
             </div>
 
             <div class="expandable">
-              <h4>How to verify contract source code</h4>
+              <h4>Smart contract source code</h4>
               <div class="expandable-content">
                 <p>We encourage our users to verify the Liquidity source compiles to the deployed contract:</p>
                 <ol>
@@ -429,6 +430,12 @@
               <svg class="icon">
                 <use href="/images/svgdefs.svg#icon-social-reddit-small" />
               </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://github.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-github-small" />
+              </svg><span>Github: <strong>tzlibre</strong></span></a>
           </p>
           <p>
             <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">

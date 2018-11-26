@@ -131,23 +131,20 @@
                   <span v-else="">Unconfirmed</span>
                   <span>Ethereum address for TZL airdrops:</span></p>
                 <p><span class="inline-code">{{ eth_addr }}</span></p>
-                <p v-if="show &amp;&amp; !signed">You can
-                  <a v-bind:href="&apos;/sign.html?pkh=&apos; + tzl_pkh + &apos;&amp;eth=&apos; + eth_addr">confirm your Ethereum address</a>.
-                  <a href="/project.html#contacts">Contact us</a> if you need support.</p>
+                <p v-if="show &amp;&amp; !signed">Optional: you can confirm your Ethereum address at any time.
+                  <a v-bind:href="&apos;/sign.html?pkh=&apos; + tzl_pkh + &apos;&amp;eth=&apos; + eth_addr">Generate a signature</a> or
+                  <a href="/project.html#contacts">contact us</a>.</p>
               </div>
             </div>
 
             <!-- if ETH addr is 0x00000... -->
             <div id="verify-warning-not-eth-addr" v-if="show &amp;&amp; eth_no_addr &amp;&amp; !signed" v-cloak="">
               <div class="formresult">
-                <p class="warning">
-                  <svg class="alert-icon">
-                    <use href="/images/svgdefs.svg#icon-alert" />
-                  </svg>
-                  <span data-id="verify_warning_not_eth_addr_short">Missing Ethereum address</span>
+                <p>
+                  <strong><span data-id="verify_warning_not_eth_addr_short">Ethereum address</span></strong>
                 </p>
-                <p data-id="verify_warning_not_eth_addr">To receive your accrued airdrops you must link an Ethereum address.
-                  <a v-bind:href="&apos;/sign.html?pkh=&apos; + tzl_pkh">Produce a signature</a> or
+                <p data-id="verify_warning_not_eth_addr">To receive your TZL you can link an Ethereum address. You can do it at any time. No accrued TZL will be lost. To link an Ethereum address
+                  <a v-bind:href="&apos;/sign.html?pkh=&apos; + tzl_pkh">generate a signature</a> or
                   <a href="/project.html#contacts">contact us</a>.</p>
               </div>
             </div>
@@ -362,7 +359,7 @@
               <br>
 
               <div>
-                <p>Total accrued rewards:</p>
+                <p>Total accrued payouts:</p>
                 <p class="bigdata">{{ total_payout_amount }} TZL</p>
               </div>
             </div>
@@ -377,14 +374,6 @@
 
             <h2 data-id="nextstep_title">Next steps</h2>
             <a href="#next-steps" class="ns-btn-float" data-id="nextstep_title" v-if="show_floating_btn">Next steps</a>
-
-            <!-- if only whitelisted -->
-            <div v-if="!claimed">
-              <a v-bind:href="claim_url" class="btn">
-                <span data-id="split_page_title">Claim your TZL tokens</span>
-              </a>
-
-            </div>
 
             <!-- if claimed (and signed) -->
             <div v-if="claimed &amp;&amp; !has_delegated">
@@ -462,7 +451,7 @@
           <div class="row">
             <h4 data-id="verify_sub2_title">Already delegated?</h4>
             <p class="row-main" data-id="verify_sub2_txt">Submit your KT1 address to check your delegation status. You can download the
-              <a href="https://tzlibre.io/delegations.csv" target="_blank">Delegation data (CSV)</a>, updated every 24 hours.</p>
+              <a href="https://tzlibre.io/delegations.csv" target="_blank">Delegation data (CSV)</a>, updated every 5 minutes.</p>
           </div>
 
           <div class="row">
@@ -506,6 +495,12 @@
               </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
           </p>
           <p>
+            <a href="https://github.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-github-small" />
+              </svg><span>Github: <strong>tzlibre</strong></span></a>
+          </p>
+          <p>
             <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
               <svg class="icon">
                 <use href="/images/svgdefs.svg#icon-social-telegram-small" />
@@ -533,7 +528,7 @@
             <use href="/images/svgdefs.svg#icon-alert" />
           </svg>
         </h4>
-        <p data-id="modal_notfound_text">Tezos address not found. Make sure this Tezos address is currently delegating or depositing XTZ. If you delegated or deposited in the last 24h, please check again in 24h.</p>
+        <p data-id="modal_notfound_text">Tezos address not found. Make sure this Tezos address is currently delegating or depositing XTZ. If you delegated or deposited in the last 5 minutes, please check again later.</p>
         <div class="modal-actions">
           <a class="btn btn-primary" href="/index.html">Delegate or deposit</a>
         </div>
