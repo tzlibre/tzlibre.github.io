@@ -72,41 +72,15 @@ function sign () {
   inputs.tzl_pk.value = data.tzl_pk
   inputs.eth_addr_signature.value = data.eth_addr_signature
 
-  get_claim(data.tzl_pkh)
-    .then((claim_res) => {
-      if (is_empty(claim_res) ||
-          (claim_res.tzl_pkh !== data.tzl_pkh &&
-           claim_res.valid_proof)) {
-        step_not_allowed()
+  post_sign(data)
+    .then((sign_res) => {
+      if (!sign_res.ok || !sign_res.hasOwnProperty('tzl_pkh') || sign_res.tzl_pkh !== data.tzl_pkh) {
+        error(sign_res)
         return
       }
 
-      if (claim_res.ok === false) {
-	error(claim_res)
-        return
-      }
-
-      if (claim_res.hasOwnProperty('tzl_pkh') && claim_res.tzl_pkh !== data.tzl_pkh) {
-	error_generic()
-        return
-      }
-
-      if (claim_res.valid_proof) {
-	step_not_allowed()
-	return
-      }
-
-      post_sign(data)
-        .then((sign_res) => {
-          if (!sign_res.ok || !sign_res.hasOwnProperty('tzl_pkh') || sign_res.tzl_pkh !== data.tzl_pkh) {
-            error(sign_res)
-            return
-          }
-
-          success(sign_res)
-        })
-    })
-    .then(() => { stop_loading() })
+      success(sign_res)
+    }).then(() => { stop_loading() })
     .catch((err) => {
       stop_loading()
       error_generic(err)
