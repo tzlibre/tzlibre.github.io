@@ -251,5 +251,5 @@ const rewards_config = {
 
 // //////////////// CURRENT REWARDS ////////////////
 
-const CURRENT_DELEGATION_REWARD = 'tzl-delegations-10'
-const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-10'
+const CURRENT_DELEGATION_REWARD = 'tzl-delegations-11'
+const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-11'
