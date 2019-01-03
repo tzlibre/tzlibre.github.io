@@ -228,11 +228,11 @@ const rewards_config = {
     'name': 'Airdrop 11 - delegation',
     'for': 'delegation',
     'description': 'Airdrop 11, delegation',
-    'info_link': '',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/a3188v/tzlibre_update_26/',
     'payout_date': '2019-01-07',
     "COEFF": 0.416,
-    "BEGIN_TIMESTAMP": "2018-11-01T00:00:00Z",
-    "END_TIMESTAMP": "2018-11-30T23:59:59Z",
+    "BEGIN_TIMESTAMP": "2018-12-01T00:00:00Z",
+    "END_TIMESTAMP": "2018-12-31T23:59:59Z",
     "BEGIN_BLOCK_LEVEL": 209327
   },
   'tzl-deposits-11': {
@@ -240,16 +240,38 @@ const rewards_config = {
     'name': 'Airdrop 11 - deposit',
     'for': 'deposit',
     'description': 'Airdrop 11, deposit',
-    'info_link': '',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/a3188v/tzlibre_update_26/',
     'payout_date': '2019-01-07',
     "COEFF": 0.833,
-    "BEGIN_TIMESTAMP": "2018-11-01T00:00:00Z",
-    "END_TIMESTAMP": "2018-11-30T23:59:59Z",
+    "BEGIN_TIMESTAMP": "2018-12-01T00:00:00Z",
+    "END_TIMESTAMP": "2018-12-31T23:59:59Z",
     "BEGIN_BLOCK_LEVEL": 209327
+  },
+  'tzl-delegations-12': {
+    'ID': 'tzl-delegations-12',
+    'name': 'Airdrop 12 - delegation',
+    'for': 'delegation',
+    'description': 'Airdrop 12, delegation',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/abv1p1/tzlibre_update_27/',
+    'payout_date': '2019-02-07',
+    "COEFF": 0.3,
+    "BEGIN_TIMESTAMP": "2019-01-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-01-31T23:59:59Z"
+  },
+  'tzl-deposits-12': {
+    'ID': 'tzl-deposits-12',
+    'name': 'Airdrop 12 - deposit',
+    'for': 'deposit',
+    'description': 'Airdrop 12, deposit',
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/abv1p1/tzlibre_update_27/',
+    'payout_date': '2019-02-07',
+    "COEFF": 1.2,
+    "BEGIN_TIMESTAMP": "2019-01-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-01-31T23:59:59Z"
   }
 }
 
 // //////////////// CURRENT REWARDS ////////////////
 
-const CURRENT_DELEGATION_REWARD = 'tzl-delegations-11'
-const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-11'
+const CURRENT_DELEGATION_REWARD = 'tzl-delegations-12'
+const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-12'
