@@ -25,8 +25,8 @@ function success_claim (claim_json, lang_prefix) {
   let has_deposited = !!claim_json.has_deposited
   let accrued_delegations = (claim_json.accrued_delegations && claim_json.accrued_delegations.filter(a => !(a.skipped_for === LOWER_THAN_FEE))) || [] // filter accrued_delegation below threshold
   let accrued_delegations_len = accrued_delegations.length
-  let airdrops_len = (claim_json.airdrops && claim_json.airdrops.length) || 0
-  let has_upcoming_payouts = accrued_delegations_len - airdrops_len > 0
+  let airdrops_no_1_len = (claim_json.airdrops && claim_json.airdrops.filter(a => !(a.batch_id === 'airdrop-01')).length) || 0 // skip airdrop 1
+  let has_upcoming_payouts = accrued_delegations_len - airdrops_no_1_len > 0
   let signed = !!claim_json.valid_proof
   let ts = moment(claim_json.timestamp).format(TIMEFORMAT).toString()
   let proof_ts = claim_json.proof_ts ? moment(claim_json.proof_ts).format(TIMEFORMAT).toString() : ts
