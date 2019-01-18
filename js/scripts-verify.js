@@ -9,6 +9,8 @@ function filter_already_airdropped (delegations, airdrops) {
 }
 
 function success_claim (claim_json, lang_prefix) {
+  let LOWER_THAN_FEE = 'lower-than-fee'
+
   if (is_empty(claim_json)) {
     return { claimed: false }
   }
@@ -21,7 +23,8 @@ function success_claim (claim_json, lang_prefix) {
   let claimed = true
   let has_delegated = !!claim_json.has_delegated
   let has_deposited = !!claim_json.has_deposited
-  let accrued_delegations_len = (claim_json.accrued_delegations && claim_json.accrued_delegations.length) || 0
+  let accrued_delegations = (claim_json.accrued_delegations && claim_json.accrued_delegations.filter(a => !(a.skipped_for === LOWER_THAN_FEE))) || [] // filter accrued_delegation below threshold
+  let accrued_delegations_len = accrued_delegations.length
   let airdrops_len = (claim_json.airdrops && claim_json.airdrops.length) || 0
   let has_upcoming_payouts = accrued_delegations_len - airdrops_len > 0
   let signed = !!claim_json.valid_proof
@@ -64,7 +67,7 @@ function success_claim (claim_json, lang_prefix) {
   }
 
   if (has_upcoming_payouts) {
-    let items = filter_already_airdropped(claim_json.accrued_delegations, claim_json.airdrops)
+    let items = filter_already_airdropped(accrued_delegations, claim_json.airdrops)
     let total = items.map(i => i.accrued_amount).reduce((a, b) => a + b, 0)
     g_data.upcoming_payouts.items = items.map(i => {i.is_accruing = i.is_accruing || false; return i})
     g_data.upcoming_payouts.total_payout_amount = total.toFixed(2)
@@ -85,9 +88,9 @@ function success_claim (claim_json, lang_prefix) {
   g_data.claim.dispute_url = g_data.next_steps.dispute_url = `${lang_prefix}/sign.html?pkh=${claim_json.tzl_pkh}`
 
   if (claim_json.airdrops && claim_json.airdrops.length) {
-    g_data.airdrops.total_airdropped_amount = claim_json.total_airdropped_amount.toFixed(2)
-    g_data.airdrops.total_fee = claim_json.total_fee.toFixed(2)
-    g_data.airdrops.n_airdrops = claim_json.n_airdrops
+    g_data.airdrops.total_airdropped_amount = claim_json.total_airdropped_amount ? claim_json.total_airdropped_amount.toFixed(2) : '...'
+    g_data.airdrops.total_fee = claim_json.total_fee ? claim_json.total_fee.toFixed(2) : '...'
+    g_data.airdrops.n_airdrops = claim_json.n_airdrops ? claim_json.n_airdrops : '...'
     g_data.airdrops.rounds = claim_json.airdrops
     g_data.airdrops.show = true
   } else {
@@ -158,6 +161,7 @@ function augment_airdrops (airdrops) {
     airdrop.txid_to_show = `${airdrop.txid.substr(0, 6)}...${airdrop.txid.substr(-6)}`
     airdrop.for = reward.description
     airdrop.info_link = reward.info_link
+    airdrop.multiline_desc = reward.multiline_desc
 
     airdrop.etherscan_link = `https://etherscan.io/tx/${airdrop.txid}`
     return airdrop
@@ -193,6 +197,10 @@ function augment_upcoming_payouts (payouts) {
     p.expected_amount_to_show = p.expected_amount ? p.expected_amount.toFixed(2) : ''
     p.amount = p.delegated_amount.toFixed(2)
     p.payout_date = moment(reward.payout_date).format(TIMEFORMAT_SHORT).toString()
+    p.multiline_desc = reward.multiline_desc
+    if (p.skipped) {
+      p.payout_date += ' (on hold)'
+    }
     return p
   })
 }
@@ -218,14 +226,7 @@ function verify () {
     pkh = decapitalize(pkh)
   }
   input.value = pkh
-  let p_claim = get_claim(pkh).then(res => {
-    if (res.hasOwnProperty('tzl_pkh') &&
-        !pkh.startsWith('KT1') &&
-        res.tzl_pkh !== pkh) {
-      error_generic(res)
-    }
-    return res
-  })
+  let p_claim = get_claim(pkh)
 
   Promise.all([p_claim])
     .then((args) => {

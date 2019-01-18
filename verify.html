@@ -143,7 +143,7 @@
                 <p>
                   <strong><span data-id="verify_warning_not_eth_addr_short">Ethereum address</span></strong>
                 </p>
-                <p data-id="verify_warning_not_eth_addr">To receive your TZL you can link an Ethereum address. You can do it at any time. No accrued TZL will be lost. To link an Ethereum address
+                <p data-id="verify_warning_not_eth_addr">To receive TZL you should link an Ethereum address. You can do it at any time, no accrued TZL will be lost: unreceived payouts (on hold) will be delivered after you link an Ethereum address. To link an Ethereum address
                   <a v-bind:href="&apos;/sign.html?pkh=&apos; + tzl_pkh">generate a signature</a> or
                   <a href="/project.html#contacts">contact us</a>.</p>
               </div>
@@ -269,9 +269,12 @@
                       <p>{{ airdrop.ts_to_show }}</p>
                     </td>
                     <td>
-                      <p>
-                        <a target="_blank" :href="airdrop.info_link">{{ airdrop.for }}</a>
-                      </p>
+                      <div class="timestamp">
+                        <p>
+                          <a target="_blank" :href="airdrop.info_link">{{ airdrop.multiline_desc[0] }}</a>
+                        </p>
+                        <p>{{ airdrop.multiline_desc[1] }}</p>
+                      </div>
                     </td>
                     <td>
                       <p><strong>{{ airdrop.amount_to_show }} TZL</strong></p>
@@ -326,14 +329,17 @@
                     <th>Timeframe</th>
                   </tr>
 
-                  <tr class="verify-delegation-details" v-for="payout in augment_upcoming_payouts(items)">
+                  <tr class="verify-delegation-details" v-bind:class="{&apos;verify-payout-details-hold&apos;: payout.skipped}" v-for="payout in augment_upcoming_payouts(items)">
                     <td>
                       <p>{{ payout.payout_date }}</p>
                     </td>
                     <td>
-                      <p>
-                        <a target="_blank" :href="payout.info_link">{{ payout.for }}</a>
-                      </p>
+                      <div class="timestamp">
+                        <p>
+                          <a target="_blank" :href="payout.info_link">{{ payout.multiline_desc[0] }}</a>
+                        </p>
+                        <p>{{ payout.multiline_desc[1] }}</p>
+                      </div>
                     </td>
                     <td v-if="payout.is_accruing">
                       <div class="timestamp">
