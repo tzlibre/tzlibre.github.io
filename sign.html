@@ -99,8 +99,7 @@
 
           <h2 data-id="sign_page_title">Link Ethereum address</h2>
 
-          <p data-id="sign_when">After you accrue TZL rewards, you can receive your TZL tokens on any Ethereum address. To receive them you should link an Ethereum address. <strong>You can do it at any time. No accrued TZL will be lost.</strong></p>
-          <p data-id="sign_why">To link a confirmed Ethereum address you must sign it with your Tezos private key. You won&apos;t be able to change your Ethereum address afterwards. We suggest to use a brand new Ethereum address. Your signature will be public.</p>
+          <p data-id="sign_when">After you accrue TZL rewards you can receive your TZL tokens on any Ethereum address. To receive them you should link an Ethereum address. <strong>You can do it at any time. No accrued TZL will be lost.</strong></p>
           <p>
             <a href="#howto">How to sign?</a>
           </p>
@@ -126,8 +125,8 @@
             <div id="sign-success" v-if="success" v-cloak="">
               <div class="formresult">
                 <p class="timestamp">{{ timestamp }}</p>
-                <p data-id="sign_result_success">Your signature has been verified and saved: it is valid and can&apos;t be changed or updated. You provided a valid proof of ownership and the Tezos address (a/k/a Tezos public key hash) <strong>{{ tzl_pkh }}</strong> is now indisputably
-                  and permanently linked to the Ethereum address <strong>{{ eth_addr }}</strong>.</p>
+                <p data-id="sign_result_success">Your signature has been verified and saved: it is valid and can&apos;t be changed or updated. You provided a valid proof of ownership and the Tezos address (a/k/a Tezos public key hash) <strong>{{ tzl_pkh }}</strong> is now permanently
+                  linked to the Ethereum address <strong>{{ eth_addr }}</strong>.</p>
               </div>
             </div>
           </div>
@@ -164,8 +163,10 @@
 
           <h2>How to sign</h2>
 
-          <p data-id="sign_intro1"><strong>Beginner</strong>:
-            <a href="/project.html#contacts">contact us</a> to confirm your Ethereum address.</p>
+          <p data-id="sign_why">To link an Ethereum address you must sign it with your Tezos private key. You won&apos;t be able to change it, we suggest to use a brand new Ethereum address. Your signature will be public. To link an Ethereum address use LibreBox (beginners)
+            or fill this form and click the &apos;Sign&apos; button.</p>
+
+          <p data-id="sign_intro1"><strong>Beginner</strong>: launch LibreBox (&apos;Wallet&apos; link in the navigation menu), restore your KYC-Tezos address, then click on the &apos;Link Ethereum address&apos; button.</p>
 
           <p data-id="sign_intro2"><strong>Intermediate</strong>: if your KYC-Tezos wallet allows you to sign messages, you can generate the signature passing it your Ethereum address string. Otherwise you can generate your own signature and public key with our web tool: download
             the HTML file, open it and follow the instructions.</p>
