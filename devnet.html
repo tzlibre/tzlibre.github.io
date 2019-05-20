@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title data-id="default_page_title">Tz Libre | a fork of DLS KYC Tezos</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1F260B">
+    <meta name="msapplication-TileColor" content="#1F260B">
+    <meta name="theme-color" content="#1F260B">
+    <link href="/style/style.css" rel="stylesheet">
+    <meta itemprop="image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta property="og:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta property="og:url" content="https://tzlibre.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@tzlibre">
+    <meta name="twitter:title" content="Tz Libre | a fork of DLS KYC Tezos">
+    <meta name="twitter:description" content="TzLibre is a fork of KYC-Tezos: a permissionless, KYC-free, hard-capped implementation of Tezos">
+    <meta name="twitter:image" content="https://tzlibre.github.io/tzl-shareimage.png">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="content">
+        <div class="header-main">
+          <div class="wordmark">
+            <a href="index.html">
+              <img src="/images/tzllogo-wordmark.svg" alt="tzlibre wordmark">
+            </a>
+          </div>
+          <div id="infobar" class="priceticker hideOnMobile">
+            <a href="https://forkdelta.app/#!/trade/0x6b91bc206eed0a8474f071339d1fd7ed7156f856-ETH" target="_blank">
+              <span class="infobar-lbl">1 TZL =</span>
+              <span class="infobar-value">{{price_usd}} USD <span v-bind:class="price_variation_class">{{price_variation_value}}</span></span>
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html" class="logo">
+          <img src="/images/tzllogo-base.svg" alt="tzlibre logo">
+        </a>
+        <nav class="nav-primary">
+          <input id="collapsible" class="toggle" type="checkbox">
+          <label for="collapsible">
+            <svg class="icon">
+              <use href="/images/svgdefs.svg#icon-arrow-dropdown" />
+            </svg>
+          </label>
+          <div>
+            <ul>
+              <li class="{{ nav0_class }}">
+                <a class="hidden"><strong>MENU</strong></a>
+              </li>
+              <li class="{{ nav3_class }}">
+                <a href="delegate.html" data-id="dlgt_nav">Delegate</a>
+              </li>
+              <li class="{{ nav5_class }}">
+                <a href="deposit.html" data-id="smartdlgt_nav">Deposit</a>
+              </li>
+              <li class="{{ nav6_class }}">
+                <a href="verify.html" data-id="verify_title">Verify</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="{{ nav9_class }}">
+                <a href="https://librebox.github.io" target="_blank" data-id="wallet_title">Wallet</a>
+              </li>
+              <li class="{{ nav4_class }}">
+                <a href="devnet.html">Devnet</a>
+              </li>
+              <li class="selected">
+                <a href="project.html" data-id="home_title">Project</a>
+              </li>
+              <li class="{{ nav2_class }}">
+                <a href="faq.html" data-id="faq_title">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+    </header>
+
+    <nav class="nav-secondary">
+      <ul class="content">
+        <li>
+          <a href="#intro">Intro</a>
+        </li>
+        <li>
+          <a href="#download">Download</a>
+        </li>
+        <li>
+          <a href="#explorer">Explorer</a>
+        </li>
+        <li>
+          <a href="#faucet">Faucet</a>
+        </li>
+        <li>
+          <a href="#discuss">Discuss</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main">
+
+      <div class="content">
+
+        <a name="intro"></a>
+
+        <div class="block">
+
+          <h1>TzLibre devnet</h1>
+
+          <p style="text-align: center;">TzLibre devnet is a test network. Bakers and developers are encouraged to run a devnet node.</p>
+          <p style="text-align: center;">The network will be regularly reset. Join the bakers group for more details.</p>
+
+          <!-- <div class="row">
+       <h4>Restarting policy</h4>
+       <div class="row-main">TzLibre devnet will be restarted once every two weeks, on Monday morning UTC.</div>
+       </div> -->
+
+        </div>
+
+
+        <a name="download"></a>
+
+        <div class="block">
+
+          <h2>Download</h2>
+
+          <p style="text-align: center;">Get the TzLibre client on GitHub.</p>
+          <p style="text-align: center;">Follow the README for hardware requirements and a step-by-step guide to launch a node.</p>
+
+          <!-- <div>Use Docker or compile it from scratch. Follow instructions in the Readme.</div> -->
+          <div class="buttonsline">
+            <a href="https://github.com/tzlibre/tzlibre" target="_blank" class="btn">
+              <svg class="icon" style="margin-left: -1em; margin-right: 1em;">
+                <use href="/images/svgdefs.svg#icon-social-github-small" />
+              </svg>
+              <span>Download</span>
+            </a>
+          </div>
+
+        </div>
+
+
+        <a name="explorer"></a>
+
+        <div class="block">
+
+          <h2>Block Explorer</h2>
+          <p style="text-align: center;">Explore the TzLibre devnet blockchain.</p>
+
+          <!-- <div>LibrExplorer is the official TzLibre devnet block explorer.</div> -->
+          <div class="buttonsline">
+            <a href="http://librexplorer.devnet.tzlibre.io/" target="_blank" class="btn">
+              <span>Explore</span>
+              <svg class="icon" style="margin-left: 1em; margin-right: -1em;">
+                <use href="/images/svgdefs.svg#icon-arrow-next" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+
+        <a name="faucet"></a>
+
+        <div class="block">
+
+          <h2>Faucet</h2>
+
+          <p style="text-align: center;">Devnet TZL coins only exist for testing purposes and have no market value.</p>
+          <p style="text-align: center;">Get up to 1,000 devnet TZL coins for each request.</p>
+
+          <div class="buttonsline">
+            <a href="http://faucet.devnet.tzlibre.io/" target="_blank" class="btn">
+              <span>Faucet</span>
+              <svg class="icon" style="margin-left: 1em; margin-right: -1em;">
+                <use href="/images/svgdefs.svg#icon-arrow-next" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+
+        <a name="discuss"></a>
+
+        <div class="block">
+
+          <h2>Discuss</h2>
+          <p style="text-align: center;">Join the bakers community on Telegram</p>
+
+          <!-- <div>Meet other bakers, exchange knowledge, ...</div> -->
+          <div class="buttonsline">
+            <a href="https://t.me/joinchat/G9-Dfkcgd1kg8QBrJ9Ge5Q" target="_blank" class="btn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-group" />
+              </svg><span>Join</span></a>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <footer>
+
+      <div class="content">
+
+        <div class="footer-main">
+          <h2 data-id="contact_us">Contact us</h2>
+          <p data-id="contact_intro">We&apos;ll never ask for your personal data. Please report any phishing attempt, we are aware of fake TzLibre accounts on social media. We strongly suggest you to bookmark all of our official addresses.</p>
+        </div>
+
+        <div class="footer-contacts">
+          <p>
+            <a href="https://t.me/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-channel" />
+              </svg><span>Telegram Channel: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://twitter.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-twitter-small" />
+              </svg><span>Twitter: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://www.reddit.com/r/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-reddit-small" />
+              </svg><span>Reddit: <strong>@tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://github.com/tzlibre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-github-small" />
+              </svg><span>Github: <strong>tzlibre</strong></span></a>
+          </p>
+          <p>
+            <a href="https://t.me/tz_libre" target="_blank" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-telegram-small" />
+              </svg><span>Telegram: <strong>@tz_libre</strong></span></a>
+          </p>
+          <p>
+            <a href="mailto:tzlibr%65@pro%74on%6Dail.c%6Fm" class="btn iconbtn">
+              <svg class="icon">
+                <use href="/images/svgdefs.svg#icon-social-email-small" />
+              </svg><span><strong>tzlibre@protonmail.com</strong></span></a> |
+            <a href="/publickey.tzlibre@protonmail.com.asc" class="btnlabel"><span>pgp key</span></a>
+          </p>
+        </div>
+
+      </div>
+
+    </footer>
+
+    <!-- <script src="/js/vue.min.js"></script> -->
+    <script src="/js/vue.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/scripts-ticker.js"></script>
+    <script src="/js/scripts-infobar.js"></script>
+
+
+
+
+  </body>
+
+</html>
