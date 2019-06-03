@@ -387,10 +387,34 @@ const rewards_config = {
     "COEFF": 3.0,
     "BEGIN_TIMESTAMP": "2019-05-01T00:00:00Z",
     "END_TIMESTAMP": "2019-05-31T23:59:59Z"
+  },
+  'tzl-delegations-17': {
+    'ID': 'tzl-delegations-17',
+    'name': 'Airdrop 17 - delegation',
+    'for': 'delegation',
+    'description': 'Airdrop 17, delegation',
+    'multiline_desc': ['Airdrop 17', 'delegation'],
+    'info_link': '',
+    'payout_date': '2019-07-08',
+    "COEFF": 0.45,
+    "BEGIN_TIMESTAMP": "2019-06-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-06-30T23:59:59Z"
+  },
+  'tzl-deposits-17': {
+    'ID': 'tzl-deposits-17',
+    'name': 'Airdrop 17 - deposit',
+    'for': 'deposit',
+    'description': 'Airdrop 17, deposit',
+    'multiline_desc': ['Airdrop 17', 'deposit'],
+    'info_link': '',
+    'payout_date': '2019-07-08',
+    "COEFF": 4.5,
+    "BEGIN_TIMESTAMP": "2019-06-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-06-30T23:59:59Z"
   }
 }
 
 // //////////////// CURRENT REWARDS ////////////////
 
-const CURRENT_DELEGATION_REWARD = 'tzl-delegations-16'
-const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-16'
+const CURRENT_DELEGATION_REWARD = 'tzl-delegations-17'
+const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-17'
