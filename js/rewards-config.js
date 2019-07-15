@@ -411,10 +411,34 @@ const rewards_config = {
     "COEFF": 4.5,
     "BEGIN_TIMESTAMP": "2019-06-01T00:00:00Z",
     "END_TIMESTAMP": "2019-06-30T23:59:59Z"
+  },
+  'tzl-delegations-18': {
+    'ID': 'tzl-delegations-18',
+    'name': 'Airdrop 18 - delegation',
+    'for': 'delegation',
+    'description': 'Airdrop 18, delegation',
+    'multiline_desc': ['Airdrop 18', 'delegation'],
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/ccnsp3/airdrop_18/',
+    'payout_date': '2019-09-02',
+    "COEFF": 0.45,
+    "BEGIN_TIMESTAMP": "2019-07-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-08-31T23:59:59Z"
+  },
+  'tzl-deposits-18': {
+    'ID': 'tzl-deposits-18',
+    'name': 'Airdrop 18 - deposit',
+    'for': 'deposit',
+    'description': 'Airdrop 18, deposit',
+    'multiline_desc': ['Airdrop 18', 'deposit'],
+    'info_link': 'https://www.reddit.com/r/tzlibre/comments/ccnsp3/airdrop_18/',
+    'payout_date': '2019-09-02',
+    "COEFF": 4.5,
+    "BEGIN_TIMESTAMP": "2019-07-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-08-31T23:59:59Z"
   }
 }
 
 // //////////////// CURRENT REWARDS ////////////////
 
-const CURRENT_DELEGATION_REWARD = 'tzl-delegations-17'
-const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-17'
+const CURRENT_DELEGATION_REWARD = 'tzl-delegations-18'
+const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-18'
