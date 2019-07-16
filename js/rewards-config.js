@@ -422,7 +422,7 @@ const rewards_config = {
     'payout_date': '2019-09-02',
     "COEFF": 0.45,
     "BEGIN_TIMESTAMP": "2019-07-01T00:00:00Z",
-    "END_TIMESTAMP": "2019-08-31T23:59:59Z"
+    "END_TIMESTAMP": "2019-07-31T23:59:59Z"
   },
   'tzl-deposits-18': {
     'ID': 'tzl-deposits-18',
@@ -434,7 +434,7 @@ const rewards_config = {
     'payout_date': '2019-09-02',
     "COEFF": 4.5,
     "BEGIN_TIMESTAMP": "2019-07-01T00:00:00Z",
-    "END_TIMESTAMP": "2019-08-31T23:59:59Z"
+    "END_TIMESTAMP": "2019-07-31T23:59:59Z"
   }
 }
 
