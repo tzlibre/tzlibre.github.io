@@ -183,43 +183,43 @@
             </div>
           </div>
 
-          <div class="figurerow">
-            <div class="figure">
-              <div class="figure-lbl">Current reward</div>
-              <div class="figure-main"><span>{{ roi_percentage }}%</span><span class="figure-unit">/month</span></div>
+          <!--div class="figurerow">
+          <div class="figure">
+            <div class="figure-lbl">Current reward</div>
+            <div class="figure-main"><span>{{ roi_percentage }}%</span><span class="figure-unit">/month</span></div>
+          </div>
+          <div class="figure">
+            <div class="figure-lbl">TZL price</div>
+            <div class="figure-main"><span>{{ xtz_tzl_price }}</span><span class="figure-unit">XTZ</span></div>
+          </div>
+        </div>
+
+        <div class="figurerow">
+
+          <h3>Monthly rewards (est.)</h3>
+
+          <div class="histogram">
+            <div class="histoblock">
+              <h4><strong>TzLibre Deposit</strong></h4>
+              <div class="histobar-container">
+                <div class="histobar" style="width: 100%">{{roi_percentage}}%</div>
+              </div>
             </div>
-            <div class="figure">
-              <div class="figure-lbl">TZL price</div>
-              <div class="figure-main"><span>{{ xtz_tzl_price }}</span><span class="figure-unit">XTZ</span></div>
+            <div class="histoblock">
+              <h4>Solo baking</h4>
+              <div class="histobar-container">
+                <div class="histobar" v-bind:style="roi_percentage_solo_baking_style">{{ roi_percentage_solo_baking }}%</div>
+              </div>
+            </div>
+            <div class="histoblock">
+              <h4>Other delegates</h4>
+              <div class="histobar-container">
+                <div class="histobar" v-bind:style="roi_percentage_other_delegates_style">{{ roi_percentage_other_delegates }}%</div>
+              </div>
             </div>
           </div>
 
-          <div class="figurerow">
-
-            <h3>Monthly rewards (est.)</h3>
-
-            <div class="histogram">
-              <div class="histoblock">
-                <h4><strong>TzLibre Deposit</strong></h4>
-                <div class="histobar-container">
-                  <div class="histobar" style="width: 100%">{{roi_percentage}}%</div>
-                </div>
-              </div>
-              <div class="histoblock">
-                <h4>Solo baking</h4>
-                <div class="histobar-container">
-                  <div class="histobar" v-bind:style="roi_percentage_solo_baking_style">{{ roi_percentage_solo_baking }}%</div>
-                </div>
-              </div>
-              <div class="histoblock">
-                <h4>Other delegates</h4>
-                <div class="histobar-container">
-                  <div class="histobar" v-bind:style="roi_percentage_other_delegates_style">{{ roi_percentage_other_delegates }}%</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+        </div-->
 
           <div class="figurerow">
             <h3>Calculate your reward</h3>
@@ -232,10 +232,8 @@
             <div class="figure">
               <div class="figure-lbl">Reward you get</div>
               <div class="figure-main"><span>{{ reward_calculator_output }}</span><span class="figure-unit">TZL/month</span></div>
-              <div class="figure-notes">= <span>{{ reward_calculator_output_in_xtz }} XTZ</span>
-                <br>= <span>{{ reward_calculator_output_in_usd }} $</span>
-                <p></p>
-              </div>
+              <!--div class="figure-notes">= <span>{{ reward_calculator_output_in_xtz }} XTZ</span><br/>= <span>{{ reward_calculator_output_in_usd }} $</span></p>
+            </div-->
             </div>
 
           </div>
@@ -255,7 +253,7 @@
             <div class="stepslist">
 
               <h4>Launch LibreBox</h4>
-              <p>LibreBox is designed to easily deposit and withdraw XTZ.</p>
+              <p>LibreBox is designed to easily mint TZL with TzLibre Deposit.</p>
               <div class="buttonsline">
                 <a href="https://librebox.github.io/" target="_blank" class="btn btn-primary"><span>Launch LibreBox</span></a>
               </div>
@@ -290,9 +288,9 @@
               </div>
 
               <h4>Deposit your funds</h4>
-              <p>LibreBox users: click the &apos;Deposit&apos; button.</p>
-              <p>If you&apos;re not using LibreBox: send funds (minimum 1000 XTZ) to the TzLibre Deposit smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span>. You must always keep minimum 2 XTZ in the account, to pay
-                for deposit fees. Use these transaction settings: &quot;storage limit&quot; 300, &quot;gas limit&quot; 250000, &quot;custom fee&quot; 40000 microxtz.</p>
+              <p>LibreBox users: click the &apos;Deposit&apos; button. You must always keep minimum 2 XTZ in the account, to pay for deposit fees.</p>
+              <p>If you&apos;re not using LibreBox: send funds (minimum 1000 XTZ) to the TzLibre Deposit smart contract address <span class="inline-code">KT1V7VoyjbvqSmnRtv9pHkRuBCPT7UubCrCX</span>. Use these transaction settings: &quot;storage limit&quot;
+                300, &quot;gas limit&quot; 250000, &quot;custom fee&quot; 40000 microxtz. You must always keep minimum 2 XTZ in the account, to pay for deposit fees.</p>
               <div class="screenshot">
                 <img src="images/screenshots/screen-send.png" alt="">
               </div>

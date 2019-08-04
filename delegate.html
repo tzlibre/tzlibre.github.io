@@ -188,43 +188,43 @@
             </div>
           </div>
 
-          <div class="figurerow">
-            <div class="figure">
-              <div class="figure-lbl">Current reward</div>
-              <div class="figure-main"><span>{{ roi_percentage }}%</span><span class="figure-unit">/month</span></div>
+          <!--div class="figurerow">
+          <div class="figure">
+            <div class="figure-lbl">Current reward</div>
+            <div class="figure-main"><span>{{ roi_percentage }}%</span><span class="figure-unit">/month</span></div>
+          </div>
+          <div class="figure">
+            <div class="figure-lbl">TZL price</div>
+            <div class="figure-main"><span>{{ xtz_tzl_price }}</span><span class="figure-unit">XTZ</span></div>
+          </div>
+        </div-->
+
+          <!--div class="figurerow">
+
+          <h3>Monthly rewards (est.)</h3>
+
+          <div class="histogram">
+            <div class="histoblock">
+              <h4><strong>TzLibre Delegation</strong></h4>
+              <div class="histobar-container">
+                <div class="histobar" style="width: 100%">{{ roi_percentage  }}%</div>
+              </div>
             </div>
-            <div class="figure">
-              <div class="figure-lbl">TZL price</div>
-              <div class="figure-main"><span>{{ xtz_tzl_price }}</span><span class="figure-unit">XTZ</span></div>
+            <div class="histoblock">
+              <h4>Solo baking</h4>
+              <div class="histobar-container">
+                <div class="histobar" v-bind:style="roi_percentage_solo_baking_style">{{ roi_percentage_solo_baking }}%</div>
+              </div>
+            </div>
+            <div class="histoblock">
+              <h4>Other delegates</h4>
+              <div class="histobar-container">
+                <div class="histobar" v-bind:style="roi_percentage_other_delegates_style">{{ roi_percentage_other_delegates }}%</div>
+              </div>
             </div>
           </div>
 
-          <div class="figurerow">
-
-            <h3>Monthly rewards (est.)</h3>
-
-            <div class="histogram">
-              <div class="histoblock">
-                <h4><strong>TzLibre Delegation</strong></h4>
-                <div class="histobar-container">
-                  <div class="histobar" style="width: 100%">{{ roi_percentage }}%</div>
-                </div>
-              </div>
-              <div class="histoblock">
-                <h4>Solo baking</h4>
-                <div class="histobar-container">
-                  <div class="histobar" v-bind:style="roi_percentage_solo_baking_style">{{ roi_percentage_solo_baking }}%</div>
-                </div>
-              </div>
-              <div class="histoblock">
-                <h4>Other delegates</h4>
-                <div class="histobar-container">
-                  <div class="histobar" v-bind:style="roi_percentage_other_delegates_style">{{ roi_percentage_other_delegates }}%</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+        </div-->
 
           <div class="figurerow">
             <h3>Calculate your reward</h3>
@@ -237,10 +237,8 @@
             <div class="figure">
               <div class="figure-lbl">How many TZL you get?</div>
               <div class="figure-main"><span>{{ reward_calculator_output }}</span><span class="figure-unit">TZL/month</span></div>
-              <div class="figure-notes">= <span>{{ reward_calculator_output_in_xtz }} XTZ</span>
-                <br>= <span>{{ reward_calculator_output_in_usd }} $</span>
-                <p></p>
-              </div>
+              <!--div class="figure-notes">= <span>{{ reward_calculator_output_in_xtz }} XTZ</span><br/>= <span>{{ reward_calculator_output_in_usd }} $</span></p>
+            </div-->
             </div>
 
           </div>
