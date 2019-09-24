@@ -467,7 +467,7 @@ const rewards_config = {
     'description': 'Airdrop 20, delegation',
     'multiline_desc': ['Airdrop 20', 'delegation'],
     'info_link': '',
-    'payout_date': '2019-11-02',
+    'payout_date': '2019-11-04',
     "COEFF": 0.225,
     "BEGIN_TIMESTAMP": "2019-09-01T00:00:00Z",
     "END_TIMESTAMP": "2019-09-30T23:59:59Z"
@@ -479,7 +479,7 @@ const rewards_config = {
     'description': 'Airdrop 20, deposit',
     'multiline_desc': ['Airdrop 20', 'deposit'],
     'info_link': '',
-    'payout_date': '2019-11-02',
+    'payout_date': '2019-11-04',
     "COEFF": 0.75,
     "BEGIN_TIMESTAMP": "2019-09-01T00:00:00Z",
     "END_TIMESTAMP": "2019-09-30T23:59:59Z"
