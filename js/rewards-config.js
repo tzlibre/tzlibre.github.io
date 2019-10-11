@@ -479,10 +479,10 @@ const rewards_config = {
     'description': 'Airdrop 20, deposit',
     'multiline_desc': ['Airdrop 20', 'deposit'],
     'info_link': '',
-    'payout_date': '2019-12-02',
+    'payout_date': '2019-11-04',
     "COEFF": 0.75,
-    "BEGIN_TIMESTAMP": "2019-10-01T00:00:00Z",
-    "END_TIMESTAMP": "2019-10-31T23:59:59Z"
+    "BEGIN_TIMESTAMP": "2019-09-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-09-30T23:59:59Z"
   },
   'tzl-delegations-21': {
     'ID': 'tzl-delegations-21',
