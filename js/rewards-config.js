@@ -479,7 +479,7 @@ const rewards_config = {
     'description': 'Airdrop 20, deposit',
     'multiline_desc': ['Airdrop 20', 'deposit'],
     'info_link': '',
-    'payout_date': '2019-11-04',
+    'payout_date': '2019-11-05',
     "COEFF": 0.75,
     "BEGIN_TIMESTAMP": "2019-09-01T00:00:00Z",
     "END_TIMESTAMP": "2019-09-30T23:59:59Z"
@@ -507,10 +507,34 @@ const rewards_config = {
     "COEFF": 0.75,
     "BEGIN_TIMESTAMP": "2019-10-01T00:00:00Z",
     "END_TIMESTAMP": "2019-10-31T23:59:59Z"
+  },
+  'tzl-delegations-22': {
+    'ID': 'tzl-delegations-22',
+    'name': 'Airdrop 22 - delegation',
+    'for': 'delegation',
+    'description': 'Airdrop 22, delegation',
+    'multiline_desc': ['Airdrop 22', 'delegation'],
+    'info_link': '',
+    'payout_date': '2019-12-03',
+    "COEFF": 0.225,
+    "BEGIN_TIMESTAMP": "2019-11-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-11-30T23:59:59Z"
+  },
+  'tzl-deposits-22': {
+    'ID': 'tzl-deposits-22',
+    'name': 'Airdrop 22 - deposit',
+    'for': 'deposit',
+    'description': 'Airdrop 22, deposit',
+    'multiline_desc': ['Airdrop 22', 'deposit'],
+    'info_link': '',
+    'payout_date': '2019-12-03',
+    "COEFF": 0.75,
+    "BEGIN_TIMESTAMP": "2019-11-01T00:00:00Z",
+    "END_TIMESTAMP": "2019-11-30T23:59:59Z"
   }
 }
 
 // //////////////// CURRENT REWARDS ////////////////
 
-const CURRENT_DELEGATION_REWARD = 'tzl-delegations-21'
-const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-21'
+const CURRENT_DELEGATION_REWARD = 'tzl-delegations-22'
+const CURRENT_DEPOSIT_REWARD = 'tzl-deposits-22'
