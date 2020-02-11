@@ -61,7 +61,7 @@
               <li class="{{ nav0_class }}">
                 <a class="hidden"><strong>MENU</strong></a>
               </li>
-              <li class="{{ nav5_class }}">
+              <li class="selected">
                 <a href="swap.html" data-id="swap_nav">ERC-20 Migrate</a>
               </li>
               <li class="{{ nav3_class }}">
@@ -69,7 +69,7 @@
               </li>
               <!--
       <li class="{{ nav3_class }}"><a href="delegate.html" data-id="dlgt_nav"></a></li>
-      <li class="{{ nav5_class }}"><a href="deposit.html" data-id="smartdlgt_nav"></a></li>
+      <li class="selected"><a href="deposit.html" data-id="smartdlgt_nav"></a></li>
       -->
               <li class="{{ nav6_class }}">
                 <a href="verify.html" data-id="verify_title">Verify</a>
@@ -85,7 +85,7 @@
               <li class="{{ nav4_class }}">
                 <a href="alphanet.html">Alphanet</a>
               </li>
-              <li class="selected">
+              <li class="{{ nav1_class }}">
                 <a href="project.html" data-id="home_title">Project</a>
               </li>
               <li class="{{ nav2_class }}">
@@ -98,127 +98,84 @@
       </div>
     </header>
 
-    <nav class="nav-secondary">
-      <ul class="content">
-        <li>
-          <a href="#intro">Intro</a>
-        </li>
-        <li>
-          <a href="#download">Download</a>
-        </li>
-        <li>
-          <a href="#explorer">Explorer</a>
-        </li>
-        <li>
-          <a href="#faucet">Faucet</a>
-        </li>
-        <li>
-          <a href="#discuss">Discuss</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="main">
+
+      <div class="content">
+
+        <div class="block">
+
+          <h2 data-id="swap_page_title">ERC-20 Migration</h2>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="main-light">
+
+      <div class="content">
+
+
+        <div class="block block-tight">
+
+          <div class="row">
+            <h4 data-id="swap_how_to">How to</h4>
+            <ol class="row-main" data-id="swap_how_to_text_1">
+              <li>Install Metamask (www.metamask.io)</li>
+              <li>Generate a brand new Ethereum address</li>
+              <li>Generate a brand new TzLibre address with LibreBox (without using hardware wallets)</li>
+              <li>Choose how many TZL ERC-20 to migrate</li>
+              <li>Choose a destination TzLibre address</li>
+              <li>Click on submit button (few ETH required to pay fee)</li>
+            </ol>
+          </div>
+
+          <div class="row">
+            <h4 data-id="swap_conf_not">Confirmation notice</h4>
+            <p class="row-main" data-id="swap_conf_not_text_1">Your TZL ERC-20 tokens are now burned: you will receive the same amount of native TZL coins in the TzLibre network in 1-5 working days.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
 
     <div class="main">
 
       <div class="content">
 
-        <a name="intro"></a>
-
         <div class="block">
 
-          <h1>TzLibre devnet</h1>
 
-          <p style="text-align: center;">TzLibre devnet is a test network. Bakers and developers are encouraged to run a devnet node.</p>
-          <p style="text-align: center;">The network will be regularly reset. Join the bakers group for more details.</p>
+          <h2 style="font-size: 1.5em" data-id="swap_description">Migrate your ERC-20 TZL pre-launch tokens into native TZL coins.</h2>
 
-          <!-- <div class="row">
-       <h4>Restarting policy</h4>
-       <div class="row-main">TzLibre devnet will be restarted once every two weeks, on Monday morning UTC.</div>
-       </div> -->
+          <form action="Javascript:swap()" class="swapform" id="verify-form">
+
+            <span>
+    <label for="swap-amount" data-id="swap_title_input1"></label>
+    <input type="text" placeholder="0" id="swap-amount" required>
+  </span>
+
+            <span class="swap-tzl-addr-container">
+    <label for="swap-tzl-addr" data-id="swap_title_input2"></label>
+    <input type="text" placeholder="tz1..." id="swap-tzl-addr" required>
+    <button class="btn" type="submit">
+    <svg class="icon">
+       <use href="/images/svgdefs.svg#icon-arrow-next"/>
+    </svg>
+  </button>
+
+  </span>
+
+          </form>
+
 
         </div>
-
-
-        <a name="download"></a>
-
-        <div class="block">
-
-          <h2>Download</h2>
-
-          <p style="text-align: center;">Get the TzLibre client on GitHub.</p>
-          <p style="text-align: center;">Follow the README for hardware requirements and a step-by-step guide to launch a node.</p>
-
-          <!-- <div>Use Docker or compile it from scratch. Follow instructions in the Readme.</div> -->
-          <div class="buttonsline">
-            <a href="https://github.com/tzlibre/tzlibre" target="_blank" class="btn">
-              <svg class="icon" style="margin-left: -1em; margin-right: 1em;">
-                <use href="/images/svgdefs.svg#icon-social-github-small" />
-              </svg>
-              <span>Download</span>
-            </a>
-          </div>
-
-        </div>
-
-
-        <a name="explorer"></a>
-
-        <div class="block">
-
-          <h2>Block Explorer</h2>
-          <p style="text-align: center;">Explore the TzLibre devnet blockchain.</p>
-
-          <!-- <div>LibrExplorer is the official TzLibre devnet block explorer.</div> -->
-          <div class="buttonsline">
-            <a href="http://librexplorer.devnet.tzlibre.io/" target="_blank" class="btn">
-              <span>Explore</span>
-              <svg class="icon" style="margin-left: 1em; margin-right: -1em;">
-                <use href="/images/svgdefs.svg#icon-arrow-next" />
-              </svg>
-            </a>
-          </div>
-
-        </div>
-
-
-        <a name="faucet"></a>
-
-        <div class="block">
-
-          <h2>Faucet</h2>
-
-          <p style="text-align: center;">Devnet TZL coins only exist for testing purposes and have no market value.</p>
-          <p style="text-align: center;">Get up to 10,000 devnet TZL coins for each request.</p>
-
-          <div class="buttonsline">
-            <a href="http://faucet.devnet.tzlibre.io/" target="_blank" class="btn">
-              <span>Faucet</span>
-              <svg class="icon" style="margin-left: 1em; margin-right: -1em;">
-                <use href="/images/svgdefs.svg#icon-arrow-next" />
-              </svg>
-            </a>
-          </div>
-
-        </div>
-
-
-        <a name="discuss"></a>
-
-        <div class="block">
-
-          <h2>Discuss</h2>
-          <p style="text-align: center;">Join the bakers community on Telegram</p>
-
-          <!-- <div>Meet other bakers, exchange knowledge, ...</div> -->
-          <div class="buttonsline">
-            <a href="https://t.me/joinchat/G9-Dfkcgd1kg8QBrJ9Ge5Q" target="_blank" class="btn">
-              <svg class="icon">
-                <use href="/images/svgdefs.svg#icon-social-telegram-group" />
-              </svg><span>Join</span></a>
-          </div>
-
-        </div>
-
 
       </div>
 
@@ -278,11 +235,13 @@
     </footer>
 
 
+
     <!-- <script src="/js/vue.min.js"></script> -->
     <script src="/js/vue.js"></script>
     <script src="/js/scripts.js"></script>
     <script src="/js/scripts-ticker.js"></script>
     <script src="/js/scripts-infobar.js"></script>
+    <script src="/js/scripts-swap.js"></script>
 
 
 

@@ -80,12 +80,42 @@
     return window.getComputedStyle( el ).display === 'none';
   }
 
+  function countDown(deadline) {
+    if (document.getElementById('countdown_days') === null)
+      return;
+
+    const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+    let countDown = new Date(deadline).getTime(),
+      x = setInterval(function() {
+
+        let now = new Date().getTime(),
+        distance = countDown - now;
+
+        document.getElementById('countdown_days').innerText = Math.floor(distance / (day)),
+        document.getElementById('countdown_hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('countdown_minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('countdown_seconds').innerText = Math.floor((distance % (minute)) / second);
+
+        if (distance < 0) {
+          document.getElementById("countdown_not_live").style.display = "none";
+          document.getElementById("countdown_live").style.display = "flex";
+          clearInterval(x);
+        }
+
+      }, second)
+  }
+
   /*
 
       Startup
 
   */
 
+  countDown('Feb 25, 2020 10:00:00 GMT+0000');
   detectTouch();
   enableSmoothScroll();
   optimizeMobileMenu();
