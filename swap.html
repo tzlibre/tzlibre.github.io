@@ -83,7 +83,7 @@
                 <a href="https://github.com/tzlibre/whitepaper/raw/master/tzlibre-whitepaper.pdf" target="_blank">Whitepaper</a>
               </li>
               <li class="{{ nav4_class }}">
-                <a href="alphanet.html">Alphanet</a>
+                <a href="betanet.html">Betanet</a>
               </li>
               <li class="{{ nav1_class }}">
                 <a href="project.html" data-id="home_title">Project</a>
@@ -123,15 +123,16 @@
 
           <div class="row">
             <h4 data-id="swap_how_to">How to</h4>
-            <ol class="row-main" data-id="swap_how_to_text_1">
-              <li>Install
-                <a href="https://www.metamask.io">Metamask</a>
-              </li>
-              <li>Generate a brand new Ethereum address</li>
-              <li>Generate a brand new TzLibre address with LibreBox (without using hardware wallets)</li>
-              <li>Choose how many TZL ERC-20 to migrate</li>
-              <li>Use the brand new TzLibre address generated at step 3 as the destination address</li>
-              <li>Click on submit button (few ETH required to pay fee)</li>
+            <ol class="row-main">
+              <li>Import your Ethereum address holding your TZL ERC-20 into
+                <a href="\&quot;https:\/\/www.metamask.io\&quot;">Metamask</a> (TZL ERC-20 token address: <code>0x6b91bc206eed0a8474f071339d1fd7ed7156f856</code>)</li>
+              <li>Only if you don&apos;t have a native TZL address, generate a brand new native TZL address with
+                <a href="https://librebox.github.io" target="_blank">LibreBox</a> (without using hardware wallets)</li>
+              <li>Choose how many TZL ERC-20 to migrate and fill the &quot;TZL ERC-20 amount&quot; field in the form below</li>
+              <li>Insert your native TZL address in the &quot;native tz1... address&quot; field in the form below</li>
+              <li>Click on submit &quot;&#x1F86A;&quot; button (few ETH required to pay fee)</li>
+              <li>Authorize the transaction with Metamask</li>
+
             </ol>
           </div>
 
@@ -153,19 +154,18 @@
 
         <div class="block">
 
-
           <h2 style="font-size: 1.5em" data-id="swap_description">Migrate your ERC-20 TZL pre-launch tokens into native TZL coins.</h2>
 
           <form action="Javascript:swap()" class="swapform" id="verify-form">
 
             <span>
     <label for="swap-amount" data-id="swap_title_input1"></label>
-    <input type="text" placeholder="0" id="swap-amount" required>
+    <input type="text" placeholder="TZL ERC-20 amount" id="swap-amount" required>
   </span>
 
             <span class="swap-tzl-addr-container">
     <label for="swap-tzl-addr" data-id="swap_title_input2"></label>
-    <input type="text" placeholder="tz1..." id="swap-tzl-addr" required>
+    <input type="text" placeholder="native tz1... address" id="swap-tzl-addr" required>
     <button class="btn" type="submit">
     <svg class="icon">
        <use href="/images/svgdefs.svg#icon-arrow-next"/>

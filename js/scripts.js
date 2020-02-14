@@ -115,7 +115,7 @@
 
   */
 
-  countDown('Feb 25, 2020 10:00:00 GMT+0000');
+  countDown('Feb 25, 2020 15:00:00 UTC+0000');
   detectTouch();
   enableSmoothScroll();
   optimizeMobileMenu();
