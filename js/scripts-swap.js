@@ -16,8 +16,25 @@ function swap () {
       const web3 = new Web3(window.web3.currentProvider);
 
       const [ from_user ] = web3.eth.accounts;
+      
+      // Validation tzl address
       let tzl_address = (document.getElementById('swap-tzl-addr').value);
-      let amount = parseFloat(document.getElementById('swap-amount').value);
+      tzl_address = tzl_address.trim();
+      tzl_address = tzl_address.toLowerCase();
+      if (!/^tz1[a-zA-Z0-9]{33}$/.test(tzl_address)) {
+        alert("Valid tz1 address required.");
+        return;
+      }
+
+      // Validation amount
+      let amount = document.getElementById('swap-amount').value.trim();
+      amount = amount.replace(",",".");
+      if (!/^[0-9]+[,.]?[0-9]+$/.test(amount)) {
+        alert("Valid amount required.");
+        return;
+      }
+      amount = parseFloat(amount);
+
       const burn_address = zeroLeftPad(config.burn_address.replace('0x', '').toLowerCase(), 64)
 
       tzl_address = window.web3.toHex(tzl_address).replace('0x', '')
@@ -31,7 +48,9 @@ function swap () {
           alert("Your TZL will be swapped in 48 hours.");
           return;
         }
-        alert("Something went wrong.");
+        if (err.message !== "MetaMask Tx Signature: User denied transaction signature.") {
+          alert("Something went wrong.");
+        }
         console.error(err);
       })
 
