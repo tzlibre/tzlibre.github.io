@@ -29,10 +29,6 @@ function swap () {
       // Validation amount
       let amount = document.getElementById('swap-amount').value.trim();
       amount = amount.replace(",",".");
-      if (!/^[0-9]+[,.]?[0-9]+$/.test(amount)) {
-        alert("Valid amount required.");
-        return;
-      }
       amount = parseFloat(amount);
 
       const burn_address = zeroLeftPad(config.burn_address.replace('0x', '').toLowerCase(), 64)
