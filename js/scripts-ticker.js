@@ -10,18 +10,7 @@ async function get_ticker () {
 
 async function get_ticker_test () {
   return {
-    "eth_tzl_price":0.00026000020001,
-    "usd_tzl_price":0.05260584046802331,
-    "xtz_tzl_price":0.038680765050017135,
-    "roi_solo_baker": 0.0086,
-    "delegations":1656094.723222,
-    "available_capacity":1259117.4904936552,
-    "bond_bank":{
-      "deposits":324625.38,
-      "collateral":0.4391100289201048
-    },
-    "timestamp":"2018-10-26T15:11:50.010Z",
-    "usd_tzl_perc_24h":-0.15833535341711327
+    "price_xtz": 0.01557,
   }
 }
 
